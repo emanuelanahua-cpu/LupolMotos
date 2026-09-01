@@ -1,17 +1,7 @@
-# 🏍️ Lupol Motos — Concesionario Oficial Bajaj Tacna
-### Web Moderna, Catálogo Interactivo, Cotizador en Tiempo Real y Arquitectura Fullstack (React + Tailwind CSS + Python FastAPI)
 
 ---
 
-## 📌 Resumen del Proyecto
-
-Migración y modernización total de la plataforma web de la tienda (**anteriormente TodoMotos**) hacia la nueva identidad de marca de **Lupol Motos** en Tacna, Perú. 
-
-Diseñado bajo los estándares de máxima calidad visual, rendimiento y experiencia de usuario (UX/UI), adoptando el color oficial de marca **`#fad911` (Amarillo Lupol)** junto a una estética automotriz oscura de alta precisión (*Obsidian / Carbon Slate*).
-
----
-
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
 web-lupolmotos/
@@ -53,17 +43,8 @@ web-lupolmotos/
 
 ---
 
-## 🎨 Identidad Visual y Paleta de Colores
 
-- **Color Primario / Énfasis:** `#fad911` (Amarillo Lupol Motos)
-- **Fondos:** `#0a0a0c` (Obsidian Base), `#121318` (Surface Card), `#181a22` (Elevated Panel)
-- **Bordes y Detalles:** `#222530` / `#383c4e`
-- **Textos:** `#f4f4f6` (Títulos/Primario), `#9ca3af` (Secundario/Técnico)
-- **Tipografías:** `Outfit`, `Plus Jakarta Sans` y `Space Grotesk`
-
----
-
-## ⚙️ Endpoints del Backend (FastAPI en Español)
+## Endpoints del Backend (FastAPI)
 
 | Método | Endpoint | Descripción |
 |---|---|---|
@@ -81,7 +62,7 @@ web-lupolmotos/
 
 ---
 
-## 🚀 Cómo Ejecutar la Demo
+## Cómo Ejecutar la Demo
 
 ### Opción 1: Ejecución Todo en Uno (FastAPI sirviendo la SPA de React)
 El backend de FastAPI está configurado para servir tanto la API como la versión construida de React en un solo puerto:
@@ -114,11 +95,3 @@ Abre tu navegador en: **`http://localhost:8000`**
    Abre tu navegador en: **`http://localhost:3000`** (las peticiones a `/api` se redirigen automáticamente al backend).
 
 ---
-
-## ✨ Funcionalidades Destacadas de la Demo
-
-1. **Estudio Interactivo Lupol 360°:** Permite cambiar el ángulo de visualización y alternar en tiempo real entre los colores oficiales de fábrica con stock inmediato.
-2. **Simulador de Financiamiento:** Cálculo dinámico de cuota inicial (%) y mensualidad a 12, 18, 24 o 36 meses.
-3. **Catálogo de Repuestos con Cotizador Rápido:** Carrito que genera una lista formateada lista para enviar al WhatsApp oficial.
-4. **Gestión de Tarjeta TIVe:** Sección especializada para duplicados y asesoría en trámites vehiculares SUNARP.
-5. **Separación de Unidades en Línea:** Formulario para reservar una moto con S/. 200 y entrega en Tacna.
