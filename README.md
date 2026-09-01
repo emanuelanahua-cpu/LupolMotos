@@ -68,7 +68,7 @@ web-lupolmotos/
 El backend de FastAPI está configurado para servir tanto la API como la versión construida de React en un solo puerto:
 
 ```bash
-cd /home/yan/dev/web-lupolmotos
+cd /home/"usuario"/dev/web-lupolmotos
 ./iniciar_demo.sh
 ```
 O manualmente:
