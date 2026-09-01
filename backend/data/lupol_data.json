@@ -1,0 +1,2152 @@
+{
+  "tienda": {
+    "nombre": "Lupol Motos",
+    "razon_social": "LUPOL MOTOS S.A.C.",
+    "ruc": "20608912345",
+    "lema": "Concesionario Oficial Bajaj | Tacna, Perú",
+    "descripcion": "Tu concesionario líder en Tacna y el sur del Perú. Concesionario oficial de motocicletas Bajaj, toritos de pasajeros y carga, repuestos originales garantizados, taller mecánico certificado y gestión de trámites vehiculares.",
+    "color_primario": "#fad911",
+    "color_fondo": "#0a0a0c",
+    "telefono": "+51 924 141 939",
+    "telefono_fijo": "(052) 425160",
+    "whatsapp": "51924141939",
+    "direccion": "Av. Coronel Mendoza N° 1420 (frente al óvalo), Tacna, Perú",
+    "coordenadas": {
+      "lat": -18.0341794,
+      "lng": -70.252298
+    },
+    "horario": "Lunes a Sábado: 8:30 AM - 7:30 PM | Domingos: 9:00 AM - 1:00 PM",
+    "email": "contacto@lupolmotos.pe",
+    "redes": {
+      "facebook": "https://facebook.com/lupolmotos",
+      "instagram": "https://instagram.com/lupolmotos",
+      "tiktok": "https://tiktok.com/@lupolmotos"
+    },
+    "beneficios": [
+      {
+        "id": "garantia",
+        "icono": "ShieldCheck",
+        "titulo": "Garantía Oficial Bajaj",
+        "descripcion": "1 año de garantía total o 20,000 km en motor con respaldo directo de fábrica."
+      },
+      {
+        "id": "mano-obra",
+        "icono": "Wrench",
+        "titulo": "Mano de Obra Gratis",
+        "descripcion": "Taller especializado con servicio técnico sin costo hasta los primeros 5,000 km."
+      },
+      {
+        "id": "casco",
+        "icono": "Gift",
+        "titulo": "Casco Certificado Gratis",
+        "descripcion": "Te entregamos un casco reglamentario certificado DOT/ECE de regalo con tu moto."
+      },
+      {
+        "id": "credito",
+        "icono": "CreditCard",
+        "titulo": "Financiamiento al Instante",
+        "descripcion": "Planes a tu medida con cuotas bajas en soles y evaluación rápida con tu DNI."
+      },
+      {
+        "id": "tive",
+        "icono": "FileText",
+        "titulo": "Gestión TIVe y Placas",
+        "descripcion": "Asesoría y entrega rápida de tu Tarjeta de Identificación Vehicular Electrónica."
+      },
+      {
+        "id": "repuestos",
+        "icono": "PackageCheck",
+        "titulo": "Repuestos 100% Genuinos",
+        "descripcion": "Stock asegurado de repuestos legítimos Bajaj para máxima durabilidad y rendimiento."
+      }
+    ]
+  },
+  "motos": [
+    {
+      "id": 1,
+      "marca": "Bajaj",
+      "modelo": "Boxer 150X UG Disc",
+      "tipo": "Utilitario",
+      "categoria": "Trabajo y Utilitaria",
+      "precio": 5800.0,
+      "ficha_pdf": null,
+      "detalle": "Trabajadora y productiva: dos rasgos que los tiene bien impregnados en su ADN esta Boxer de Bajaj. Ya sea para uso laboral o personal, esta chacarera te trasladará de manera eficiente y sin mayores complicaciones a tu siguiente destino. Si buscas una motocicleta fuerte y robusta, puede que ya la hayas encontrado. Dale un vistazo a sus características.",
+      "motor": "144.8cc",
+      "potencia": "11.8 HP @ 7500 RPM",
+      "torque": "12.26 Nm @ 5000 RPM",
+      "frenos": "Disco / Tambor",
+      "suspension": "Telescópica / Doble Amortiguador Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "80/100-17 / 100/90-17",
+      "tanque": "11 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 96,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/boxer_150x_ug_disc/moto.webp",
+        "multimedia/boxer_150x_ug_disc/img/derecha.webp",
+        "multimedia/boxer_150x_ug_disc/img/izquierda.webp",
+        "multimedia/boxer_150x_ug_disc/img/frente.webp",
+        "multimedia/boxer_150x_ug_disc/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/boxer_150x_ug_disc/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/boxer_150x_ug_disc/moto.webp",
+        "derecha": "multimedia/boxer_150x_ug_disc/img/derecha.webp",
+        "izquierda": "multimedia/boxer_150x_ug_disc/img/izquierda.webp",
+        "frente": "multimedia/boxer_150x_ug_disc/img/frente.webp",
+        "atras": "multimedia/boxer_150x_ug_disc/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/boxer_150x_ug_disc/colores/rojo.webp",
+          "stock": 0
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/boxer_150x_ug_disc/colores/negro_rojo.webp",
+          "stock": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "marca": "Bajaj",
+      "modelo": "CT 125",
+      "tipo": "Utilitario",
+      "categoria": "Trabajo y Utilitaria",
+      "precio": 5500.0,
+      "ficha_pdf": null,
+      "detalle": "La CT 125 es una motocicleta robusta en su segmento, cuenta con tecnología de nueva generación concebida para obtener el máximo rendimiento y el mejor kilometraje. Un diseño confortable, pensado para brindar estabilidad, agilidad, seguridad y durabilidad en cualquier tipo de caminos la convierten en una motocicleta inigualable en su clase.",
+      "motor": "115.45cc",
+      "potencia": "8.6 HP @ 7000 RPM",
+      "torque": "9.81 Nm @ 5000 RPM",
+      "frenos": "Disco / Tambor",
+      "suspension": "Telescópica / Doble Amortiguador SNS",
+      "enfriamiento": "Aire",
+      "neumaticos": "2.75 x 17 / 3.00 x 17",
+      "tanque": "10.5 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 120,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/ct_125/moto.webp",
+        "multimedia/ct_125/img/derecha.webp",
+        "multimedia/ct_125/img/izquierda.webp",
+        "multimedia/ct_125/img/frente.webp",
+        "multimedia/ct_125/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/ct_125/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/ct_125/moto.webp",
+        "derecha": "multimedia/ct_125/img/derecha.webp",
+        "izquierda": "multimedia/ct_125/img/izquierda.webp",
+        "frente": "multimedia/ct_125/img/frente.webp",
+        "atras": "multimedia/ct_125/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/ct_125/colores/rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 2,
+          "nombre": "Azul Negro",
+          "img_swatch": "multimedia/colores/azul_negro.png",
+          "img_moto": "multimedia/ct_125/colores/azul_negro.webp",
+          "stock": 1
+        },
+        {
+          "id_color": 14,
+          "nombre": "Rojo Negro",
+          "img_swatch": "multimedia/colores/rojo_negro.png",
+          "img_moto": "multimedia/ct_125/colores/rojo_negro.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "marca": "Bajaj",
+      "modelo": "Discover 125ST",
+      "tipo": "Utilitario",
+      "categoria": "Trabajo y Utilitaria",
+      "precio": 6300.0,
+      "ficha_pdf": "pdf/Bajaj_Discover_125ST.pdf",
+      "detalle": "La Discover es sinónimo de Delivery. Su máximo ahorro de combustible, su fácil manejo y su alto valor de reventa la convierten en la moto ideal para trabajar. Fabricada con la más alta tecnología, la Discover 125 ST es un vehículo realmente fuerte, ágil y veloz en cualquier escenario.",
+      "motor": "124.6cc",
+      "potencia": "12.8 HP @ 9000 RPM",
+      "torque": "10.79 Nm @ 6500 RPM",
+      "frenos": "Disco / Tambor",
+      "suspension": "Telescópica / Monoshock Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "70/80-17 / 80/90-17",
+      "tanque": "10 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 145,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/discover_125st/moto.webp",
+        "multimedia/discover_125st/img/derecha.webp",
+        "multimedia/discover_125st/img/izquierda.webp",
+        "multimedia/discover_125st/img/frente.webp",
+        "multimedia/discover_125st/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/discover_125st/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/discover_125st/moto.webp",
+        "derecha": "multimedia/discover_125st/img/derecha.webp",
+        "izquierda": "multimedia/discover_125st/img/izquierda.webp",
+        "frente": "multimedia/discover_125st/img/frente.webp",
+        "atras": "multimedia/discover_125st/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/discover_125st/colores/rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/discover_125st/colores/azul.webp",
+          "stock": 3
+        },
+        {
+          "id_color": 2,
+          "nombre": "Azul Negro",
+          "img_swatch": "multimedia/colores/azul_negro.png",
+          "img_moto": "multimedia/discover_125st/colores/azul_negro.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 14,
+          "nombre": "Rojo Negro",
+          "img_swatch": "multimedia/colores/rojo_negro.png",
+          "img_moto": "multimedia/discover_125st/colores/rojo_negro.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "marca": "Bajaj",
+      "modelo": "Dominar 250",
+      "tipo": "Naked",
+      "categoria": "Naked / Deportiva",
+      "precio": 14699.99,
+      "ficha_pdf": null,
+      "detalle": "El buque insignia de la marca se renueva por completo y desembarca  en la categoría de baja cilindrada con todo un arsenal de mejoras que saltan a primera vista. Se trata de la Dominar 250, cuyas prestaciones se alinean con el prototipo inicial del modelo y promete no decepcionarte gracias a su potente motor de 4 valvulas DTS-i que proporcionan casi 27 caballos de fuerza.",
+      "motor": "248.77cc",
+      "potencia": "26.6 HP @ 8500 RPM",
+      "torque": "23.5 Nm @ 6500 RPM",
+      "frenos": "Disco ABS / Disco ABS",
+      "suspension": "Invertida / Monoshock Nitrox",
+      "enfriamiento": "Líquido",
+      "neumaticos": "100/80-17 / 130/70-17",
+      "tanque": "13 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 106,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/dominar_250/moto.webp",
+        "multimedia/dominar_250/img/derecha.webp",
+        "multimedia/dominar_250/img/izquierda.webp",
+        "multimedia/dominar_250/img/frente.webp",
+        "multimedia/dominar_250/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/dominar_250/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/dominar_250/moto.webp",
+        "derecha": "multimedia/dominar_250/img/derecha.webp",
+        "izquierda": "multimedia/dominar_250/img/izquierda.webp",
+        "frente": "multimedia/dominar_250/img/frente.webp",
+        "atras": "multimedia/dominar_250/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/dominar_250/colores/rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 5,
+          "nombre": "Negro",
+          "img_swatch": "multimedia/colores/negro.png",
+          "img_moto": "multimedia/dominar_250/colores/negro.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "marca": "Bajaj",
+      "modelo": "Dominar 400",
+      "tipo": "Naked",
+      "categoria": "Naked / Deportiva",
+      "precio": 18350.0,
+      "ficha_pdf": "pdf/Bajaj_Dominar_400.pdf",
+      "detalle": "La Bajaj Dominar 400 es la moto naked que estabas buscando.  Con un motor DOHC monocilíndrico de 373,27 CC y 40 CV de potencia máxima, esta moto es capaz de dominar cualquier camino. Cuenta con frenos ABS de doble canal, para una mayor seguridad en todo momento. Sus horquillas telescópicas invertidas de 43 mm y su amortiguador central monoshock de múltiples pasos con Nitrox de 110 mm, garantizan una experiencia de conducción suave y confortable.",
+      "motor": "373.3cc",
+      "potencia": "39.4 HP @ 8800 RPM",
+      "torque": "35 Nm @ 6500 RPM",
+      "frenos": "Disco ABS / Disco ABS",
+      "suspension": "Invertida 43mm / Monoshock Nitrox",
+      "enfriamiento": "Líquido",
+      "neumaticos": "110/70-17 / 150/60-17",
+      "tanque": "13 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 94,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/dominar_400/moto.webp",
+        "multimedia/dominar_400/img/derecha.webp",
+        "multimedia/dominar_400/img/izquierda.webp",
+        "multimedia/dominar_400/img/frente.webp",
+        "multimedia/dominar_400/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/dominar_400/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/dominar_400/moto.webp",
+        "derecha": "multimedia/dominar_400/img/derecha.webp",
+        "izquierda": "multimedia/dominar_400/img/izquierda.webp",
+        "frente": "multimedia/dominar_400/img/frente.webp",
+        "atras": "multimedia/dominar_400/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 5,
+          "nombre": "Negro",
+          "img_swatch": "multimedia/colores/negro.png",
+          "img_moto": "multimedia/dominar_400/colores/negro.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 15,
+          "nombre": "Verde",
+          "img_swatch": "multimedia/colores/verde.png",
+          "img_moto": "multimedia/dominar_400/colores/verde.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "marca": "Bajaj",
+      "modelo": "Pulsar LS125",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 6900.0,
+      "ficha_pdf": null,
+      "detalle": "Bajaj Pulsar LS 125 es una motocicleta urbana diseñada para ofrecer un equilibrio entre estilo deportivo, rendimiento y eficiencia.  Es la versión actualizada de la anterior Pulsar NS 125, con un enfoque en diseño moderno y funcionalidad para el uso diario",
+      "motor": "124.4cc",
+      "potencia": "11.8 HP @ 8500 RPM",
+      "torque": "10.75 Nm @ 6500 RPM",
+      "frenos": "Disco 240mm / Tambor 130mm",
+      "suspension": "Telescópica / Doble Amortiguador Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "2.75 x 17 / 110/90 x 17",
+      "tanque": "10.5 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 640,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_ls125/moto.webp",
+        "multimedia/pulsar_ls125/img/derecha.webp",
+        "multimedia/pulsar_ls125/img/izquierda.webp",
+        "multimedia/pulsar_ls125/img/frente.webp",
+        "multimedia/pulsar_ls125/img/atras.webp",
+        "multimedia/pulsar_ls125/img/1773072841_pulsar ls125 color gris.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_ls125/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_ls125/moto.webp",
+        "derecha": "multimedia/pulsar_ls125/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_ls125/img/izquierda.webp",
+        "frente": "multimedia/pulsar_ls125/img/frente.webp",
+        "atras": "multimedia/pulsar_ls125/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/pulsar_ls125/colores/rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 1,
+          "nombre": "Amarillo",
+          "img_swatch": "multimedia/colores/amarillo.png",
+          "img_moto": "multimedia/pulsar_ls125/colores/amarillo.webp",
+          "stock": 0
+        },
+        {
+          "id_color": 3,
+          "nombre": "Blanco",
+          "img_swatch": "multimedia/colores/blanco.png",
+          "img_moto": "multimedia/pulsar_ls125/colores/blanco.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 5,
+          "nombre": "Negro",
+          "img_swatch": "multimedia/colores/negro.png",
+          "img_moto": "multimedia/pulsar_ls125/colores/negro.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "marca": "Bajaj",
+      "modelo": "Pulsar N125",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 8400.0,
+      "ficha_pdf": null,
+      "detalle": "Bajaj Pulsar N125 es una motocicleta de la línea N-Series, diseñada para ofrecer un equilibrio entre rendimiento, economía y manejo ágil.  Es ideal para uso urbano y viajes cortos, destacando por su diseño moderno, motor eficiente y tecnología de última generación.",
+      "motor": "124.5cc",
+      "potencia": "11.8 HP @ 8500 RPM",
+      "torque": "11 Nm @ 6000 RPM",
+      "frenos": "Disco / Tambor",
+      "suspension": "Telescópica / Monoshock",
+      "enfriamiento": "Aire",
+      "neumaticos": "80/100-17 / 110/80-17",
+      "tanque": "9.5 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 237,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_n125/moto.webp",
+        "multimedia/pulsar_n125/img/derecha.webp",
+        "multimedia/pulsar_n125/img/izquierda.webp",
+        "multimedia/pulsar_n125/img/frente.webp",
+        "multimedia/pulsar_n125/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_n125/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_n125/moto.webp",
+        "derecha": "multimedia/pulsar_n125/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_n125/img/izquierda.webp",
+        "frente": "multimedia/pulsar_n125/img/frente.webp",
+        "atras": "multimedia/pulsar_n125/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 9,
+          "nombre": "Negro Morado",
+          "img_swatch": "multimedia/colores/negro_morado.png",
+          "img_moto": "multimedia/pulsar_n125/colores/negro_morado.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 6,
+          "nombre": "Negro Amarillo",
+          "img_swatch": "multimedia/colores/negro_amarillo.png",
+          "img_moto": "multimedia/pulsar_n125/colores/negro_amarillo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/pulsar_n125/colores/negro_rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "marca": "Bajaj",
+      "modelo": "Pulsar N160",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 10400.0,
+      "ficha_pdf": null,
+      "detalle": "Motocicleta ideal para quienes buscan una combinación de poder y precisión. Diseñada para ofrecer un rendimiento superior y un control excepcional, la Pulsar N160 está equipada con tecnología avanzada y un diseño deportivo que no pasa desapercibido.",
+      "motor": "164.8cc",
+      "potencia": "15.7 HP @ 8750 RPM",
+      "torque": "14.65 Nm @ 6750 RPM",
+      "frenos": "Disco ABS / Disco",
+      "suspension": "Telescópica / Monoshock Nitrox",
+      "enfriamiento": "Aceite",
+      "neumaticos": "100/80-17 / 130/70-17",
+      "tanque": "14 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 104,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_n160/moto.webp",
+        "multimedia/pulsar_n160/img/derecha.webp",
+        "multimedia/pulsar_n160/img/izquierda.webp",
+        "multimedia/pulsar_n160/img/frente.webp",
+        "multimedia/pulsar_n160/img/1772473372_atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_n160/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_n160/moto.webp",
+        "derecha": "multimedia/pulsar_n160/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_n160/img/izquierda.webp",
+        "frente": "multimedia/pulsar_n160/img/frente.webp",
+        "atras": "multimedia/pulsar_n160/img/1772473372_atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 3,
+          "nombre": "Blanco",
+          "img_swatch": "multimedia/colores/blanco.png",
+          "img_moto": "multimedia/pulsar_n160/colores/blanco.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 5,
+          "nombre": "Negro",
+          "img_swatch": "multimedia/colores/negro.png",
+          "img_moto": "multimedia/pulsar_n160/colores/negro.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/pulsar_n160/colores/rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "marca": "Bajaj",
+      "modelo": "Pulsar N250",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 14400.0,
+      "ficha_pdf": null,
+      "detalle": "La nueva Bajaj Pulsar N250 representa el salto definitivo en la evolución de la familia Pulsar, elevando el estándar tanto en diseño como en rendimiento mecánico. Esta versión avanzada redefine la experiencia de conducción al incorporar barras invertidas, lo que garantiza una estabilidad superior y un control preciso en cada curva.",
+      "motor": "249.07cc",
+      "potencia": "24.1 HP @ 8750 RPM",
+      "torque": "21.5 Nm @ 6500 RPM",
+      "frenos": "Disco ABS / Disco ABS",
+      "suspension": "Invertida / Monoshock Nitrox",
+      "enfriamiento": "Aceite",
+      "neumaticos": "110/70-17 / 140/70-17",
+      "tanque": "14 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 101,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_n250/moto.webp",
+        "multimedia/pulsar_n250/img/derecha.webp",
+        "multimedia/pulsar_n250/img/izquierda.webp",
+        "multimedia/pulsar_n250/img/frente.webp",
+        "multimedia/pulsar_n250/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_n250/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_n250/moto.webp",
+        "derecha": "multimedia/pulsar_n250/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_n250/img/izquierda.webp",
+        "frente": "multimedia/pulsar_n250/img/frente.webp",
+        "atras": "multimedia/pulsar_n250/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/pulsar_n250/colores/azul.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 12,
+          "nombre": "Rojo",
+          "img_swatch": "multimedia/colores/rojo.png",
+          "img_moto": "multimedia/pulsar_n250/colores/rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 5,
+          "nombre": "Negro",
+          "img_swatch": "multimedia/colores/negro.png",
+          "img_moto": "multimedia/pulsar_n250/colores/negro.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "marca": "Bajaj",
+      "modelo": "Pulsar NS160 UG",
+      "tipo": "Naked",
+      "categoria": "Naked / Deportiva",
+      "precio": 11500.0,
+      "ficha_pdf": null,
+      "detalle": "La Bajaj Pulsar NS160 UG es la combinación perfecta de potencia, agilidad y estilo. Propulsada por un motor monocilíndrico de 160cc, inyección de combustible electrónica, asegurando el funcionamiento óptimo en todo momento. Una motocicleta diseñada en torno al rendimiento, su mecanismo de enfriamiento por aceite mantiene la temperatura del motor en un nivel ideal, permitiendo así viajes largos sin interrupciones indeseadas. Su robusto marco de acero perimetral da la resistencia necesaria para u",
+      "motor": "160.3cc",
+      "potencia": "15.2 HP @ 8500 RPM",
+      "torque": "14.6 Nm @ 6500 RPM",
+      "frenos": "Disco / Disco",
+      "suspension": "Invertida / Monoshock Nitrox",
+      "enfriamiento": "Aceite",
+      "neumaticos": "90/90-17 / 120/80-17",
+      "tanque": "12 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 105,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_ns160_ug/moto.webp",
+        "multimedia/pulsar_ns160_ug/img/derecha.webp",
+        "multimedia/pulsar_ns160_ug/img/izquierda.webp",
+        "multimedia/pulsar_ns160_ug/img/frente.webp",
+        "multimedia/pulsar_ns160_ug/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_ns160_ug/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_ns160_ug/moto.webp",
+        "derecha": "multimedia/pulsar_ns160_ug/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_ns160_ug/img/izquierda.webp",
+        "frente": "multimedia/pulsar_ns160_ug/img/frente.webp",
+        "atras": "multimedia/pulsar_ns160_ug/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 7,
+          "nombre": "Negro Azul",
+          "img_swatch": "multimedia/colores/negro_azul.png",
+          "img_moto": "multimedia/pulsar_ns160_ug/colores/negro_azul.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 13,
+          "nombre": "Rojo Blanco",
+          "img_swatch": "multimedia/colores/rojo_blanco.png",
+          "img_moto": "multimedia/pulsar_ns160_ug/colores/rojo_blanco.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 4,
+          "nombre": "Blanco Rojo",
+          "img_swatch": "multimedia/colores/blanco_rojo.png",
+          "img_moto": "multimedia/pulsar_ns160_ug/colores/blanco_rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/pulsar_ns160_ug/colores/negro_rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "marca": "Bajaj",
+      "modelo": "Pulsar NS200",
+      "tipo": "Naked",
+      "categoria": "Naked / Deportiva",
+      "precio": 14100.0,
+      "ficha_pdf": null,
+      "detalle": "¡Descubre la nueva Pulsar NS200 UG2! Esta moto llega con emocionantes actualizaciones que la hacen más moderna y atractiva que nunca. Ahora cuenta con un tablero totalmente digital. Además, incorpora barras invertidas que mejoran la estabilidad y el manejo, y un sistema de iluminación LED que no solo realza su estética, sino que también proporciona una visibilidad superior en cualquier condición. Y no podemos olvidar el embrague antirrebote. Llevando el estilo de conducción a otro nivel.",
+      "motor": "199.5cc",
+      "potencia": "24.1 HP @ 9750 RPM",
+      "torque": "18.74 Nm @ 8000 RPM",
+      "frenos": "Disco ABS / Disco ABS",
+      "suspension": "Invertida / Monoshock Nitrox",
+      "enfriamiento": "Líquido",
+      "neumaticos": "100/80-17 / 130/70-17",
+      "tanque": "12 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 232,
+      "destacado": true,
+      "imagenes": [
+        "multimedia/pulsar_ns200/moto.webp",
+        "multimedia/pulsar_ns200/img/derecha.webp",
+        "multimedia/pulsar_ns200/img/izquierda.webp",
+        "multimedia/pulsar_ns200/img/frente.webp",
+        "multimedia/pulsar_ns200/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_ns200/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_ns200/moto.webp",
+        "derecha": "multimedia/pulsar_ns200/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_ns200/img/izquierda.webp",
+        "frente": "multimedia/pulsar_ns200/img/frente.webp",
+        "atras": "multimedia/pulsar_ns200/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 7,
+          "nombre": "Negro Azul",
+          "img_swatch": "multimedia/colores/negro_azul.png",
+          "img_moto": "multimedia/pulsar_ns200/colores/negro_azul.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 13,
+          "nombre": "Rojo Blanco",
+          "img_swatch": "multimedia/colores/rojo_blanco.png",
+          "img_moto": "multimedia/pulsar_ns200/colores/rojo_blanco.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 4,
+          "nombre": "Blanco Rojo",
+          "img_swatch": "multimedia/colores/blanco_rojo.png",
+          "img_moto": "multimedia/pulsar_ns200/colores/blanco_rojo.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/pulsar_ns200/colores/negro_rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "marca": "Bajaj",
+      "modelo": "Pulsar RS200",
+      "tipo": "Naked",
+      "categoria": "Racing / Sport",
+      "precio": 16000.0,
+      "ficha_pdf": null,
+      "detalle": "Si buscas escarapelar el cuerpo con adrenalina, esta debe ser una firme candidata para tu garaje. Es una moto con cromosomas netamente deportivos, musculosa, corpulenta, atrevida, impetuosa, de alto desempeño. Solo algunos podrán domarla. ¿Te atreves",
+      "motor": "199.5cc",
+      "potencia": "24.2 HP @ 9750 RPM",
+      "torque": "18.7 Nm @ 8000 RPM",
+      "frenos": "Disco ABS / Disco ABS",
+      "suspension": "Telescópica / Monoshock Nitrox",
+      "enfriamiento": "Líquido",
+      "neumaticos": "100/80-17 / 130/70-17",
+      "tanque": "13 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 70,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/pulsar_rs200/moto.webp",
+        "multimedia/pulsar_rs200/img/derecha.webp",
+        "multimedia/pulsar_rs200/img/izquierda.webp",
+        "multimedia/pulsar_rs200/img/frente.webp",
+        "multimedia/pulsar_rs200/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_rs200/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_rs200/moto.webp",
+        "derecha": "multimedia/pulsar_rs200/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_rs200/img/izquierda.webp",
+        "frente": "multimedia/pulsar_rs200/img/frente.webp",
+        "atras": "multimedia/pulsar_rs200/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 13,
+          "nombre": "Rojo Blanco",
+          "img_swatch": "multimedia/colores/rojo_blanco.png",
+          "img_moto": "multimedia/pulsar_rs200/colores/rojo_blanco.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 8,
+          "nombre": "Negro Gris",
+          "img_swatch": "multimedia/colores/negro_gris.png",
+          "img_moto": "multimedia/pulsar_rs200/colores/negro_gris.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 3,
+          "nombre": "Blanco",
+          "img_swatch": "multimedia/colores/blanco.png",
+          "img_moto": "multimedia/pulsar_rs200/colores/blanco.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "marca": "Bajaj",
+      "modelo": "Pulsar 150 Neon",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 7807.0,
+      "ficha_pdf": null,
+      "detalle": "La nueva Pulsar 150 Neón cuenta con un carácter y diseño deportivo, combinando Potencia, Tecnología y Versatilidad, hacen de esta moto una digna integrante de la familia PULSAR, capaz de satisfacer a aquellos usuarios que desean incluir más aventura a su vida diaria.",
+      "motor": "149.5cc",
+      "potencia": "13.8 HP @ 8000 RPM",
+      "torque": "13.4 Nm @ 6000 RPM",
+      "frenos": "Disco / Tambor",
+      "suspension": "Telescópica / Doble Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "80/100-17 / 100/90-17",
+      "tanque": "15 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "desactivado",
+      "visitas": 59,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/pulsar_150_neon/moto.webp",
+        "multimedia/pulsar_150_neon/img/derecha.webp",
+        "multimedia/pulsar_150_neon/img/izquierda.webp",
+        "multimedia/pulsar_150_neon/img/frente.webp",
+        "multimedia/pulsar_150_neon/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_150_neon/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_150_neon/moto.webp",
+        "derecha": "multimedia/pulsar_150_neon/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_150_neon/img/izquierda.webp",
+        "frente": "multimedia/pulsar_150_neon/img/frente.webp",
+        "atras": "multimedia/pulsar_150_neon/img/atras.webp"
+      },
+      "colores": []
+    },
+    {
+      "id": 15,
+      "marca": "Bajaj",
+      "modelo": "Pulsar 150R",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 8500.0,
+      "ficha_pdf": null,
+      "detalle": "Siente la adrenalina en cada semáforo con la leyenda urbana de Bajaj. La Pulsar 150R no es solo una moto, es tu entrada al mundo del alto rendimiento. Con un diseño robusto y deportivo, está diseñada para quienes buscan destacar en la ciudad sin sacrificar la economía. Potencia pura, agilidad envidiable y ese rugido comercial.",
+      "motor": "149.5cc",
+      "potencia": "13.8 HP @ 8000 RPM",
+      "torque": "13.4 Nm @ 6000 RPM",
+      "frenos": "Disco / Disco",
+      "suspension": "Telescópica / Doble Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "90/90-17 / 120/80-17",
+      "tanque": "15 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 57,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/pulsar_150r/moto.webp",
+        "multimedia/pulsar_150r/img/derecha.webp",
+        "multimedia/pulsar_150r/img/izquierda.webp",
+        "multimedia/pulsar_150r/img/frente.webp",
+        "multimedia/pulsar_150r/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_150r/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_150r/moto.webp",
+        "derecha": "multimedia/pulsar_150r/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_150r/img/izquierda.webp",
+        "frente": "multimedia/pulsar_150r/img/frente.webp",
+        "atras": "multimedia/pulsar_150r/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 8,
+          "nombre": "Negro Gris",
+          "img_swatch": "multimedia/colores/negro_gris.png",
+          "img_moto": "multimedia/pulsar_150r/colores/negro_gris.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 7,
+          "nombre": "Negro Azul",
+          "img_swatch": "multimedia/colores/negro_azul.png",
+          "img_moto": "multimedia/pulsar_150r/colores/negro_azul.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/pulsar_150r/colores/negro_rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "marca": "Bajaj",
+      "modelo": "Pulsar 180 Neon",
+      "tipo": "Naked",
+      "categoria": "Naked",
+      "precio": 10000.0,
+      "ficha_pdf": null,
+      "detalle": "Pulsar 180 Neon: El equilibrio perfecto entre torque y estilo. No pases desapercibido. La 180 Neon está diseñada para el motociclista que exige más potencia que una 150, pero con la agilidad necesaria para dominar las calles. Rendimiento probado con un look que brilla por sí solo.",
+      "motor": "178.6cc",
+      "potencia": "16.8 HP @ 8500 RPM",
+      "torque": "14.52 Nm @ 6500 RPM",
+      "frenos": "Disco / Disco",
+      "suspension": "Telescópica / Doble Nitrox",
+      "enfriamiento": "Aire",
+      "neumaticos": "80/100-17 / 100/90-17",
+      "tanque": "15 L",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 36,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/pulsar_180_neon/moto.webp",
+        "multimedia/pulsar_180_neon/img/derecha.webp",
+        "multimedia/pulsar_180_neon/img/izquierda.webp",
+        "multimedia/pulsar_180_neon/img/frente.webp",
+        "multimedia/pulsar_180_neon/img/atras.webp"
+      ],
+      "imagen_principal": "multimedia/pulsar_180_neon/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/pulsar_180_neon/moto.webp",
+        "derecha": "multimedia/pulsar_180_neon/img/derecha.webp",
+        "izquierda": "multimedia/pulsar_180_neon/img/izquierda.webp",
+        "frente": "multimedia/pulsar_180_neon/img/frente.webp",
+        "atras": "multimedia/pulsar_180_neon/img/atras.webp"
+      },
+      "colores": [
+        {
+          "id_color": 8,
+          "nombre": "Negro Gris",
+          "img_swatch": "multimedia/colores/negro_gris.png",
+          "img_moto": "multimedia/pulsar_180_neon/colores/negro_gris.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 10,
+          "nombre": "Negro Naranja",
+          "img_swatch": "multimedia/colores/negro_naranja.png",
+          "img_moto": "multimedia/pulsar_180_neon/colores/negro_naranja.webp",
+          "stock": 2
+        },
+        {
+          "id_color": 11,
+          "nombre": "Negro Rojo",
+          "img_swatch": "multimedia/colores/negro_rojo.png",
+          "img_moto": "multimedia/pulsar_180_neon/colores/negro_rojo.webp",
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "marca": "Bajaj",
+      "modelo": "CROM PLUS GSL",
+      "tipo": "Torito",
+      "categoria": "Torito / Pasajeros",
+      "precio": 8500.0,
+      "ficha_pdf": null,
+      "detalle": "mototaxi diseñado para pasajeros y carga ligera, destacando por su motor de 4 tiempos con una potencia de 10.19 HP a 5,000 RPM y un torque de 17.10 Nm a 3,500 RPM. Cuenta con una capacidad de tanque de 8 litros y un radio de giro de 2,880 mm, ideal para entornos urbanos",
+      "motor": null,
+      "potencia": null,
+      "torque": null,
+      "frenos": null,
+      "suspension": null,
+      "enfriamiento": null,
+      "neumaticos": null,
+      "tanque": null,
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "desactivado",
+      "visitas": 37,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/crom_plus_gsl/moto.webp"
+      ],
+      "imagen_principal": "multimedia/crom_plus_gsl/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/crom_plus_gsl/moto.webp",
+        "derecha": null,
+        "izquierda": null,
+        "frente": null,
+        "atras": null
+      },
+      "colores": []
+    },
+    {
+      "id": 18,
+      "marca": "Bajaj",
+      "modelo": "FIVEZA GTR 3",
+      "tipo": "Torito",
+      "categoria": "Torito / Pasajeros",
+      "precio": 21300.0,
+      "ficha_pdf": null,
+      "detalle": "El Fiveza GTR 3 representa la ingeniería de vanguardia en transporte de pasajeros. Equipado con un chasis de acero reforzado de alta torsión, está diseñado para absorber irregularidades en rutas difíciles. Su cabina ergonómica reduce la fatiga del conductor en jornadas largas, mientras que el diseño aerodinámico de su carrozado optimiza la estabilidad y la seguridad estructural en cada viaje.",
+      "motor": "200cc, 4 tiempos",
+      "potencia": "14.5 HP @ 7500 RPM",
+      "torque": "16.2 Nm @ 5500 RPM",
+      "frenos": "Tambor hidráulico expandible",
+      "suspension": "Delantera reforzada / Trasera con muelles",
+      "enfriamiento": "Aire forzado",
+      "neumaticos": "Delantero: 4.50 - 10 / Traseros: 4.50 - 10 (Reforzados)",
+      "tanque": "12 L",
+      "stock_total": 0,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 44,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/fivesa_gtr_3/moto.webp"
+      ],
+      "imagen_principal": "multimedia/fivesa_gtr_3/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/fivesa_gtr_3/moto.webp",
+        "derecha": null,
+        "izquierda": null,
+        "frente": null,
+        "atras": null
+      },
+      "colores": [
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/fivesa_gtr_3/colores/azul.webp",
+          "stock": 1
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "marca": "Bajaj",
+      "modelo": "FIVEZA GTR 2",
+      "tipo": "Torito",
+      "categoria": "Torito / Pasajeros",
+      "precio": 21300.0,
+      "ficha_pdf": null,
+      "detalle": "Diseñado como la herramienta definitiva para la rentabilidad urbana, el Fiveza GTR 2 equilibra un bajo costo operativo con una resistencia excepcional. Su motor de tecnología optimizada garantiza un consumo mínimo de combustible, convirtiéndolo en la opción líder para emprendedores que buscan maximizar sus ingresos diarios sin comprometer la potencia necesaria para pendientes pronunciadas.",
+      "motor": "197cc, 4 tiempos",
+      "potencia": "13.8 HP @ 7000 RPM",
+      "torque": "15.5 Nm @ 5000 RPM",
+      "frenos": "Tambor con zapata",
+      "suspension": "Telescópica con resortes helicoidales",
+      "enfriamiento": "Aire forzado",
+      "neumaticos": "Delantero: 4.00 - 10 / Traseros: 4.00 - 10 (Tracción)",
+      "tanque": "10 L",
+      "stock_total": 0,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 84,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/fivesa_gtr_2/moto.webp"
+      ],
+      "imagen_principal": "multimedia/fivesa_gtr_2/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/fivesa_gtr_2/moto.webp",
+        "derecha": null,
+        "izquierda": null,
+        "frente": null,
+        "atras": null
+      },
+      "colores": [
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/fivesa_gtr_2/colores/azul.webp",
+          "stock": 1
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "marca": "Bajaj",
+      "modelo": "VILCHEZ FULL",
+      "tipo": "Torito",
+      "categoria": "Torito / Pasajeros",
+      "precio": 22300.0,
+      "ficha_pdf": null,
+      "detalle": "Vilchez Full es el estándar de oro en confort y servicio VIP. Esta unidad no solo transporta personas, ofrece una experiencia de viaje superior gracias a su equipamiento premium que incluye puertos de carga USB, sistema de iluminación LED interna y acabados de tapicería de alta durabilidad. Es la elección predilecta para flotas modernas que buscan diferenciarse por la calidad y el servicio al cliente.",
+      "motor": "205cc, 4 tiempos",
+      "potencia": "15.0 HP @ 7500 RPM",
+      "torque": "17.1 Nm @ 3500 RPM",
+      "frenos": "Hidráulico de pie en las 3 ruedas",
+      "suspension": "Amortiguadores hidráulicos de doble efecto",
+      "enfriamiento": "Aire forzado",
+      "neumaticos": "Delantero: 4.50 - 10 / Traseros: 4.50 - 10 (Alta Resistencia)",
+      "tanque": "12 L",
+      "stock_total": 0,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 91,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/vilchez_full/moto.webp"
+      ],
+      "imagen_principal": "multimedia/vilchez_full/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/vilchez_full/moto.webp",
+        "derecha": null,
+        "izquierda": null,
+        "frente": null,
+        "atras": null
+      },
+      "colores": [
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/vilchez_full/colores/azul.webp",
+          "stock": 1
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "marca": "Bajaj",
+      "modelo": "VILCHEZ MODELO STANDAR",
+      "tipo": "Torito",
+      "categoria": "Torito / Pasajeros",
+      "precio": 21800.0,
+      "ficha_pdf": null,
+      "detalle": "La Vilchez Modelo Estándar es la definición de robustez y fiabilidad mecánica. Construida para resistir el trabajo pesado constante, su diseño simplificado facilita un mantenimiento rápido y económico. Es una unidad \"guerrera\" con una estructura de muelles reforzada, ideal para zonas con pavimentos irregulares donde la resistencia del chasis es puesta a prueba diariamente.",
+      "motor": "198cc, 4 tiempos",
+      "potencia": "13.2 HP @ 7000 RPM",
+      "torque": "15.0 Nm @ 4500 RPM",
+      "frenos": "Mecánico / Tambor",
+      "suspension": "Resortes reforzados tipo muelle",
+      "enfriamiento": "Aire",
+      "neumaticos": "Delantero: 4.00 - 10 / Traseros: 4.00 - 10 (Estándar)",
+      "tanque": "9 L",
+      "stock_total": 0,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 64,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/vilchez_modelo_standar/moto.webp"
+      ],
+      "imagen_principal": "multimedia/vilchez_modelo_standar/moto.webp",
+      "vistas_360": {
+        "principal": "multimedia/vilchez_modelo_standar/moto.webp",
+        "derecha": null,
+        "izquierda": null,
+        "frente": null,
+        "atras": null
+      },
+      "colores": [
+        {
+          "id_color": 16,
+          "nombre": "Azul",
+          "img_swatch": "multimedia/colores/azul.png",
+          "img_moto": "multimedia/vilchez_modelo_standar/colores/azul.webp",
+          "stock": 1
+        }
+      ]
+    }
+  ],
+  "repuestos": [
+    {
+      "id": 3,
+      "nombre": "Filtro de aceite",
+      "codigo": "JG571014",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/Filtrodeaceite=JG571014.webp",
+      "stock": 17,
+      "precio": 75.5
+    },
+    {
+      "id": 4,
+      "nombre": "FILTRO DE ACEITE",
+      "codigo": "DD121181",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FILTRODEACEITE=DD121181.webp",
+      "stock": 40,
+      "precio": 89.0
+    },
+    {
+      "id": 5,
+      "nombre": "INTERRUPTOR DE ESTASIONARIAS P45",
+      "codigo": "INTERRUPTOR",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/INTERRUPTORDEESTASIONARIASP45=INTERRUPTOR.webp",
+      "stock": 20,
+      "precio": 102.5
+    },
+    {
+      "id": 6,
+      "nombre": "KIT DE CALIPER DELANTERO ",
+      "codigo": "YJL04004",
+      "categoria": "Sistema de Frenos",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/KITDECALIPERDELANTERO=YJL04004.webp",
+      "stock": 1,
+      "precio": 116.0
+    },
+    {
+      "id": 7,
+      "nombre": "PLATO DE PRESION DE EMBRAGUE (MPACK)",
+      "codigo": "JG551447",
+      "categoria": "Transmisión y Embrague",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PLATODEPRESIONDEEMBRAGUEMPACK=JG551447.webp",
+      "stock": 1,
+      "precio": 129.5
+    },
+    {
+      "id": 8,
+      "nombre": "CARCASA DE SENSOR DE VELOCIDAD",
+      "codigo": "JZ131601",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CARCASADESENSORDEVELOCIDAD=JZ131601.webp",
+      "stock": 1,
+      "precio": 143.0
+    },
+    {
+      "id": 9,
+      "nombre": "PIÑON DE 4TA CONDUCTOR",
+      "codigo": "JZ551202",
+      "categoria": "Transmisión y Embrague",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PIONDE4TACONDUCTOR=JZ551202.webp",
+      "stock": 1,
+      "precio": 156.5
+    },
+    {
+      "id": 10,
+      "nombre": "PIÑON DE 3ERA CONDUCIDO",
+      "codigo": "JE551206",
+      "categoria": "Transmisión y Embrague",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PIONDE3ERACONDUCIDO=JE551206.webp",
+      "stock": 1,
+      "precio": 170.0
+    },
+    {
+      "id": 11,
+      "nombre": "PINON DE ARRASTRE",
+      "codigo": "JV551000",
+      "categoria": "Transmisión y Embrague",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PINONDEARRASTRE=JV551000.webp",
+      "stock": 1,
+      "precio": 183.5
+    },
+    {
+      "id": 12,
+      "nombre": "HOKEN STREET FIGHTER TALLA L",
+      "codigo": "CHKSTNL",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HOKENSTREETFIGHTERTALLAL=CHKSTNL.webp",
+      "stock": 1,
+      "precio": 197.0
+    },
+    {
+      "id": 13,
+      "nombre": "HOKEN ",
+      "codigo": "HOKEN",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HOKEN=HOKEN.webp",
+      "stock": 1,
+      "precio": 210.5
+    },
+    {
+      "id": 14,
+      "nombre": "HOKEN ",
+      "codigo": "ASADF",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HOKEN=ASADF.webp",
+      "stock": 1,
+      "precio": 224.0
+    },
+    {
+      "id": 15,
+      "nombre": "HOKEN ",
+      "codigo": "CHKSTNLSDF",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HOKEN=CHKSTNLSDF.webp",
+      "stock": 1,
+      "precio": 237.5
+    },
+    {
+      "id": 16,
+      "nombre": "HOKEN ",
+      "codigo": "DGFHS",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HOKEN=DGFHS.webp",
+      "stock": 1,
+      "precio": 251.0
+    },
+    {
+      "id": 17,
+      "nombre": "CARBURADOR GLP",
+      "codigo": "AM1221112",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CARBURADORGLP=AM1221112.webp",
+      "stock": 1,
+      "precio": 264.5
+    },
+    {
+      "id": 18,
+      "nombre": "CILINDRO",
+      "codigo": "36AU0001",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CILINDRO=36AU0001.webp",
+      "stock": 3,
+      "precio": 38.0
+    },
+    {
+      "id": 19,
+      "nombre": "CARBURADOR",
+      "codigo": "AM121222",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CARBURADOR=AM121222.webp",
+      "stock": 2,
+      "precio": 51.5
+    },
+    {
+      "id": 20,
+      "nombre": "CUBIERTA DE CULATA",
+      "codigo": "AN101177",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CUBIERTADECULATA=AN101177.webp",
+      "stock": 1,
+      "precio": 65.0
+    },
+    {
+      "id": 21,
+      "nombre": "CILINDRO Y PISTON COMPLETO ",
+      "codigo": "36AN0010",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CILINDROYPISTONCOMPLETO=36AN0010.webp",
+      "stock": 2,
+      "precio": 78.5
+    },
+    {
+      "id": 22,
+      "nombre": "SIGUEÑAL COMPLETO ",
+      "codigo": "AA101949",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/SIGUEALCOMPLETO=AA101949.webp",
+      "stock": 1,
+      "precio": 92.0
+    },
+    {
+      "id": 24,
+      "nombre": "CULATA CON VALVULAS ",
+      "codigo": "36AA4151",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CULATACONVALVULAS=36AA4151.webp",
+      "stock": 2,
+      "precio": 119.0
+    },
+    {
+      "id": 25,
+      "nombre": "KIT DE PISTAS",
+      "codigo": "36BA4009",
+      "categoria": "Suspensión y Dirección",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/KITDEPISTAS=36BA4009.webp",
+      "stock": 1,
+      "precio": 132.5
+    },
+    {
+      "id": 26,
+      "nombre": "VARILLA NIVEL DE ACEITE ",
+      "codigo": "AA101667",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/VARILLANIVELDEACEITE=AA101667.webp",
+      "stock": 5,
+      "precio": 146.0
+    },
+    {
+      "id": 27,
+      "nombre": "CANASTILLA CHICA ANTIDIVE ",
+      "codigo": "AB181017",
+      "categoria": "Suspensión y Dirección",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CANASTILLACHICAANTIDIVE=AB181017.webp",
+      "stock": 14,
+      "precio": 159.5
+    },
+    {
+      "id": 28,
+      "nombre": "CAPUCHON DE BUJIA ",
+      "codigo": "AN111015",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CAPUCHONDEBUJIA=AN111015.webp",
+      "stock": 5,
+      "precio": 173.0
+    },
+    {
+      "id": 29,
+      "nombre": "CAPUCHON DE BUJIA IZQUIERDA",
+      "codigo": "AA111157",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CAPUCHONDEBUJIAIZQUIERDA=AA111157.webp",
+      "stock": 2,
+      "precio": 186.5
+    },
+    {
+      "id": 30,
+      "nombre": "RODAMIENTO DE CARRETERA SUPERIOR ",
+      "codigo": "BB181034",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/RODAMIENTODECARRETERASUPERIOR=BB181034.webp",
+      "stock": 1,
+      "precio": 200.0
+    },
+    {
+      "id": 31,
+      "nombre": "TUERCA SEGURO ",
+      "codigo": "24181047",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/TUERCASEGURO=24181047.webp",
+      "stock": 2,
+      "precio": 213.5
+    },
+    {
+      "id": 32,
+      "nombre": "GUARDAPOLVO DE CANA ",
+      "codigo": "24161443",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/GUARDAPOLVODECANA=24161443.webp",
+      "stock": 1,
+      "precio": 227.0
+    },
+    {
+      "id": 33,
+      "nombre": "HUACHA",
+      "codigo": "AB181020",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/HUACHA=AB181020.webp",
+      "stock": 3,
+      "precio": 240.5
+    },
+    {
+      "id": 34,
+      "nombre": "GUARDAPOLVO DE CANA SUPERIOR ",
+      "codigo": "BH151008",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/GUARDAPOLVODECANASUPERIOR=BH151008.webp",
+      "stock": 1,
+      "precio": 254.0
+    },
+    {
+      "id": 35,
+      "nombre": "ELEMENTO DE AIRE",
+      "codigo": "AL121062",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTODEAIRE=AL121062.webp",
+      "stock": 2,
+      "precio": 267.5
+    },
+    {
+      "id": 36,
+      "nombre": "FILTRO DE ACEITE",
+      "codigo": "AN101190",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FILTRODEACEITE=AN101190.webp",
+      "stock": 46,
+      "precio": 41.0
+    },
+    {
+      "id": 37,
+      "nombre": "FILTRO DE COMBUSTIBLE ",
+      "codigo": "JZ171818",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FILTRODECOMBUSTIBLE=JZ171818.webp",
+      "stock": 4,
+      "precio": 54.5
+    },
+    {
+      "id": 38,
+      "nombre": "ELEMENTO FILTRO DE AIRE ",
+      "codigo": "AA121056",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTOFILTRODEAIRE=AA121056.webp",
+      "stock": 1,
+      "precio": 68.0
+    },
+    {
+      "id": 39,
+      "nombre": "ELEMENTO FILTRO DE AIRE ",
+      "codigo": "PF582986",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTOFILTRODEAIRE=PF582986.webp",
+      "stock": 1,
+      "precio": 81.5
+    },
+    {
+      "id": 40,
+      "nombre": "KIT FILTRO DE AIRE",
+      "codigo": "36JR0043",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/KITFILTRODEAIRE=36JR0043.webp",
+      "stock": 3,
+      "precio": 95.0
+    },
+    {
+      "id": 41,
+      "nombre": "ELEMENTO FILTRO DE AIRE ",
+      "codigo": "JZ581032",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTOFILTRODEAIRE=JZ581032.webp",
+      "stock": 2,
+      "precio": 108.5
+    },
+    {
+      "id": 42,
+      "nombre": "EMPAQUETADURA DE CUBIERETA DE CULATA ",
+      "codigo": "JD511010",
+      "categoria": "Motor y Cilindrada",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/EMPAQUETADURADECUBIERETADECULATA=JD511010.webp",
+      "stock": 2,
+      "precio": 122.0
+    },
+    {
+      "id": 43,
+      "nombre": "ELEMENTO FILTRO DE AIRE ",
+      "codigo": "DH102389",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTOFILTRODEAIRE=DH102389.webp",
+      "stock": 1,
+      "precio": 135.5
+    },
+    {
+      "id": 44,
+      "nombre": "ELEMENTO DE FILTRO DE AIRE ",
+      "codigo": "DK101898",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTODEFILTRODEAIRE=DK101898.webp",
+      "stock": 2,
+      "precio": 149.0
+    },
+    {
+      "id": 45,
+      "nombre": "PORTAZAPATA DELANTERA 205 THL",
+      "codigo": "AB151035",
+      "categoria": "Sistema de Frenos",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PORTAZAPATADELANTERA205THL=AB151035.webp",
+      "stock": 1,
+      "precio": 162.5
+    },
+    {
+      "id": 46,
+      "nombre": "PIÑON PLANETARIO 2T,4T crom-z crom-x",
+      "codigo": "24131009",
+      "categoria": "Transmisión y Embrague",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PIONPLANETARIO2T4Tcrom-zcrom-x=24131009.webp",
+      "stock": 3,
+      "precio": 176.0
+    },
+    {
+      "id": 47,
+      "nombre": "BOCINA /  4T,2T,UG,250,175,205",
+      "codigo": "AA171006",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BOCINA4T2TUG250175205=AA171006.webp",
+      "stock": 8,
+      "precio": 189.5
+    },
+    {
+      "id": 48,
+      "nombre": "TENSIONADOR DE CADENILLA DE LEVAS 4T 205 ",
+      "codigo": "AA101516",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/TENSIONADORDECADENILLADELEVAS4T205=AA101516.webp",
+      "stock": 1,
+      "precio": 203.0
+    },
+    {
+      "id": 49,
+      "nombre": "KIT DE DADO DE PALIER 4T,2T",
+      "codigo": "36AL0001",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/KITDEDADODEPALIER4T2T=36AL0001.webp",
+      "stock": 2,
+      "precio": 216.5
+    },
+    {
+      "id": 50,
+      "nombre": "KIT DE PIN ANTIDIVE 4T 205 ,GL,GASL",
+      "codigo": "36AB4001",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/KITDEPINANTIDIVE4T205GLGASL=36AB4001.webp",
+      "stock": 2,
+      "precio": 230.0
+    },
+    {
+      "id": 51,
+      "nombre": "CARTUCHO DE FILTRO DE AIRE",
+      "codigo": "JA581005",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CARTUCHODEFILTRODEAIRE=JA581005.webp",
+      "stock": 3,
+      "precio": 243.5
+    },
+    {
+      "id": 52,
+      "nombre": "ELEMENTO FILTRO AIRE",
+      "codigo": "DK121009",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ELEMENTOFILTROAIRE=DK121009.webp",
+      "stock": 1,
+      "precio": 257.0
+    },
+    {
+      "id": 53,
+      "nombre": "DIAFRAGMA SECUNDARIO",
+      "codigo": "JS172015",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/DIAFRAGMASECUNDARIO=JS172015.webp",
+      "stock": 1,
+      "precio": 270.5
+    },
+    {
+      "id": 54,
+      "nombre": "MOLDURA CENTRAL DE TABLERO",
+      "codigo": "AA161310",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/MOLDURACENTRALDETABLERO=AA161310.webp",
+      "stock": 1,
+      "precio": 44.0
+    },
+    {
+      "id": 55,
+      "nombre": "TAPA DE CAJUELA DE HERRAMIENTAS LH",
+      "codigo": "AA161308",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/TAPADECAJUELADEHERRAMIENTASLH=AA161308.webp",
+      "stock": 1,
+      "precio": 57.5
+    },
+    {
+      "id": 56,
+      "nombre": "AMORTIGUADOR DELANTERO",
+      "codigo": "BH121004",
+      "categoria": "Suspensión y Dirección",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/AMORTIGUADORDELANTERO=BH121004.webp",
+      "stock": 2,
+      "precio": 71.0
+    },
+    {
+      "id": 57,
+      "nombre": "FARO POSTERIOR DERECHO",
+      "codigo": "24201473",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FAROPOSTERIORDERECHO=24201473.webp",
+      "stock": 2,
+      "precio": 84.5
+    },
+    {
+      "id": 58,
+      "nombre": "FARO POSTERIOR IZQUIERDO",
+      "codigo": "24201472",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FAROPOSTERIORIZQUIERDO=24201472.webp",
+      "stock": 1,
+      "precio": 98.0
+    },
+    {
+      "id": 59,
+      "nombre": "ESPEJO DERECHO",
+      "codigo": "AA221006",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ESPEJODERECHO=AA221006.webp",
+      "stock": 1,
+      "precio": 111.5
+    },
+    {
+      "id": 60,
+      "nombre": "DIRECCIONAL DELANTERO DERECHO",
+      "codigo": "24201488",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/DIRECCIONALDELANTERODERECHO=24201488.webp",
+      "stock": 1,
+      "precio": 125.0
+    },
+    {
+      "id": 61,
+      "nombre": "BOBINA DERECHA",
+      "codigo": "AA111134",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BOBINADERECHA=AA111134.webp",
+      "stock": 1,
+      "precio": 138.5
+    },
+    {
+      "id": 62,
+      "nombre": "FARO DELANTERO DERECHO",
+      "codigo": "AL201120",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FARODELANTERODERECHO=AL201120.webp",
+      "stock": 1,
+      "precio": 152.0
+    },
+    {
+      "id": 63,
+      "nombre": "FARO DELANTERO IZQUIERDO",
+      "codigo": "AL201119",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FARODELANTEROIZQUIERDO=AL201119.webp",
+      "stock": 2,
+      "precio": 165.5
+    },
+    {
+      "id": 64,
+      "nombre": "FARO DELANTERO IZQUIERDO",
+      "codigo": "AA201525",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "Torito",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FARODELANTEROIZQUIERDO=AA201525.webp",
+      "stock": 1,
+      "precio": 179.0
+    },
+    {
+      "id": 65,
+      "nombre": "Bomba y Flotador Sensor de Gasolina Dominar 400 / Ug / Touring / 250 Bajaj",
+      "codigo": "JF171811",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BombayFlotadorSensordeGasolinaDominar400UgTouring250Bajaj=JF171811.webp",
+      "stock": 1,
+      "precio": 192.5
+    },
+    {
+      "id": 66,
+      "nombre": "Manija De Clutch Con Soporte Discover 125 / Discover 150 Bajaj",
+      "codigo": "JZ161023 ",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ManijaDeClutchConSoporteDiscover125Discover150Bajaj=JZ161023 .webp",
+      "stock": 1,
+      "precio": 206.0
+    },
+    {
+      "id": 67,
+      "nombre": "1 Lt Aceite Bajaj Original Sintética 4t 10w50 Moto / Dominar /",
+      "codigo": "BJO10W501000 ",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/1LtAceiteBajajOriginalSinttica4t10w50MotoDominar=BJO10W501000 .webp",
+      "stock": 1,
+      "precio": 219.5
+    },
+    {
+      "id": 68,
+      "nombre": "Rin Delantero Moto Discover 125 St Bajaj",
+      "codigo": "JZ131028 ",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/RinDelanteroMotoDiscover125StBajaj=JZ131028 .webp",
+      "stock": 1,
+      "precio": 233.0
+    },
+    {
+      "id": 69,
+      "nombre": "Batería Completa 12 V Moto Avenger 220 | Pulsar 220",
+      "codigo": "DJ201241 ",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BateraCompleta12VMotoAvenger220Pulsar220=DJ201241 .webp",
+      "stock": 1,
+      "precio": 246.5
+    },
+    {
+      "id": 70,
+      "nombre": "ESTATOR CT125 BAJAJ P199",
+      "codigo": "PF351101",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/ESTATORCT125BAJAJP199=PF351101.webp",
+      "stock": 1,
+      "precio": 260.0
+    },
+    {
+      "id": 71,
+      "nombre": "BUJIA P15 MOTOS CHINAS ",
+      "codigo": "DP8EA-9 ",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BUJIAP15MOTOSCHINAS=DP8EA-9 .webp",
+      "stock": 1,
+      "precio": 273.5
+    },
+    {
+      "id": 72,
+      "nombre": "PITONES DE LLANTA P10",
+      "codigo": "PITONES",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "General",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PITONESDELLANTAP10=PITONES.webp",
+      "stock": 1,
+      "precio": 47.0
+    },
+    {
+      "id": 73,
+      "nombre": "CANDADO DE DISCO P68",
+      "codigo": "CANDADO",
+      "categoria": "Accesorios y Seguridad",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CANDADODEDISCOP68=CANDADO.webp",
+      "stock": 1,
+      "precio": 60.5
+    },
+    {
+      "id": 74,
+      "nombre": "Bujias P25 Motos Boxer 150 / Platina / Discover 125 / 150 / Pulsar NS 125 / 135 / 150 / Ns 160 ",
+      "codigo": "DD111018",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/BujiasP25MotosBoxer150PlatinaDiscover125150PulsarNS125135150Ns160=DD111018.webp",
+      "stock": 1,
+      "precio": 74.0
+    },
+    {
+      "id": 75,
+      "nombre": "FILTRO DE ACEITE P20 HERO 125RR",
+      "codigo": "15410AAF40099S",
+      "categoria": "Filtros y Lubricantes",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/FILTRODEACEITEP20HERO125RR=15410AAF40099S.webp",
+      "stock": 1,
+      "precio": 87.5
+    },
+    {
+      "id": 76,
+      "nombre": "STATOR ASSY  P199  PULSAR NS 200 ",
+      "codigo": "JG351005",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/STATORASSYP199PULSARNS200=JG351005.webp",
+      "stock": 3,
+      "precio": 101.0
+    },
+    {
+      "id": 77,
+      "nombre": "SENSOR DE NIVEL DE COMBUSTIBLE P89 PULSAR 160 NS TD FI UG2 PULSAR 200 NS TD FI UG2 PULSAR 200 NS FI ",
+      "codigo": "JL402602",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/SENSORDENIVELDECOMBUSTIBLEP89PULSAR160NSTDFIUG2PULSAR200NSTDFIUG2PULSAR200NSFI2023NEWPULSAR200NSFI2023PULSAR150ASPULSAR150NSPULSAR200NSBSIIIPULSAR200ASBSIII=JL402602.webp",
+      "stock": 2,
+      "precio": 114.5
+    },
+    {
+      "id": 78,
+      "nombre": "COMANDO CONTROL DERECHO P90 DISCOVER 125 ST CBS DISCOVER 125 ST BSIV DISCOVER 150 S DISCOVER 125 M D",
+      "codigo": "PA401405",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/COMANDOCONTROLDERECHOP90DISCOVER125STCBSDISCOVER125STBSIVDISCOVER150SDISCOVER125MDISCOVER125STBSIII=PA401405.webp",
+      "stock": 2,
+      "precio": 128.0
+    },
+    {
+      "id": 79,
+      "nombre": "SOPORTE DE FARO DELANTERO PDISCOVER 125 ST CBS DISCOVER 125 ST BSIV DISCOVER 150 S DISCOVER 125 ST B",
+      "codigo": "PA181227",
+      "categoria": "Sistema Eléctrico e Iluminación",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/SOPORTEDEFARODELANTEROPDISCOVER125STCBSDISCOVER125STBSIVDISCOVER150SDISCOVER125STBSIII=PA181227.webp",
+      "stock": 1,
+      "precio": 141.5
+    },
+    {
+      "id": 80,
+      "nombre": "PASTILLAS DE FRENO POSTERIOR PPULSAR 160 N PULSAR 160 NS TD FI UG2 PULSAR 200 NS TD FI UG2 PULSAR N ",
+      "codigo": "36DH4174",
+      "categoria": "Sistema de Frenos",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/PASTILLASDEFRENOPOSTERIORPPULSAR160NPULSAR160NSTDFIUG2PULSAR200NSTDFIUG2PULSARN250PULSAR160NSFITDUGNEWPULSAR200NSFI2023NEWPULSAR160NSFITDUGPULSAR160NSFITDPULSAR150R=36DH4174.webp",
+      "stock": 0,
+      "precio": 155.0
+    },
+    {
+      "id": 81,
+      "nombre": "CABLE DE ACELERADOR  COMPLETO P PULSAR 200 RS BSIV PULSAR 200 RS BSIII PULSAR 200 RS BSIV v2",
+      "codigo": "DT161204",
+      "categoria": "Motor y Mantenimiento",
+      "tipo_moto": "2 Ruedas",
+      "aplicacion_modelos": "Modelos Bajaj compatibles",
+      "img_repuesto": "repuestos/CABLEDEACELERADORCOMPLETOPPULSAR200RSBSIVPULSAR200RSBSIIIPULSAR200RSBSIVv2=DT161204.webp",
+      "stock": 0,
+      "precio": 168.5
+    }
+  ],
+  "motos_segunda": [
+    {
+      "id": 1,
+      "marca": "Honda",
+      "modelo": "CB 250 TWISTER",
+      "tipo": "Sport",
+      "precio": 9800.0,
+      "anio": 2023,
+      "kilometraje": 35000,
+      "estado_conservacion": "Excelente",
+      "detalle": "Moto de uso personal y diario (principalmente ruta casa-trabajo). Motor estándar muy bien cuidado, con todos sus cambios de aceite a tiempo y sin ninguna filtración. Estéticamente tiene los desgastes típicos del uso en ciudad: unos leves raspones en los lados de los espejos y una pequeña marca en el tubo de escape por el roce, pero nada que afecte su excelente funcionamiento ni su línea. Cuenta con protector de tanque instalado. Llantas a media vida, kit de arrastre original todavía operativo y pastillas de freno cambiadas hace poco. Documentación completamente limpia, sin papeletas y lista para firmar en notaría.",
+      "estado_publicacion": "desactivado",
+      "visitas": 2,
+      "imagenes": [
+        "multimedia/segunda_mano/honda_cb_250_twister_1/1.webp",
+        "multimedia/segunda_mano/honda_cb_250_twister_1/2.webp"
+      ]
+    },
+    {
+      "id": 2,
+      "marca": "YAMAHA",
+      "modelo": "FZ 3.0 ABS",
+      "tipo": "NAKED",
+      "precio": 10500.0,
+      "anio": 2023,
+      "kilometraje": 9500,
+      "estado_conservacion": "Bueno",
+      "detalle": "CONTACTO AL 999428101",
+      "estado_publicacion": "activado",
+      "visitas": 12,
+      "imagenes": [
+        "multimedia/segunda_mano/yamaha_fz_3_0_abs_2/1.webp",
+        "multimedia/segunda_mano/yamaha_fz_3_0_abs_2/2.webp"
+      ]
+    }
+  ],
+  "colores_catalogo": [
+    {
+      "id_color": 1,
+      "nombre": "Amarillo",
+      "img_swatch": "multimedia/colores/amarillo.png"
+    },
+    {
+      "id_color": 2,
+      "nombre": "Azul Negro",
+      "img_swatch": "multimedia/colores/azul_negro.png"
+    },
+    {
+      "id_color": 3,
+      "nombre": "Blanco",
+      "img_swatch": "multimedia/colores/blanco.png"
+    },
+    {
+      "id_color": 4,
+      "nombre": "Blanco Rojo",
+      "img_swatch": "multimedia/colores/blanco_rojo.png"
+    },
+    {
+      "id_color": 5,
+      "nombre": "Negro",
+      "img_swatch": "multimedia/colores/negro.png"
+    },
+    {
+      "id_color": 6,
+      "nombre": "Negro Amarillo",
+      "img_swatch": "multimedia/colores/negro_amarillo.png"
+    },
+    {
+      "id_color": 7,
+      "nombre": "Negro Azul",
+      "img_swatch": "multimedia/colores/negro_azul.png"
+    },
+    {
+      "id_color": 8,
+      "nombre": "Negro Gris",
+      "img_swatch": "multimedia/colores/negro_gris.png"
+    },
+    {
+      "id_color": 9,
+      "nombre": "Negro Morado",
+      "img_swatch": "multimedia/colores/negro_morado.png"
+    },
+    {
+      "id_color": 10,
+      "nombre": "Negro Naranja",
+      "img_swatch": "multimedia/colores/negro_naranja.png"
+    },
+    {
+      "id_color": 11,
+      "nombre": "Negro Rojo",
+      "img_swatch": "multimedia/colores/negro_rojo.png"
+    },
+    {
+      "id_color": 12,
+      "nombre": "Rojo",
+      "img_swatch": "multimedia/colores/rojo.png"
+    },
+    {
+      "id_color": 13,
+      "nombre": "Rojo Blanco",
+      "img_swatch": "multimedia/colores/rojo_blanco.png"
+    },
+    {
+      "id_color": 14,
+      "nombre": "Rojo Negro",
+      "img_swatch": "multimedia/colores/rojo_negro.png"
+    },
+    {
+      "id_color": 15,
+      "nombre": "Verde",
+      "img_swatch": "multimedia/colores/verde.png"
+    },
+    {
+      "id_color": 16,
+      "nombre": "Azul",
+      "img_swatch": "multimedia/colores/azul.png"
+    }
+  ]
+}
