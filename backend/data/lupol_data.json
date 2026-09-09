@@ -1,0 +1,4031 @@
+{
+  "tienda": {
+    "nombre": "Lupol Motos",
+    "razon_social": "LUPOL MOTOS S.A.C.",
+    "ruc": "20608912345",
+    "lema": "Motos Pisteras y Eléctricas | Tacna, Perú",
+    "descripcion": "Tu tienda líder en Tacna y el sur del Perú en motos pisteras y motos eléctricas. Repuestos garantizados, taller mecánico certificado y gestión de trámites vehiculares.",
+    "color_primario": "#fad911",
+    "color_fondo": "#0a0a0c",
+    "telefono": "+51 924 141 939",
+    "telefono_fijo": "(052) 425160",
+    "whatsapp": "51924141939",
+    "direccion": "Av. Coronel Mendoza N° 1420 (frente al óvalo), Tacna, Perú",
+    "coordenadas": {
+      "lat": -18.0341794,
+      "lng": -70.252298
+    },
+    "horario": "Lunes a Sábado: 8:30 AM - 7:30 PM | Domingos: 9:00 AM - 1:00 PM",
+    "email": "contacto@lupolmotos.pe",
+    "redes": {
+      "facebook": "https://facebook.com/lupolmotos",
+      "instagram": "https://instagram.com/lupolmotos",
+      "tiktok": "https://tiktok.com/@lupolmotos"
+    },
+    "beneficios": [
+      {
+        "id": "garantia",
+        "icono": "ShieldCheck",
+        "titulo": "Garantía Asegurada",
+        "descripcion": "Garantía en motor y componentes principales con respaldo directo de tienda."
+      },
+      {
+        "id": "mano-obra",
+        "icono": "Wrench",
+        "titulo": "Mano de Obra Gratis",
+        "descripcion": "Taller especializado con servicio técnico sin costo hasta los primeros 5,000 km."
+      },
+      {
+        "id": "casco",
+        "icono": "Gift",
+        "titulo": "Casco Certificado Gratis",
+        "descripcion": "Te entregamos un casco reglamentario certificado DOT/ECE de regalo con tu moto."
+      },
+      {
+        "id": "credito",
+        "icono": "CreditCard",
+        "titulo": "Financiamiento al Instante",
+        "descripcion": "Planes a tu medida con cuotas bajas en soles y evaluación rápida con tu DNI."
+      },
+      {
+        "id": "tive",
+        "icono": "FileText",
+        "titulo": "Gestión TIVe y Placas",
+        "descripcion": "Asesoría y entrega rápida de tu Tarjeta de Identificación Vehicular Electrónica."
+      },
+      {
+        "id": "repuestos",
+        "icono": "PackageCheck",
+        "titulo": "Repuestos de Calidad",
+        "descripcion": "Stock asegurado de repuestos y accesorios para tomos, pisteras y eléctricas."
+      }
+    ]
+  },
+  "motos": [
+    {
+      "id": 1,
+      "marca": "Ronco",
+      "modelo": "RS 200",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7400.0,
+      "ficha_pdf": null,
+      "detalle": "RS 200 de Ronco, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rs-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rs-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rs-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 2,
+      "marca": "Ronco",
+      "modelo": "RZ 250",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "RZ 250 de Ronco, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rz-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rz-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rz-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 3,
+      "marca": "Ronco",
+      "modelo": "RK 250",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "RK 250 de Ronco, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rk-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rk-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rk-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 4,
+      "marca": "Ssenda",
+      "modelo": "X7 200",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7400.0,
+      "ficha_pdf": null,
+      "detalle": "X7 200 de Ssenda, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 10 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "10 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-x7-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-x7-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-x7-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 5,
+      "marca": "Ssenda",
+      "modelo": "X7 300",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 8500.0,
+      "ficha_pdf": null,
+      "detalle": "X7 300 de Ssenda, motor 300cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "300cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-x7-300/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-x7-300/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-x7-300/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 6,
+      "marca": "Nami",
+      "modelo": "Buler R6 250",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "Buler R6 250 de Nami, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "17 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-buler-r6-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-buler-r6-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-buler-r6-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 7,
+      "marca": "Nami",
+      "modelo": "Buler R1 200",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7400.0,
+      "ficha_pdf": null,
+      "detalle": "Buler R1 200 de Nami, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 16 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "16 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-buler-r1-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-buler-r1-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-buler-r1-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 8,
+      "marca": "Nami",
+      "modelo": "Buler R1 250",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "Buler R1 250 de Nami, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-buler-r1-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-buler-r1-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-buler-r1-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 9,
+      "marca": "Nami",
+      "modelo": "Buler R10 400",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 9600.0,
+      "ficha_pdf": null,
+      "detalle": "Buler R10 400 de Nami, motor 400cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 16 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "400cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "16 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-buler-r10-400/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-buler-r10-400/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-buler-r10-400/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 10,
+      "marca": "Nami",
+      "modelo": "Buler R10 300",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 8500.0,
+      "ficha_pdf": null,
+      "detalle": "Buler R10 300 de Nami, motor 300cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 16 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "300cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "16 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-buler-r10-300/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-buler-r10-300/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-buler-r10-300/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 11,
+      "marca": "Polux",
+      "modelo": "Venom Max 250P",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "Venom Max 250P de Polux, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "17 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/polux-venom-max-250p/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/polux-venom-max-250p/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/polux-venom-max-250p/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 12,
+      "marca": "Polux",
+      "modelo": "Iron 250P",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7950.0,
+      "ficha_pdf": null,
+      "detalle": "Iron 250P de Polux, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "17 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/polux-iron-250p/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/polux-iron-250p/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/polux-iron-250p/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 13,
+      "marca": "Wanxin",
+      "modelo": "Tok 125",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 5580.0,
+      "ficha_pdf": null,
+      "detalle": "Tok 125 de Wanxin, motor 125cc 4 tiempos OHV, transmisión Mecánica 4 velocidades, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "125cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Mecánica 4 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/wanxin-tok-125/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/wanxin-tok-125/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/wanxin-tok-125/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 14,
+      "marca": "Ssenda",
+      "modelo": "Viper 150 NKD",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 5850.0,
+      "ficha_pdf": null,
+      "detalle": "Viper 150 NKD de Ssenda, motor 150cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-viper-150-nkd/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-viper-150-nkd/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-viper-150-nkd/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 15,
+      "marca": "Nami",
+      "modelo": "Juk 200",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "Juk 200 de Nami, motor 200cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-juk-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-juk-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-juk-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 16,
+      "marca": "Ssenda",
+      "modelo": "Viper 200 NK5",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "Viper 200 NK5 de Ssenda, motor 200cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-viper-200-nk5/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-viper-200-nk5/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-viper-200-nk5/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 17,
+      "marca": "Nami",
+      "modelo": "CR 200",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "CR 200 de Nami, motor 200cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 11 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "11 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-cr-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-cr-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-cr-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 18,
+      "marca": "Nami",
+      "modelo": "Plus 200",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "Plus 200 de Nami, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-plus-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-plus-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-plus-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 19,
+      "marca": "Ronco",
+      "modelo": "Voltra 250R",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6950.0,
+      "ficha_pdf": null,
+      "detalle": "Voltra 250R de Ronco, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 18 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Doble Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "18 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-voltra-250r/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-voltra-250r/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-voltra-250r/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 20,
+      "marca": "Ronco",
+      "modelo": "Voltra 200X",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6950.0,
+      "ficha_pdf": null,
+      "detalle": "Voltra 200X de Ronco, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-voltra-200x/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-voltra-200x/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-voltra-200x/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 21,
+      "marca": "Ronco",
+      "modelo": "RCO 200",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "RCO 200 de Ronco, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 8 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "8 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rco-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rco-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rco-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 22,
+      "marca": "Ronco",
+      "modelo": "Aggressor 200X",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "Aggressor 200X de Ronco, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-aggressor-200x/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-aggressor-200x/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-aggressor-200x/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 23,
+      "marca": "Ssenda",
+      "modelo": "Finiti 150Z",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 5850.0,
+      "ficha_pdf": null,
+      "detalle": "Finiti 150Z de Ssenda, motor 150cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-finiti-150z/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-finiti-150z/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-finiti-150z/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 24,
+      "marca": "Ronco",
+      "modelo": "Pantera 150R",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 5850.0,
+      "ficha_pdf": null,
+      "detalle": "Pantera 150R de Ronco, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-pantera-150r/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-pantera-150r/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-pantera-150r/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 25,
+      "marca": "Ronco",
+      "modelo": "Pantera 200R",
+      "tipo": "Pisteras",
+      "categoria": "Naked",
+      "precio": 6400.0,
+      "ficha_pdf": null,
+      "detalle": "Pantera 200R de Ronco, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-pantera-200r/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-pantera-200r/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-pantera-200r/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 26,
+      "marca": "Ssenda",
+      "modelo": "Santana 200",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 7000.0,
+      "ficha_pdf": null,
+      "detalle": "Santana 200 de Ssenda, motor 200cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "17 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-santana-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-santana-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-santana-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 27,
+      "marca": "Ssenda",
+      "modelo": "Santana 250",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 7550.0,
+      "ficha_pdf": null,
+      "detalle": "Santana 250 de Ssenda, motor 250cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "17 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-santana-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-santana-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-santana-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 28,
+      "marca": "Polux",
+      "modelo": "Comando 250P",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 7550.0,
+      "ficha_pdf": null,
+      "detalle": "Comando 250P de Polux, motor 250cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/polux-comando-250p/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/polux-comando-250p/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/polux-comando-250p/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 29,
+      "marca": "Ssenda",
+      "modelo": "Patagonia 169",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 6780.0,
+      "ficha_pdf": null,
+      "detalle": "Patagonia 169 de Ssenda, motor 180cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "180cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-patagonia-169/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-patagonia-169/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-patagonia-169/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 30,
+      "marca": "Ssenda",
+      "modelo": "Patagonia 250",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 7550.0,
+      "ficha_pdf": null,
+      "detalle": "Patagonia 250 de Ssenda, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-patagonia-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-patagonia-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-patagonia-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 31,
+      "marca": "Ssenda",
+      "modelo": "Patagonia V8",
+      "tipo": "Pisteras",
+      "categoria": "Chopper / Custom",
+      "precio": 7550.0,
+      "ficha_pdf": null,
+      "detalle": "Patagonia V8 de Ssenda, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-patagonia-v8/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-patagonia-v8/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-patagonia-v8/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 32,
+      "marca": "Ssenda",
+      "modelo": "Chacarera 200",
+      "tipo": "Pisteras",
+      "categoria": "Chacarera",
+      "precio": 6000.0,
+      "ficha_pdf": null,
+      "detalle": "Chacarera 200 de Ssenda, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-chacarera-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-chacarera-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-chacarera-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 33,
+      "marca": "Ronco",
+      "modelo": "Express 200",
+      "tipo": "Pisteras",
+      "categoria": "Chacarera",
+      "precio": 6000.0,
+      "ficha_pdf": null,
+      "detalle": "Express 200 de Ronco, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-express-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-express-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-express-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 34,
+      "marca": "Sumo",
+      "modelo": "XGL 150",
+      "tipo": "Pisteras",
+      "categoria": "Chacarera",
+      "precio": 5450.0,
+      "ficha_pdf": null,
+      "detalle": "XGL 150 de Sumo, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/sumo-xgl-150/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/sumo-xgl-150/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/sumo-xgl-150/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 35,
+      "marca": "Ronco",
+      "modelo": "Classic 150X1",
+      "tipo": "Pisteras",
+      "categoria": "Chacarera",
+      "precio": 5450.0,
+      "ficha_pdf": null,
+      "detalle": "Classic 150X1 de Ronco, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-classic-150x1/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-classic-150x1/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-classic-150x1/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 36,
+      "marca": "Jettor",
+      "modelo": "Work 150",
+      "tipo": "Pisteras",
+      "categoria": "Chacarera",
+      "precio": 5450.0,
+      "ficha_pdf": null,
+      "detalle": "Work 150 de Jettor, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/jettor-work-150/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/jettor-work-150/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/jettor-work-150/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 37,
+      "marca": "Ssenda",
+      "modelo": "Duro 150",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 5550.0,
+      "ficha_pdf": null,
+      "detalle": "Duro 150 de Ssenda, motor 150cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 13 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "13 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-duro-150/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-duro-150/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-duro-150/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 38,
+      "marca": "Ronco",
+      "modelo": "Trueno 150",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 5550.0,
+      "ficha_pdf": null,
+      "detalle": "Trueno 150 de Ronco, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-trueno-150/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-trueno-150/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-trueno-150/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 39,
+      "marca": "Lifan",
+      "modelo": "X-Trial 150",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 5550.0,
+      "ficha_pdf": null,
+      "detalle": "X-Trial 150 de Lifan, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "15 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/lifan-x-trial-150/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lifan-x-trial-150/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lifan-x-trial-150/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 40,
+      "marca": "Shalom",
+      "modelo": "200 NX",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6100.0,
+      "ficha_pdf": null,
+      "detalle": "200 NX de Shalom, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/shalom-200-nx/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/shalom-200-nx/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/shalom-200-nx/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 41,
+      "marca": "Maquimotora",
+      "modelo": "Xparta 200R",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6100.0,
+      "ficha_pdf": null,
+      "detalle": "Xparta 200R de Maquimotora, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/maquimotora-xparta-200r/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/maquimotora-xparta-200r/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/maquimotora-xparta-200r/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 42,
+      "marca": "Lifan",
+      "modelo": "Xtrial 200",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6100.0,
+      "ficha_pdf": null,
+      "detalle": "Xtrial 200 de Lifan, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 10 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "10 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/lifan-xtrial-200/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lifan-xtrial-200/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lifan-xtrial-200/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 43,
+      "marca": "Ronco",
+      "modelo": "X-Tremo 200R",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6100.0,
+      "ficha_pdf": null,
+      "detalle": "X-Tremo 200R de Ronco, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "200cc, 4 tiempos OHV",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-x-tremo-200r/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-x-tremo-200r/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-x-tremo-200r/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 44,
+      "marca": "Ronco",
+      "modelo": "Dominator 250",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6650.0,
+      "ficha_pdf": null,
+      "detalle": "Dominator 250 de Ronco, motor 250cc 4 tiempos OHC, transmisión Mecánica 5 velocidades, tanque de 12 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "12 Lt",
+      "transmision": "Mecánica 5 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-dominator-250/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-dominator-250/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-dominator-250/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 45,
+      "marca": "Ssenda",
+      "modelo": "Duro 250 TK",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 6650.0,
+      "ficha_pdf": null,
+      "detalle": "Duro 250 TK de Ssenda, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "250cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ssenda-duro-250-tk/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ssenda-duro-250-tk/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ssenda-duro-250-tk/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 46,
+      "marca": "Nami",
+      "modelo": "Ken 300",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 7200.0,
+      "ficha_pdf": null,
+      "detalle": "Ken 300 de Nami, motor 300cc 4 tiempos / 4 Válvulas, transmisión Mecánica 6 velocidades, tanque de 14 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "300cc, 4 tiempos / 4 Válvulas",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "14 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/nami-ken-300/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/nami-ken-300/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/nami-ken-300/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 47,
+      "marca": "Ronco",
+      "modelo": "Demolition 300 ADV",
+      "tipo": "Pisteras",
+      "categoria": "Motocross",
+      "precio": 7200.0,
+      "ficha_pdf": null,
+      "detalle": "Demolition 300 ADV de Ronco, motor 300cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 18 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "300cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "18 Lt",
+      "transmision": "Mecánica 6 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-demolition-300-adv/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-demolition-300-adv/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-demolition-300-adv/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 48,
+      "marca": "Ronco",
+      "modelo": "DIDI",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "DIDI de Ronco, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-didi/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-didi/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-didi/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 49,
+      "marca": "Jettor",
+      "modelo": "GP",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 4980.0,
+      "ficha_pdf": null,
+      "detalle": "GP de Jettor, motor 125cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "125cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/jettor-gp/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/jettor-gp/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/jettor-gp/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 50,
+      "marca": "Maquimotora",
+      "modelo": "Bumerang Kyoto",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "Bumerang Kyoto de Maquimotora, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/maquimotora-bumerang-kyoto/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/maquimotora-bumerang-kyoto/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/maquimotora-bumerang-kyoto/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 51,
+      "marca": "Motorox",
+      "modelo": "Evolución",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "Evolución de Motorox, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/motorox-evoluci-n/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/motorox-evoluci-n/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/motorox-evoluci-n/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 52,
+      "marca": "Maquimotora",
+      "modelo": "Cali",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 4980.0,
+      "ficha_pdf": null,
+      "detalle": "Cali de Maquimotora, motor 125cc 4 tiempos OHC, transmisión Automática CVT, tanque de 4 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "125cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "4 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/maquimotora-cali/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/maquimotora-cali/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/maquimotora-cali/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 53,
+      "marca": "Maquimotora",
+      "modelo": "Seulr",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "Seulr de Maquimotora, motor 150cc 4 tiempos CVT, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos CVT",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/maquimotora-seulr/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/maquimotora-seulr/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/maquimotora-seulr/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 54,
+      "marca": "Maquimotora",
+      "modelo": "Detroit",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "Detroit de Maquimotora, motor 150cc 4 tiempos CVT, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos CVT",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/maquimotora-detroit/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/maquimotora-detroit/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/maquimotora-detroit/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 55,
+      "marca": "Lifan",
+      "modelo": "Liberty",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "Liberty de Lifan, motor 150cc 4 tiempos CVT, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos CVT",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/lifan-liberty/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lifan-liberty/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lifan-liberty/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 56,
+      "marca": "Ronco",
+      "modelo": "TR 150K",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "TR 150K de Ronco, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-tr-150k/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-tr-150k/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-tr-150k/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 57,
+      "marca": "Ronco",
+      "modelo": "TR 150W",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "TR 150W de Ronco, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-tr-150w/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-tr-150w/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-tr-150w/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 58,
+      "marca": "Ronco",
+      "modelo": "TR 150ZX",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 5250.0,
+      "ficha_pdf": null,
+      "detalle": "TR 150ZX de Ronco, motor 150cc 4 tiempos OHC, transmisión Automática CVT, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "150cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Automática CVT",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-tr-150zx/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-tr-150zx/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-tr-150zx/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 59,
+      "marca": "Ronco",
+      "modelo": "RC 110B",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 4810.0,
+      "ficha_pdf": null,
+      "detalle": "RC 110B de Ronco, motor 110cc 4 tiempos OHC, transmisión Semiautomática 4 velocidades, tanque de 10 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "110cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "10 Lt",
+      "transmision": "Semiautomática 4 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rc-110b/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rc-110b/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rc-110b/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 60,
+      "marca": "Ronco",
+      "modelo": "RC 110C",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 4810.0,
+      "ficha_pdf": null,
+      "detalle": "RC 110C de Ronco, motor 110cc 4 tiempos OHC, transmisión Semiautomática 4 velocidades, tanque de 10 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "110cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "10 Lt",
+      "transmision": "Semiautomática 4 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rc-110c/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rc-110c/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rc-110c/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 61,
+      "marca": "Ronco",
+      "modelo": "RC 125C",
+      "tipo": "Pisteras",
+      "categoria": "Scooter",
+      "precio": 4980.0,
+      "ficha_pdf": null,
+      "detalle": "RC 125C de Ronco, motor 125cc 4 tiempos OHC, transmisión Semiautomática 4 velocidades, tanque de 6 Lt. Precio referencial sujeto a confirmación de stock.",
+      "motor": "125cc, 4 tiempos OHC",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica delantera",
+      "enfriamiento": "Aire",
+      "neumaticos": "Consultar",
+      "tanque": "6 Lt",
+      "transmision": "Semiautomática 4 velocidades",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "precio_sugerido": true,
+      "imagenes": [
+        "multimedia/ronco-rc-125c/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/ronco-rc-125c/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/ronco-rc-125c/moto.jpg"
+      },
+      "colores": []
+    },
+    {
+      "id": 62,
+      "marca": "Lupol Motos",
+      "modelo": "V10",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 8590.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica V10. Autonomía 90 a 100 km, velocidad máxima 70 km/h. Batería 72V45AH, Plomo Ácido.",
+      "motor": "3000W",
+      "potencia": "3000W",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Monoshok",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "110/70-17 - 110/70-17 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V45AH, Plomo Ácido",
+      "vida_util_bateria": "1000 ciclos (aprox. 3 años)",
+      "velocidad_maxima": "70 km/h",
+      "autonomia": "90 a 100 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "216*113*75 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-v10/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-v10/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-v10/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "marca": "Lupol Motos",
+      "modelo": "Volt 2.0",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 5400.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Volt 2.0. Autonomía 70 a 80 km, velocidad máxima 70 km/h. Batería 72V30AH, Plomo Ácido.",
+      "motor": "2000W",
+      "potencia": "2000W",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Monoshok",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "120/70-12 - 120/70-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V30AH, Plomo Ácido",
+      "vida_util_bateria": "1000 ciclos (aprox. 3 años)",
+      "velocidad_maxima": "70 km/h",
+      "autonomia": "70 a 80 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "182*70*104 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-volt-2-0/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-volt-2-0/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-volt-2-0/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Gris"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "marca": "Lupol Motos",
+      "modelo": "X9",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 5890.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica X9. Autonomía 80 a 90 km, velocidad máxima 70 km/h. Batería 72V35AH, Plomo ácido con grafeno, no extraíble.",
+      "motor": "2000W, Aro 12",
+      "potencia": "2000W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Disco completo inverso / Sistema de freno combinado",
+      "suspension": "Telescópica hidráulica / Doble amortiguador de aire",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "90/90-12 - 90/90-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V35AH, Plomo ácido con grafeno, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "70 km/h",
+      "autonomia": "80 a 90 km",
+      "carga_maxima": "160 kg",
+      "dimensiones": "185*84*131 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-x9/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-x9/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-x9/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "marca": "Lupol Motos",
+      "modelo": "Leopard Pro",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 5890.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Leopard Pro. Autonomía 80 a 90 km, velocidad máxima 70 km/h. Batería 72V35AH, Plomo ácido con grafeno, no extraíble.",
+      "motor": "2000W, Aro 12",
+      "potencia": "2000W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Disco completo inverso / Sistema de freno combinado",
+      "suspension": "Telescópica hidráulica / Doble amortiguador de aire",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "90/90-12 - 90/90-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V35AH, Plomo ácido con grafeno, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "70 km/h",
+      "autonomia": "80 a 90 km",
+      "carga_maxima": "160 kg",
+      "dimensiones": "185*84*131 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-leopard-pro/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-leopard-pro/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-leopard-pro/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "marca": "Lupol Motos",
+      "modelo": "F55 Litio",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 5790.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica F55 Litio. Autonomía Por confirmar, velocidad máxima 50 km/h. Batería LiFePO4 64V30AH, Litio extraíble.",
+      "motor": "1200W, Aro 10",
+      "potencia": "1200W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "Por confirmar",
+      "tanque": "N/A",
+      "bateria": "LiFePO4 64V30AH, Litio extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "50 km/h",
+      "autonomia": "Por confirmar",
+      "carga_maxima": "160 kg",
+      "dimensiones": "Por confirmar",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-f55-litio/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-f55-litio/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-f55-litio/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Morado"
+        },
+        {
+          "nombre": "Plata"
+        },
+        {
+          "nombre": "Verde"
+        },
+        {
+          "nombre": "Gris"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "marca": "Lupol Motos",
+      "modelo": "T7",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 4250.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica T7. Autonomía 80 a 90 km, velocidad máxima 25 km/h. Batería 48V24AH, Litio extraíble.",
+      "motor": "600W",
+      "potencia": "600W",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V24AH, Litio extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "80 a 90 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "172*80*128 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-t7/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-t7/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-t7/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Beige"
+        },
+        {
+          "nombre": "Verde"
+        },
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Plata"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "marca": "Lupol Motos",
+      "modelo": "V10 Lite",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3890.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica V10 Lite. Autonomía 80 a 90 km, velocidad máxima 25 km/h. Batería 48V24AH, Litio extraíble.",
+      "motor": "600W",
+      "potencia": "600W",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.75-10 - 2.75-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V24AH, Litio extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "80 a 90 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "175*85*128 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-v10-lite/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-v10-lite/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-v10-lite/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Azul"
+        },
+        {
+          "nombre": "Gris"
+        },
+        {
+          "nombre": "Verde"
+        },
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "marca": "Lupol Motos",
+      "modelo": "N6 2026",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 4300.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica N6 2026. Autonomía 70 a 80 km, velocidad máxima 65 km/h. Batería 72V23AH, Plomo ácido con grafeno, no extraíble.",
+      "motor": "1200W, Aro 10",
+      "potencia": "1200W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V23AH, Plomo ácido con grafeno, no extraíble",
+      "vida_util_bateria": "600 a 1000 ciclos (1.5 a 4 años)",
+      "velocidad_maxima": "65 km/h",
+      "autonomia": "70 a 80 km",
+      "carga_maxima": "160 kg",
+      "dimensiones": "182*75*126 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-n6-2026/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-n6-2026/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-n6-2026/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Beige"
+        },
+        {
+          "nombre": "Beige/Verde"
+        },
+        {
+          "nombre": "Blanco"
+        },
+        {
+          "nombre": "Gris"
+        },
+        {
+          "nombre": "Beige/Marrón"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "marca": "Lupol Motos",
+      "modelo": "Lion Max",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 4100.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Lion Max. Autonomía 60 a 75 km, velocidad máxima 55 km/h. Batería 72V22AH, Plomo ácido con grafeno, no extraíble.",
+      "motor": "1200W, Aro 10",
+      "potencia": "1200W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Doble amortiguador de 5 niveles",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V22AH, Plomo ácido con grafeno, no extraíble",
+      "vida_util_bateria": "600 a 1000 ciclos (1.5 a 4 años)",
+      "velocidad_maxima": "55 km/h",
+      "autonomia": "60 a 75 km",
+      "carga_maxima": "160 kg",
+      "dimensiones": "174*76*129 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-lion-max/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-lion-max/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-lion-max/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro/Gris"
+        },
+        {
+          "nombre": "Blanco"
+        },
+        {
+          "nombre": "Gris"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "marca": "Lupol Motos",
+      "modelo": "Hick 1.3",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3650.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Hick 1.3. Autonomía 60 a 70 km, velocidad máxima 40 km/h. Batería 70V20AH, Plomo ácido, no extraíble.",
+      "motor": "1200W, Aro 10",
+      "potencia": "1200W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.50-10 - 3.50-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "70V20AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "60 a 70 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "174*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-hick-1-3/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-hick-1-3/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-hick-1-3/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro/Verde"
+        },
+        {
+          "nombre": "Negro/Rojo"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "marca": "Lupol Motos",
+      "modelo": "V7",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3500.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica V7. Autonomía 60 a 70 km, velocidad máxima 40 km/h. Batería 70V20AH, Plomo ácido, no extraíble.",
+      "motor": "1000W, Aro 10",
+      "potencia": "1000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "70V20AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "60 a 70 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "174*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-v7/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-v7/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-v7/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro/Verde"
+        },
+        {
+          "nombre": "Negro/Rojo"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "marca": "Lupol Motos",
+      "modelo": "V16",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 4850.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica V16. Autonomía 80 a 90 km, velocidad máxima 70 km/h. Batería 72V32AH, Plomo ácido, no extraíble.",
+      "motor": "2000W, Aro 10",
+      "potencia": "2000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco CBS",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "120/70-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V32AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 1000 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "70 km/h",
+      "autonomia": "80 a 90 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "174*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-v16/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-v16/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-v16/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro/Verde"
+        },
+        {
+          "nombre": "Negro/Rojo"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "marca": "Lupol Motos",
+      "modelo": "X3",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3990.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica X3. Autonomía 50 a 60 km, velocidad máxima 50 km/h. Batería 72V25AH, Plomo ácido, no extraíble.",
+      "motor": "1500W, Aro 10",
+      "potencia": "1500W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica / Monoshok",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V25AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "50 km/h",
+      "autonomia": "50 a 60 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "178*92*109 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-x3/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-x3/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-x3/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Blanco/Negro"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "marca": "Lupol Motos",
+      "modelo": "Venecia 1.2",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3500.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Venecia 1.2. Autonomía 60 a 70 km, velocidad máxima 50 km/h. Batería 70V20AH, Plomo ácido, no extraíble.",
+      "motor": "1200W, Aro 10",
+      "potencia": "1200W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.50-10 - 3.50-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "70V20AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "50 km/h",
+      "autonomia": "60 a 70 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "174*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-venecia-1-2/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-venecia-1-2/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-venecia-1-2/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro/Amarillo"
+        },
+        {
+          "nombre": "Negro/Rojo"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "marca": "Lupol Motos",
+      "modelo": "X7 Eléctrica",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3800.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica X7 Eléctrica. Autonomía 50 km, velocidad máxima 30 km/h. Batería 72V20AH, Plomo ácido, no extraíble.",
+      "motor": "1000W, Aro 10",
+      "potencia": "1000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-12 - 3.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V20AH, Plomo ácido, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "50 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "178*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-x7-el-ctrica/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-x7-el-ctrica/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-x7-el-ctrica/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "marca": "Lupol Motos",
+      "modelo": "Citycoco",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 3150.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Citycoco. Autonomía 35 km, velocidad máxima 25 km/h. Batería 60V12AH, Litio.",
+      "motor": "1500W, Aro 8",
+      "potencia": "1500W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "225/55-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V12AH, Litio",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "35 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "178*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-citycoco/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-citycoco/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-citycoco/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "marca": "Lupol Motos",
+      "modelo": "Urban Max",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 4800.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Urban Max. Autonomía 50 km, velocidad máxima 35 km/h. Batería 60V20AH, Litio.",
+      "motor": "2000W, Aro 8",
+      "potencia": "2000W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "225/55-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Litio",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "50 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "178*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-urban-max/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-urban-max/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-urban-max/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Verde"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "marca": "Lupol Motos",
+      "modelo": "Xplorer",
+      "tipo": "Eléctricas",
+      "categoria": "Moto Eléctrica",
+      "precio": 5790.0,
+      "ficha_pdf": null,
+      "detalle": "Moto Eléctrica Xplorer. Autonomía 60 km, velocidad máxima 35 km/h. Batería 60V24AH, Litio.",
+      "motor": "3000W, Aro 8",
+      "potencia": "3000W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Hidráulica con resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "225/55-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V24AH, Litio",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "60 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "178*77*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-xplorer/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-xplorer/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-xplorer/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Azul"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "marca": "Lupol Motos",
+      "modelo": "Latte",
+      "tipo": "Eléctricas",
+      "categoria": "Bicimoto Eléctrica",
+      "precio": 2490.0,
+      "ficha_pdf": null,
+      "detalle": "Bicimoto Eléctrica Latte. Autonomía 20 a 30 km, velocidad máxima 25 km/h. Batería 48V12AH, Plomo Ácido.",
+      "motor": "500W, Aro 14",
+      "potencia": "500W, Aro 14",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.5-14 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V12AH, Plomo Ácido",
+      "vida_util_bateria": "700 ciclos (aprox. 2 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "20 a 30 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "148*100*35 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-latte/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-latte/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-latte/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Gris"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "marca": "Lupol Motos",
+      "modelo": "S6 Pro",
+      "tipo": "Eléctricas",
+      "categoria": "Bicimoto Eléctrica",
+      "precio": 2490.0,
+      "ficha_pdf": null,
+      "detalle": "Bicimoto Eléctrica S6 Pro. Autonomía 30 a 40 km, velocidad máxima 25 km/h. Batería 48V12AH, Litio extraíble.",
+      "motor": "350W, Aro 14",
+      "potencia": "350W, Aro 14",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.75-14 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V12AH, Litio extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "138*61*75 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-s6-pro/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-s6-pro/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-s6-pro/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "marca": "Lupol Motos",
+      "modelo": "KTU",
+      "tipo": "Eléctricas",
+      "categoria": "Bicimoto Eléctrica",
+      "precio": 1890.0,
+      "ficha_pdf": null,
+      "detalle": "Bicimoto Eléctrica KTU. Autonomía 30 a 40 km, velocidad máxima 38 km/h. Batería 48V20AH, Litio extraíble.",
+      "motor": "500W, Aro 14",
+      "potencia": "500W, Aro 14",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.75-14 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V20AH, Litio extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "38 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "130 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-ktu/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-ktu/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-ktu/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Salmón"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "marca": "Lupol Motos",
+      "modelo": "BM3",
+      "tipo": "Eléctricas",
+      "categoria": "Bicimoto Eléctrica",
+      "precio": 1600.0,
+      "ficha_pdf": null,
+      "detalle": "Bicimoto Eléctrica BM3. Autonomía 30 a 40 km, velocidad máxima 38 km/h. Batería 48V20AH, Plomo Ácido extraíble.",
+      "motor": "500W, Aro 14",
+      "potencia": "500W, Aro 14",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.75-14 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V20AH, Plomo Ácido extraíble",
+      "vida_util_bateria": "1000 ciclos (aprox. 2.5 años)",
+      "velocidad_maxima": "38 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "130 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-bm3/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-bm3/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-bm3/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Celeste"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "marca": "Lupol Motos",
+      "modelo": "Maya",
+      "tipo": "Eléctricas",
+      "categoria": "Bicimoto Eléctrica",
+      "precio": 1890.0,
+      "ficha_pdf": null,
+      "detalle": "Bicimoto Eléctrica Maya. Autonomía 30 a 40 km, velocidad máxima 38 km/h. Batería 48V20AH, Litio no extraíble.",
+      "motor": "500W, Aro 14",
+      "potencia": "500W, Aro 14",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "2.75-14 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V20AH, Litio no extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "38 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "130 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-maya/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-maya/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-maya/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Verde"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "marca": "Lupol Motos",
+      "modelo": "Onix",
+      "tipo": "Eléctricas",
+      "categoria": "Monopatín Eléctrico",
+      "precio": 1400.0,
+      "ficha_pdf": null,
+      "detalle": "Monopatín Eléctrico Onix. Autonomía 28 km, velocidad máxima 25 km/h. Batería 36V6.6AH, Litio no extraíble.",
+      "motor": "350W, Aro 9.1",
+      "potencia": "350W, Aro 9.1",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "-",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "9.1 / 9.1 sin cámara",
+      "tanque": "N/A",
+      "bateria": "36V6.6AH, Litio no extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "25 km/h",
+      "autonomia": "28 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "107*43*111 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-onix/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-onix/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-onix/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "marca": "Lupol Motos",
+      "modelo": "Onix Pro",
+      "tipo": "Eléctricas",
+      "categoria": "Monopatín Eléctrico",
+      "precio": 1890.0,
+      "ficha_pdf": null,
+      "detalle": "Monopatín Eléctrico Onix Pro. Autonomía 45 km, velocidad máxima 30 km/h. Batería 48V10AH, Litio no extraíble.",
+      "motor": "500W, Aro 10",
+      "potencia": "500W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Disco",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "10 / 10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V10AH, Litio no extraíble",
+      "vida_util_bateria": "2000 ciclos (aprox. 5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "45 km",
+      "carga_maxima": "120 kg",
+      "dimensiones": "115*61*128 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-onix-pro/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-onix-pro/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-onix-pro/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "marca": "Lupol Motos",
+      "modelo": "TC2-18A",
+      "tipo": "Eléctricas",
+      "categoria": "Carguero Eléctrico",
+      "precio": 7900.0,
+      "ficha_pdf": null,
+      "detalle": "Carguero Eléctrico TC2-18A. Autonomía 45 a 55 km, velocidad máxima 30 km/h. Batería 60V45AH, Plomo Ácido no extraíble.",
+      "motor": "1800W, Aro 12",
+      "potencia": "1800W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "4.00-12 - 4.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V45AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "700 a 950 ciclos (aprox. 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "45 a 55 km",
+      "carga_maxima": "500 kg",
+      "dimensiones": "297*175*110 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-tc2-18a/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-tc2-18a/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-tc2-18a/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "marca": "Lupol Motos",
+      "modelo": "E-Cargo 2",
+      "tipo": "Eléctricas",
+      "categoria": "Carguero Eléctrico",
+      "precio": 6890.0,
+      "ficha_pdf": null,
+      "detalle": "Carguero Eléctrico E-Cargo 2. Autonomía 55 a 60 km, velocidad máxima 30 km/h. Batería 60V45AH, Plomo Ácido no extraíble.",
+      "motor": "1200W, Aro 12",
+      "potencia": "1200W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "4.00-12 - 4.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V45AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "700 a 950 ciclos (aprox. 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "55 a 60 km",
+      "carga_maxima": "500 kg",
+      "dimensiones": "297*175*110 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-e-cargo-2/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-e-cargo-2/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-e-cargo-2/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "marca": "Lupol Motos",
+      "modelo": "Trak 1.2",
+      "tipo": "Eléctricas",
+      "categoria": "Carguero Eléctrico",
+      "precio": 6500.0,
+      "ficha_pdf": null,
+      "detalle": "Carguero Eléctrico Trak 1.2. Autonomía 55 a 60 km, velocidad máxima 30 km/h. Batería 60V58AH, Plomo Ácido no extraíble.",
+      "motor": "1200W, Aro 12",
+      "potencia": "1200W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.75-12 / 4.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V58AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "700 a 950 ciclos (aprox. 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "55 a 60 km",
+      "carga_maxima": "380 kg",
+      "dimensiones": "315*118*137 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-trak-1-2/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-trak-1-2/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-trak-1-2/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Azul"
+        },
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "marca": "Lupol Motos",
+      "modelo": "Movil 1.5",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 7490.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Movil 1.5. Autonomía 60 km, velocidad máxima 30 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1500W, Aro 10",
+      "potencia": "1500W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "700 a 950 ciclos (aprox. 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "60 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "220*100*107 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-movil-1-5/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-movil-1-5/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-movil-1-5/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo/Blanco"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "marca": "Lupol Motos",
+      "modelo": "Z-12",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4800.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Z-12. Autonomía 40 a 50 km, velocidad máxima 35 km/h. Batería 72V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 10",
+      "potencia": "1000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Muelles",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-12 - 3.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "72V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "40 a 50 km",
+      "carga_maxima": "280 kg",
+      "dimensiones": "224*98*120 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-z-12/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-z-12/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-z-12/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "marca": "Lupol Motos",
+      "modelo": "TM7",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4490.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica TM7. Autonomía 30 a 40 km, velocidad máxima 35 km/h. Batería 60V25AH, Plomo Ácido no extraíble.",
+      "motor": "800W, Aro 10",
+      "potencia": "800W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Amortiguadores",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V25AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "224*98*120 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-tm7/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-tm7/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-tm7/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "marca": "Lupol Motos",
+      "modelo": "Mantis",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4800.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Mantis. Autonomía 30 a 40 km, velocidad máxima 35 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 12",
+      "potencia": "1000W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Muelles",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-12 - 3.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "350 kg",
+      "dimensiones": "224*98*120 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-mantis/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-mantis/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-mantis/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Turquesa"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "marca": "Lupol Motos",
+      "modelo": "Titanio",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 5350.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Titanio. Autonomía 30 a 40 km, velocidad máxima 35 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 12",
+      "potencia": "1000W, Aro 12",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Muelles",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-12 - 3.00-12 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "35 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "350 kg",
+      "dimensiones": "224*98*120 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-titanio/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-titanio/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-titanio/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "marca": "Lupol Motos",
+      "modelo": "Flex 10.0",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4590.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Flex 10.0. Autonomía 30 a 40 km, velocidad máxima 30 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 10",
+      "potencia": "1000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "220*100*107 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-flex-10-0/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-flex-10-0/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-flex-10-0/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "marca": "Lupol Motos",
+      "modelo": "Flex 8.0",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4500.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Flex 8.0. Autonomía 30 a 40 km, velocidad máxima 30 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "800W, Aro 10",
+      "potencia": "800W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "220*100*107 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-flex-8-0/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-flex-8-0/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-flex-8-0/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "marca": "Lupol Motos",
+      "modelo": "Snake",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3750.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Snake. Autonomía 30 a 40 km, velocidad máxima 30 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "650W, Aro 10",
+      "potencia": "650W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-snake/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-snake/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-snake/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        },
+        {
+          "nombre": "Blanco"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "marca": "Lupol Motos",
+      "modelo": "T5",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3500.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica T5. Autonomía 40 a 50 km, velocidad máxima 40 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 8",
+      "potencia": "1000W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-8 - 3.00-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "40 a 50 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-t5/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-t5/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-t5/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "marca": "Lupol Motos",
+      "modelo": "N3",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 4700.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica N3. Autonomía 65 a 75 km, velocidad máxima 40 km/h. Batería 60V23AH, Plomo ácido con grafeno, no extraíble.",
+      "motor": "500W, Aro 8",
+      "potencia": "500W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador de resorte",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-8 - 3.00-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V23AH, Plomo ácido con grafeno, no extraíble",
+      "vida_util_bateria": "600 a 700 ciclos (1.5 a 2 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "65 a 75 km",
+      "carga_maxima": "150 kg",
+      "dimensiones": "170*79*160 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-n3/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-n3/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-n3/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Verde"
+        },
+        {
+          "nombre": "Celeste"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "marca": "Lupol Motos",
+      "modelo": "H90",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3250.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica H90. Autonomía 40 a 50 km, velocidad máxima 40 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 8",
+      "potencia": "1000W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-8 - 3.00-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "40 a 50 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-h90/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-h90/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-h90/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "marca": "Lupol Motos",
+      "modelo": "New",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3490.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica New. Autonomía 30 a 40 km, velocidad máxima 30 km/h. Batería 48V20AH, Plomo Ácido no extraíble.",
+      "motor": "500W, Aro 8",
+      "potencia": "500W, Aro 8",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-8 - 3.00-8 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-new/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-new/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-new/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "marca": "Lupol Motos",
+      "modelo": "Flex 5.0",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3500.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Flex 5.0. Autonomía 30 a 40 km, velocidad máxima 30 km/h. Batería 48V20AH, Plomo Ácido no extraíble.",
+      "motor": "500W, Aro 10",
+      "potencia": "500W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "48V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "30 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-flex-5-0/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-flex-5-0/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-flex-5-0/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "marca": "Lupol Motos",
+      "modelo": "Mijo",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 2800.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica Mijo. Autonomía 30 a 40 km, velocidad máxima 40 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1000W, Aro 10",
+      "potencia": "1000W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Tambor/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "30 a 40 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-mijo/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-mijo/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-mijo/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "marca": "Lupol Motos",
+      "modelo": "CMiranda",
+      "tipo": "Eléctricas",
+      "categoria": "Trimoto Eléctrica",
+      "precio": 3950.0,
+      "ficha_pdf": null,
+      "detalle": "Trimoto Eléctrica CMiranda. Autonomía 40 a 60 km, velocidad máxima 40 km/h. Batería 60V20AH, Plomo Ácido no extraíble.",
+      "motor": "1500W, Aro 10",
+      "potencia": "1500W, Aro 10",
+      "torque": "Consultar",
+      "frenos": "Disco/Tambor",
+      "suspension": "Telescópica hidráulica / Doble amortiguador",
+      "enfriamiento": "N/A (eléctrico)",
+      "neumaticos": "3.00-10 - 3.00-10 sin cámara",
+      "tanque": "N/A",
+      "bateria": "60V20AH, Plomo Ácido no extraíble",
+      "vida_util_bateria": "600 a 900 ciclos (1.5 a 2.5 años)",
+      "velocidad_maxima": "40 km/h",
+      "autonomia": "40 a 60 km",
+      "carga_maxima": "180 kg",
+      "dimensiones": "202*82*127 cm",
+      "stock_total": 3,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "multimedia/lupol-cmiranda/moto.jpg"
+      ],
+      "imagen_principal": "multimedia/lupol-cmiranda/moto.jpg",
+      "vistas_360": {
+        "principal": "multimedia/lupol-cmiranda/moto.jpg"
+      },
+      "colores": [
+        {
+          "nombre": "Negro"
+        },
+        {
+          "nombre": "Rojo"
+        }
+      ]
+    }
+  ],
+  "repuestos": [],
+  "motos_segunda": [],
+  "colores_catalogo": [
+    {
+      "id_color": 1,
+      "nombre": "Amarillo",
+      "img_swatch": "multimedia/colores/amarillo.png"
+    },
+    {
+      "id_color": 2,
+      "nombre": "Azul Negro",
+      "img_swatch": "multimedia/colores/azul_negro.png"
+    },
+    {
+      "id_color": 3,
+      "nombre": "Blanco",
+      "img_swatch": "multimedia/colores/blanco.png"
+    },
+    {
+      "id_color": 4,
+      "nombre": "Blanco Rojo",
+      "img_swatch": "multimedia/colores/blanco_rojo.png"
+    },
+    {
+      "id_color": 5,
+      "nombre": "Negro",
+      "img_swatch": "multimedia/colores/negro.png"
+    },
+    {
+      "id_color": 6,
+      "nombre": "Negro Amarillo",
+      "img_swatch": "multimedia/colores/negro_amarillo.png"
+    },
+    {
+      "id_color": 7,
+      "nombre": "Negro Azul",
+      "img_swatch": "multimedia/colores/negro_azul.png"
+    },
+    {
+      "id_color": 8,
+      "nombre": "Negro Gris",
+      "img_swatch": "multimedia/colores/negro_gris.png"
+    },
+    {
+      "id_color": 9,
+      "nombre": "Negro Morado",
+      "img_swatch": "multimedia/colores/negro_morado.png"
+    },
+    {
+      "id_color": 10,
+      "nombre": "Negro Naranja",
+      "img_swatch": "multimedia/colores/negro_naranja.png"
+    },
+    {
+      "id_color": 11,
+      "nombre": "Negro Rojo",
+      "img_swatch": "multimedia/colores/negro_rojo.png"
+    },
+    {
+      "id_color": 12,
+      "nombre": "Rojo",
+      "img_swatch": "multimedia/colores/rojo.png"
+    },
+    {
+      "id_color": 13,
+      "nombre": "Rojo Blanco",
+      "img_swatch": "multimedia/colores/rojo_blanco.png"
+    },
+    {
+      "id_color": 14,
+      "nombre": "Rojo Negro",
+      "img_swatch": "multimedia/colores/rojo_negro.png"
+    },
+    {
+      "id_color": 15,
+      "nombre": "Verde",
+      "img_swatch": "multimedia/colores/verde.png"
+    },
+    {
+      "id_color": 16,
+      "nombre": "Azul",
+      "img_swatch": "multimedia/colores/azul.png"
+    }
+  ]
+}
