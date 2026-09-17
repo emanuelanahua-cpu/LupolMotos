@@ -32,7 +32,7 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
         tag: 'LO MÁS POTENTE'
       },
       ctaTexto: 'Ver Catálogo de Motos Pisteras',
-      accion: () => navegarA('catalogo')
+      accion: () => navegarA('catalogo', 'Pisteras')
     },
     {
       id: 'Motos Eléctricas',
@@ -49,7 +49,7 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
         tag: '100% ELÉCTRICAS'
       },
       ctaTexto: 'Ver Motos Eléctricas',
-      accion: () => navegarA('catalogo')
+      accion: () => navegarA('catalogo', 'Eléctricas')
     },
     {
       id: 'repuestos',

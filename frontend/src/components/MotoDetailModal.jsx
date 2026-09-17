@@ -88,7 +88,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   const urlWADirecto = `https://wa.me/51924141939?text=${encodeURIComponent(msgDirecto)}`;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-[200] overflow-y-auto flex items-center justify-center p-4 sm:p-6">
       <div 
         className="fixed inset-0 bg-black/85 backdrop-blur-sm transition-opacity" 
         onClick={alCerrar} 

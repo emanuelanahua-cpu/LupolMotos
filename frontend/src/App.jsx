@@ -21,6 +21,7 @@ export default function App() {
   const [modalMotoId, setModalMotoId] = useState(null);
   const [motoParaCotizador, setMotoParaCotizador] = useState(null);
   const [mostrarBotonArriba, setMostrarBotonArriba] = useState(false);
+  const [categoriaCatalogo, setCategoriaCatalogo] = useState('Todas');
 
   // Carga inicial de datos desde API (con fallback local transparente)
   useEffect(() => {
@@ -51,8 +52,11 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navegar a una sección suavemente
-  const navegarA = (idSeccion) => {
+  // Navegar a una sección suavemente, opcionalmente preseleccionando categoría en el catálogo
+  const navegarA = (idSeccion, categoria) => {
+    if (idSeccion === 'catalogo' && categoria) {
+      setCategoriaCatalogo(categoria);
+    }
     const elemento = document.getElementById(idSeccion);
     if (elemento) {
       elemento.scrollIntoView({ behavior: 'smooth' });
@@ -99,6 +103,7 @@ export default function App() {
           motos={motos} 
           abrirModalMoto={abrirModalMoto} 
           abrirCotizadorConMoto={abrirCotizadorConMoto} 
+          categoriaInicial={categoriaCatalogo}
         />  
 
         {/* 7. Simulador de Cotización y Crédito */}

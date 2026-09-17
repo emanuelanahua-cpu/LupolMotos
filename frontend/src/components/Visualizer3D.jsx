@@ -204,8 +204,8 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
                       title={col.nombre}
                     >
                       <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-zinc-950">
-                        {col.img_swatch ? (
-                          <img src={col.img_swatch} alt={col.nombre} className="w-full h-full object-cover" />
+                        {col.img_moto ? (
+                          <img src={col.img_moto} alt={col.nombre} className="w-full h-full object-cover" />
                         ) : (
                           <span className="text-[10px] font-bold text-zinc-400">{col.nombre.slice(0, 2)}</span>
                         )}

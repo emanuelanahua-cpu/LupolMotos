@@ -2104,21 +2104,24 @@
       "visitas": 0,
       "destacado": false,
       "imagenes": [
-        "multimedia/lupol-v10/moto.jpg"
+        "multimedia/lupol-v10/v10-negro.webp",
+        "multimedia/lupol-v10/v10-rojo.webp"
       ],
-      "imagen_principal": "multimedia/lupol-v10/moto.jpg",
+      "imagen_principal": "multimedia/lupol-v10/v10-negro.webp",
       "vistas_360": {
-        "principal": "multimedia/lupol-v10/moto.jpg"
+        "principal": "multimedia/lupol-v10/v10-negro.webp"
       },
       "colores": [
         {
-          "nombre": "Rojo"
+          "nombre": "Rojo",
+          "img_moto": "multimedia/lupol-v10/v10-rojo.webp"
         },
         {
-          "nombre": "Negro"
+          "nombre": "Negro",
+          "img_moto": "multimedia/lupol-v10/v10-negro.webp"
         }
       ]
-    },
+    },  
     {
       "id": 63,
       "marca": "Lupol Motos",
@@ -2148,15 +2151,16 @@
       "visitas": 0,
       "destacado": false,
       "imagenes": [
-        "multimedia/lupol-volt-2-0/moto.jpg"
+        "multimedia/lupol-volt-2-0/volt-2.0.webp"
       ],
-      "imagen_principal": "multimedia/lupol-volt-2-0/moto.jpg",
+      "imagen_principal": "multimedia/lupol-volt-2-0/volt-2.0.webp",
       "vistas_360": {
-        "principal": "multimedia/lupol-volt-2-0/moto.jpg"
+        "principal": "multimedia/lupol-volt-2-0/volt-2.0.webp"
       },
       "colores": [
         {
-          "nombre": "Gris"
+          "nombre": "Gris",
+          "img_moto": "multimedia/lupol-volt-2-0/volt-2.0.webp"
         }
       ]
     },
@@ -2421,27 +2425,36 @@
       "visitas": 0,
       "destacado": false,
       "imagenes": [
-        "multimedia/lupol-n6-2026/moto.jpg"
+        "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige-Marron.webp",
+        "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige-Verde.webp",
+        "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige.webp",
+        "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Blanco.webp",
+        "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Gris.webp"
       ],
-      "imagen_principal": "multimedia/lupol-n6-2026/moto.jpg",
+      "imagen_principal": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige.webp",
       "vistas_360": {
-        "principal": "multimedia/lupol-n6-2026/moto.jpg"
+          "principal": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige.webp"
       },
       "colores": [
         {
-          "nombre": "Beige"
+          "nombre": "Beige/Marrón",
+          "img_moto": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige-Marron.webp"
         },
         {
-          "nombre": "Beige/Verde"
+          "nombre": "Beige/Verde",
+          "img_moto": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige-Verde.webp"
         },
         {
-          "nombre": "Blanco"
+          "nombre": "Beige",
+          "img_moto": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Beige.webp"
         },
         {
-          "nombre": "Gris"
+          "nombre": "Blanco",
+          "img_moto": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Blanco.webp"
         },
         {
-          "nombre": "Beige/Marrón"
+          "nombre": "Gris",
+          "img_moto": "multimedia/lupol-n6-2026/TAILG-N6-Super-S-Gris.webp"
         }
       ]
     },
