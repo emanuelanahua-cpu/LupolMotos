@@ -6,6 +6,8 @@ import MotoDetailModal from './components/MotoDetailModal';
 import CotizadorSimulador from './components/CotizadorSimulador';
 import BenefitsSection from './components/BenefitsSection';
 import StoreInfoSection from './components/StoreInfoSection';
+import TIVeSection from './components/TIVeSection';
+import SolicitudTarjeta from './components/SolicitudTarjeta';
 import Footer from './components/Footer';
 
 import { 
@@ -115,7 +117,13 @@ export default function App() {
         {/* 9. Beneficios Exclusivos */}
         <BenefitsSection />
 
-        {/* 10. Ubicación, Horarios y Contacto */}
+        {/* 10. Trámites TIVe */}
+        <TIVeSection />
+
+        {/* 11. Solicitud de Tarjeta */}
+        <SolicitudTarjeta />
+
+        {/* 12. Ubicación, Horarios y Contacto */}
         <StoreInfoSection />
 
       </main>
@@ -145,7 +153,7 @@ export default function App() {
         )}
 
         <a
-          href="https://wa.me/51924141939?text=Hola%20Lupol%20Motos,%20deseo%20atención%20inmediata%20en%20Tacna"
+          href="https://wa.me/51980687475?text=Hola%20Lupol%20Motos,%20deseo%20atención%20inmediata%20en%20Tacna"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center space-x-2.5 px-4 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-2xl shadow-emerald-950/80 hover:scale-105 transition-all"

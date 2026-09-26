@@ -36,7 +36,7 @@ export default function StoreInfoSection() {
 
   return (
     <section id="contacto" className="py-16 sm:py-24 bg-[#0d0e12] border-b border-zinc-800 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -99,7 +99,7 @@ export default function StoreInfoSection() {
                 </div>
                 <h4 className="font-bold text-white text-sm">Teléfonos de Contacto</h4>
                 <p className="text-xs text-zinc-400">
-                  Ventas / WhatsApp: <strong className="text-white">+51 924 141 939</strong>
+                  Ventas / WhatsApp: <strong className="text-white">+51 980 687 475</strong>
                 </p>
                 <p className="text-xs text-zinc-400">
                   Fijo Tienda: <strong className="text-white">(052) 425160</strong>
@@ -125,7 +125,7 @@ export default function StoreInfoSection() {
             <div className="rounded-2xl overflow-hidden border border-zinc-800 h-64 sm:h-72 w-full relative shadow-xl">
               <iframe
                 title="Ubicación Lupol Motos Tacna"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d204.69512858615718!2d-70.25229800378915!3d-18.03417941370267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1778167888645!5m2!1ses-419!2spe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.746768347007!2d-70.2542596240695!3d-18.036952082163975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915acfe771aa3975%3A0xfeccb5c6331cc002!2sLUPOL%20MOTOS!5e0!3m2!1ses!2spe!4v1789855390349!5m2!1ses!2spe"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -184,7 +184,7 @@ export default function StoreInfoSection() {
 
                 <div>
                   <label htmlFor="contacto-asunto" className="block text-xs font-bold text-zinc-300 mb-1">
-                    Tipo de Consulta o Trámite:
+                    Tipo de Consulta o  Trámite:
                   </label>
                   <select
                     id="contacto-asunto"

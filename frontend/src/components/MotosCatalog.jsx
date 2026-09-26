@@ -233,7 +233,7 @@ function ModalCatalogoCompleto({ titulo, motos, motoVolteada, setMotoVolteada, a
   return (
     <div className="fixed inset-0 z-[100] bg-[#0a0a0c] overflow-y-auto animate-fade-in-scale">
       <div className="sticky top-0 z-10 bg-[#0a0a0c]/95 backdrop-blur border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <p className="text-[10px] text-[#fad911] font-bold uppercase tracking-wider">Catálogo completo</p>
             <h2 className="text-xl sm:text-2xl font-black text-white">
@@ -263,7 +263,7 @@ function ModalCatalogoCompleto({ titulo, motos, motoVolteada, setMotoVolteada, a
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
         {motosFiltradasModal.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {motosFiltradasModal.map((moto) => (
@@ -363,7 +363,7 @@ export default function MotosCatalog({ motos = [], abrirModalMoto, abrirCotizado
   return (
     <>
     <section id="catalogo" className="py-16 sm:py-24 bg-[#0a0a0c] border-b border-zinc-800 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         
         {/* Encabezado de Catálogo */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-zinc-800/80 gap-4">

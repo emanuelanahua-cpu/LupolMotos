@@ -131,7 +131,7 @@ export async function enviarCotizacion(datosCotizacion) {
     if (!respuesta.ok) throw new Error('Error al enviar cotización');
     return await respuesta.json();
   } catch (error) {
-    const tel = datosLocales.tienda.whatsapp || '51924141939';
+    const tel = datosLocales.tienda.whatsapp || '51980687475';
     let msg = `Hola Lupol Motos, deseo cotizar la *${datosCotizacion.modelo_moto}* (${datosCotizacion.modalidad}). Mi nombre es ${datosCotizacion.nombre_cliente}, DNI: ${datosCotizacion.dni_cliente || 'N/A'}.`;
     return {
       exito: true,
@@ -154,7 +154,7 @@ export async function enviarReserva(datosReserva) {
     if (!respuesta.ok) throw new Error('Error al registrar reserva');
     return await respuesta.json();
   } catch (error) {
-    const tel = datosLocales.tienda.whatsapp || '51924141939';
+    const tel = datosLocales.tienda.whatsapp || '51980687475';
     let msg = `🚨 *RESERVA DE MOTO - LUPOL MOTOS*\nModelo: *${datosReserva.modelo_moto}*\nCliente: ${datosReserva.nombre_cliente} (DNI: ${datosReserva.dni_cliente})\nTel: ${datosReserva.telefono_cliente}\nSeparación: S/. ${datosReserva.monto_separacion}`;
     return {
       exito: true,

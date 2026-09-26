@@ -85,7 +85,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   };
 
   const msgDirecto = `Hola Lupol Motos, quiero cotizar la *${moto.modelo}* (${colorActual?.nombre || 'Color estándar'}) en modalidad *${modalidad}*.`;
-  const urlWADirecto = `https://wa.me/51924141939?text=${encodeURIComponent(msgDirecto)}`;
+  const urlWADirecto = `https://wa.me/51980687475?text=${encodeURIComponent(msgDirecto)}`;
 
   return (
     <div className="fixed inset-0 z-[200] overflow-y-auto flex items-center justify-center p-4 sm:p-6">

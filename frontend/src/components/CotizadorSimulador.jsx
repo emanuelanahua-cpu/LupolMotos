@@ -88,7 +88,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
 
   return (
     <section id="cotizador" className="py-16 sm:py-24 bg-[#0a0a0c] border-b border-zinc-800 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -372,7 +372,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
                 <button
                   type="submit"
                   disabled={enviando}
-                  className="w-full py-4 rounded-xl bg-[#fad911] hover:bg-[#fce23e] text-black font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-lg shadow-[#fad911]/25 hover:scale-[1.01]"
+                  className="w-full py-4 rounded-xl bg-[#fad911]q hover:bg-[#fce23e] text-black font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-lg shadow-[#fad911]/25 hover:scale-[1.01]"
                 >
                   {enviando ? (
                     <span>Generando propuesta personalizada...</span>

@@ -45,7 +45,7 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
 
   // Generar enlace WhatsApp con el color seleccionado
   const mensajeWA = `Hola Lupol Motos, estuve configurando en el Estudio 360 la *${motoActiva.modelo}* en color *${colorActual?.nombre || 'Predeterminado'}*. ¿Tienen stock en la tienda de Tacna?`;
-  const urlWhatsApp = `https://wa.me/51924141939?text=${encodeURIComponent(mensajeWA)}`;
+  const urlWhatsApp = `https://wa.me/51980687475?text=${encodeURIComponent(mensajeWA)}`;
 
   return (
     <section id="estudio360" className="py-16 sm:py-20 bg-[#0d0e12] border-b border-zinc-800 relative">
@@ -53,7 +53,7 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#fad911]/5 blur-[150px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         
         {/* Header de Sección */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">

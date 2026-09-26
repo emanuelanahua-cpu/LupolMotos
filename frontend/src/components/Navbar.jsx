@@ -56,7 +56,7 @@ export default function Navbar({
     <>
       {/* Top Banner de Atención y Beneficio */}
       <div className="bg-[#101116] border-b border-zinc-800/80 text-xs py-1.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-zinc-400">
+        <div className="max-w-[1600px] mx-auto flex justify-between items-center text-zinc-400">
           <div className="flex items-center space-x-6">
             <span className="flex items-center text-zinc-300 font-medium">
               <span className="w-2 h-2 rounded-full bg-[#fad911] inline-block mr-2 animate-pulse"></span>
@@ -96,7 +96,7 @@ export default function Navbar({
             : 'bg-[#0a0a0c] py-4 border-b border-zinc-800/50'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between">
           
           {/* Logo Lupol Motos */}
           <button 
@@ -165,7 +165,7 @@ export default function Navbar({
 
             {/* Enlace WhatsApp Directo */}
             <a
-              href="https://wa.me/51924141939?text=Hola%20Lupol%20Motos,%20deseo%20información%20sobre%20sus%20motos%20y%20repuestos"
+              href="https://wa.me/51980687475?text=Hola%20Lupol%20Motos,%20deseo%20información%20sobre%20sus%20motos%20y%20repuestos"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-sm hover:scale-105"
@@ -246,7 +246,7 @@ export default function Navbar({
               </button>
 
               <a
-                href="https://wa.me/51924141939?text=Hola%20Lupol%20Motos,%20deseo%20atención%20inmediata"
+                href="https://wa.me/51980687475?text=Hola%20Lupol%20Motos,%20deseo%20atención%20inmediata"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2"

@@ -54,9 +54,9 @@ export default function CartDrawer({
 *Total Estimado:* S/. ${totalEstimado.toFixed(2)}
 `;
     texto += `
-¿Tienen estos repuestos listos para recoger en su local de Av. Coronel Mendoza o entrega en Tacna?`;
+¿Tienen estos repuestos listos para recoger en su local de Av. Municipal o entrega en Tacna?`;
 
-    const urlWA = `https://wa.me/51924141939?text=${encodeURIComponent(texto)}`;
+    const urlWA = `https://wa.me/51980687475?text=${encodeURIComponent(texto)}`;
     window.open(urlWA, '_blank');
   };
 

@@ -82,7 +82,7 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
         <div className="absolute inset-0 bg-[radial-gradient(#222530_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-16 lg:pt-12 lg:pb-24">
+      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-16 lg:pt-12 lg:pb-24">
         
         {/* Selector de Categorías en Tabs Superiores */}
         <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-4 mb-8 sm:mb-12 no-scrollbar space-x-2 sm:space-x-3">
