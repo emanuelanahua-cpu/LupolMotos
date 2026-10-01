@@ -9,6 +9,8 @@ import StoreInfoSection from './components/StoreInfoSection';
 import TIVeSection from './components/TIVeSection';
 import SolicitudTarjeta from './components/SolicitudTarjeta';
 import Footer from './components/Footer';
+import AdminPanel from './components/AdminPanel';
+import Navbar from './components/Navbar';
 
 import { 
   obtenerInformacionTienda, 
@@ -18,6 +20,23 @@ import { MessageSquare, ArrowUp } from 'lucide-react';
 
 export default function App() {
   const [motos, setMotos] = useState([]);
+
+  // Login y panel del personal: rutas /login y /admin (botón "Iniciar sesión" del encabezado)
+  const esRutaPanel = () => /^\/(admin|login)/.test(window.location.pathname);
+  const [modoAdmin, setModoAdmin] = useState(esRutaPanel);
+  const [usuarioSesion, setUsuarioSesion] = useState(null);
+  useEffect(() => {
+    const alCambiar = () => setModoAdmin(esRutaPanel());
+    window.addEventListener('popstate', alCambiar);
+    // Si ya hay una sesión abierta, el botón pasa a decir "Mi panel"
+    fetch('/api/admin/yo', { credentials: 'same-origin' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((u) => setUsuarioSesion(u ? u.usuario : null))
+      .catch(() => {});
+    return () => window.removeEventListener('popstate', alCambiar);
+  }, []);
+  const abrirLogin = () => { window.history.pushState({}, '', usuarioSesion ? '/admin' : '/login'); setModoAdmin(true); window.scrollTo(0, 0); };
+  const cerrarAdmin = () => { window.history.pushState({}, '', '/'); setModoAdmin(false); window.location.reload(); };
 
   // Estados de modales y carrito
   const [modalMotoId, setModalMotoId] = useState(null);
@@ -79,8 +98,13 @@ export default function App() {
   };
 
 
+  if (modoAdmin) return <AdminPanel alSalir={cerrarAdmin} />;
+
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-zinc-100 flex flex-col selection:bg-[#fad911] selection:text-black">
+
+      {/* Encabezado con botón Iniciar sesión */}
+      <Navbar navegarA={navegarA} abrirLogin={abrirLogin} usuarioSesion={usuarioSesion} />
 
       {/* Contenido Principal */}
       <main>
@@ -129,7 +153,7 @@ export default function App() {
       </main>
 
       {/* Pie de Página */}
-      <Footer navegarA={navegarA} />
+      <Footer navegarA={navegarA} abrirAdmin={abrirLogin} />
 
       {/* Modal de Detalle de Moto */}
       {modalMotoId && (

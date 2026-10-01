@@ -10,7 +10,7 @@ import {
   Award
 } from 'lucide-react';
 
-export default function Footer({ navegarA }) {
+export default function Footer({ navegarA, abrirAdmin }) {
   return (
     <footer className="bg-[#070709] border-t border-zinc-800 text-zinc-400 text-xs">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-12 lg:py-16">
@@ -102,11 +102,11 @@ export default function Footer({ navegarA }) {
             <ul className="space-y-2.5">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-[#fad911] shrink-0 mt-0.5" />
-                <span>Av. Coronel Mendoza N° 1420</span>
+                <span>Av. Municipal N° 795</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-[#fad911] shrink-0" />
-                <span>+51 924 141 939 / (052) 425160</span>
+                <span>+51 980 687 475</span>
               </li>
               <li>
                 <button onClick={() => navegarA('tive')} className="text-zinc-300 hover:text-[#fad911] font-bold flex items-center">
@@ -135,6 +135,7 @@ export default function Footer({ navegarA }) {
             <span>Términos y Condiciones</span>
             <span>Política de Privacidad</span>
             <span>Libro de Reclamaciones</span>
+            <button onClick={abrirAdmin} className="hover:text-[#fad911] transition-colors">Acceso personal</button>
           </div>
         </div>
 

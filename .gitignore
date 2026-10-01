@@ -1,2 +1,4 @@
 backend/__pycache__
 backend/node_modules
+backend/data/usuarios.json
+backend/data/.secreto

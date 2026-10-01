@@ -12,7 +12,8 @@ import {
   Calculator, 
   FileText, 
   Award,
-  ChevronRight
+  ChevronRight,
+  LogIn
 } from 'lucide-react';
 
 export default function Navbar({ 
@@ -20,7 +21,9 @@ export default function Navbar({
   navegarA, 
   cantidadCarritoRepuestos = 0, 
   abrirCarrito,
-  abrirCotizadorGlobal 
+  abrirCotizadorGlobal,
+  abrirLogin,
+  usuarioSesion
 }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [esScrolled, setEsScrolled] = useState(false);
@@ -41,7 +44,7 @@ export default function Navbar({
     { id: 'inicio', etiqueta: 'Inicio' },
     { id: 'catalogo', etiqueta: 'Catálogo' },
     { id: 'estudio360', etiqueta: 'Estudio 360°' },
-    { id: 'repuestos', etiqueta: 'Repuestos' },
+    { id: 'beneficios', etiqueta: 'Beneficios' },
     { id: 'cotizador', etiqueta: 'Cotizador' },
     { id: 'tive', etiqueta: 'Trámites TIVe' },
     { id: 'contacto', etiqueta: 'Ubicación' }
@@ -60,7 +63,7 @@ export default function Navbar({
           <div className="flex items-center space-x-6">
             <span className="flex items-center text-zinc-300 font-medium">
               <span className="w-2 h-2 rounded-full bg-[#fad911] inline-block mr-2 animate-pulse"></span>
-              Tomos, Pisteras y Eléctricas en Tacna, Perú
+              Pisteras y Eléctricas en Tacna, Perú
             </span>
             <span className="flex items-center text-zinc-400">
               <Award className="w-3.5 h-3.5 text-[#fad911] mr-1" />
@@ -69,20 +72,20 @@ export default function Navbar({
           </div>
           <div className="flex items-center space-x-5">
             <a 
-              href="https://maps.google.com/?q=-18.0341794,-70.252298" 
+              href="https://maps.app.goo.gl/M3WUwZVhRUGQL55C6" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center hover:text-[#fad911] transition-colors"
             >
               <MapPin className="w-3.5 h-3.5 mr-1 text-[#fad911]" />
-              Av. Coronel Mendoza N° 1420
+              Av. Municipal N° 795
             </a>
             <a 
-              href="tel:+51924141939" 
+              href="tel:+51980687475" 
               className="flex items-center hover:text-[#fad911] transition-colors font-semibold text-zinc-200"
             >
               <Phone className="w-3.5 h-3.5 mr-1 text-[#fad911]" />
-              +51 924 141 939
+              +51 980 687 475
             </a>
           </div>
         </div>
@@ -154,6 +157,16 @@ export default function Navbar({
               </button>
             )}
 
+            {/* Botón Iniciar sesión (personal de la tienda) */}
+            <button
+              onClick={abrirLogin}
+              className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-lg border border-[#fad911] text-[#fad911] hover:bg-[#fad911] hover:text-black font-extrabold text-xs uppercase tracking-wider transition-all"
+              title={usuarioSesion ? `Sesión de ${usuarioSesion}` : 'Iniciar sesión'}
+            >
+              <LogIn className="w-4 h-4" />
+              <span className="hidden sm:inline">{usuarioSesion ? 'Mi panel' : 'Iniciar sesión'}</span>
+            </button>
+
             {/* Botón Cotizar Rápido */}
             <button
               onClick={() => handleNavClick('cotizador')}
@@ -205,7 +218,7 @@ export default function Navbar({
                   </div>
                   <div>
                     <h3 className="font-black text-white text-base">LUPOL MOTOS</h3>
-                    <p className="text-[10px] text-zinc-400 font-medium">Tacna - Tomos, Pisteras y Eléctricas</p>
+                    <p className="text-[10px] text-zinc-400 font-medium">Tacna - Pisteras y Eléctricas</p>
                   </div>
                 </div>
                 <button 
@@ -245,6 +258,14 @@ export default function Navbar({
                 <span>Simular Cotización</span>
               </button>
 
+              <button
+                onClick={() => { setMenuAbierto(false); abrirLogin(); }}
+                className="w-full py-3 rounded-lg border border-[#fad911] text-[#fad911] font-extrabold text-xs uppercase tracking-wider flex items-center justify-center space-x-2"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>{usuarioSesion ? 'Mi panel' : 'Iniciar sesión'}</span>
+              </button>
+
               <a
                 href="https://wa.me/51980687475?text=Hola%20Lupol%20Motos,%20deseo%20atención%20inmediata"
                 target="_blank"
@@ -256,7 +277,7 @@ export default function Navbar({
               </a>
 
               <div className="text-center pt-2 text-xs text-zinc-500">
-                Av. Coronel Mendoza N° 1420, Tacna
+                Av. Municipal N° 795, Tacna
               </div>
             </div>
           </div>

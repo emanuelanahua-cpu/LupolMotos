@@ -67,10 +67,10 @@ export default function StoreInfoSection() {
                 </div>
                 <h4 className="font-bold text-white text-sm">Dirección Principal</h4>
                 <p className="text-xs text-zinc-400 leading-relaxed">
-                  Av. Coronel Mendoza N° 1420 (frente al óvalo), Tacna, Perú
+                  Av. Municipal N° 795 (frente a la Plaza Pérez Gamboa), Tacna, Perú
                 </p>
                 <a
-                  href="https://maps.google.com/?q=-18.0341794,-70.252298"
+                  href="https://maps.app.goo.gl/tH87jVp85i3V1pC97"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1 text-xs text-[#fad911] font-bold hover:underline pt-1"

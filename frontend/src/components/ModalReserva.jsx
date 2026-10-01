@@ -15,7 +15,7 @@ export default function ModalReserva({ moto, alCerrar }) {
   const [nombre, setNombre] = useState('');
   const [telefono, setTelefono] = useState('');
   const [dni, setDni] = useState('');
-  const [direccion, setDireccion] = useState('Recojo en tienda Av. Coronel Mendoza 1420, Tacna');
+  const [direccion, setDireccion] = useState('Recojo en tienda Av. Municipal N° 795, Tacna');
   const [metodoPago, setMetodoPago] = useState('Yape / Plin');
   const [enviando, setEnviando] = useState(false);
   const [exito, setExito] = useState(false);

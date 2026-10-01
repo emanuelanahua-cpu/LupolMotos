@@ -340,6 +340,13 @@ def procesar_mensaje_contacto(contacto: MensajeContacto):
         "mensaje": "Mensaje recibido. El equipo de Lupol Motos se comunicará a la brevedad."
     }
 
+# Panel de administración (roles superadmin / admin / empleado)
+try:
+    from admin import registrar_admin
+except ImportError:
+    from backend.admin import registrar_admin
+registrar_admin(app, DATOS, DATA_FILE)
+
 # Servir Frontend React compilado si existe
 if os.path.exists(FRONTEND_DIST):
     app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIST, "assets")), name="assets")
@@ -351,3 +358,4 @@ if os.path.exists(FRONTEND_DIST):
             return FileResponse(file_path)
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
 
+        

@@ -33,6 +33,11 @@ body {
   background: #0d0e12;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: #252834;
+  border-radius: 4px;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #252834;
   border-radius: 4px;

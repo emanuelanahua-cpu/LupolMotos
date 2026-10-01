@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  X, 
-  Trash2, 
-  MessageSquare, 
-  ShoppingBag, 
+import {
+  X,
+  Trash2,
+  MessageSquare,
+  ShoppingBag,
   Send, 
   CheckCircle2, 
   ArrowRight,
@@ -154,7 +154,7 @@ export default function CartDrawer({
                 <div>
                   <p className="text-sm font-bold text-zinc-300">Tu lista de cotización está vacía</p>
                   <p className="text-xs text-zinc-400 mt-1 max-w-xs mx-auto">
-                    Explora repuestos originales para tomos, pisteras y eléctricas y agrégalos a tu lista.
+                    Explora repuestos originales para tu pisteras y eléctricas y agrégalos a tu lista.
                   </p>
                 </div>
                 <button
@@ -198,7 +198,7 @@ export default function CartDrawer({
                   <input
                     id="cart-telefono"
                     type="tel"
-                    placeholder="Ej. 952 123 456"
+                    placeholder="Ej. 980687475"
                     required
                     value={telefono}
                     onChange={(e) => setTelefono(e.target.value)}
