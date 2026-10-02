@@ -1,4 +1,17 @@
+# Python
 backend/__pycache__
-backend/node_modules
+backend/venv
+
+# Node
+frontend/node_modules
+
+# Datos sensibles
 backend/data/usuarios.json
 backend/data/.secreto
+
+# Build
+frontend/dist
+
+# OS
+.DS_Store
+Thumbs.db

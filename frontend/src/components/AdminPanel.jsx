@@ -10,6 +10,9 @@ const SPECS_EDIT = {
   e: [...SPECS.e, ['potencia', 'Potencia'], ['suspension', 'Suspensión'], ['neumaticos', 'Neumáticos'], ['dimensiones', 'Dimensiones']],
 };
 const src = (p) => (!p ? '' : /^(\/|https?:)/.test(p) ? p : '/' + p);
+// Barra de desplazamiento delgada y amarilla (estilo Lupol)
+const barra = '[scrollbar-width:thin] [scrollbar-color:#fad911_#1c1c22] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:bg-[#fad911] [&::-webkit-scrollbar-thumb]:rounded-full';
+const scroll = `max-h-[65vh] overflow-y-auto pr-2 ${barra}`;
 const inp = 'w-full rounded-lg bg-[#0a0a0c] border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-[#fad911]';
 const lbl = 'block text-xs text-zinc-400 mt-3 mb-1';
 const btn = 'bg-[#fad911] text-black font-bold rounded-lg px-4 py-2.5 text-sm hover:bg-[#fce23e] transition-colors';
@@ -91,6 +94,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [kept, setKept] = useState(moto ? moto.imagenes || [] : []);
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
   const [msg, setMsg] = useState({ t: '', ok: false });
+  useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
   const lista = (editando ? SPECS_EDIT : SPECS)[elec ? 'e' : 'p'];
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value });
@@ -169,29 +173,31 @@ function Catalogo({ motos, cats, yo, recargar }) {
           <button key={c} onClick={() => setFiltro(c)} className={`${btnSec} ${c === filtro ? '!bg-[#fad911] !text-black !border-[#fad911]' : ''}`}>{c}</button>
         ))}
       </div>
-      {lista.map((m) => (
-        <div key={m.id} className="flex items-center gap-3 py-2.5 border-t border-zinc-800">
-          <img src={src(m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800 shrink-0" />
-          <div className="flex-1 min-w-0 text-sm">
-            <b className="text-white">{m.marca} {m.modelo}</b>
-            <div className="text-xs text-zinc-400">{m.categoria} · S/ {m.precio} · stock {m.stock_total}
-              {m.estado !== 'activado' && <span className="ml-2 text-red-400">Desactivada</span>}</div>
-            {m.creado_por && <div className="text-[11px] text-zinc-500">Agregada por {m.creado_por}</div>}
+      <div className={scroll}>
+        {lista.map((m) => (
+          <div key={m.id} className="flex items-center gap-3 py-2.5 border-t border-zinc-800">
+            <img src={src(m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800 shrink-0" />
+            <div className="flex-1 min-w-0 text-sm">
+              <b className="text-white">{m.marca} {m.modelo}</b>
+              <div className="text-xs text-zinc-400">{m.categoria} · S/ {m.precio} · stock {m.stock_total}
+                {m.estado !== 'activado' && <span className="ml-2 text-red-400">Desactivada</span>}</div>
+              {m.creado_por && <div className="text-[11px] text-zinc-500">Agregada por {m.creado_por}</div>}
+            </div>
+            <div className="flex flex-col gap-1">
+              {puedeEditar(m) && <button className={btnSec} onClick={() => setEditando(m)}>Editar</button>}
+              {yo.rol === 'superadmin' && (
+                <>
+                  <button className={btnSec} onClick={() => accion(() => api('PATCH', `/api/admin/motos/${m.id}/estado`))}>{m.estado === 'activado' ? 'Desactivar' : 'Activar'}</button>
+                  <button className={`${btnSec} !text-red-400`} onClick={() => confirm('¿Eliminar esta moto definitivamente?') && accion(() => api('DELETE', `/api/admin/motos/${m.id}`))}>Eliminar</button>
+                </>
+              )}
+            </div>
           </div>
-          <div className="flex flex-col gap-1">
-            {puedeEditar(m) && <button className={btnSec} onClick={() => setEditando(m)}>Editar</button>}
-            {yo.rol === 'superadmin' && (
-              <>
-                <button className={btnSec} onClick={() => accion(() => api('PATCH', `/api/admin/motos/${m.id}/estado`))}>{m.estado === 'activado' ? 'Desactivar' : 'Activar'}</button>
-                <button className={`${btnSec} !text-red-400`} onClick={() => confirm('¿Eliminar esta moto definitivamente?') && accion(() => api('DELETE', `/api/admin/motos/${m.id}`))}>Eliminar</button>
-              </>
-            )}
-          </div>
-        </div>
-      ))}
-      {!lista.length && <p className="text-sm text-zinc-500">No hay motos en esta categoría.</p>}
+        ))}
+        {!lista.length && <p className="text-sm text-zinc-500">No hay motos en esta categoría.</p>}
+      </div>
       {editando && (
-        <div className="fixed inset-0 z-50 bg-black/80 overflow-y-auto p-4">
+        <div className={`fixed inset-0 z-50 bg-black/80 overflow-y-auto p-4 ${barra}`}>
           <div className="max-w-xl mx-auto my-4">
             <FormMoto key={editando.id} cats={cats} moto={editando} alGuardar={recargar} alCancelar={() => setEditando(null)} />
           </div>
@@ -203,7 +209,7 @@ function Catalogo({ motos, cats, yo, recargar }) {
 
 function Usuarios({ yo }) {
   const [lista, setLista] = useState([]); const [u, setU] = useState(''); const [p, setP] = useState(''); const [rol, setRol] = useState('empleado'); const [err, setErr] = useState('');
-  const cargar = useCallback(() => api('GET', '/api/admin/usuarios').then(setLista).catch(() => {}), []);
+  const cargar = useCallback(() => api('GET', '/api/admin/usuarios').then(setLista).catch(() => { }), []);
   useEffect(() => { cargar(); }, [cargar]);
   const crear = async () => { setErr(''); try { await api('POST', '/api/admin/usuarios', { usuario: u, clave: p, rol }); setU(''); setP(''); cargar(); } catch (x) { setErr(x.message); } };
   return (
@@ -221,14 +227,16 @@ function Usuarios({ yo }) {
       </div>
       <div className={card}>
         <h2 className="font-bold text-white mb-2">Usuarios</h2>
-        {lista.map((x) => (
-          <div key={x.id} className="flex items-center justify-between py-2.5 border-t border-zinc-800 text-sm">
-            <div><b className="text-white">{x.usuario}</b><div className="text-xs text-zinc-400">{ROL[x.rol]}</div></div>
-            {yo.rol === 'superadmin' && x.id !== yo.id && (
-              <button className={`${btnSec} !text-red-400`} onClick={() => confirm('¿Eliminar este usuario?') && api('DELETE', `/api/admin/usuarios/${x.id}`).then(cargar).catch((e) => alert(e.message))}>Eliminar</button>
-            )}
-          </div>
-        ))}
+        <div className={scroll}>
+          {lista.map((x) => (
+            <div key={x.id} className="flex items-center justify-between py-2.5 border-t border-zinc-800 text-sm">
+              <div><b className="text-white">{x.usuario}</b><div className="text-xs text-zinc-400">{ROL[x.rol]}</div></div>
+              {yo.rol === 'superadmin' && x.id !== yo.id && (
+                <button className={`${btnSec} !text-red-400`} onClick={() => confirm('¿Eliminar este usuario?') && api('DELETE', `/api/admin/usuarios/${x.id}`).then(cargar).catch((e) => alert(e.message))}>Eliminar</button>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -240,7 +248,7 @@ export default function AdminPanel({ alSalir }) {
   const [cats, setCats] = useState({});
   const [motos, setMotos] = useState([]);
   const [tab, setTab] = useState('motos');
-  const recargar = useCallback(() => api('GET', '/api/admin/motos').then(setMotos).catch(() => {}), []);
+  const recargar = useCallback(() => api('GET', '/api/admin/motos').then(setMotos).catch(() => { }), []);
 
   useEffect(() => {
     (async () => {
@@ -254,6 +262,13 @@ export default function AdminPanel({ alSalir }) {
   }, []);
   useEffect(() => { if (fase === 'app') recargar(); }, [fase, recargar]);
 
+  // Al iniciar sesión se cargan las categorías (si el panel se abrió antes que el backend, estaban vacías)
+  const entrar = async (u) => {
+    try { setCats((await api('GET', '/api/admin/estado')).categorias); } catch { /* se reintenta al guardar */ }
+    setYo(u); setFase('app');
+    window.history.replaceState({}, '', '/admin');
+  };
+
   const salir = async () => { try { await api('POST', '/api/admin/logout'); } catch { /* sin sesión */ } alSalir(); };
 
   if (fase === 'setup' || fase === 'login') {
@@ -262,7 +277,7 @@ export default function AdminPanel({ alSalir }) {
         <Acceso
           setup={fase === 'setup'}
           alVolver={alSalir}
-          alEntrar={(u) => { setYo(u); setFase('app'); window.history.replaceState({}, '', '/admin'); }}
+          alEntrar={entrar}
         />
       </div>
     );
