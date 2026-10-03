@@ -34,7 +34,7 @@ export default function SolicitudTarjeta() {
               <p className="texto-descripcion-t">
                 En{" "}
                 <img
-                  src="multimedia/LupolMotos.png"
+                  src="multimedia/Lupolmotos.webp"
                   alt="LupolMotos"
                   className="logo-inline"
                 />{" "}

@@ -53,8 +53,11 @@ CAMPOS_EDITABLES = set(CAMPOS_PISTERA + CAMPOS_ELECTRICA + ["potencia", "torque"
 
 def registrar_admin(app, DATOS: dict, DATA_FILE: str):
     base = os.path.dirname(DATA_FILE)
-    f_users, f_secret, uploads = (os.path.join(base, n) for n in ("usuarios.json", ".secreto", "uploads"))
-    os.makedirs(uploads, exist_ok=True)
+    f_users, f_secret = os.path.join(base, "usuarios.json"), os.path.join(base, ".secreto")
+    # Carpeta multimedia: frontend/public/multimedia (misma que usan todas las motos existentes)
+    ROOT_DIR = os.path.abspath(os.path.join(base, "..", ".."))
+    multimedia_dir = os.path.join(ROOT_DIR, "frontend", "public", "multimedia")
+    os.makedirs(multimedia_dir, exist_ok=True)
     lock, fallos = threading.Lock(), {}
 
     # --- almacenamiento ---
@@ -119,8 +122,8 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
     limpio = lambda u: {"id": u["id"], "usuario": u["usuario"], "rol": u["rol"], "creado": u["creado"]}
     txt = lambda v, n: str(v or "").strip()[:n]
 
-    # --- archivos subidos (la interfaz del panel vive en el frontend React, ruta /admin) ---
-    app.mount("/uploads", StaticFiles(directory=uploads), name="uploads")
+    # --- archivos subidos: se sirven desde /multimedia igual que las fotos existentes ---
+    # (el frontend Vite ya sirve frontend/public/multimedia en dev; en prod lo hace el backend)
 
     # --- acceso ---
     @app.get("/api/admin/estado")
@@ -182,7 +185,7 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
         with lock:
             nid = max([m["id"] for m in DATOS["motos"]] + [0]) + 1
             slug = re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", f"{marca} {modelo}").encode("ascii", "ignore").decode().lower()).strip("-") or "moto"
-            carpeta = f"{slug}-{nid}"
+            carpeta = slug  # ej: "lifan-kps-200" — igual que las motos existentes
             rutas = []
             for i, foto in enumerate(d.fotos, 1):
                 m = re.fullmatch(r"data:image/(jpeg|png|webp);base64,([A-Za-z0-9+/=]+)", foto)
@@ -191,11 +194,12 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
                 datos = base64.b64decode(m.group(2))
                 if len(datos) > 2_500_000:
                     raise HTTPException(400, "Cada foto debe pesar menos de 2.5 MB")
-                os.makedirs(os.path.join(uploads, carpeta), exist_ok=True)
+                dest = os.path.join(multimedia_dir, carpeta)
+                os.makedirs(dest, exist_ok=True)
                 nombre = f"foto-{i}." + ("jpg" if m.group(1) == "jpeg" else m.group(1))
-                with open(os.path.join(uploads, carpeta, nombre), "wb") as f:
+                with open(os.path.join(dest, nombre), "wb") as f:
                     f.write(datos)
-                rutas.append(f"/uploads/{carpeta}/{nombre}")
+                rutas.append(f"/multimedia/{carpeta}/{nombre}")
             moto = {"id": nid, "marca": marca, "modelo": modelo,
                     "tipo": "Eléctricas" if electrica else "Pisteras", "categoria": d.categoria,
                     "precio": max(d.precio, 0), "ficha_pdf": None, "detalle": txt(d.detalle, 800)}
@@ -232,7 +236,7 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
             if len(d.imagenes_conservar) + len(d.fotos_nuevas) > 10:
                 raise HTTPException(400, "Máximo 10 fotos por moto")
             slug = re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", f"{marca} {modelo}").encode("ascii", "ignore").decode().lower()).strip("-") or "moto"
-            carpeta, nuevas = f"{slug}-{mid}", []
+            carpeta, nuevas = slug, []  # mismo slug que al crear
             for i, foto in enumerate(d.fotos_nuevas, 1):
                 g = re.fullmatch(r"data:image/(jpeg|png|webp);base64,([A-Za-z0-9+/=]+)", foto)
                 if not g:
@@ -240,11 +244,12 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
                 datos = base64.b64decode(g.group(2))
                 if len(datos) > 2_500_000:
                     raise HTTPException(400, "Cada foto debe pesar menos de 2.5 MB")
-                os.makedirs(os.path.join(uploads, carpeta), exist_ok=True)
+                dest = os.path.join(multimedia_dir, carpeta)
+                os.makedirs(dest, exist_ok=True)
                 nombre = f"foto-{int(time.time())}-{i}." + ("jpg" if g.group(1) == "jpeg" else g.group(1))
-                with open(os.path.join(uploads, carpeta, nombre), "wb") as f:
+                with open(os.path.join(dest, nombre), "wb") as f:
                     f.write(datos)
-                nuevas.append(f"/uploads/{carpeta}/{nombre}")
+                nuevas.append(f"/multimedia/{carpeta}/{nombre}")
             final = d.imagenes_conservar + nuevas
             if d.principal in final:
                 principal = d.principal
@@ -255,9 +260,9 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
                 principal = final[0] if final else "/multimedia/categorias/" + ("electricas_static.png" if electrica0 else "2ruedas_static.png")
             # borrar del disco las fotos subidas desde el panel que se quitaron
             for quitada in set(antes) - set(d.imagenes_conservar):
-                if quitada.startswith("/uploads/"):
-                    ruta = os.path.normpath(os.path.join(uploads, quitada[len("/uploads/"):]))
-                    if ruta.startswith(os.path.normpath(uploads) + os.sep) and os.path.isfile(ruta):
+                if quitada.startswith("/multimedia/"):
+                    ruta = os.path.normpath(os.path.join(multimedia_dir, quitada[len("/multimedia/"):]))
+                    if ruta.startswith(os.path.normpath(multimedia_dir) + os.sep) and os.path.isfile(ruta):
                         os.remove(ruta)
             m.update({"marca": marca, "modelo": modelo, "categoria": d.categoria,
                       "tipo": "Eléctricas" if d.categoria in ELECTRICAS else "Pisteras",

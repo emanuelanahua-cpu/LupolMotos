@@ -167,7 +167,7 @@
       "modelo": "X7 200",
       "tipo": "Pisteras",
       "categoria": "Racing / Sport",
-      "precio": 7400.0,
+      "precio": 7800.0,
       "ficha_pdf": null,
       "detalle": "X7 200 de Ssenda, motor 200cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 10 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "200cc, 4 tiempos OHC",
@@ -192,7 +192,8 @@
       "vistas_360": {
         "principal": "multimedia/ssenda-x7-200/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 5,
@@ -332,7 +333,7 @@
       "modelo": "Buler R10 400",
       "tipo": "Pisteras",
       "categoria": "Racing / Sport",
-      "precio": 9600.0,
+      "precio": 13500.0,
       "ficha_pdf": null,
       "detalle": "Buler R10 400 de Nami, motor 400cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 16 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "400cc, 4 tiempos OHC",
@@ -357,7 +358,8 @@
       "vistas_360": {
         "principal": "multimedia/nami-buler-r10-400/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 10,
@@ -365,7 +367,7 @@
       "modelo": "Buler R10 300",
       "tipo": "Pisteras",
       "categoria": "Racing / Sport",
-      "precio": 8500.0,
+      "precio": 9800.0,
       "ficha_pdf": null,
       "detalle": "Buler R10 300 de Nami, motor 300cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 16 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "300cc, 4 tiempos OHC",
@@ -390,7 +392,8 @@
       "vistas_360": {
         "principal": "multimedia/nami-buler-r10-300/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 11,
@@ -431,7 +434,7 @@
       "modelo": "Iron 250P",
       "tipo": "Pisteras",
       "categoria": "Racing / Sport",
-      "precio": 7950.0,
+      "precio": 7800.0,
       "ficha_pdf": null,
       "detalle": "Iron 250P de Polux, motor 250cc 4 tiempos OHC, transmisión Mecánica 6 velocidades, tanque de 17 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "250cc, 4 tiempos OHC",
@@ -456,7 +459,8 @@
       "vistas_360": {
         "principal": "multimedia/polux-iron-250p/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 13,
@@ -827,7 +831,7 @@
       "modelo": "Pantera 150R",
       "tipo": "Pisteras",
       "categoria": "Naked",
-      "precio": 5850.0,
+      "precio": 4450.0,
       "ficha_pdf": null,
       "detalle": "Pantera 150R de Ronco, motor 150cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "150cc, 4 tiempos OHV",
@@ -852,7 +856,8 @@
       "vistas_360": {
         "principal": "multimedia/ronco-pantera-150r/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 25,
@@ -860,7 +865,7 @@
       "modelo": "Pantera 200R",
       "tipo": "Pisteras",
       "categoria": "Naked",
-      "precio": 6400.0,
+      "precio": 4900.0,
       "ficha_pdf": null,
       "detalle": "Pantera 200R de Ronco, motor 200cc 4 tiempos OHV, transmisión Mecánica 5 velocidades, tanque de 15 Lt. Precio referencial sujeto a confirmación de stock.",
       "motor": "200cc, 4 tiempos OHV",
@@ -885,7 +890,8 @@
       "vistas_360": {
         "principal": "multimedia/ronco-pantera-200r/moto.jpg"
       },
-      "colores": []
+      "colores": [],
+      "editado_por": "Emmanuel"
     },
     {
       "id": 26,
@@ -3955,6 +3961,105 @@
           "nombre": "Rojo"
         }
       ]
+    },
+    {
+      "id": 105,
+      "marca": "Maquimotora",
+      "modelo": "Ibiza Z200",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 6890.0,
+      "ficha_pdf": null,
+      "detalle": "",
+      "motor": "200cc, 4 tiempos",
+      "transmision": "Mecanica de 6 velocidades",
+      "tanque": "17 Litros",
+      "frenos": "Doble Disco/Disco",
+      "enfriamiento": "Aire",
+      "suspension": "Consultar",
+      "neumaticos": "Consultar",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "stock_total": 5,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "/multimedia/maquimotora-ibiza-z200/foto-1.webp"
+      ],
+      "imagen_principal": "/multimedia/maquimotora-ibiza-z200/foto-1.webp",
+      "vistas_360": {
+        "principal": "/multimedia/maquimotora-ibiza-z200/foto-1.webp"
+      },
+      "colores": [],
+      "creado_por": "Emmanuel"
+    },
+    {
+      "id": 106,
+      "marca": "Maquimotora",
+      "modelo": "Ibiza SR 200",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7100.0,
+      "ficha_pdf": null,
+      "detalle": "",
+      "motor": "200cc, 4 tiempos",
+      "transmision": "Mecanica",
+      "tanque": "16 LT",
+      "frenos": "Disco/Disco",
+      "enfriamiento": "Aire",
+      "suspension": "Consultar",
+      "neumaticos": "Consultar",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "stock_total": 1,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "/multimedia/maquimotora-ibiza-sr-200/foto-1.webp"
+      ],
+      "imagen_principal": "/multimedia/maquimotora-ibiza-sr-200/foto-1.webp",
+      "vistas_360": {
+        "principal": "/multimedia/maquimotora-ibiza-sr-200/foto-1.webp"
+      },
+      "colores": [],
+      "creado_por": "Emmanuel"
+    },
+    {
+      "id": 107,
+      "marca": "Davest",
+      "modelo": "R9 250",
+      "tipo": "Pisteras",
+      "categoria": "Racing / Sport",
+      "precio": 7800.0,
+      "ficha_pdf": null,
+      "detalle": "",
+      "motor": "249cc, 4 tiempos",
+      "transmision": "Mecanica",
+      "tanque": "14 Lt",
+      "frenos": "Doble Disco/Disco",
+      "enfriamiento": "Radiador de Aceite",
+      "suspension": "Consultar",
+      "neumaticos": "Consultar",
+      "potencia": "Consultar",
+      "torque": "Consultar",
+      "stock_total": 4,
+      "stock_reservado": 0,
+      "estado": "activado",
+      "visitas": 0,
+      "destacado": false,
+      "imagenes": [
+        "/multimedia/davest-r9-250/foto-1.webp"
+      ],
+      "imagen_principal": "/multimedia/davest-r9-250/foto-1.webp",
+      "vistas_360": {
+        "principal": "/multimedia/davest-r9-250/foto-1.webp"
+      },
+      "colores": [],
+      "creado_por": "Emmanuel"
     }
   ],
   "repuestos": [],

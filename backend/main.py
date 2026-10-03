@@ -29,7 +29,7 @@ DATA_FILE = os.path.join(BASE_DIR, "data", "lupol_data.json")
 
 def cargar_datos():
     if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
+        with open(DATA_FILE, "r", encoding="utf-8-sig") as f:
             return json.load(f)
     return {"tienda": {}, "motos": [], "repuestos": [], "motos_segunda": [], "colores_catalogo": []}
 
@@ -348,8 +348,9 @@ except ImportError:
 registrar_admin(app, DATOS, DATA_FILE)
 
 # Servir Frontend React compilado si existe
-if os.path.exists(FRONTEND_DIST):
-    app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIST, "assets")), name="assets")
+FRONTEND_ASSETS = os.path.join(FRONTEND_DIST, "assets")
+if os.path.exists(FRONTEND_DIST) and os.path.exists(FRONTEND_ASSETS):
+    app.mount("/assets", StaticFiles(directory=FRONTEND_ASSETS), name="assets")
 
     @app.get("/{full_path:path}")
     def serve_react_app(full_path: str):

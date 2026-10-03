@@ -161,18 +161,65 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
 
 function Catalogo({ motos, cats, yo, recargar }) {
   const [filtro, setFiltro] = useState('Todas');
+  const [busqueda, setBusqueda] = useState('');
   const [editando, setEditando] = useState(null);
-  const lista = motos.filter((m) => filtro === 'Todas' || m.categoria === filtro).sort((a, b) => b.id - a.id);
+  const lista = motos
+    .filter((m) => filtro === 'Todas' || m.categoria === filtro)
+    .filter((m) => {
+      const q = busqueda.trim().toLowerCase();
+      if (!q) return true;
+      return (
+        m.marca?.toLowerCase().includes(q) ||
+        m.modelo?.toLowerCase().includes(q) ||
+        m.categoria?.toLowerCase().includes(q)
+      );
+    })
+    .sort((a, b) => b.id - a.id);
   const accion = async (fn) => { try { await fn(); recargar(); } catch (x) { alert(x.message); } };
   const puedeEditar = (m) => yo.rol !== 'empleado' || m.creado_por === yo.usuario;
   return (
     <div className={card}>
       <h2 className="font-bold text-white mb-3">Catálogo ({motos.length})</h2>
+
+      {/* Buscador */}
+      <div className="relative mb-3">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+          </svg>
+        </span>
+        <input
+          id="admin-buscador-motos"
+          className={`${inp} pl-9 pr-9`}
+          placeholder="Buscar por marca, modelo o categoría…"
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+        />
+        {busqueda && (
+          <button
+            onClick={() => setBusqueda('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-[#fad911] transition-colors"
+            title="Limpiar búsqueda"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+      {/* Filtros de categoría */}
       <div className="flex flex-wrap gap-1.5 mb-3">
         {['Todas', ...Object.values(cats).flat()].map((c) => (
           <button key={c} onClick={() => setFiltro(c)} className={`${btnSec} ${c === filtro ? '!bg-[#fad911] !text-black !border-[#fad911]' : ''}`}>{c}</button>
         ))}
       </div>
+
+      {/* Resultado de búsqueda */}
+      {busqueda.trim() && (
+        <p className="text-xs text-zinc-400 mb-2">
+          {lista.length} resultado{lista.length !== 1 ? 's' : ''} para "<span className="text-[#fad911]">{busqueda.trim()}</span>"
+        </p>
+      )}
+
       <div className={scroll}>
         {lista.map((m) => (
           <div key={m.id} className="flex items-center gap-3 py-2.5 border-t border-zinc-800">
@@ -194,7 +241,11 @@ function Catalogo({ motos, cats, yo, recargar }) {
             </div>
           </div>
         ))}
-        {!lista.length && <p className="text-sm text-zinc-500">No hay motos en esta categoría.</p>}
+        {!lista.length && (
+          <p className="text-sm text-zinc-500">
+            {busqueda.trim() ? `Sin resultados para "${busqueda.trim()}".` : 'No hay motos en esta categoría.'}
+          </p>
+        )}
       </div>
       {editando && (
         <div className={`fixed inset-0 z-50 bg-black/80 overflow-y-auto p-4 ${barra}`}>
