@@ -5,9 +5,14 @@ backend/venv
 # Node
 frontend/node_modules
 
-# Datos sensibles
+# Datos sensibles y variables de entorno
 backend/data/usuarios.json
 backend/data/.secreto
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
 
 # Build
 frontend/dist

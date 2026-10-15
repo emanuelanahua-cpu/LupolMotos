@@ -9,7 +9,7 @@ echo "=== Lupol Motos ==="
 if [ ! -d "$DIR/backend/venv" ]; then
     echo "Configurando entorno de Python para el backend..."
     python3 -m venv "$DIR/backend/venv"
-    "$DIR/backend/venv/bin/pip" install fastapi "uvicorn[standard]"
+    "$DIR/backend/venv/bin/pip" install fastapi "uvicorn[standard]" python-dotenv
 fi
 
 # 2. Iniciar backend

@@ -70,7 +70,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
       numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
       cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
       nombre_cliente: nombre || 'Cliente Lupol',
-      telefono_cliente: telefono || '924141939',
+      telefono_cliente: telefono || '980170619',
       dni_cliente: dni || '',
       ciudad: 'Tacna'
     };

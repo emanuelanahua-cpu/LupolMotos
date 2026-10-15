@@ -26,6 +26,31 @@ app.add_middleware(
 # Cargar base de datos JSON
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "lupol_data.json")
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
+
+# Cargar variables de entorno desde .env (.env en backend o en la raíz)
+def _cargar_env():
+    rutas_env = [
+        os.path.join(BASE_DIR, ".env"),
+        os.path.join(ROOT_DIR, ".env")
+    ]
+    for ruta in rutas_env:
+        if os.path.exists(ruta):
+            try:
+                from dotenv import load_dotenv
+                load_dotenv(ruta)
+            except ImportError:
+                with open(ruta, "r", encoding="utf-8") as f:
+                    for linea in f:
+                        linea = linea.strip()
+                        if linea and not linea.startswith("#") and "=" in linea:
+                            k, v = linea.split("=", 1)
+                            k = k.strip()
+                            v = v.strip().strip("'\"")
+                            if k and k not in os.environ:
+                                os.environ[k] = v
+
+_cargar_env()
 
 def cargar_datos():
     if os.path.exists(DATA_FILE):
@@ -36,7 +61,6 @@ def cargar_datos():
 DATOS = cargar_datos()
 
 # Montar archivos estáticos para multimedia y repuestos
-ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
 MULTIMEDIA_DIR = os.path.join(ROOT_DIR, "public_html", "multimedia")
 REPUESTOS_DIR = os.path.join(ROOT_DIR, "public_html", "repuestos")
 FRONTEND_DIST = os.path.join(ROOT_DIR, "frontend", "dist")
@@ -262,6 +286,36 @@ def obtener_opciones_filtros():
         }
     }
 
+@app.get("/api/destacados", summary="Motos destacadas para sección principal")
+def obtener_motos_destacadas():
+    """Devuelve la moto destacada de cada tipo (Pisteras y Eléctricas) para el Hero del frontend."""
+    motos = DATOS.get("motos", [])
+    activas = [m for m in motos if m.get("estado") == "activado"]
+
+    # Buscar la moto destacada con mayor precio de cada tipo (o la primera activa)
+    def mejor_de_tipo(tipo):
+        del_tipo = [m for m in activas if m.get("tipo") == tipo]
+        destacadas = [m for m in del_tipo if m.get("destacado")]
+        elegida = max(destacadas, key=lambda x: x.get("precio", 0), default=None)
+        if not elegida:
+            elegida = max(del_tipo, key=lambda x: x.get("precio", 0), default=None)
+        if not elegida:
+            return None
+        return {
+            "id": elegida["id"],
+            "nombre": f"{elegida.get('marca', '')} {elegida.get('modelo', '')}".strip(),
+            "precio": elegida.get("precio", 0),
+            "motor": elegida.get("motor", "Consultar"),
+            "potencia": elegida.get("potencia", "Consultar"),
+            "imagen_principal": elegida.get("imagen_principal", ""),
+            "imagenes": elegida.get("imagenes", []),
+        }
+
+    return {
+        "pisteras": mejor_de_tipo("Pisteras"),
+        "electricas": mejor_de_tipo("Eléctricas"),
+    }
+
 @app.post("/api/cotizaciones", summary="Registrar solicitud de cotización")
 def procesar_solicitud_cotizacion(solicitud: SolicitudCotizacion):
     """Guarda la cotización de moto y genera enlace directo de WhatsApp personalizado."""
@@ -288,7 +342,8 @@ def procesar_solicitud_cotizacion(solicitud: SolicitudCotizacion):
         )
 
     import urllib.parse
-    wa_url = f"https://wa.me/{DATOS.get('tienda', {}).get('whatsapp', '51924141939')}?text={urllib.parse.quote(mensaje_wa)}"
+    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980170619')
+    wa_url = f"https://wa.me/{numero_wa}?text={urllib.parse.quote(mensaje_wa)}"
 
     return {
         "exito": True,
@@ -318,7 +373,8 @@ def procesar_reserva_motocicleta(reserva: SolicitudReserva):
     )
 
     import urllib.parse
-    wa_url = f"https://wa.me/{DATOS.get('tienda', {}).get('whatsapp', '51924141939')}?text={urllib.parse.quote(mensaje_wa)}"
+    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980170619')
+    wa_url = f"https://wa.me/{numero_wa}?text={urllib.parse.quote(mensaje_wa)}"
 
     return {
         "exito": True,

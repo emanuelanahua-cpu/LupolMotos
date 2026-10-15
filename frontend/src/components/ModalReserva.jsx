@@ -124,7 +124,7 @@ export default function ModalReserva({ moto, alCerrar }) {
                   id="reserva-telefono"
                   type="tel"
                   required
-                  placeholder="Ej. 952 123 456"
+                  placeholder="Ej. 980 170 619"
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus-ring text-xs"

@@ -1,5 +1,3 @@
-"""Panel de administración Lupol: roles superadmin / admin / empleado.
-Se conecta desde main.py con registrar_admin(app, DATOS, DATA_FILE)."""
 import os, json, hmac, hashlib, secrets, time, re, base64, threading, unicodedata
 from typing import List, Optional
 from fastapi import Request, Response, HTTPException, Depends
@@ -60,12 +58,26 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
     os.makedirs(multimedia_dir, exist_ok=True)
     lock, fallos = threading.Lock(), {}
 
+    # Ruta del JSON de fallback del frontend (se sincroniza automáticamente)
+    FRONTEND_DATA_FILE = os.path.join(ROOT_DIR, "frontend", "src", "data", "lupol_data.json")
+
     # --- almacenamiento ---
     def escribir(ruta, obj):
         tmp = ruta + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(obj, f, ensure_ascii=False, indent=2)
         os.replace(tmp, ruta)
+        # Sincronizar automáticamente con el JSON del frontend cuando se modifica la base de datos principal
+        if os.path.normpath(ruta) == os.path.normpath(DATA_FILE):
+            try:
+                frontend_dir = os.path.dirname(FRONTEND_DATA_FILE)
+                if os.path.isdir(frontend_dir):
+                    tmp_fe = FRONTEND_DATA_FILE + ".tmp"
+                    with open(tmp_fe, "w", encoding="utf-8") as f:
+                        json.dump(obj, f, ensure_ascii=False, indent=2)
+                    os.replace(tmp_fe, FRONTEND_DATA_FILE)
+            except Exception:
+                pass  # no bloquear al admin si el frontend no está disponible
 
     usuarios = []
     if os.path.exists(f_users):
@@ -210,9 +222,9 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
             else:
                 moto["potencia"] = moto["torque"] = "Consultar"
             moto.update({"stock_total": max(d.stock, 0), "stock_reservado": 0, "estado": "activado", "visitas": 0,
-                         "destacado": d.destacado, "imagenes": rutas,
-                         "imagen_principal": rutas[0] if rutas else "/multimedia/categorias/" + ("electricas_static.png" if electrica else "2ruedas_static.png"),
-                         "vistas_360": {"principal": rutas[0]} if rutas else {}, "colores": [], "creado_por": u["usuario"]})
+                        "destacado": d.destacado, "imagenes": rutas,
+                        "imagen_principal": rutas[0] if rutas else "/multimedia/categorias/" + ("electricas_static.png" if electrica else "2ruedas_static.png"),
+                        "vistas_360": {"principal": rutas[0]} if rutas else {}, "colores": [], "creado_por": u["usuario"]})
             DATOS["motos"].append(moto)
             escribir(DATA_FILE, DATOS)
         return moto
@@ -265,9 +277,9 @@ def registrar_admin(app, DATOS: dict, DATA_FILE: str):
                     if ruta.startswith(os.path.normpath(multimedia_dir) + os.sep) and os.path.isfile(ruta):
                         os.remove(ruta)
             m.update({"marca": marca, "modelo": modelo, "categoria": d.categoria,
-                      "tipo": "Eléctricas" if d.categoria in ELECTRICAS else "Pisteras",
-                      "precio": max(d.precio, 0), "stock_total": max(d.stock, 0), "destacado": d.destacado,
-                      "detalle": txt(d.detalle, 800), "imagenes": final, "imagen_principal": principal})
+                    "tipo": "Eléctricas" if d.categoria in ELECTRICAS else "Pisteras",
+                    "precio": max(d.precio, 0), "stock_total": max(d.stock, 0), "destacado": d.destacado,
+                    "detalle": txt(d.detalle, 800), "imagenes": final, "imagen_principal": principal})
             for k, v in d.specs.items():
                 if k in CAMPOS_EDITABLES:
                     m[k] = txt(v, 120) or "Consultar"

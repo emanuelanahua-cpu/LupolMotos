@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ChevronRight, 
   Sparkles, 
@@ -11,10 +11,22 @@ import {
   ArrowUpRight,
   Eye
 } from 'lucide-react';
-import { formatearSoles } from '../utils/api';
+import { formatearSoles, obtenerMotosDestacadas } from '../utils/api';
 
 export default function HeroSection({ navegarA, abrirModalMoto }) {
   const [categoriaActiva, setCategoriaActiva] = useState(0);
+  const [destacados, setDestacados] = useState({ pisteras: null, electricas: null });
+
+  // Cargar motos destacadas desde la API (dinámico, se actualiza desde el admin)
+  useEffect(() => {
+    obtenerMotosDestacadas().then(data => {
+      if (data) setDestacados(data);
+    }).catch(() => {});
+  }, []);
+
+  // Construir las categorías del Hero con datos dinámicos de la API
+  const motoP = destacados.pisteras;
+  const motoE = destacados.electricas;
 
   const categoriasHero = [
     {
@@ -22,13 +34,13 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
       titulo: 'Motos Pisteras',
       subtitulo: 'Diversión y rendimiento para la ciudad y la pista',
       descripcion: 'Modelos ágiles y resistentes, ideales para el uso diario en la ciudad o para exigirlos al máximo en pista.',
-      imagen: '/multimedia/nami-buler-r10-400/moto.jpg',
+      imagen: motoP?.imagen_principal || '/multimedia/categorias/2ruedas_static.png',
       modeloDestacado: {
-        id: 9,
-        nombre: 'Nami Buler R10 400',
-        precio: 9600,
-        motor: '400cc',
-        potencia: '4 tiempos OHC',
+        id: motoP?.id || null,
+        nombre: motoP?.nombre || 'Moto Pistera Destacada',
+        precio: motoP?.precio || 0,
+        motor: motoP?.motor || 'Consultar',
+        potencia: motoP?.potencia || 'Consultar',
         tag: 'LO MÁS POTENTE'
       },
       ctaTexto: 'Ver Catálogo de Motos Pisteras',
@@ -39,13 +51,13 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
       titulo: 'Motos Eléctricas',
       subtitulo: 'Movilidad limpia, silenciosa y económica',
       descripcion: 'Ahorra en combustible y mantenimiento con nuestra línea de motos eléctricas, pensadas para el uso diario en la ciudad.',
-      imagen: '/multimedia/lupol-v10/moto.jpg',
+      imagen: motoE?.imagen_principal || '/multimedia/categorias/electricas_static.png',
       modeloDestacado: {
-        id: 62,
-        nombre: 'V10 Eléctrica',
-        precio: 8590,
-        motor: '3000W',
-        potencia: '90 a 100 km autonomía',
+        id: motoE?.id || null,
+        nombre: motoE?.nombre || 'Moto Eléctrica Destacada',
+        precio: motoE?.precio || 0,
+        motor: motoE?.motor || 'Consultar',
+        potencia: motoE?.potencia || 'Consultar',
         tag: '100% ELÉCTRICAS'
       },
       ctaTexto: 'Ver Motos Eléctricas',
@@ -244,3 +256,4 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
     </section>
   );
 }
+

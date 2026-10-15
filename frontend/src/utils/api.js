@@ -182,6 +182,38 @@ export async function enviarMensajeContacto(datosMensaje) {
 }
 
 /**
+ * Obtiene las motos destacadas para el Hero Section (dinámico desde el admin)
+ */
+export async function obtenerMotosDestacadas() {
+  try {
+    const respuesta = await fetch(`${API_BASE_URL}/destacados`);
+    if (!respuesta.ok) throw new Error('Error al consultar API');
+    return await respuesta.json();
+  } catch (error) {
+    // Fallback: buscar en datos locales
+    const motos = datosLocales.motos || [];
+    const activas = motos.filter(m => m.estado === 'activado');
+    const mejor = (tipo) => {
+      const del_tipo = activas.filter(m => m.tipo === tipo);
+      const destacadas = del_tipo.filter(m => m.destacado);
+      const elegida = (destacadas.length > 0 ? destacadas : del_tipo)
+        .sort((a, b) => (b.precio || 0) - (a.precio || 0))[0];
+      if (!elegida) return null;
+      return {
+        id: elegida.id,
+        nombre: `${elegida.marca || ''} ${elegida.modelo || ''}`.trim(),
+        precio: elegida.precio || 0,
+        motor: elegida.motor || 'Consultar',
+        potencia: elegida.potencia || 'Consultar',
+        imagen_principal: elegida.imagen_principal || '',
+        imagenes: elegida.imagenes || [],
+      };
+    };
+    return { pisteras: mejor('Pisteras'), electricas: mejor('Eléctricas') };
+  }
+}
+
+/**
  * Formatea montos en Soles peruanos (PEN)
  */
 export function formatearSoles(monto) {
