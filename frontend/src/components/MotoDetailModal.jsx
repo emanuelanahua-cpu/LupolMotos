@@ -1,3 +1,4 @@
+import MotoColorSelector from './MotoColorSelector';
 import React, { useState, useEffect } from 'react';
 import {
   X,
@@ -32,7 +33,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
 
   useEffect(() => {
     if (moto) {
-      setImagenPrincipal(moto.imagen_principal);
+      setImagenPrincipal(moto.colores?.[0]?.img_moto || moto.imagen_principal);
       setColorSeleccionadoIdx(0);
       setMensajeExito('');
     }
@@ -51,9 +52,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   const handleSelectColor = (idx) => {
     setColorSeleccionadoIdx(idx);
     const col = moto.colores[idx];
-    if (col && col.img_moto) {
-      setImagenPrincipal(col.img_moto);
-    }
+    setImagenPrincipal(col?.img_moto || moto.imagen_principal);
   };
 
   const handleEnviarCotizacion = async (e) => {
@@ -130,34 +129,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
                 }}
               />
 
-              {moto.colores && moto.colores.length > 0 && (
-                <div className="mt-4 pt-4 border-t border-zinc-800/80 w-full flex items-center justify-between">
-                  <div className="text-xs font-bold text-zinc-400">
-                    Color: <strong className="text-[#fad911]">{colorActual?.nombre}</strong>
-                  </div>
-
-                  <div className="flex space-x-2">
-                    {moto.colores.map((col, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => handleSelectColor(idx)}
-                        className={`p-0.5 rounded-lg border-2 transition-all ${
-                          colorSeleccionadoIdx === idx ? 'border-[#fad911] scale-110' : 'border-zinc-700'
-                        }`}
-                        title={col.nombre}
-                      >
-                        <div className="w-6 h-6 rounded-md overflow-hidden bg-zinc-900">
-                          {col.img_swatch ? (
-                            <img src={col.img_swatch} alt={col.nombre} className="w-full h-full object-cover" />
-                          ) : (
-                            <span className="text-[8px] font-bold text-zinc-300">C</span>
-                          )}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div className="mt-4 w-full"><MotoColorSelector colores={moto.colores} seleccionado={colorSeleccionadoIdx} onSelect={handleSelectColor} /></div>
             </div>
 
             <div className="lg:col-span-5 space-y-5">

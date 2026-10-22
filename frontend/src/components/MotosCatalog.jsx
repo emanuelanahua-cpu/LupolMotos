@@ -1,3 +1,4 @@
+import MotoColorSelector from './MotoColorSelector';
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Search, 
@@ -19,21 +20,9 @@ import {
 } from 'lucide-react';
 import { formatearSoles } from '../utils/api';
 
-// Mapa aproximado de nombres de color -> color real para pintar los swatches
-const MAPA_COLORES = {
-  'rojo': '#dc2626', 'negro': '#18181b', 'azul': '#2563eb', 'verde': '#16a34a',
-  'blanco': '#f4f4f5', 'gris': '#71717a', 'plata': '#a1a1aa', 'morado': '#7c3aed',
-  'amarillo': '#facc15', 'naranja': '#f97316', 'beige': '#d6c7a1', 'celeste': '#38bdf8',
-  'turquesa': '#14b8a6', 'salmón': '#fb7185', 'marrón': '#78350f', 'dorado': '#ca8a04'
-};
-
-function colorAHex(nombre = '') {
-  const clave = nombre.toLowerCase().split('/')[0].trim();
-  return MAPA_COLORES[clave] || '#3f3f46';
-}
-
 // Tarjeta de una moto (reutilizada en la grilla principal y en la ventana de catálogo completo)
 function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abrirCotizadorConMoto }) {
+  const [colorSeleccionado, setColorSeleccionado] = useState(null);
   const esABS = (moto.frenos || '').toLowerCase().includes('abs');
   const esElectrica = moto.tipo === 'Eléctricas';
   const volteada = motoVolteada === moto.id;
@@ -88,7 +77,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
               <div className="absolute inset-0 bg-radial from-[#fad911]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
               <img
-                src={moto.imagen_principal}
+                src={colorSeleccionado?.img_moto || moto.imagen_principal}
                 alt={moto.modelo}
                 loading="lazy"
                 className="relative max-h-full max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)] transition-transform duration-300 group-hover:scale-[1.04]"
@@ -113,26 +102,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
               <div className="absolute -left-10 -top-10 w-40 h-40 bg-[#fad911]/10 rotate-45"></div>
 
               <div className="relative space-y-3">
-                <div className="flex items-center space-x-1.5 text-[#fad911] text-[10px] font-extrabold uppercase tracking-wider">
-                  <Palette className="w-3.5 h-3.5" />
-                  <span>Colores disponibles</span>
-                </div>
-
-                {coloresMoto.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {coloresMoto.map((c, i) => (
-                      <div key={i} className="flex items-center space-x-1.5 bg-black/40 border border-zinc-800 rounded-full pl-1 pr-2.5 py-1">
-                        <span
-                          className="w-3.5 h-3.5 rounded-full border border-white/20 shrink-0"
-                          style={{ backgroundColor: colorAHex(c.nombre) }}
-                        ></span>
-                        <span className="text-[10px] text-zinc-200 font-semibold">{c.nombre}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-[11px] text-zinc-400">Consulta colores disponibles con nuestro equipo.</p>
-                )}
+                <p className="text-xs text-zinc-300">Selecciona un color debajo de la foto.</p>
 
                 <div className="pt-2 border-t border-zinc-800/80 grid grid-cols-2 gap-x-3 gap-y-2 text-[11px]">
                   {esElectrica ? (
@@ -172,6 +142,8 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
             {moto.marca}
           </p>
         </div>
+
+        <MotoColorSelector colores={coloresMoto} seleccionado={coloresMoto.indexOf(colorSeleccionado)} onSelect={(idx) => { setColorSeleccionado(coloresMoto[idx]); setMotoVolteada(null); }} />
 
         {/* Especificaciones clave con codificación semántica */}
         <div className="grid grid-cols-3 gap-2 p-2.5 rounded-2xl bg-zinc-950/90 border border-zinc-800/80 text-[11px] text-zinc-400 text-center">

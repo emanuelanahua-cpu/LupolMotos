@@ -1,3 +1,4 @@
+import BrandLogo from './BrandLogo';
 import React, { useState, useEffect } from 'react';
 import { 
   Phone, 
@@ -104,27 +105,14 @@ export default function Navbar({
           {/* Logo Lupol Motos */}
           <button 
             onClick={() => handleNavClick('inicio')} 
-            className="flex items-center space-x-3 text-left group focus-ring rounded-lg"
+            aria-label="Lupol Motos — Ir al inicio"
+            className="min-w-0 shrink text-left group focus-ring rounded-lg"
           >
-            <div className="w-11 h-11 rounded-xl bg-zinc-900 border-2 border-[#fad911] flex items-center justify-center p-1.5 shadow-md shadow-[#fad911]/10 group-hover:scale-105 transition-transform">
-              <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                <path d="M25 80L50 20L75 80L50 65L25 80Z" fill="#fad911"/>
-                <path d="M50 20L62 50L50 65L38 50L50 20Z" fill="#ffffff" fillOpacity="0.9"/>
-                <circle cx="50" cy="50" r="7" fill="#0a0a0c"/>
-              </svg>
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-black tracking-wider text-white flex items-center">
-                LUPOL<span className="text-[#fad911] ml-0.5">MOTOS</span>
-              </div>
-              <p className="text-[10px] tracking-[0.25em] text-zinc-400 font-bold uppercase -mt-1">
-                Tienda Oficial Tacna
-              </p>
-            </div>
+            <BrandLogo />
           </button>
 
           {/* Navegación Desktop */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <nav className="hidden xl:flex items-center space-x-1 xl:space-x-2">
             {itemsNavegacion.map((item) => (
               <button
                 key={item.id}
@@ -190,7 +178,7 @@ export default function Navbar({
             {/* Toggle Mobile */}
             <button
               onClick={() => setMenuAbierto(!menuAbierto)}
-              className="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white lg:hidden"
+              className="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white xl:hidden"
               aria-label="Abrir menú de navegación"
             >
               {menuAbierto ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -202,7 +190,7 @@ export default function Navbar({
 
       {/* Menú Lateral Mobile */}
       {menuAbierto && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-50 xl:hidden">
           {/* Overlay */}
           <div 
             className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" 
@@ -212,15 +200,7 @@ export default function Navbar({
           <div className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#101116] border-l border-zinc-800 shadow-2xl z-50 p-6 flex flex-col justify-between overflow-y-auto animate-slide-in-right">
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-zinc-800">
-                <div className="flex items-center space-x-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#fad911] text-black font-black flex items-center justify-center text-base">
-                    L
-                  </div>
-                  <div>
-                    <h3 className="font-black text-white text-base">LUPOL MOTOS</h3>
-                    <p className="text-[10px] text-zinc-400 font-medium">Tacna - Pisteras y Eléctricas</p>
-                  </div>
-                </div>
+                <BrandLogo />
                 <button 
                   onClick={() => setMenuAbierto(false)}
                   className="p-2 text-zinc-400 hover:text-white rounded-lg bg-zinc-900"

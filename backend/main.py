@@ -342,7 +342,7 @@ def procesar_solicitud_cotizacion(solicitud: SolicitudCotizacion):
         )
 
     import urllib.parse
-    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980170619')
+    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980687475')
     wa_url = f"https://wa.me/{numero_wa}?text={urllib.parse.quote(mensaje_wa)}"
 
     return {
@@ -373,7 +373,7 @@ def procesar_reserva_motocicleta(reserva: SolicitudReserva):
     )
 
     import urllib.parse
-    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980170619')
+    numero_wa = os.getenv("WHATSAPP_NUMERO") or DATOS.get('tienda', {}).get('whatsapp', '51980687475')
     wa_url = f"https://wa.me/{numero_wa}?text={urllib.parse.quote(mensaje_wa)}"
 
     return {

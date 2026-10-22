@@ -1,3 +1,4 @@
+import MotoColorSelector from './MotoColorSelector';
 import React, { useState, useEffect } from 'react';
 import { 
   Eye, 
@@ -186,33 +187,14 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
                   2. Color de Fábrica: <span className="text-white ml-1">{colorActual?.nombre}</span>
                 </label>
                 
-                <div className="flex flex-wrap gap-2.5">
-                  {motoActiva.colores.map((col, idx) => (
-                    <button
-                      key={col.id_color || idx}
-                      onClick={() => {
-                        setColorActivoIdx(idx);
-                        setVistaActiva('principal');
-                      }}
-                      aria-pressed={colorActivoIdx === idx}
-                      aria-label={`Seleccionar color ${col.nombre}`}
-                      className={`group relative p-1 rounded-xl transition-all border-2 ${
-                        colorActivoIdx === idx
-                          ? 'border-[#fad911] bg-zinc-800 shadow-md scale-105'
-                          : 'border-zinc-800 bg-zinc-900/80 hover:border-zinc-700'
-                      }`}
-                      title={col.nombre}
-                    >
-                      <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-zinc-950">
-                        {col.img_moto ? (
-                          <img src={col.img_moto} alt={col.nombre} className="w-full h-full object-cover" />
-                        ) : (
-                          <span className="text-[10px] font-bold text-zinc-400">{col.nombre.slice(0, 2)}</span>
-                        )}
-                      </div>
-                    </button>
-                  ))}
-                </div>
+                <MotoColorSelector
+                  colores={motoActiva.colores}
+                  seleccionado={colorActivoIdx}
+                  onSelect={(idx) => {
+                    setColorActivoIdx(idx);
+                    setVistaActiva('principal');
+                  }}
+                />
 
                 <div className="mt-3 flex items-center text-xs text-emerald-400 font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
