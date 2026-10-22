@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo.webp';
+import logo from '../assets/Lupollogo.webp';
 
 // Sustituye src/assets/logo.webp para cambiar el logo de toda la web.
 export default function BrandLogo() {

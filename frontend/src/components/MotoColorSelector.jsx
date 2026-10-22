@@ -1,4 +1,4 @@
-ñimport React from 'react';
+import React from 'react';
 import { fondoColor } from '../utils/colores';
 
 export default function MotoColorSelector({ colores = [], seleccionado = -1, onSelect }) {
