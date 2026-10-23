@@ -5,6 +5,7 @@ import { createPool, initialize, root } from './db.js';
 import { newUser, loginSchema } from './auth.js';
 import { createApp } from './app.js';
 dotenv.config({ path: path.join(root, '.env'), quiet: true });
+async function main() {
 const pool = createPool();
 try {
   let users = [];
@@ -31,3 +32,9 @@ try {
   console.error('No se pudo iniciar el backend:', e.code || e.message);
   await pool.end(); process.exitCode = 1;
 }
+
+}
+main().catch(error => {
+  console.error("Error al iniciar:", error.code || error.message);
+  process.exitCode = 1;
+});
