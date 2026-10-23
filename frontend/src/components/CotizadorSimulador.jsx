@@ -27,6 +27,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
   const [email, setEmail] = useState('');
   const [ciudad, setCiudad] = useState('Tacna');
   const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState('');
   const [respuestaExito, setRespuestaExito] = useState(null);
 
   useEffect(() => {
@@ -60,29 +61,35 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEnviando(true);
+    setErrorEnvio('');
+    try {
 
-    const payload = {
-      id_moto: motoActiva.id,
-      modelo_moto: motoActiva.modelo,
-      modalidad: modalidad,
-      color_seleccionado: colorSeleccionado,
-      precio_moto: precio,
-      cuota_inicial: modalidad === 'CREDITO' ? montoInicial : 0,
-      numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
-      cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
-      nombre_cliente: nombre,
-      telefono_cliente: telefono,
-      dni_cliente: dni,
-      email_cliente: email,
-      ciudad: ciudad
-    };
+      const payload = {
+        id_moto: motoActiva.id,
+        modelo_moto: motoActiva.modelo,
+        modalidad: modalidad,
+        color_seleccionado: colorSeleccionado,
+        precio_moto: precio,
+        cuota_inicial: modalidad === 'CREDITO' ? montoInicial : 0,
+        numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
+        cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
+        nombre_cliente: nombre,
+        telefono_cliente: telefono,
+        dni_cliente: dni,
+        email_cliente: email,
+        ciudad: ciudad
+      };
 
-    const res = await enviarCotizacion(payload);
-    setEnviando(false);
-    setRespuestaExito(res);
+      const res = await enviarCotizacion(payload);
+      setRespuestaExito(res);
 
-    if (res && res.enlace_whatsapp) {
-      window.open(res.enlace_whatsapp, '_blank');
+      if (res && res.enlace_whatsapp) {
+        window.open(res.enlace_whatsapp, '_blank');
+      }
+    } catch (e) {
+      setErrorEnvio(e.message || 'No se pudo guardar la solicitud. Inténtalo de nuevo.');
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -108,6 +115,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
         <div className="bg-[#121318] border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
           
           <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                {errorEnvio && <p role="alert" className="text-red-400 text-sm col-span-full">{errorEnvio}</p>}
             
             {/* Lado Izquierdo: Configuración de la Moto y Plan */}
             <div className="lg:col-span-7 space-y-6">

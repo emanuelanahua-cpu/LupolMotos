@@ -18,20 +18,27 @@ export default function StoreInfoSection() {
   const [asunto, setAsunto] = useState('Consulta General');
   const [mensaje, setMensaje] = useState('');
   const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState('');
   const [exito, setExito] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEnviando(true);
-    await enviarMensajeContacto({ nombre, telefono, asunto, mensaje });
-    setEnviando(false);
-    setExito(true);
-    setTimeout(() => {
-      setNombre('');
-      setTelefono('');
-      setMensaje('');
-      setExito(false);
-    }, 4000);
+    setErrorEnvio('');
+    try {
+      await enviarMensajeContacto({ nombre, telefono, asunto, mensaje });
+      setExito(true);
+      setTimeout(() => {
+        setNombre('');
+        setTelefono('');
+        setMensaje('');
+        setExito(false);
+      }, 4000);
+    } catch (e) {
+      setErrorEnvio(e.message || 'No se pudo guardar la solicitud. Inténtalo de nuevo.');
+    } finally {
+      setEnviando(false);
+    }
   };
 
   return (
@@ -152,6 +159,7 @@ export default function StoreInfoSection() {
               </p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                {errorEnvio && <p role="alert" className="text-red-400 text-sm col-span-full">{errorEnvio}</p>}
                 <div>
                   <label htmlFor="contacto-nombre" className="block text-xs font-bold text-zinc-300 mb-1">
                     Nombres y Apellidos completos <span className="text-[#fad911]">*</span>

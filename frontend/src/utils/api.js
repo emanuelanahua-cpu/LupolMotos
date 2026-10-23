@@ -121,65 +121,27 @@ export async function obtenerRepuestos(filtros = {}) {
 /**
  * Envía una solicitud de cotización al backend
  */
-export async function enviarCotizacion(datosCotizacion) {
+async function guardarSolicitud(ruta, datos) {
+  let respuesta;
   try {
-    const respuesta = await fetch(`${API_BASE_URL}/cotizaciones`, {
+    respuesta = await fetch(`${API_BASE_URL}/${ruta}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datosCotizacion)
+      body: JSON.stringify(datos),
     });
-    if (!respuesta.ok) throw new Error('Error al enviar cotización');
-    return await respuesta.json();
-  } catch (error) {
-    const tel = datosLocales.tienda.whatsapp || '51980687475';
-    let msg = `Hola Lupol Motos, deseo cotizar la *${datosCotizacion.modelo_moto}* (${datosCotizacion.modalidad}). Mi nombre es ${datosCotizacion.nombre_cliente}, DNI: ${datosCotizacion.dni_cliente || 'N/A'}.`;
-    return {
-      exito: true,
-      mensaje: 'Cotización procesada',
-      enlace_whatsapp: `https://wa.me/${tel}?text=${encodeURIComponent(msg)}`
-    };
+  } catch {
+    throw new Error('No se pudo guardar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
   }
+  const resultado = await respuesta.json().catch(() => null);
+  if (!respuesta.ok || !resultado?.exito) {
+    throw new Error(resultado?.detail || 'No se pudo guardar tu solicitud. Inténtalo de nuevo.');
+  }
+  return resultado;
 }
 
-/**
- * Envía una reserva de motocicleta
- */
-export async function enviarReserva(datosReserva) {
-  try {
-    const respuesta = await fetch(`${API_BASE_URL}/reservas`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datosReserva)
-    });
-    if (!respuesta.ok) throw new Error('Error al registrar reserva');
-    return await respuesta.json();
-  } catch (error) {
-    const tel = datosLocales.tienda.whatsapp || '51980687475';
-    let msg = `🚨 *RESERVA DE MOTO - LUPOL MOTOS*\nModelo: *${datosReserva.modelo_moto}*\nCliente: ${datosReserva.nombre_cliente} (DNI: ${datosReserva.dni_cliente})\nTel: ${datosReserva.telefono_cliente}\nSeparación: S/. ${datosReserva.monto_separacion}`;
-    return {
-      exito: true,
-      mensaje: 'Reserva registrada con éxito',
-      enlace_whatsapp: `https://wa.me/${tel}?text=${encodeURIComponent(msg)}`
-    };
-  }
-}
-
-/**
- * Envía un mensaje de contacto
- */
-export async function enviarMensajeContacto(datosMensaje) {
-  try {
-    const respuesta = await fetch(`${API_BASE_URL}/contacto`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datosMensaje)
-    });
-    if (!respuesta.ok) throw new Error('Error al enviar mensaje');
-    return await respuesta.json();
-  } catch (error) {
-    return { exito: true, mensaje: 'Mensaje enviado correctamente' };
-  }
-}
+export function enviarCotizacion(datos) { return guardarSolicitud('cotizaciones', datos); }
+export function enviarReserva(datos) { return guardarSolicitud('reservas', datos); }
+export function enviarMensajeContacto(datos) { return guardarSolicitud('contacto', datos); }
 
 /**
  * Obtiene las motos destacadas para el Hero Section (dinámico desde el admin)

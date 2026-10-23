@@ -18,6 +18,7 @@ export default function ModalReserva({ moto, alCerrar }) {
   const [direccion, setDireccion] = useState('Recojo en tienda Av. Municipal N° 795, Tacna');
   const [metodoPago, setMetodoPago] = useState('Yape / Plin');
   const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState('');
   const [exito, setExito] = useState(false);
 
   if (!moto) return null;
@@ -25,25 +26,31 @@ export default function ModalReserva({ moto, alCerrar }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEnviando(true);
+    setErrorEnvio('');
+    try {
 
-    const payload = {
-      id_moto: moto.id,
-      modelo_moto: moto.modelo,
-      color_seleccionado: 'A coordinar',
-      monto_separacion: 200.0,
-      nombre_cliente: nombre,
-      telefono_cliente: telefono,
-      dni_cliente: dni,
-      direccion_entrega: direccion,
-      metodo_pago: metodoPago
-    };
+      const payload = {
+        id_moto: moto.id,
+        modelo_moto: moto.modelo,
+        color_seleccionado: 'A coordinar',
+        monto_separacion: 200.0,
+        nombre_cliente: nombre,
+        telefono_cliente: telefono,
+        dni_cliente: dni,
+        direccion_entrega: direccion,
+        metodo_pago: metodoPago
+      };
 
-    const res = await enviarReserva(payload);
-    setEnviando(false);
-    setExito(true);
+      const res = await enviarReserva(payload);
+      setExito(true);
 
-    if (res && res.enlace_whatsapp) {
-      window.open(res.enlace_whatsapp, '_blank');
+      if (res && res.enlace_whatsapp) {
+        window.open(res.enlace_whatsapp, '_blank');
+      }
+    } catch (e) {
+      setErrorEnvio(e.message || 'No se pudo guardar la solicitud. Inténtalo de nuevo.');
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -81,6 +88,7 @@ export default function ModalReserva({ moto, alCerrar }) {
 
         {/* Contenido */}
         <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
+                {errorEnvio && <p role="alert" className="text-red-400 text-sm col-span-full">{errorEnvio}</p>}
           
           {/* Resumen Moto */}
           <div className="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-between">

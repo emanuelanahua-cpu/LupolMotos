@@ -20,3 +20,8 @@ frontend/dist
 # OS
 .DS_Store
 Thumbs.db
+
+# Backend Node.js y archivos locales
+node_modules/
+*.log
+backend/data/*.sql

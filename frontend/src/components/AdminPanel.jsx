@@ -30,7 +30,7 @@ async function api(metodo, url, cuerpo) {
   } catch { throw new Error('No se pudo conectar con el servidor.'); }
   const d = await r.json().catch(() => null);
   if (!r.ok) {
-    if (d === null) throw new Error('El backend no responde. Enciéndelo con: uvicorn main:app --port 8000');
+    if (d === null) throw new Error('El servidor no responde. Inténtalo de nuevo en unos minutos.');
     throw new Error(typeof d.detail === 'string' ? d.detail : 'Revisa los datos ingresados');
   }
   return d;
@@ -293,6 +293,49 @@ function Usuarios({ yo }) {
   );
 }
 
+function Solicitudes() {
+  const [lista, setLista] = useState([]);
+  const [tipo, setTipo] = useState('');
+  const [error, setError] = useState('');
+  const [cargando, setCargando] = useState(false);
+  const [hayMas, setHayMas] = useState(false);
+  const cargar = useCallback(async (antes) => {
+    setCargando(true); setError('');
+    try {
+      const params = new URLSearchParams({ limit: '50' });
+      if (tipo) params.set('tipo', tipo);
+      if (antes) params.set('antes_de', String(antes));
+      const datos = await api('GET', `/api/admin/solicitudes?${params}`);
+      setLista(prev => antes ? [...prev, ...datos] : datos);
+      setHayMas(datos.length === 50);
+    } catch (e) { setError(e.message); }
+    finally { setCargando(false); }
+  }, [tipo]);
+  useEffect(() => { cargar(); }, [cargar]);
+  const tipos = { cotizacion: 'Cotización', reserva: 'Reserva', contacto: 'Contacto' };
+  return <section className={card}>
+    <div className="flex flex-wrap gap-3 items-center justify-between mb-4">
+      <h2 className="font-bold">Solicitudes recibidas</h2>
+      <select aria-label="Tipo de solicitud" className={inp + ' !w-auto'} value={tipo} onChange={e => setTipo(e.target.value)}>
+        <option value="">Todas</option>{Object.entries(tipos).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+      </select>
+      <button className={btnSec} disabled={cargando} onClick={() => cargar()}>Actualizar</button>
+    </div>
+    {error && <p role="alert" className="text-red-400 mb-3">{error}</p>}
+    {!lista.length && <p className="text-zinc-400 text-sm">{cargando ? 'Cargando…' : 'No hay solicitudes para mostrar.'}</p>}
+    <div className="space-y-3">{lista.map(s => <article key={s.id} className="border border-zinc-800 rounded-xl p-4">
+      <div className="flex flex-wrap justify-between gap-2 text-sm mb-2">
+        <strong>{tipos[s.tipo]} #{s.id}</strong>
+        <time className="text-zinc-400">{new Date(s.creado).toLocaleString('es-PE', { timeZone: 'America/Lima' })}</time>
+      </div>
+      <dl className="grid sm:grid-cols-2 gap-2 text-sm">{Object.entries(s.datos).filter(([, v]) => v !== null && v !== '').map(([k,v]) =>
+        <div key={k}><dt className="text-zinc-500 capitalize">{k.replaceAll('_', ' ')}</dt><dd className="break-words whitespace-pre-wrap">{String(v)}</dd></div>
+      )}</dl>
+    </article>)}</div>
+    {hayMas && <button className={btnSec + ' mt-4'} disabled={cargando} onClick={() => cargar(lista.at(-1)?.id)}>Cargar anteriores</button>}
+  </section>;
+}
+
 export default function AdminPanel({ alSalir }) {
   const [fase, setFase] = useState('cargando');
   const [yo, setYo] = useState(null);
@@ -350,14 +393,14 @@ export default function AdminPanel({ alSalir }) {
             </div>
             {yo.rol !== 'empleado' && (
               <div className="flex gap-2 mb-4">
-                {[['motos', 'Motos'], ['usuarios', 'Usuarios']].map(([k, n]) => (
+                {[['motos', 'Motos'], ['solicitudes', 'Solicitudes'], ['usuarios', 'Usuarios']].map(([k, n]) => (
                   <button key={k} onClick={() => setTab(k)} className={`${btnSec} ${tab === k ? '!bg-[#fad911] !text-black !border-[#fad911]' : ''}`}>{n}</button>
                 ))}
               </div>
             )}
             {tab === 'motos' || yo.rol === 'empleado'
               ? (<div className="grid md:grid-cols-[360px_1fr] gap-5"><FormMoto cats={cats} alGuardar={recargar} /><Catalogo motos={motos} cats={cats} yo={yo} recargar={recargar} /></div>)
-              : <Usuarios yo={yo} />}
+              : tab === 'solicitudes' ? <Solicitudes /> : <Usuarios yo={yo} />}
           </>
         )}
       </div>

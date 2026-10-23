@@ -25,6 +25,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   const [porcentajeInicial, setPorcentajeInicial] = useState(20);
   const [meses, setMeses] = useState(24);
   const [enviando, setEnviando] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState('');
   const [mensajeExito, setMensajeExito] = useState('');
 
   const [nombre, setNombre] = useState('');
@@ -58,28 +59,34 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   const handleEnviarCotizacion = async (e) => {
     e.preventDefault();
     setEnviando(true);
-    
-    const payload = {
-      id_moto: moto.id,
-      modelo_moto: moto.modelo,
-      modalidad: modalidad,
-      color_seleccionado: colorActual ? colorActual.nombre : 'Estándar',
-      precio_moto: precio,
-      cuota_inicial: modalidad === 'CREDITO' ? cuotaInicialMonto : 0,
-      numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
-      cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
-      nombre_cliente: nombre || 'Cliente Lupol',
-      telefono_cliente: telefono || '980170619',
-      dni_cliente: dni || '',
-      ciudad: 'Tacna'
-    };
+    setErrorEnvio('');
+    try {
 
-    const res = await enviarCotizacion(payload);
-    setEnviando(false);
-    
-    if (res && res.enlace_whatsapp) {
-      window.open(res.enlace_whatsapp, '_blank');
-      setMensajeExito('¡Cotización generada! Te redirigimos al WhatsApp oficial de Lupol Motos.');
+      const payload = {
+        id_moto: moto.id,
+        modelo_moto: moto.modelo,
+        modalidad: modalidad,
+        color_seleccionado: colorActual ? colorActual.nombre : 'Estándar',
+        precio_moto: precio,
+        cuota_inicial: modalidad === 'CREDITO' ? cuotaInicialMonto : 0,
+        numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
+        cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
+        nombre_cliente: nombre || 'Cliente Lupol',
+        telefono_cliente: telefono || '980170619',
+        dni_cliente: dni || '',
+        ciudad: 'Tacna'
+      };
+
+      const res = await enviarCotizacion(payload);
+
+      if (res && res.enlace_whatsapp) {
+        window.open(res.enlace_whatsapp, '_blank');
+        setMensajeExito('¡Cotización generada! Te redirigimos al WhatsApp oficial de Lupol Motos.');
+      }
+    } catch (e) {
+      setErrorEnvio(e.message || 'No se pudo guardar la solicitud. Inténtalo de nuevo.');
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -326,6 +333,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
             )}
 
             <form onSubmit={handleEnviarCotizacion} className="pt-3 border-t border-zinc-800 space-y-3.5">
+                {errorEnvio && <p role="alert" className="text-red-400 text-sm col-span-full">{errorEnvio}</p>}
               <div className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
                 Solicita tu propuesta formal y evaluación directa:
               </div>
