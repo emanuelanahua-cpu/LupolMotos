@@ -35,7 +35,7 @@ export default function SolicitudTarjeta() {
                 En
                 <br />
                 <img
-                  src="src/assets/LupolMotosHalloween.png"
+                  src="src/assets/LupolMotosHalloween.webp"
                   alt="LupolMotos"
                   className="logo-inline"
                 />
