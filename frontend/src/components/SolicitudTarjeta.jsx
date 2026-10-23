@@ -32,12 +32,14 @@ export default function SolicitudTarjeta() {
               </h1>
 
               <p className="texto-descripcion-t">
-                En{" "}
+                En
+                <br />
                 <img
-                  src="multimedia/Lupolmotos.webp"
+                  src="src/assets/LupolMotosHalloween.png"
                   alt="LupolMotos"
                   className="logo-inline"
-                />{" "}
+                />
+                <br />
                 te ayudamos
                 <br className="br-desktop" />
                 a gestionar u obtener el duplicado

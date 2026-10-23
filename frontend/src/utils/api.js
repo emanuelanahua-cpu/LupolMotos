@@ -38,8 +38,8 @@ export async function obtenerCatalogoMotos(filtros = {}) {
     let resultado = [...(datosLocales.motos || [])];
     if (filtros.busqueda) {
       const q = filtros.busqueda.toLowerCase();
-      resultado = resultado.filter(m => 
-        m.modelo.toLowerCase().includes(q) || 
+      resultado = resultado.filter(m =>
+        m.modelo.toLowerCase().includes(q) ||
         m.motor.toLowerCase().includes(q) ||
         (m.detalle && m.detalle.toLowerCase().includes(q))
       );
@@ -99,8 +99,8 @@ export async function obtenerRepuestos(filtros = {}) {
     let repuestos = [...(datosLocales.repuestos || [])];
     if (filtros.busqueda) {
       const q = filtros.busqueda.toLowerCase();
-      repuestos = repuestos.filter(r => 
-        r.nombre.toLowerCase().includes(q) || 
+      repuestos = repuestos.filter(r =>
+        r.nombre.toLowerCase().includes(q) ||
         r.codigo.toLowerCase().includes(q) ||
         (r.aplicacion_modelos && r.aplicacion_modelos.toLowerCase().includes(q))
       );
