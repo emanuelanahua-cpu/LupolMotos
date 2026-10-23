@@ -6,7 +6,7 @@ if not exist .env (
   pause
   exit /b 1
 )
-call npm ci
+call npm ci --prefix backend
 if errorlevel 1 exit /b 1
 call npm ci --prefix frontend
 if errorlevel 1 exit /b 1

@@ -14,7 +14,8 @@ import {
   Clock,
   Sparkles
 } from 'lucide-react';
-import { formatearSoles, enviarCotizacion } from '../utils/api';
+import { formatearSoles } from '../utils/format';
+import { enviarCotizacion } from '../services/solicitudService';
 
 export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirModalReserva }) {
   const moto = motos.find(m => m.id === Number(motoId));

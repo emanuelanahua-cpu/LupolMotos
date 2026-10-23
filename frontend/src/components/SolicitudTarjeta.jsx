@@ -1,5 +1,5 @@
 import React from "react";
-import "./SolicitudTarjeta.css";
+import "../styles/SolicitudTarjeta.css";
 
 export default function SolicitudTarjeta() {
   return (

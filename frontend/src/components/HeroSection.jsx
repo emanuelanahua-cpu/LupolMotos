@@ -11,7 +11,8 @@ import {
   ArrowUpRight,
   Eye
 } from 'lucide-react';
-import { formatearSoles, obtenerMotosDestacadas } from '../utils/api';
+import { formatearSoles } from '../utils/format';
+import { obtenerMotosDestacadas } from '../services/catalogoService';
 
 export default function HeroSection({ navegarA, abrirModalMoto }) {
   const [categoriaActiva, setCategoriaActiva] = useState(0);

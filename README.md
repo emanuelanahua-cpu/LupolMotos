@@ -1,7 +1,9 @@
 # Lupol Motos
 
 React/Vite + Node.js/Express + MySQL, en una sola aplicación para Hostinger.
-El backend anterior de Python se conserva como referencia; producción usa `backend/node/server.js`.
+La organización sigue el patrón de SIASE: rutas → controladores → servicios → repositorios.
+El backend activo está en `backend/src`; Python se conserva en `backend/legacy/python` como referencia.
+`backend/node/server.js` es una entrada de compatibilidad para la configuración existente de Hostinger.
 
 ## Inicio local
 
@@ -9,7 +11,7 @@ Requiere Node.js 22 o posterior y MySQL 8 o MariaDB 10.6 o posterior.
 
 1. Crear una base de datos vacía y un usuario con permisos sobre esa base.
 2. Copiar `.env.example` a `.env` y configurar `DB_*`, `LUPOL_SECRET` y la cuenta inicial.
-3. Ejecutar `npm ci`, `npm run build` y `npm start`.
+3. Ejecutar `npm ci`, `npm run build` y `npm start` (la compilación instala ambos proyectos).
 4. Abrir `http://localhost:8000` y `/admin` para el panel.
 
 Para desarrollar con recarga: `./iniciar.sh` o `iniciar.bat`.
@@ -71,3 +73,46 @@ TEST_DB_USER=root TEST_DB_PASSWORD=local-test-only npm test
 ```
 
 Las pruebas crean registros y limpian tablas exclusivamente en una base cuyo nombre termina en `_test`.
+
+## Arquitectura basada en SIASE
+
+Referencia: https://github.com/SENATITACNA/SIASE
+
+```text
+backend/
+  package.json              # instalación y scripts propios
+  src/
+    app.js                  # composición de Express
+    server.js               # arranque y cierre del servidor
+    config/                 # entorno y conexión MySQL
+    routes/                 # URL, método HTTP y middleware
+    controllers/            # entrada/salida HTTP
+    services/               # reglas del catálogo, cuentas y solicitudes
+    repositories/           # consultas SQL parametrizadas
+    models/                 # esquemas y transformación de datos
+    middlewares/            # sesión, validación, seguridad y errores
+    migrations/             # inicialización idempotente del esquema
+    utils/                  # contraseñas y utilidades
+  tests/                    # pruebas contra MariaDB/MySQL
+frontend/
+  package.json              # instalación y scripts propios
+  src/
+    App.tsx                 # rutas React Router
+    pages/                  # tienda y página de administración
+    components/             # interfaz reutilizable
+    services/               # cliente HTTP y servicios por dominio en TypeScript
+    types/                  # contratos de API
+    styles/                 # estilos globales y de componentes
+    utils/                  # formato y colores
+```
+
+La estructura de capas y las rutas del frontend siguen a SIASE. Los componentes
+visuales existentes se conservan en JSX; TypeScript comprueba el router, los
+servicios y los contratos de API. El backend usa módulos ESM, compatibles con el
+arranque de Hostinger, y mantiene las cookies HttpOnly y hashes scrypt existentes.
+No se copian las tablas escolares, las credenciales, los datos ni el despliegue VPS de SIASE.
+
+Cada proyecto puede instalarse por separado con `npm ci --prefix backend` y
+`npm ci --prefix frontend --include=dev`. Los scripts de la raíz coordinan ambos
+para publicar una sola aplicación en Hostinger. La configuración activa usa
+el mismo dominio para la web y `/api`.

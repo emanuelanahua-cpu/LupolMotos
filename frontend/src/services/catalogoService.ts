@@ -1,5 +1,7 @@
+import type {Moto, Repuesto, FiltrosCatalogo, FiltrosRepuestos} from '../types';
 import datosLocales from '../data/lupol_data.json';
 
+import {apiFetch} from './api';
 const API_BASE_URL = '/api';
 
 /**
@@ -7,7 +9,7 @@ const API_BASE_URL = '/api';
  */
 export async function obtenerInformacionTienda() {
   try {
-    const respuesta = await fetch(`${API_BASE_URL}/tienda`);
+    const respuesta = await apiFetch(`${API_BASE_URL}/tienda`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     return await respuesta.json();
   } catch (error) {
@@ -18,24 +20,24 @@ export async function obtenerInformacionTienda() {
 /**
  * Obtiene el catálogo de motocicletas con filtros
  */
-export async function obtenerCatalogoMotos(filtros = {}) {
+export async function obtenerCatalogoMotos(filtros: FiltrosCatalogo = {}): Promise<Moto[]> {
   try {
     const params = new URLSearchParams();
     if (filtros.busqueda) params.append('busqueda', filtros.busqueda);
     if (filtros.tipo && filtros.tipo !== 'Todos') params.append('tipo', filtros.tipo);
     if (filtros.categoria && filtros.categoria !== 'Todas') params.append('categoria', filtros.categoria);
-    if (filtros.precio_min) params.append('precio_min', filtros.precio_min);
-    if (filtros.precio_max) params.append('precio_max', filtros.precio_max);
+    if (filtros.precio_min) params.append('precio_min', String(filtros.precio_min));
+    if (filtros.precio_max) params.append('precio_max', String(filtros.precio_max));
     if (filtros.frenos && filtros.frenos !== 'Todos') params.append('frenos', filtros.frenos);
     if (filtros.destacados_solo) params.append('destacados_solo', 'true');
     if (filtros.ordenar_por) params.append('ordenar_por', filtros.ordenar_por);
 
-    const respuesta = await fetch(`${API_BASE_URL}/motos?${params.toString()}`);
+    const respuesta = await apiFetch(`${API_BASE_URL}/motos?${params.toString()}`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     const datos = await respuesta.json();
     return datos.motos || [];
   } catch (error) {
-    let resultado = [...(datosLocales.motos || [])];
+    let resultado = [...((datosLocales.motos || []) as Moto[])];
     if (filtros.busqueda) {
       const q = filtros.busqueda.toLowerCase();
       resultado = resultado.filter(m =>
@@ -45,13 +47,13 @@ export async function obtenerCatalogoMotos(filtros = {}) {
       );
     }
     if (filtros.tipo && filtros.tipo !== 'Todos') {
-      resultado = resultado.filter(m => m.tipo.toLowerCase() === filtros.tipo.toLowerCase());
+      resultado = resultado.filter(m => m.tipo.toLowerCase() === (filtros.tipo || '').toLowerCase());
     }
     if (filtros.precio_min) {
-      resultado = resultado.filter(m => m.precio >= filtros.precio_min);
+      resultado = resultado.filter(m => m.precio >= (filtros.precio_min ?? 0));
     }
     if (filtros.precio_max) {
-      resultado = resultado.filter(m => m.precio <= filtros.precio_max);
+      resultado = resultado.filter(m => m.precio <= (filtros.precio_max ?? Infinity));
     }
     if (filtros.ordenar_por === 'precio_asc') {
       resultado.sort((a, b) => a.precio - b.precio);
@@ -67,9 +69,9 @@ export async function obtenerCatalogoMotos(filtros = {}) {
 /**
  * Obtiene el detalle de una motocicleta por ID
  */
-export async function obtenerDetalleMoto(idMoto) {
+export async function obtenerDetalleMoto(idMoto: number) {
   try {
-    const respuesta = await fetch(`${API_BASE_URL}/motos/${idMoto}`);
+    const respuesta = await apiFetch(`${API_BASE_URL}/motos/${idMoto}`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     return await respuesta.json();
   } catch (error) {
@@ -83,7 +85,7 @@ export async function obtenerDetalleMoto(idMoto) {
 /**
  * Obtiene el catálogo de repuestos
  */
-export async function obtenerRepuestos(filtros = {}) {
+export async function obtenerRepuestos(filtros: FiltrosRepuestos = {}): Promise<Repuesto[]> {
   try {
     const params = new URLSearchParams();
     if (filtros.busqueda) params.append('busqueda', filtros.busqueda);
@@ -91,12 +93,12 @@ export async function obtenerRepuestos(filtros = {}) {
     if (filtros.tipo_moto && filtros.tipo_moto !== 'Todos') params.append('tipo_moto', filtros.tipo_moto);
     if (filtros.solo_con_stock) params.append('solo_con_stock', 'true');
 
-    const respuesta = await fetch(`${API_BASE_URL}/repuestos?${params.toString()}`);
+    const respuesta = await apiFetch(`${API_BASE_URL}/repuestos?${params.toString()}`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     const datos = await respuesta.json();
     return datos.repuestos || [];
   } catch (error) {
-    let repuestos = [...(datosLocales.repuestos || [])];
+    let repuestos = [...((datosLocales.repuestos || []) as Repuesto[])];
     if (filtros.busqueda) {
       const q = filtros.busqueda.toLowerCase();
       repuestos = repuestos.filter(r =>
@@ -119,43 +121,18 @@ export async function obtenerRepuestos(filtros = {}) {
 }
 
 /**
- * Envía una solicitud de cotización al backend
- */
-async function guardarSolicitud(ruta, datos) {
-  let respuesta;
-  try {
-    respuesta = await fetch(`${API_BASE_URL}/${ruta}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datos),
-    });
-  } catch {
-    throw new Error('No se pudo guardar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
-  }
-  const resultado = await respuesta.json().catch(() => null);
-  if (!respuesta.ok || !resultado?.exito) {
-    throw new Error(resultado?.detail || 'No se pudo guardar tu solicitud. Inténtalo de nuevo.');
-  }
-  return resultado;
-}
-
-export function enviarCotizacion(datos) { return guardarSolicitud('cotizaciones', datos); }
-export function enviarReserva(datos) { return guardarSolicitud('reservas', datos); }
-export function enviarMensajeContacto(datos) { return guardarSolicitud('contacto', datos); }
-
-/**
  * Obtiene las motos destacadas para el Hero Section (dinámico desde el admin)
  */
 export async function obtenerMotosDestacadas() {
   try {
-    const respuesta = await fetch(`${API_BASE_URL}/destacados`);
+    const respuesta = await apiFetch(`${API_BASE_URL}/destacados`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     return await respuesta.json();
   } catch (error) {
     // Fallback: buscar en datos locales
     const motos = datosLocales.motos || [];
     const activas = motos.filter(m => m.estado === 'activado');
-    const mejor = (tipo) => {
+    const mejor = (tipo: string) => {
       const del_tipo = activas.filter(m => m.tipo === tipo);
       const destacadas = del_tipo.filter(m => m.destacado);
       const elegida = (destacadas.length > 0 ? destacadas : del_tipo)
@@ -173,12 +150,4 @@ export async function obtenerMotosDestacadas() {
     };
     return { pisteras: mejor('Pisteras'), electricas: mejor('Eléctricas') };
   }
-}
-
-/**
- * Formatea montos en Soles peruanos (PEN)
- */
-export function formatearSoles(monto) {
-  if (typeof monto !== 'number') return 'S/. 0.00';
-  return `S/. ${monto.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }

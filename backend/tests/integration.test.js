@@ -1,8 +1,10 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { createPool, initialize, catalog } from '../node/db.js';
-import { newUser, hashPassword } from '../node/auth.js';
-import { createApp } from '../node/app.js';
+import { createPool } from '../src/config/db.js';
+import {initialize} from '../src/migrations/initialize.js';
+import {catalog} from '../src/repositories/catalogo.repository.js';
+import { newUser, hashPassword } from '../src/utils/password.js';
+import { createApp } from '../src/app.js';
 
 const env = { DB_HOST: process.env.TEST_DB_HOST || '127.0.0.1', DB_PORT: process.env.TEST_DB_PORT || '33316',
   DB_NAME: process.env.TEST_DB_NAME, DB_USER: process.env.TEST_DB_USER, DB_PASSWORD: process.env.TEST_DB_PASSWORD };

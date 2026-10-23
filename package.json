@@ -3,18 +3,13 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
-  "scripts": {
-    "start": "node backend/node/server.js",
-    "dev": "node --watch backend/node/server.js",
-    "build": "npm ci --prefix frontend --include=dev --cache /tmp/lupol-npm-cache && npm run build --prefix frontend",
-    "test": "node --test backend/tests/*.test.js"
+  "engines": {
+    "node": ">=22"
   },
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "express-rate-limit": "^8.1.0",
-    "mysql2": "^3.15.3",
-    "zod": "^4.1.12"
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "dev": "npm run dev --prefix backend",
+    "build": "npm ci --prefix backend --cache /tmp/lupol-npm-cache && npm ci --prefix frontend --include=dev --cache /tmp/lupol-npm-cache && npm run build --prefix frontend",
+    "test": "npm test --prefix backend"
   }
 }

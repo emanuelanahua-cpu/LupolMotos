@@ -11,7 +11,8 @@ import {
   Gift, 
   Layers
 } from 'lucide-react';
-import { formatearSoles, enviarCotizacion } from '../utils/api';
+import { formatearSoles } from '../utils/format';
+import { enviarCotizacion } from '../services/solicitudService';
 
 export default function CotizadorSimulador({ motos = [], motoPreseleccionada = null }) {
   const [motoId, setMotoId] = useState(motoPreseleccionada ? motoPreseleccionada.id : 12);

@@ -11,7 +11,7 @@ import {
   Share2,
   MessageSquare
 } from 'lucide-react';
-import { formatearSoles } from '../utils/api';
+import { formatearSoles } from '../utils/format';
 
 export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
   // Filtrar motos que tienen vistas o colores

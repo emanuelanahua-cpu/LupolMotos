@@ -18,7 +18,7 @@ import {
   Zap,
   Fingerprint
 } from 'lucide-react';
-import { formatearSoles } from '../utils/api';
+import { formatearSoles } from '../utils/format';
 
 // Tarjeta de una moto (reutilizada en la grilla principal y en la ventana de catálogo completo)
 function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abrirCotizadorConMoto }) {

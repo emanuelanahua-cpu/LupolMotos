@@ -9,7 +9,7 @@ import {
   ArrowRight,
   Sparkles
 } from 'lucide-react';
-import { formatearSoles } from '../utils/api';
+import { formatearSoles } from '../utils/format';
 
 export default function CartDrawer({ 
   abierto, 

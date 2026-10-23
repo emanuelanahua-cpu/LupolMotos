@@ -10,7 +10,7 @@ import {
   ExternalLink,
   Navigation
 } from 'lucide-react';
-import { enviarMensajeContacto } from '../utils/api';
+import { enviarMensajeContacto } from '../services/solicitudService';
 
 export default function StoreInfoSection() {
   const [nombre, setNombre] = useState('');

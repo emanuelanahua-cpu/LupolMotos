@@ -9,7 +9,8 @@ import {
   CreditCard,
   Sparkles
 } from 'lucide-react';
-import { formatearSoles, enviarReserva } from '../utils/api';
+import { formatearSoles } from '../utils/format';
+import { enviarReserva } from '../services/solicitudService';
 
 export default function ModalReserva({ moto, alCerrar }) {
   const [nombre, setNombre] = useState('');

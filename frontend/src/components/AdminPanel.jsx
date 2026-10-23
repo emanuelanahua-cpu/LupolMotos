@@ -1,3 +1,4 @@
+import {api} from '../services/adminService';
 import React, { useState, useEffect, useCallback } from 'react';
 
 const ROL = { superadmin: 'Superadministrador', admin: 'Administrador', empleado: 'Empleado' };
@@ -18,23 +19,6 @@ const lbl = 'block text-xs text-zinc-400 mt-3 mb-1';
 const btn = 'bg-[#fad911] text-black font-bold rounded-lg px-4 py-2.5 text-sm hover:bg-[#fce23e] transition-colors';
 const btnSec = 'border border-zinc-700 text-zinc-200 rounded-lg px-3 py-1.5 text-xs hover:border-[#fad911] transition-colors';
 const card = 'bg-[#121318] border border-zinc-800 rounded-2xl p-5';
-
-async function api(metodo, url, cuerpo) {
-  let r;
-  try {
-    r = await fetch(url, {
-      method: metodo, credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      body: cuerpo ? JSON.stringify(cuerpo) : undefined,
-    });
-  } catch { throw new Error('No se pudo conectar con el servidor.'); }
-  const d = await r.json().catch(() => null);
-  if (!r.ok) {
-    if (d === null) throw new Error('El servidor no responde. Inténtalo de nuevo en unos minutos.');
-    throw new Error(typeof d.detail === 'string' ? d.detail : 'Revisa los datos ingresados');
-  }
-  return d;
-}
 
 // Reduce la foto en el navegador antes de enviarla
 async function reducirFoto(file) {
@@ -336,7 +320,7 @@ function Solicitudes() {
   </section>;
 }
 
-export default function AdminPanel({ alSalir }) {
+export default function AdminPanel({ alSalir, alEntrarPanel }) {
   const [fase, setFase] = useState('cargando');
   const [yo, setYo] = useState(null);
   const [cats, setCats] = useState({});
@@ -360,7 +344,7 @@ export default function AdminPanel({ alSalir }) {
   const entrar = async (u) => {
     try { setCats((await api('GET', '/api/admin/estado')).categorias); } catch { /* se reintenta al guardar */ }
     setYo(u); setFase('app');
-    window.history.replaceState({}, '', '/admin');
+    alEntrarPanel();
   };
 
   const salir = async () => { try { await api('POST', '/api/admin/logout'); } catch { /* sin sesión */ } alSalir(); };
