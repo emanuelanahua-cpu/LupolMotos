@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node backend/node/server.js",
     "dev": "node --watch backend/node/server.js",
-    "build": "npm ci --prefix frontend --cache /tmp/lupol-npm-cache && npm run build --prefix frontend",
+    "build": "npm ci --prefix frontend --include=dev --cache /tmp/lupol-npm-cache && npm run build --prefix frontend",
     "test": "node --test backend/tests/*.test.js"
   },
   "dependencies": {
