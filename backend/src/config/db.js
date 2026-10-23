@@ -12,7 +12,7 @@ export function createPool(env = process.env) {
     user: env.DB_USER,
     password: env.DB_PASSWORD,
     database: env.DB_NAME,
-    charset: 'utf8mb4',
+    charset: 'utf8mb4', 
     timezone: 'Z',
     connectionLimit: 5,
     waitForConnections: true,

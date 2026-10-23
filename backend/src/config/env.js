@@ -4,7 +4,7 @@ import { root } from './db.js';
 export function loadEnvironment() {
   dotenv.config({
     path: path.join(root, '.env'),
-    quiet: true
+    quiet: false
   });
   return process.env;
 }
