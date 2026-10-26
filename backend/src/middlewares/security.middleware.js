@@ -19,16 +19,16 @@ export function configureSecurity(app, env) {
     limit: '34mb'
   }));
   const loginLimit = rateLimit({
-    windowMs: 10 * 60 * 1000,
-    limit: 10,
+    windowMs: 1 * 60 * 1000,
+    limit: 5,
     standardHeaders: 'draft-8',
     legacyHeaders: false,
     message: {
-      detail: 'Demasiados intentos. Espera 10 minutos.'
+      detail: 'Demasiados intentos. Espera 1 minuto.'
     }
   });
   const requestLimit = rateLimit({
-    windowMs: 10 * 60 * 1000,
+    windowMs: 1 * 60 * 1000,
     limit: 30,
     standardHeaders: 'draft-8',
     legacyHeaders: false,

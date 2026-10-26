@@ -329,7 +329,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
               </div>
             ) : (
               <div className="p-4 rounded-xl bg-black/40 border border-zinc-800 text-center text-sm text-zinc-300">
-                Precio al Contado: <strong className="text-[#fad911] text-xl font-black">{formatearSoles(precio)}</strong>. Entrega en 24 horas hábiles con placa lista.
+                Precio al Contado: <strong className="text-[#fad911] text-xl font-black">{formatearSoles(precio)}</strong>. Entrega estimada de la tarjeta y placa en 15 dias habiles.
               </div>
             )}
 
