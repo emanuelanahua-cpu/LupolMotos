@@ -20,7 +20,7 @@ async function request(url, method = 'GET', body, cookie, headers = {}) {
 const moto = { categoria: 'Naked', marca: 'Prueba', modelo: 'Integración', precio: 4000, stock: 2, specs: { motor: '200 cc' }, fotos: [] };
 before(async () => {
   await initialize(pool);
-  for (const t of ['usuarios', 'solicitudes', 'imagenes']) await pool.query(`DELETE FROM ${t}`);
+  for (const t of ['ventas','inventario_movimientos','pedido_items','pedidos','clientes','usuarios', 'solicitudes', 'imagenes']) await pool.query(`DELETE FROM ${t}`);
   adminUser = await newUser('testadmin', 'TestPassword123!', 'superadmin');
   const u = adminUser;
   await pool.execute('INSERT INTO usuarios (id, usuario, sal, hash, rol, creado) VALUES (?, ?, ?, ?, ?, ?)', [u.id, u.usuario, u.sal, u.hash, u.rol, u.creado]);
@@ -107,4 +107,67 @@ test('fallo de base de datos devuelve error, nunca éxito', async () => {
     const r = await request('/api/contacto', 'POST', { nombre: 'Prueba', telefono: '999999999', asunto: 'Prueba', mensaje: 'Prueba' });
     assert.equal(r.status, 503); assert.equal(r.data.exito, undefined);
   } finally { await c.query('RENAME TABLE solicitudes_test_offline TO solicitudes'); c.release(); }
+});
+
+test('carrito: precios del servidor, validación e idempotencia sin duplicar clientes ni pedidos', async()=>{
+  const {randomUUID}=await import('node:crypto');
+  const m=(await request('/api/admin/motos','POST',{...moto,modelo:'Compra prueba',precio:1250.50,stock:2},adminCookie)).data;
+  const body={clave:randomUUID(),cliente:{nombre:'Cliente carrito',telefono:'999111222'},items:[{moto_id:m.id,cantidad:1}],total_centimos:125050};
+  assert.equal((await request('/api/pedidos','POST',{...body,total_centimos:1})).status,409);
+  assert.equal((await request('/api/pedidos','POST',{...body,items:[{moto_id:m.id,cantidad:-1}]})).status,422);
+  assert.equal((await request('/api/pedidos','POST',{...body,items:[...body.items,...body.items]})).status,422);
+  const first=await request('/api/pedidos','POST',body);assert.equal(first.status,201);
+  const retry=await request('/api/pedidos','POST',body);assert.equal(retry.data.id,first.data.id);
+  assert.equal((await request('/api/pedidos','POST',{...body,notas:'Otro pedido'})).status,409);
+  const p=(await request('/api/admin/pedidos','GET',undefined,adminCookie)).data.find(p=>p.id===first.data.id);
+  assert.equal((await request(`/api/admin/motos/${m.id}`,'DELETE',undefined,adminCookie)).status,409);
+  assert.equal(p.items[0].precio_centimos,125050);assert.equal(p.clave,undefined);
+  assert.equal((await request('/api/admin/clientes')).status,401);
+  assert.equal((await request('/api/admin/ventas','GET',undefined,employeeCookie)).status,403);
+  assert.equal((await request('/api/admin/pedidos','GET',undefined,employeeCookie)).status,403);
+  assert.equal((await request(`/api/admin/pedidos/${p.id}/estado`,'PATCH',{estado:'pagado',metodo:'efectivo'},adminCookie)).status,409);
+  assert.equal((await request('/api/admin/respaldo','GET',undefined,employeeCookie)).status,403);
+  const backup=await request('/api/admin/respaldo','GET',undefined,adminCookie);
+  assert.equal(backup.data.formato,'lupol-backup');assert.ok(backup.data.tablas.pedidos.length);assert.equal(backup.headers.get('cache-control'),'no-store');
+});
+test('dos confirmaciones compiten por la última unidad; pago repetido no duplica venta',async()=>{
+  const {randomUUID}=await import('node:crypto');
+  const m=(await request('/api/admin/motos','POST',{...moto,modelo:'Última unidad',stock:1},adminCookie)).data;
+  const body={cliente:{nombre:'Cliente concurrencia',telefono:'999111223'},items:[{moto_id:m.id,cantidad:1}],total_centimos:400000};
+  const a=(await request('/api/pedidos','POST',{...body,clave:randomUUID()})).data;
+  const b=(await request('/api/pedidos','POST',{...body,clave:randomUUID()})).data;
+  const results=await Promise.all([a,b].map(p=>request(`/api/admin/pedidos/${p.id}/estado`,'PATCH',{estado:'confirmado'},adminCookie)));
+  assert.deepEqual(results.map(r=>r.status).sort(),[200,409]);
+  const winner=[a,b][results.findIndex(r=>r.status===200)];
+  const current=(await request(`/api/motos/${m.id}`)).data.moto;assert.equal(current.stock_total,1);assert.equal(current.stock_reservado,1);
+  assert.equal((await request(`/api/admin/inventario/${m.id}/ajustes`,'POST',{cantidad:-1,motivo:'No permitir stock negativo'},adminCookie)).status,409);
+  assert.equal((await request(`/api/admin/motos/${m.id}`,'PUT',{...moto,stock:0},adminCookie)).status,409);
+  for(let i=0;i<2;i++)assert.equal((await request(`/api/admin/pedidos/${winner.id}/estado`,'PATCH',{estado:'pagado',metodo:'yape',referencia:'PRUEBA'},adminCookie)).status,200);
+  const [[count]]=await pool.execute('SELECT COUNT(*) AS n FROM ventas WHERE pedido_id=?',[winner.id]);assert.equal(count.n,1);
+  const sold=(await request(`/api/motos/${m.id}`)).data.moto;assert.equal(sold.stock_total,0);assert.equal(sold.stock_reservado,0);
+  assert.equal((await request(`/api/admin/pedidos/${winner.id}/estado`,'PATCH',{estado:'cancelado'},adminCookie)).status,409);
+  const sales=(await request('/api/admin/ventas','GET',undefined,adminCookie)).data;assert.equal(sales.resumen.total_centimos,400000);
+});
+test('cancelación libera reservas una sola vez y ajustes quedan auditados',async()=>{
+  const {randomUUID}=await import('node:crypto');
+  const m=(await request('/api/admin/motos','POST',{...moto,modelo:'Cancelar prueba',stock:3},adminCookie)).data;
+  const p=(await request('/api/pedidos','POST',{clave:randomUUID(),cliente:{nombre:'Cliente cancelar',telefono:'999111224'},items:[{moto_id:m.id,cantidad:2}],total_centimos:800000})).data;
+  assert.equal((await request(`/api/admin/pedidos/${p.id}/estado`,'PATCH',{estado:'confirmado'},adminCookie)).status,200);
+  for(let i=0;i<2;i++)assert.equal((await request(`/api/admin/pedidos/${p.id}/estado`,'PATCH',{estado:'cancelado'},adminCookie)).status,200);
+  const current=(await request(`/api/motos/${m.id}`)).data.moto;assert.equal(current.stock_total,3);assert.equal(current.stock_reservado,0);
+  assert.equal((await request(`/api/admin/inventario/${m.id}/ajustes`,'POST',{cantidad:2,motivo:'Ingreso almacén'},adminCookie)).status,200);
+  const inv=(await request('/api/admin/inventario','GET',undefined,adminCookie)).data;assert.equal(inv.motos.find(i=>i.id===m.id).disponible,5);
+  assert.ok(inv.movimientos.some(i=>i.moto_id===m.id&&i.actor==='testadmin'&&i.motivo==='Ingreso almacén'));
+});
+test('pedido con varias motos falla sin reservas parciales y persiste al reiniciar',async()=>{
+  const {randomUUID}=await import('node:crypto');
+  const a=(await request('/api/admin/motos','POST',{...moto,modelo:'Atómico A',stock:1},adminCookie)).data;
+  const b=(await request('/api/admin/motos','POST',{...moto,modelo:'Atómico B',stock:1},adminCookie)).data;
+  const p=(await request('/api/pedidos','POST',{clave:randomUUID(),cliente:{nombre:'Cliente atómico',telefono:'999111225'},items:[{moto_id:a.id,cantidad:1},{moto_id:b.id,cantidad:1}],total_centimos:800000})).data;
+  await request(`/api/admin/inventario/${b.id}/ajustes`,'POST',{cantidad:-1,motivo:'Salida prueba'},adminCookie);
+  assert.equal((await request(`/api/admin/pedidos/${p.id}/estado`,'PATCH',{estado:'confirmado'},adminCookie)).status,409);
+  assert.equal((await request(`/api/motos/${a.id}`)).data.moto.stock_reservado,0);
+  await new Promise(ok=>server.close(ok));await initialize(pool);
+  server=createApp(pool,appEnv).listen(0,'127.0.0.1');await new Promise(ok=>server.once('listening',ok));base=`http://127.0.0.1:${server.address().port}`;
+  assert.equal((await request('/api/admin/pedidos','GET',undefined,adminCookie)).data.find(x=>x.id===p.id).estado,'pendiente');
 });

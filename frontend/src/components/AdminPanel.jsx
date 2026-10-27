@@ -1,3 +1,4 @@
+import ComercioPanel from './ComercioPanel';
 import {api} from '../services/adminService';
 import React, { useState, useEffect, useCallback } from 'react';
 
@@ -371,20 +372,21 @@ export default function AdminPanel({ alSalir, alEntrarPanel }) {
               <h1 className="text-xl font-black">Panel <span className="text-[#fad911]">Lupol Motos</span></h1>
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 {yo.usuario} · {ROL[yo.rol]}
+                {yo.rol === 'superadmin' && <a className={btnSec} href="/api/admin/respaldo" download>Descargar respaldo</a>}
                 <button className={btnSec} onClick={alSalir}>Ver tienda</button>
                 <button className={btnSec} onClick={salir}>Cerrar sesión</button>
               </div>
             </div>
             {yo.rol !== 'empleado' && (
-              <div className="flex gap-2 mb-4">
-                {[['motos', 'Motos'], ['solicitudes', 'Solicitudes'], ['usuarios', 'Usuarios']].map(([k, n]) => (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {[['motos', 'Motos'], ['inventario','Inventario'], ['pedidos','Pedidos'], ['clientes','Clientes'], ['ventas','Ventas'], ['solicitudes', 'Solicitudes'], ['usuarios', 'Usuarios']].map(([k, n]) => (
                   <button key={k} onClick={() => setTab(k)} className={`${btnSec} ${tab === k ? '!bg-[#fad911] !text-black !border-[#fad911]' : ''}`}>{n}</button>
                 ))}
               </div>
             )}
             {tab === 'motos' || yo.rol === 'empleado'
               ? (<div className="grid md:grid-cols-[360px_1fr] gap-5"><FormMoto cats={cats} alGuardar={recargar} /><Catalogo motos={motos} cats={cats} yo={yo} recargar={recargar} /></div>)
-              : tab === 'solicitudes' ? <Solicitudes /> : <Usuarios yo={yo} />}
+              : tab === 'solicitudes' ? <Solicitudes /> : ['inventario','pedidos','clientes','ventas'].includes(tab) ? <ComercioPanel key={tab} seccion={tab}/> : <Usuarios yo={yo} />}
           </>
         )}
       </div>

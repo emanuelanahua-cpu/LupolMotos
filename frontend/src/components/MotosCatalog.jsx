@@ -1,3 +1,4 @@
+import {useCart} from '../context/CartContext';
 import MotoColorSelector from './MotoColorSelector';
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
@@ -22,6 +23,7 @@ import { formatearSoles } from '../utils/format';
 
 // Tarjeta de una moto (reutilizada en la grilla principal y en la ventana de catálogo completo)
 function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abrirCotizadorConMoto }) {
+  const cart=useCart();
   const [colorSeleccionado, setColorSeleccionado] = useState(null);
   const esABS = (moto.frenos || '').toLowerCase().includes('abs');
   const esElectrica = moto.tipo === 'Eléctricas';
@@ -163,6 +165,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
           </div>
         </div>
 
+        <button disabled={Number(moto.stock_total||0)-Number(moto.stock_reservado||0)<=0 || Number(moto.precio)<=0} onClick={()=>cart.agregar(moto)} className="w-full py-2.5 rounded-xl border border-[#fad911] text-[#fad911] text-xs font-bold disabled:opacity-40">{Number(moto.stock_total||0)-Number(moto.stock_reservado||0)>0 ? 'Agregar al carrito' : 'Sin stock'}</button>
         {/* Acciones de la Tarjeta */}
         <div className="grid grid-cols-2 gap-2 pt-1">
           <button

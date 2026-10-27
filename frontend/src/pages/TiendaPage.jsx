@@ -1,3 +1,5 @@
+import {CartProvider,useCart} from '../context/CartContext';
+import CartDrawer from '../components/CartDrawer';
 import {useNavigate} from 'react-router-dom';
 import {obtenerSesion} from '../services/adminService';
 import React, { useState, useEffect } from 'react';
@@ -16,7 +18,9 @@ import Navbar from '../components/Navbar';
 import { obtenerInformacionTienda, obtenerCatalogoMotos } from '../services/catalogoService';
 import { MessageSquare, ArrowUp } from 'lucide-react';
 
-export default function TiendaPage() {
+export default function TiendaPage() { return <CartProvider><TiendaContenido/></CartProvider>; }
+function TiendaContenido() {
+  const cart=useCart();
   const [motos, setMotos] = useState([]);
 
   const navigate = useNavigate();
@@ -154,8 +158,10 @@ export default function TiendaPage() {
         />
       )}
 
+      <CartDrawer/>
       {/* Botón Flotante WhatsApp */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-3">
+        <button onClick={()=>cart.setAbierto(true)} className="rounded-full bg-[#fad911] text-black font-bold px-5 py-3 shadow-xl" aria-label="Abrir carrito">Carrito ({cart.items.reduce((n,i)=>n+i.cantidad,0)})</button>
         {mostrarBotonArriba && (
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

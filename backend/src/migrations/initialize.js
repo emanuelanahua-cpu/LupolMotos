@@ -1,3 +1,4 @@
+import { migrateCommerce } from './comercio.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { root } from '../config/db.js';
@@ -9,6 +10,7 @@ export async function initialize(pool, initialUsers = []) {
       INDEX solicitudes_tipo (tipo, id))`, `CREATE TABLE IF NOT EXISTS imagenes (id VARCHAR(64) PRIMARY KEY, mime VARCHAR(30) NOT NULL,
       contenido MEDIUMBLOB NOT NULL, creado TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)`];
   for (const sql of schema) await pool.query(sql);
+  await migrateCommerce(pool);
   // Un candado de MySQL impide que dos procesos importen el catálogo a la vez.
   const c = await pool.getConnection();
   try {

@@ -10,6 +10,9 @@
     "start": "npm start --prefix backend",
     "dev": "npm run dev --prefix backend",
     "build": "npm ci --prefix backend --cache /tmp/lupol-npm-cache && npm ci --prefix frontend --include=dev --cache /tmp/lupol-npm-cache && npm run build --prefix frontend",
-    "test": "npm test --prefix backend"
+    "test": "npm test --prefix backend",
+    "db:local": "node backend/scripts/prepare-local.mjs",
+    "db:restore": "node backend/scripts/restore-local.mjs",
+    "start:local": "node backend/scripts/local-server.mjs"
   }
 }

@@ -1,3 +1,4 @@
+import {useCart} from '../context/CartContext';
 import MotoColorSelector from './MotoColorSelector';
 import React, { useState, useEffect } from 'react';
 import {
@@ -18,6 +19,7 @@ import { formatearSoles } from '../utils/format';
 import { enviarCotizacion } from '../services/solicitudService';
 
 export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirModalReserva }) {
+  const cart=useCart();
   const moto = motos.find(m => m.id === Number(motoId));
   
   const [colorSeleccionadoIdx, setColorSeleccionadoIdx] = useState(0);
@@ -241,6 +243,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
             )}
           </div>
 
+          <button disabled={Number(moto.stock_total||0)-Number(moto.stock_reservado||0)<=0 || Number(moto.precio)<=0} onClick={()=>{cart.agregar(moto);alCerrar();}} className="w-full py-3 rounded-xl bg-[#fad911] text-black font-bold disabled:opacity-40">Agregar al carrito</button>
           <div className="p-6 rounded-2xl bg-gradient-to-br from-[#181a22] to-[#121318] border border-zinc-800 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-800 pb-4">
               <div>

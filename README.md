@@ -116,3 +116,7 @@ Cada proyecto puede instalarse por separado con `npm ci --prefix backend` y
 `npm ci --prefix frontend --include=dev`. Los scripts de la raíz coordinan ambos
 para publicar una sola aplicación en Hostinger. La configuración activa usa
 el mismo dominio para la web y `/api`.
+
+## Carrito y gestión comercial
+
+El carrito registra pedidos en MySQL y permite coordinarlos por WhatsApp. El panel incluye inventario, clientes, pedidos, ventas y respaldos privados. Consulta [la guía de comercio y base local](backend/COMERCIO-Y-BASE-LOCAL.md) para usarlo y restaurar datos en tu computadora. El cobro de tarjetas online requiere activar una pasarela y todavía no está habilitado.

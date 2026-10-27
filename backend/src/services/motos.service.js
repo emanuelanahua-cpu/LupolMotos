@@ -1,3 +1,4 @@
+import { movimiento, tieneHistorial } from '../repositories/comercio.repository.js';
 import * as repository from '../repositories/motos.repository.js';
 import { catalog } from '../repositories/catalogo.repository.js';
 import { transaction, decode } from '../config/db.js';
@@ -51,6 +52,8 @@ export function createService(pool, env = process.env) {
       if (!d.imagenes_conservar.every(p => (old.imagenes || []).includes(p))) throw httpError(400, 'Fotos a conservar no válidas');
       if (d.imagenes_conservar.length + d.fotos_nuevas.length > 10) throw httpError(400, 'Máximo 10 fotos por moto');
       const images = [...d.imagenes_conservar, ...(await saveImages(c, d.fotos_nuevas))];
+      if (d.stock < Number(old.stock_reservado || 0)) throw httpError(409, 'El stock no puede ser menor que las unidades reservadas');
+      if (d.stock !== Number(old.stock_total || 0)) await movimiento(c,[id,null,'ajuste',d.stock-Number(old.stock_total||0),d.stock,'Edición de catálogo',actor.usuario]);
       const m = motoValues(d, old);
       m.id = id;
       m.imagenes = images;
@@ -83,8 +86,13 @@ export function createService(pool, env = process.env) {
   async function eliminar({
     params
   }) {
-    const [r] = await repository.eliminarMoto(pool, [params.id]);
-    if (!r.affectedRows) throw httpError(404, 'Moto no encontrada');
+    await transaction(pool, async c => {
+      const [rows] = await repository.bloquearMoto(c,[params.id]);
+      if (!rows.length) throw httpError(404,'Moto no encontrada');
+      const [historial] = await tieneHistorial(c,params.id);
+      if (historial.length) throw httpError(409,'Esta moto tiene historial de pedidos o inventario. Desactívala para conservarlo.');
+      await repository.eliminarMoto(c,[params.id]);
+    });
     return {
       ok: true
     };

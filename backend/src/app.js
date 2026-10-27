@@ -1,3 +1,5 @@
+import { createRoutes as respaldoRoutes } from './routes/respaldo.routes.js';
+import { createRoutes as comercioRoutes } from './routes/comercio.routes.js';
 import express from 'express';
 import { auth } from './middlewares/auth.middleware.js';
 import { configureSecurity } from './middlewares/security.middleware.js';
@@ -21,6 +23,8 @@ export function createApp(pool, env = process.env) {
   app.use(motosRoutes(pool, env, context));
   app.use(usuariosRoutes(pool, env, context));
   app.use(solicitudesRoutes(pool, env, context));
+  app.use(respaldoRoutes(pool, env, context));
+  app.use(comercioRoutes(pool, env, context));
   app.use('/api', (req, res) => res.status(404).json({
     detail: 'Ruta no encontrada'
   }));

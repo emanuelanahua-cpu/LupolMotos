@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mariadb:11.4
+    container_name: lupol-motos-local-db
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${DB_PORT:-33317}:3306"
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${LOCAL_DB_ROOT_PASSWORD}
+    volumes:
+      - lupol_mysql_local:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+volumes:
+  lupol_mysql_local:
