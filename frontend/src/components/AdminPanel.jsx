@@ -308,7 +308,7 @@ function Solicitudes() {
     </div>
     {error && <p role="alert" className="text-red-400 mb-3">{error}</p>}
     {!lista.length && <p className="text-zinc-400 text-sm">{cargando ? 'Cargando…' : 'No hay solicitudes para mostrar.'}</p>}
-    <div className="space-y-3">{lista.map(s => <article key={s.id} className="border border-zinc-800 rounded-xl p-4">
+    <div className="admin-scroll space-y-3" role="region" aria-label="Lista de solicitudes" tabIndex={0}>{lista.map(s => <article key={s.id} className="border border-zinc-800 rounded-xl p-4">
       <div className="flex flex-wrap justify-between gap-2 text-sm mb-2">
         <strong>{tipos[s.tipo]} #{s.id}</strong>
         <time className="text-zinc-400">{new Date(s.creado).toLocaleString('es-PE', { timeZone: 'America/Lima' })}</time>

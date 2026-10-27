@@ -234,9 +234,9 @@ function Inventario({ datos, actuar, busy }) {
         value={busqueda}
         onChange={(e) => setBusqueda(e.target.value)}
       />
-      <div className="overflow-auto my-4">
+      <div className="admin-scroll my-4" role="region" aria-label="Lista de inventario" tabIndex={0}>
         <table className="w-full text-sm text-left">
-          <thead>
+          <thead className="sticky top-0 z-10 bg-[#121318]">
             <tr>
               {["Producto", "Físico", "Reservado", "Disponible"].map((h) => (
                 <th key={h} className="p-2">
@@ -266,7 +266,7 @@ function Inventario({ datos, actuar, busy }) {
         Reserva y liberación cambian la disponibilidad; venta y ajuste cambian
         el stock físico.
       </p>
-      <ul className="text-sm space-y-2">
+      <ul className="admin-scroll admin-scroll--compact text-sm space-y-2" aria-label="Movimientos de inventario" tabIndex={0}>
         {datos.movimientos.map((m) => (
           <li className="border-b border-zinc-800 py-2" key={m.id}>
             {fecha(m.creado)} ·{" "}
