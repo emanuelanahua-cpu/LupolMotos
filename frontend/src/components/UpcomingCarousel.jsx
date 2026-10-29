@@ -32,9 +32,9 @@ export default function UpcomingCarousel() {
   const whatsapp = `https://wa.me/51980687475?text=${encodeURIComponent(`Hola Lupol Motos, quisiera información sobre la próxima moto ${actual.modelo}.`)}`;
 
   return (
-    <section id="proximas" className="relative overflow-x-clip border-b border-zinc-800 bg-[#090c10] py-14 sm:py-20">
-      <div className="mx-auto max-w-[1600px] px-4 sm:px-6">
-        <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+    <section id="proximas" className="relative overflow-x-clip border-b border-zinc-800 bg-[#090c10] py-8 sm:py-11">
+      <div className="mx-auto max-w-[1320px] px-3 sm:px-6">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4 sm:mb-7">
           <div>
             <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-300"><Sparkles className="h-4 w-4" /> Próximamente en Tacna</p>
             <h2 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">Motos <span className="text-[#fad911]">por llegar</span></h2>
@@ -43,10 +43,11 @@ export default function UpcomingCarousel() {
           {slides.length > 1 && <span className="font-mono text-xs tracking-widest text-cyan-300">{String(indice + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span>}
         </div>
 
-        <div className="cluster-frame" onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)} onFocusCapture={() => setPausado(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>
-          <div className="cluster-screen">
-            <div className="cluster-ticks" aria-hidden="true" />
-            <div className="relative z-10 grid min-h-[340px] items-center gap-6 px-5 py-8 sm:px-10 lg:grid-cols-[1fr_1.05fr] lg:px-14">
+        <div className="cluster-housing" onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)} onFocusCapture={() => setPausado(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>
+          <div className="cluster-frame">
+            <div className="cluster-screen">
+              <div className="cluster-ticks" aria-hidden="true" />
+              <div className="relative z-10 grid min-h-[440px] items-center gap-5 px-9 pb-10 pt-12 sm:px-14 lg:grid-cols-[0.9fr_1.2fr] lg:px-24 lg:py-16">
               <div className="order-2 lg:order-1">
                 <div className="mb-5 flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-cyan-300"><span className="cluster-indicator" /> Próxima llegada</div>
                 <h3 className="max-w-xl text-3xl font-black uppercase leading-tight text-white sm:text-5xl">{actual.modelo}</h3>
@@ -57,12 +58,15 @@ export default function UpcomingCarousel() {
                 <p className="mt-5 max-w-xl text-sm leading-relaxed text-zinc-300">{actual.texto}</p>
                 <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#fad911] px-5 py-3 text-xs font-black uppercase tracking-wider text-black transition hover:bg-[#fce23e]"><MessageCircle className="h-4 w-4" /> Consultar novedades</a>
               </div>
-              <div className="order-1 flex min-h-[180px] items-center justify-center lg:order-2 lg:min-h-[300px]">
-                {actual.imagen ? <img key={actual.id} src={actual.imagen} alt={`Próxima moto ${actual.modelo}`} className="cluster-bike-image max-h-[280px] w-full object-contain sm:max-h-[380px]" /> : <div className="cluster-placeholder" aria-hidden="true"><Gauge className="h-24 w-24 text-cyan-300/70 sm:h-32 sm:w-32" /></div>}
+              <div className="cluster-photo-bay order-1 flex min-h-[175px] items-center justify-center lg:order-2 lg:min-h-[300px]">
+                {actual.imagen ? <img key={actual.id} src={actual.imagen} alt={`Próxima moto ${actual.modelo}`} className="cluster-bike-image max-h-[260px] w-full object-contain sm:max-h-[380px]" /> : <div className="cluster-placeholder" aria-hidden="true"><Gauge className="h-20 w-20 text-cyan-300/70 sm:h-28 sm:w-28" /></div>}
               </div>
             </div>
-            <div className="relative z-10 flex items-center justify-between border-t border-cyan-400/15 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300/70 sm:px-10"><span>Lupol Motos · Digital</span><span>Preparando el camino</span></div>
+              <div className="cluster-status relative z-10 flex items-center justify-between border-t border-cyan-400/15 px-10 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300/70 sm:px-20"><span>Lupol Motos · Digital</span><span>Preparando el camino</span></div>
+            </div>
           </div>
+          <span className="cluster-bolt cluster-bolt-left" aria-hidden="true" />
+          <span className="cluster-bolt cluster-bolt-right" aria-hidden="true" />
         </div>
 
         {slides.length > 1 && (

@@ -17,7 +17,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 import { obtenerInformacionTienda, obtenerCatalogoMotos } from '../services/catalogoService';
-import { MessageSquare, ArrowUp } from 'lucide-react';
+import { MessageSquare, ArrowUp, ShoppingCart } from 'lucide-react';
 
 export default function TiendaPage() { return <CartProvider><TiendaContenido/></CartProvider>; }
 function TiendaContenido() {
@@ -104,15 +104,14 @@ function TiendaContenido() {
       {/* Contenido Principal */}
       <main>
 
-        {/* 1. Hero Section con selector dinámico */}
+        {/* Carrusel principal y presentación de la tienda */}
         <div id="inicio">
+          <UpcomingCarousel />
           <HeroSection 
             navegarA={navegarA} 
             abrirModalMoto={abrirModalMoto} 
           />
         </div>
-
-        <UpcomingCarousel />
 
         {/* 2. Estudio 360° y Selector de Colores */}
         <Visualizer3D 
@@ -164,7 +163,7 @@ function TiendaContenido() {
       <CartDrawer/>
       {/* Botón Flotante WhatsApp */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-3">
-        <button onClick={()=>cart.setAbierto(true)} className="rounded-full bg-[#fad911] text-black font-bold px-5 py-3 shadow-xl" aria-label="Abrir carrito">Carrito ({cart.items.reduce((n,i)=>n+i.cantidad,0)})</button>
+        <button onClick={()=>cart.setAbierto(true)} className="flex items-center gap-1 rounded-full bg-[#fad911] px-3 py-3 font-bold text-black shadow-xl sm:px-5" aria-label="Abrir carrito"><ShoppingCart className="h-5 w-5 sm:hidden" /><span className="sm:hidden">{cart.items.reduce((n,i)=>n+i.cantidad,0)}</span><span className="hidden sm:inline">Carrito ({cart.items.reduce((n,i)=>n+i.cantidad,0)})</span></button>
         {mostrarBotonArriba && (
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

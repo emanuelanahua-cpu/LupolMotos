@@ -63,6 +63,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [kept, setKept] = useState(moto ? moto.imagenes || [] : []);
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
   const [colores, setColores] = useState(moto?.colores || []);
+  const fotosDisponibles = [...kept, ...fotos];
   const [msg, setMsg] = useState({ t: '', ok: false });
   useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
@@ -132,6 +133,21 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
                   }} />
                 </label>
               </div>
+              {fotosDisponibles.length > 0 && (
+                <div className="mt-3">
+                  <p className="mb-2 text-xs text-zinc-400">O elige una foto que ya subiste para este color:</p>
+                  <div className="flex flex-wrap gap-2" role="group" aria-label={`Fotos disponibles para ${color.nombre || `color ${indice + 1}`}`}>
+                    {fotosDisponibles.map((ruta, fotoIndice) => (
+                      <button key={fotoIndice} type="button" onClick={() => actualizarColor(indice, { img_moto: ruta })}
+                        aria-label={`Usar foto ${fotoIndice + 1} para ${color.nombre || `color ${indice + 1}`}`}
+                        aria-pressed={color.img_moto === ruta}
+                        className={`rounded-lg border p-1 transition-colors ${color.img_moto === ruta ? 'border-[#fad911] bg-[#fad911]/10' : 'border-zinc-700 hover:border-[#fad911]'}`}>
+                        <img src={src(ruta)} alt="" className="h-16 w-20 rounded-md bg-zinc-900 object-contain" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

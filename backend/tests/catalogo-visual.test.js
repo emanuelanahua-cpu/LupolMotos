@@ -63,6 +63,23 @@ test('editar colores conserva sus fotos y rechaza rutas ajenas', async () => {
   }), /no pertenece a esta moto/);
 });
 
+test('un color puede usar una foto que ya estaba en la galería de la moto', async () => {
+  const service = motosService(baseFalsa());
+  const base = { categoria: 'Racing / Sport', marca: 'Prueba', modelo: '400', precio: 10000, stock: 1 };
+  const creada = await service.crear({ input: motoSchema.parse({ ...base, fotos: [imagen] }), actor: { usuario: 'admin' } });
+  const editada = await service.editar({
+    params: { id: creada.id },
+    input: motoSchema.parse({
+      ...base,
+      imagenes_conservar: creada.imagenes,
+      principal: creada.imagen_principal,
+      colores: [{ nombre: 'Rojo', img_moto: creada.imagenes[0] }]
+    }),
+    actor: { usuario: 'admin', rol: 'admin' }
+  });
+  assert.equal(editada.colores[0].img_moto, creada.imagenes[0]);
+});
+
 test('el carrusel conserva fotos, orden y visibilidad', async () => {
   const service = carruselService(baseFalsa());
   const first = carruselSchema.parse({ slides: [
