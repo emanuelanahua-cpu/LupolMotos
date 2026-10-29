@@ -26,11 +26,10 @@ export default function UpcomingCarousel() {
 
   return (
     <section id="proximas" aria-label="Motos por llegar" className="overflow-x-clip border-b border-zinc-800 bg-[#090c10] py-5 sm:py-9">
-      <div className="mx-auto w-full px-3 sm:px-[clamp(18px,5vw,110px)]">
+      <div className="mx-auto max-w-[1320px] px-3 sm:px-6">
         <div className="cluster-housing" onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)} onFocusCapture={() => setPausado(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>
           <div className="cluster-frame">
             <div className="cluster-screen">
-              <img key={`${actual.id}-fondo`} src={actual.imagen} alt="" aria-hidden="true" className="cluster-bike-backdrop" />
               <img key={actual.id} src={actual.imagen} alt="Moto por llegar" className="cluster-bike-image" />
             </div>
           </div>
