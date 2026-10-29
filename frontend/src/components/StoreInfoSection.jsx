@@ -168,6 +168,10 @@ export default function StoreInfoSection() {
                     id="contacto-nombre"
                     type="text"
                     required
+                    minLength={5}
+                    maxLength={100}
+                    pattern="[\p{L}]+(?:(?:-|')[\p{L}]+)*(?: +[\p{L}]+(?:(?:-|')[\p{L}]+)*)+"
+                    title="Escribe al menos un nombre y un apellido, usando letras"
                     placeholder="Ej. Juan Pérez Ramos"
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
@@ -181,11 +185,15 @@ export default function StoreInfoSection() {
                   </label>
                   <input
                     id="contacto-telefono"
+                    inputMode='numeric'
+                    maxLength={9}
+                    pattern='[0-9]{9}'
+                    title="Ingrese un celular de 9 digitos"
                     type="tel"
                     required
-                    placeholder="Ej. 952 123 456"
+                    placeholder="Ej. 952123456"
                     value={telefono}
-                    onChange={(e) => setTelefono(e.target.value)}
+                    onChange={(e) => setTelefono(e.target.value.replace(/[^0-9]/g, '').slice(0, 9))}
                     className="w-full px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus-ring"
                   />
                 </div>
@@ -217,6 +225,9 @@ export default function StoreInfoSection() {
                     id="contacto-mensaje"
                     rows={4}
                     required
+                    minLength={10}
+                    maxLength={1000}
+                    title="Escribe al menos 10 caracteres sobre tu consulta"
                     placeholder="Escribe aquí tu consulta o el modelo específico por el que deseas información..."
                     value={mensaje}
                     onChange={(e) => setMensaje(e.target.value)}

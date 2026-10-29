@@ -49,7 +49,7 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
   const urlWhatsApp = `https://wa.me/51980687475?text=${encodeURIComponent(mensajeWA)}`;
 
   return (
-    <section id="estudio360" className="py-16 sm:py-20 bg-[#0d0e12] border-b border-zinc-800 relative">
+    <section id="estudio360" className="py-16 sm:py-20 bg-[#0d0e12] border-b border-zinc-800 relative overflow-x-clip">
       
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#fad911]/5 blur-[150px] rounded-full pointer-events-none"></div>

@@ -43,6 +43,25 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
     }
   }, [moto]);
 
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    const previous = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+      overflow: document.body.style.overflow
+    };
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      Object.assign(document.body.style, previous);
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
+
   if (!moto) return null;
 
   const colorActual = moto.colores && moto.colores[colorSeleccionadoIdx];
@@ -74,8 +93,8 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
         cuota_inicial: modalidad === 'CREDITO' ? cuotaInicialMonto : 0,
         numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
         cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
-        nombre_cliente: nombre || 'Cliente Lupol',
-        telefono_cliente: telefono || '980170619',
+        nombre_cliente: nombre,
+        telefono_cliente: telefono,
         dni_cliente: dni || '',
         ciudad: 'Tacna'
       };
@@ -97,20 +116,20 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   const urlWADirecto = `https://wa.me/51980687475?text=${encodeURIComponent(msgDirecto)}`;
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 sm:p-6" role="dialog" aria-modal="true" aria-label={`Ficha técnica de ${moto.modelo}`}>
       <div 
         className="fixed inset-0 bg-black/85 backdrop-blur-sm transition-opacity" 
         onClick={alCerrar} 
       />
 
-      <div className="relative bg-[#101116] border border-zinc-800 rounded-3xl w-full max-w-5xl shadow-2xl overflow-hidden z-10 my-8 max-h-[90vh] flex flex-col animate-fade-in-scale">
+      <div className="relative bg-[#101116] border border-zinc-800 rounded-3xl w-full max-w-5xl shadow-2xl overflow-hidden z-10 max-h-[calc(100dvh-1rem)] sm:max-h-[90dvh] flex flex-col animate-fade-in-scale">
         
-        <div className="p-5 sm:p-6 border-b border-zinc-800 flex justify-between items-center bg-[#14151c]">
+        <div className="p-4 sm:p-6 border-b border-zinc-800 flex justify-between items-center gap-3 bg-[#14151c] shrink-0">
           <div className="flex items-center space-x-3">
             <span className="px-3 py-1 rounded-md bg-[#fad911] text-black text-xs font-black uppercase">
               {moto.categoria || moto.tipo}
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-white">{moto.modelo}</h2>
+            <h2 className="text-lg sm:text-2xl font-black text-white min-w-0 break-words">{moto.modelo}</h2>
           </div>
 
           <button 
@@ -121,11 +140,11 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
           </button>
         </div>
 
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-8 flex-1">
+        <div className="p-4 sm:p-8 min-h-0 overflow-y-auto overscroll-contain space-y-5 sm:space-y-8 flex-1">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 bg-[#0b0c0e] rounded-2xl border border-zinc-800/80 p-6 flex flex-col items-center justify-center min-h-[300px] sm:min-h-[380px] relative">
+            <div className="lg:col-span-7 bg-[#0b0c0e] rounded-2xl border border-zinc-800/80 p-4 sm:p-6 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[380px] relative">
               <div className="absolute top-4 left-4 bg-zinc-900/90 px-3 py-1 rounded-lg border border-zinc-800 text-xs font-bold text-zinc-300">
                 100% Original Lupol Motos
               </div>
@@ -133,7 +152,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
               <img
                 src={imagenPrincipal}
                 alt={moto.modelo}
-                className="max-h-[260px] sm:max-h-[320px] w-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
+                className="max-h-[200px] sm:max-h-[320px] max-w-full w-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
                 onError={(e) => {
                   e.target.src = moto.imagen_principal;
                 }}
@@ -365,25 +384,32 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
                   <input
                     id="modal-cotiz-tel"
                     type="tel"
-                    placeholder="Ej. 952 123 456"
+                    placeholder="952123456"
                     required
+                    inputMode="numeric"
+                    maxLength={9}
+                    pattern="[0-9]{9}"
+                    title="Ingresa un celular de 9 digitos"
                     value={telefono}
-                    onChange={(e) => setTelefono(e.target.value)}
+                    onChange={(e) => setTelefono(e.target.value.replace(/[^0-9]/g, '').slice(0, 9))}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus-ring"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="modal-cotiz-dni" className="block text-[11px] font-bold text-zinc-400 mb-1">
-                    DNI / CE (Opcional)
+                    DNI (Opcional)
                   </label>
                   <input
                     id="modal-cotiz-dni"
                     type="text"
-                    maxLength={12}
+                    inputMode="numeric"
+                    maxLength={8}
+                    pattern="[0-9]{8}"
+                    title="Ingresa los 8 dígitos del DNI"
                     placeholder="8 dígitos de DNI"
                     value={dni}
-                    onChange={(e) => setDni(e.target.value)}
+                    onChange={(e) => setDni(e.target.value.replace(/[^0-9]/g, '').slice(0, 8))}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus-ring"
                   />
                 </div>
