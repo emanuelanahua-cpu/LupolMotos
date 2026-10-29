@@ -83,10 +83,11 @@ test('un color puede usar una foto que ya estaba en la galería de la moto', asy
 test('el carrusel conserva fotos, orden y visibilidad', async () => {
   const service = carruselService(baseFalsa());
   const first = carruselSchema.parse({ slides: [
-    { id: 'uno', modelo: 'Moto 400', cilindrada: '400 cc', texto: 'Muy pronto', imagen, activo: true }
+    { id: 'uno', imagen, activo: true }
   ] });
   const saved = await service.guardar({ input: first });
   assert.match(saved.slides[0].imagen, /^\/uploads\//);
+  assert.deepEqual(Object.keys(saved.slides[0]).sort(), ['activo', 'id', 'imagen']);
   assert.equal((await service.listarPublico()).slides.length, 1);
   await service.guardar({ input: carruselSchema.parse({ slides: [{ ...saved.slides[0], activo: false }] }) });
   assert.equal((await service.listarPublico()).slides.length, 0);

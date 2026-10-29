@@ -35,8 +35,10 @@ export default function CarruselAdmin() {
     e.preventDefault();
     setError(''); setMensaje(''); setGuardando(true);
     try {
-      if (slides.some(slide => !slide.imagen)) throw new Error('Sube una foto para cada moto del carrusel.');
-      const data = await api('PUT', '/api/admin/carrusel-proximas', { slides });
+      if (slides.some(slide => !slide.imagen)) throw new Error('Sube una foto para cada diapositiva.');
+      const data = await api('PUT', '/api/admin/carrusel-proximas', {
+        slides: slides.map(({ id, imagen, activo }) => ({ id, imagen, activo }))
+      });
       setSlides(data.slides);
       setMensaje('Carrusel actualizado. La tienda mostrará las diapositivas activas.');
     } catch (e) { setError(e.message); }
@@ -48,13 +50,13 @@ export default function CarruselAdmin() {
       <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
         <div>
           <h2 className="text-xl font-black text-white">Carrusel · Motos por llegar</h2>
-          <p className="text-sm text-zinc-400 mt-1">Edita hasta 8 anuncios. Sube una foto por moto y ordena las diapositivas con las flechas.</p>
+          <p className="text-sm text-zinc-400 mt-1">Sube hasta 8 imágenes. La tienda mostrará solo la foto dentro del marco.</p>
         </div>
-        <button type="button" className={secundario} disabled={slides.length >= 8 || cargando} onClick={() => setSlides(actuales => [...actuales, { id: crypto.randomUUID(), modelo: '', cilindrada: '', texto: '', imagen: '', activo: true }])}>+ Añadir moto</button>
+        <button type="button" className={secundario} disabled={slides.length >= 8 || cargando} onClick={() => setSlides(actuales => [...actuales, { id: crypto.randomUUID(), imagen: '', activo: true }])}>+ Añadir imagen</button>
       </div>
       {cargando ? <p className="text-sm text-zinc-400">Cargando carrusel…</p> : (
         <form onSubmit={guardar} className="space-y-4">
-          {!slides.length && <p className="rounded-xl border border-dashed border-zinc-700 p-5 text-sm text-zinc-400">Aún no hay motos por llegar. Añade la primera para mostrarla en la tienda.</p>}
+          {!slides.length && <p className="rounded-xl border border-dashed border-zinc-700 p-5 text-sm text-zinc-400">Aún no hay imágenes. Añade la primera para mostrar el carrusel en la tienda.</p>}
           {slides.map((slide, indice) => (
             <article key={slide.id} className="rounded-xl border border-zinc-700 bg-[#0b0c10] p-4">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
@@ -65,12 +67,12 @@ export default function CarruselAdmin() {
                   <button type="button" className={`${secundario} !text-red-400`} onClick={() => setSlides(actuales => actuales.filter((_, i) => i !== indice))}>Quitar</button>
                 </div>
               </div>
-              <div className="grid gap-4 md:grid-cols-[180px_1fr]">
-                <div>
-                  <div className="flex h-32 items-center justify-center overflow-hidden rounded-lg border border-zinc-700 bg-zinc-900">
-                    {slide.imagen ? <img src={foto(slide.imagen)} alt={`Vista previa de ${slide.modelo || 'la moto'}`} className="h-full w-full object-contain" /> : <span className="text-xs text-zinc-500">Sin foto</span>}
-                  </div>
-                  <label className="mt-2 block text-xs text-zinc-400">Foto de la moto
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex h-36 w-full max-w-56 items-center justify-center overflow-hidden rounded-lg border border-zinc-700 bg-zinc-900">
+                  {slide.imagen ? <img src={foto(slide.imagen)} alt={`Vista previa de la imagen ${indice + 1}`} className="h-full w-full object-contain" /> : <span className="text-xs text-zinc-500">Sin foto</span>}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <label className="block text-xs text-zinc-400">Imagen de la diapositiva
                     <input className={`${campo} mt-1`} type="file" accept="image/png,image/jpeg,image/webp" onChange={async e => {
                       const archivo = e.target.files?.[0];
                       if (!archivo) return;
@@ -78,18 +80,7 @@ export default function CarruselAdmin() {
                       catch { setError('No se pudo procesar la foto. Usa JPG, PNG o WebP.'); }
                     }} />
                   </label>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <label className="text-xs text-zinc-400">Modelo
-                    <input className={`${campo} mt-1`} required maxLength={90} placeholder="Ej. Próximo modelo" value={slide.modelo} onChange={e => actualizar(indice, { modelo: e.target.value })} />
-                  </label>
-                  <label className="text-xs text-zinc-400">Cilindrada
-                    <input className={`${campo} mt-1`} required maxLength={30} placeholder="Ej. 400 cc" value={slide.cilindrada} onChange={e => actualizar(indice, { cilindrada: e.target.value })} />
-                  </label>
-                  <label className="text-xs text-zinc-400 sm:col-span-2">Mensaje breve
-                    <textarea className={`${campo} mt-1`} maxLength={240} rows={2} placeholder="Ej. Potencia y diseño para una nueva experiencia." value={slide.texto} onChange={e => actualizar(indice, { texto: e.target.value })} />
-                  </label>
-                  <label className="flex items-center gap-2 text-sm text-zinc-300 sm:col-span-2">
+                  <label className="mt-3 flex items-center gap-2 text-sm text-zinc-300">
                     <input type="checkbox" checked={slide.activo} onChange={e => actualizar(indice, { activo: e.target.checked })} /> Mostrar en la tienda
                   </label>
                 </div>

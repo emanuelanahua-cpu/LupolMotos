@@ -2,9 +2,6 @@ import { z } from 'zod';
 
 const slideSchema = z.object({
   id: z.string().min(1).max(80),
-  modelo: z.string().trim().min(1).max(90),
-  cilindrada: z.string().trim().min(1).max(30),
-  texto: z.string().trim().max(240).default(''),
   imagen: z.string().min(1).max(3_400_000),
   activo: z.boolean().default(true)
 });
