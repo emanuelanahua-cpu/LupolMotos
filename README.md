@@ -120,3 +120,9 @@ el mismo dominio para la web y `/api`.
 ## Carrito y gestión comercial
 
 El carrito registra pedidos en MySQL y permite coordinarlos por WhatsApp. El panel incluye inventario, clientes, pedidos, ventas y respaldos privados. Consulta [la guía de comercio y base local](backend/COMERCIO-Y-BASE-LOCAL.md) para usarlo y restaurar datos en tu computadora. El cobro de tarjetas online requiere activar una pasarela y todavía no está habilitado.
+
+## Colores y carrusel de próximas motos
+
+En **Admin → Motos**, agrega un nombre y una foto a cada color. La tienda crea el botón de color y muestra esa foto al seleccionarlo en el catálogo, la ficha y el visor 360°. Administradores y superadministradores pueden activar o desactivar motos; desactivarlas las oculta de la tienda sin borrar su historial.
+
+En **Admin → Carrusel**, administradores y superadministradores pueden crear hasta ocho anuncios de motos por llegar, subir sus fotos, ordenar las diapositivas y ocultarlas sin eliminarlas. La sección pública muestra solo las diapositivas activas. Si todavía no hay anuncios, aparece un mensaje general de próximas novedades sin inventar modelos ni disponibilidad.

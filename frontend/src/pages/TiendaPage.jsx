@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {obtenerSesion} from '../services/adminService';
 import React, { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection';
+import UpcomingCarousel from '../components/UpcomingCarousel';
 import Visualizer3D from '../components/Visualizer3D';
 import MotosCatalog from '../components/MotosCatalog';
 import MotoDetailModal from '../components/MotoDetailModal';
@@ -110,6 +111,8 @@ function TiendaContenido() {
             abrirModalMoto={abrirModalMoto} 
           />
         </div>
+
+        <UpcomingCarousel />
 
         {/* 2. Estudio 360° y Selector de Colores */}
         <Visualizer3D 

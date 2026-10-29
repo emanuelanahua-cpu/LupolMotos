@@ -1,6 +1,9 @@
 import ComercioPanel from './ComercioPanel';
 import {api} from '../services/adminService';
 import React, { useState, useEffect, useCallback } from 'react';
+import { fondoColor } from '../utils/colores';
+import { reducirFoto } from '../utils/reducirFoto';
+import CarruselAdmin from './CarruselAdmin';
 
 const ROL = { superadmin: 'Superadministrador', admin: 'Administrador', empleado: 'Empleado' };
 const SPECS = {
@@ -11,7 +14,7 @@ const SPECS_EDIT = {
   p: [...SPECS.p, ['potencia', 'Potencia'], ['torque', 'Torque'], ['suspension', 'Suspensión'], ['neumaticos', 'Neumáticos']],
   e: [...SPECS.e, ['potencia', 'Potencia'], ['suspension', 'Suspensión'], ['neumaticos', 'Neumáticos'], ['dimensiones', 'Dimensiones']],
 };
-const src = (p) => (!p ? '' : /^(\/|https?:)/.test(p) ? p : '/' + p);
+const src = (p) => (!p ? '' : /^(\/|https?:|data:)/.test(p) ? p : '/' + p);
 // Barra de desplazamiento delgada y amarilla (estilo Lupol)
 const barra = '[scrollbar-width:thin] [scrollbar-color:#fad911_#1c1c22] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:bg-[#fad911] [&::-webkit-scrollbar-thumb]:rounded-full';
 const scroll = `max-h-[65vh] overflow-y-auto pr-2 ${barra}`;
@@ -20,25 +23,6 @@ const lbl = 'block text-xs text-zinc-400 mt-3 mb-1';
 const btn = 'bg-[#fad911] text-black font-bold rounded-lg px-4 py-2.5 text-sm hover:bg-[#fce23e] transition-colors';
 const btnSec = 'border border-zinc-700 text-zinc-200 rounded-lg px-3 py-1.5 text-xs hover:border-[#fad911] transition-colors';
 const card = 'bg-[#121318] border border-zinc-800 rounded-2xl p-5';
-
-// Reduce la foto en el navegador antes de enviarla
-async function reducirFoto(file) {
-  const url = await new Promise((ok) => { const r = new FileReader(); r.onload = () => ok(r.result); r.readAsDataURL(file); });
-  const im = await new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.src = url; });
-  const s = Math.min(1, 1200 / Math.max(im.width, im.height));
-  const c = document.createElement('canvas');
-  c.width = im.width * s; c.height = im.height * s;
-  c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
-  // WebP conserva la transparencia y pesa poco
-  const web = c.toDataURL('image/webp', 0.85);
-  if (web.startsWith('data:image/webp')) return web;
-  // Navegador sin soporte para guardar WebP: JPG con fondo blanco
-  const c2 = document.createElement('canvas');
-  c2.width = c.width; c2.height = c.height;
-  const x = c2.getContext('2d');
-  x.fillStyle = '#fff'; x.fillRect(0, 0, c2.width, c2.height); x.drawImage(c, 0, 0);
-  return c2.toDataURL('image/jpeg', 0.85);
-}
 
 function Acceso({ setup, alEntrar, alVolver }) {
   const [u, setU] = useState(''); const [p, setP] = useState(''); const [p2, setP2] = useState(''); const [err, setErr] = useState('');
@@ -78,23 +62,26 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [fotos, setFotos] = useState([]);
   const [kept, setKept] = useState(moto ? moto.imagenes || [] : []);
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
+  const [colores, setColores] = useState(moto?.colores || []);
   const [msg, setMsg] = useState({ t: '', ok: false });
   useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
   const lista = (editando ? SPECS_EDIT : SPECS)[elec ? 'e' : 'p'];
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value });
+  const actualizarColor = (indice, cambios) => setColores(actuales => actuales.map((color, i) => i === indice ? { ...color, ...cambios } : color));
 
   const guardar = async () => {
     setMsg({ t: '', ok: false });
     try {
+      if (colores.some(color => !color.nombre.trim() || !color.img_moto)) throw new Error('Cada color necesita un nombre y una foto.');
       const sp = {}; lista.forEach(([k]) => { sp[k] = specs[k] || ''; });
-      const base = { categoria, marca: f.marca, modelo: f.modelo, precio: +f.precio || 0, stock: +f.stock || 0, destacado: f.destacado, detalle: f.detalle, specs: sp };
+      const base = { categoria, marca: f.marca, modelo: f.modelo, precio: +f.precio || 0, stock: +f.stock || 0, destacado: f.destacado, detalle: f.detalle, specs: sp, colores };
       if (editando) {
         await api('PUT', `/api/admin/motos/${moto.id}`, { ...base, imagenes_conservar: kept, principal, fotos_nuevas: fotos });
         alGuardar(); alCancelar();
       } else {
         await api('POST', '/api/admin/motos', { ...base, fotos });
-        setF(vacio); setSpecs({}); setFotos([]); setMsg({ t: 'Moto guardada ✔', ok: true }); alGuardar();
+        setF(vacio); setSpecs({}); setFotos([]); setColores([]); setMsg({ t: 'Moto guardada ✔', ok: true }); alGuardar();
       }
     } catch (x) { setMsg({ t: x.message, ok: false }); }
   };
@@ -117,6 +104,38 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       ))}
       <label className={lbl}>Detalle</label><textarea className={inp} rows={3} value={f.detalle} onChange={set('detalle')} />
       <label className="flex items-center gap-2 text-xs text-zinc-300 mt-3"><input type="checkbox" checked={f.destacado} onChange={set('destacado')} /> Destacada</label>
+
+      <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-bold text-white">Colores disponibles</h3>
+            <p className="text-xs text-zinc-400">Cada color tendrá su propio botón y foto en la tienda.</p>
+          </div>
+          <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '' }])}>+ Color</button>
+        </div>
+        <div className="space-y-3 mt-3">
+          {colores.map((color, indice) => (
+            <div key={indice} className="rounded-lg border border-zinc-800 bg-[#121318] p-3">
+              <div className="flex items-center gap-3">
+                <span className="h-9 w-9 rounded-full border border-white shrink-0" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
+                <input className={inp} aria-label={`Nombre del color ${indice + 1}`} maxLength={40} placeholder="Ej. Rojo / Negro" value={color.nombre} onChange={e => actualizarColor(indice, { nombre: e.target.value })} />
+                <button type="button" className="text-xs text-red-400" onClick={() => setColores(actuales => actuales.filter((_, i) => i !== indice))}>Quitar</button>
+              </div>
+              <div className="flex items-center gap-3 mt-3">
+                {color.img_moto && <img src={src(color.img_moto)} alt={`Moto en color ${color.nombre || indice + 1}`} className="h-16 w-20 rounded-md object-contain bg-zinc-900" />}
+                <label className="min-w-0 flex-1 text-xs text-zinc-400">Foto de este color
+                  <input className={`${inp} mt-1`} type="file" accept="image/png,image/jpeg,image/webp" onChange={async e => {
+                    const archivo = e.target.files?.[0];
+                    if (!archivo) return;
+                    try { actualizarColor(indice, { img_moto: await reducirFoto(archivo) }); }
+                    catch { setMsg({ t: 'No se pudo leer la foto del color.', ok: false }); }
+                  }} />
+                </label>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {editando && kept.length > 0 && (
         <>
@@ -217,10 +236,12 @@ function Catalogo({ motos, cats, yo, recargar }) {
             </div>
             <div className="flex flex-col gap-1">
               {puedeEditar(m) && <button className={btnSec} onClick={() => setEditando(m)}>Editar</button>}
-              {yo.rol === 'superadmin' && (
+              {(yo.rol === 'superadmin' || yo.rol === 'admin') && (
                 <>
                   <button className={btnSec} onClick={() => accion(() => api('PATCH', `/api/admin/motos/${m.id}/estado`))}>{m.estado === 'activado' ? 'Desactivar' : 'Activar'}</button>
+                  {yo.rol === 'superadmin' && (
                   <button className={`${btnSec} !text-red-400`} onClick={() => confirm('¿Eliminar esta moto definitivamente?') && accion(() => api('DELETE', `/api/admin/motos/${m.id}`))}>Eliminar</button>
+                  )}
                 </>
               )}
             </div>
@@ -379,14 +400,14 @@ export default function AdminPanel({ alSalir, alEntrarPanel }) {
             </div>
             {yo.rol !== 'empleado' && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {[['motos', 'Motos'], ['inventario','Inventario'], ['pedidos','Pedidos'], ['clientes','Clientes'], ['ventas','Ventas'], ['solicitudes', 'Solicitudes'], ['usuarios', 'Usuarios']].map(([k, n]) => (
+                {[['motos', 'Motos'], ['carrusel', 'Carrusel'], ['inventario','Inventario'], ['pedidos','Pedidos'], ['clientes','Clientes'], ['ventas','Ventas'], ['solicitudes', 'Solicitudes'], ['usuarios', 'Usuarios']].map(([k, n]) => (
                   <button key={k} onClick={() => setTab(k)} className={`${btnSec} ${tab === k ? '!bg-[#fad911] !text-black !border-[#fad911]' : ''}`}>{n}</button>
                 ))}
               </div>
             )}
             {tab === 'motos' || yo.rol === 'empleado'
               ? (<div className="grid md:grid-cols-[360px_1fr] gap-5"><FormMoto cats={cats} alGuardar={recargar} /><Catalogo motos={motos} cats={cats} yo={yo} recargar={recargar} /></div>)
-              : tab === 'solicitudes' ? <Solicitudes /> : ['inventario','pedidos','clientes','ventas'].includes(tab) ? <ComercioPanel key={tab} seccion={tab}/> : <Usuarios yo={yo} />}
+              : tab === 'carrusel' ? <CarruselAdmin /> : tab === 'solicitudes' ? <Solicitudes /> : ['inventario','pedidos','clientes','ventas'].includes(tab) ? <ComercioPanel key={tab} seccion={tab}/> : <Usuarios yo={yo} />}
           </>
         )}
       </div>

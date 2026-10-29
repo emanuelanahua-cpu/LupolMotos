@@ -10,6 +10,10 @@ export const motoSchema = z.object({
   precio: z.number().finite().min(0),
   stock: z.number().int().min(0),
   destacado: z.boolean().default(false),
+  colores: z.array(z.object({
+    nombre: z.string().trim().min(1).max(40),
+    img_moto: z.string().min(1).max(3_400_000)
+  })).max(12).refine(items => new Set(items.map(c => c.nombre.toLocaleLowerCase('es'))).size === items.length, 'No repitas un color').optional(),
   detalle: z.string().max(800).default(''),
   specs: z.record(z.string(), z.string().max(120)).default({}),
   fotos: z.array(z.string().max(3_400_000)).max(5).default([]),

@@ -17,6 +17,17 @@ export async function obtenerInformacionTienda() {
   }
 }
 
+export async function obtenerCarruselProximas() {
+  try {
+    const respuesta = await apiFetch(`${API_BASE_URL}/carrusel-proximas`);
+    if (!respuesta.ok) throw new Error('Error al consultar el carrusel');
+    const datos = await respuesta.json();
+    return Array.isArray(datos.slides) ? datos.slides : [];
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Obtiene el catálogo de motocicletas con filtros
  */
