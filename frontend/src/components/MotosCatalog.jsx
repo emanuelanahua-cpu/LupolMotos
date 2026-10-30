@@ -1,5 +1,6 @@
 import {useCart} from '../context/CartContext';
 import MotoColorSelector from './MotoColorSelector';
+import PhotoLightbox from './PhotoLightbox';
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Search, 
@@ -16,6 +17,7 @@ import {
   Sparkles,
   Palette,
   RotateCw,
+  ZoomIn,
   Zap,
   Fingerprint
 } from 'lucide-react';
@@ -25,6 +27,7 @@ import { formatearSoles } from '../utils/format';
 function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abrirCotizadorConMoto }) {
   const cart=useCart();
   const [colorSeleccionado, setColorSeleccionado] = useState(null);
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const esABS = (moto.frenos || '').toLowerCase().includes('abs');
   const esElectrica = moto.tipo === 'Eléctricas';
   const volteada = motoVolteada === moto.id;
@@ -69,8 +72,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
           {/* Cara frontal: foto estilo póster */}
           <div className="flip-card-face rounded-none">
             <div
-              onClick={() => setMotoVolteada(volteada ? null : moto.id)}
-              className="relative h-full w-full flex items-center justify-center p-4 cursor-pointer overflow-hidden"
+              className="relative h-full w-full flex items-center justify-center p-4 overflow-hidden"
             >
               {/* Fondo diagonal estilo afiche */}
               <div className="absolute inset-0 bg-gradient-to-br from-black via-[#17181d] to-black"></div>
@@ -78,20 +80,23 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
               <div className="absolute -left-16 bottom-0 w-48 h-24 bg-[#fad911]/10 -rotate-12"></div>
               <div className="absolute inset-0 bg-radial from-[#fad911]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <img
-                src={colorSeleccionado?.img_moto || moto.imagen_principal}
-                alt={moto.modelo}
-                loading="lazy"
-                className="relative max-h-full max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)] transition-transform duration-300 group-hover:scale-[1.04]"
-                onError={(e) => {
-                  e.target.src = '/multimedia/categorias/2ruedas_static.png';
-                }}
-              />
+              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorSeleccionado ? ` en ${colorSeleccionado.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: colorSeleccionado?.img_moto || moto.imagen_principal, titulo: `${moto.marca} ${moto.modelo}${colorSeleccionado ? ` · ${colorSeleccionado.nombre}` : ''}` })} className="absolute inset-0 flex cursor-zoom-in items-center justify-center p-4">
+                <img
+                  src={colorSeleccionado?.img_moto || moto.imagen_principal}
+                  alt=""
+                  loading="lazy"
+                  className="relative max-h-full max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)] transition-transform duration-300 group-hover:scale-[1.04]"
+                  onError={(e) => {
+                    e.target.src = '/multimedia/categorias/2ruedas_static.png';
+                  }}
+                />
+                <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-white/30 bg-black/70 px-2 py-1 text-[10px] font-bold text-white backdrop-blur-sm"><ZoomIn className="h-3.5 w-3.5" /> Ampliar</span>
+              </button>
 
-              <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center space-x-1.5 px-3 py-1 rounded-full bg-black/70 border border-[#fad911]/30 text-[#fad911] text-[10px] font-bold uppercase tracking-wide backdrop-blur-sm">
+              <button type="button" onClick={() => setMotoVolteada(moto.id)} className="absolute bottom-2.5 left-1/2 z-10 flex -translate-x-1/2 items-center space-x-1.5 whitespace-nowrap rounded-full border border-[#fad911]/30 bg-black/70 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-[#fad911] backdrop-blur-sm">
                 <RotateCw className="w-3 h-3" />
                 <span>Toca para ver colores y specs</span>
-              </div>
+              </button>
             </div>
           </div>
 
@@ -187,6 +192,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
 
       </div>
 
+      <PhotoLightbox foto={fotoAmpliada} onClose={() => setFotoAmpliada(null)} />
     </div>
   );
 }

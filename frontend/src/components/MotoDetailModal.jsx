@@ -1,5 +1,6 @@
 import {useCart} from '../context/CartContext';
 import MotoColorSelector from './MotoColorSelector';
+import PhotoLightbox from './PhotoLightbox';
 import React, { useState, useEffect } from 'react';
 import {
   X,
@@ -13,7 +14,8 @@ import {
   ChevronRight,
   FileText,
   Clock,
-  Sparkles
+  Sparkles,
+  ZoomIn
 } from 'lucide-react';
 import { formatearSoles } from '../utils/format';
 import { enviarCotizacion } from '../services/solicitudService';
@@ -24,6 +26,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
   
   const [colorSeleccionadoIdx, setColorSeleccionadoIdx] = useState(0);
   const [imagenPrincipal, setImagenPrincipal] = useState('');
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [modalidad, setModalidad] = useState('CREDITO');
   const [porcentajeInicial, setPorcentajeInicial] = useState(20);
   const [meses, setMeses] = useState(24);
@@ -149,14 +152,17 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
                 100% Original Lupol Motos
               </div>
 
-              <img
-                src={imagenPrincipal}
-                alt={moto.modelo}
-                className="max-h-[200px] sm:max-h-[320px] max-w-full w-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
-                onError={(e) => {
-                  e.target.src = moto.imagen_principal;
-                }}
-              />
+              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorActual ? ` en ${colorActual.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: imagenPrincipal, titulo: `${moto.marca} ${moto.modelo}${colorActual ? ` · ${colorActual.nombre}` : ''}` })} className="relative flex w-full cursor-zoom-in items-center justify-center py-8">
+                <img
+                  src={imagenPrincipal}
+                  alt=""
+                  className="max-h-[200px] sm:max-h-[320px] max-w-full w-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
+                  onError={(e) => {
+                    e.target.src = moto.imagen_principal;
+                  }}
+                />
+                <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full border border-zinc-600 bg-black/75 px-2.5 py-1 text-[11px] font-bold text-white"><ZoomIn className="h-4 w-4" /> Ampliar foto</span>
+              </button>
 
               <div className="mt-4 w-full"><MotoColorSelector colores={moto.colores} seleccionado={colorSeleccionadoIdx} onSelect={handleSelectColor} /></div>
             </div>
@@ -443,6 +449,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
         </div>
 
       </div>
+      <PhotoLightbox foto={fotoAmpliada} onClose={() => setFotoAmpliada(null)} />
 
     </div>
   );
