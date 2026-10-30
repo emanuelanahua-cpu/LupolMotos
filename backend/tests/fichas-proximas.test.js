@@ -5,7 +5,7 @@ import { completarFichasProximas } from '../src/migrations/fichas-proximas.js';
 test('completa las fichas confirmadas y vincula solo las fotos originales', async () => {
   const motos = [
     { id: 115, datos: JSON.stringify({ marca: 'Ronco', modelo: 'ADV GS', motor: '300', potencia: 'Consultar', suspension: 'Consultar', neumaticos: 'Consultar', detalle: '' }) },
-    { id: 116, datos: JSON.stringify({ marca: 'Ronco', modelo: 'Explorer V1', motor: '200', potencia: 'Consultar', suspension: 'Consultar', neumaticos: 'Consultar' }) },
+    { id: 116, datos: JSON.stringify({ marca: 'Ronco', modelo: 'Explorer V1', motor: '200', potencia: 'Consultar', suspension: 'Consultar', neumaticos: 'Consultar', enfriamiento: 'Arire' }) },
     { id: 117, datos: JSON.stringify({ marca: 'Otra', modelo: 'ADV GS', potencia: 'Consultar' }) }
   ];
   const carrusel = { slides: [
@@ -30,6 +30,7 @@ test('completa las fichas confirmadas y vincula solo las fotos originales', asyn
   const actualizado = JSON.parse(config.datos).slides;
   assert.equal(gs.potencia, '22 HP a 7000 rpm');
   assert.equal(explorer.potencia, '16 HP a 8000 rpm');
+  assert.equal(explorer.enfriamiento, 'Consultar');
   assert.equal(gs.suspension, 'Telescópica invertida / Monoshock');
   assert.equal(JSON.parse(motos[2].datos).potencia, 'Consultar');
   assert.equal(actualizado[0].moto_id, 115);

@@ -41,6 +41,10 @@ export async function completarFichasProximas(c) {
         cambio = true;
       }
     }
+    if (moto.modelo === 'Explorer V1' && moto.enfriamiento === 'Arire') {
+      moto.enfriamiento = 'Consultar';
+      cambio = true;
+    }
     if (cambio) await c.execute('UPDATE motos SET datos = ? WHERE id = ?', [JSON.stringify(moto), row.id]);
   }
 
