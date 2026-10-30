@@ -246,9 +246,9 @@ function Catalogo({ motos, cats, yo, recargar }) {
                 <div className="mt-1.5 flex flex-wrap gap-1" aria-label={`Colores de ${m.marca} ${m.modelo}`}>
                   {m.colores.filter(color => color?.nombre).map((color, i) => (
                     <span key={i} className="inline-flex items-center gap-1 rounded-full border border-zinc-700 px-1.5 py-0.5 text-[10px] text-zinc-300">
+                      {color.img_moto && <img src={src(color.img_moto)} alt="" className="h-5 w-7 rounded border border-zinc-700 object-cover" />}
                       <span className="h-2.5 w-2.5 rounded-full border border-white/60" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
                       {color.nombre}
-                      {color.img_moto && <span className="text-[#fad911]" title="Tiene foto propia">▣</span>}
                     </span>
                   ))}
                 </div>
