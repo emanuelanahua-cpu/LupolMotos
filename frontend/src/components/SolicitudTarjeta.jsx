@@ -4,7 +4,7 @@ import "../styles/SolicitudTarjeta.css";
 export default function SolicitudTarjeta() {
   return (
     <>
-      <div className="seccion-solicitud-wrapper">
+      <div id="tive" className="seccion-solicitud-wrapper scroll-mt-20">
         <div className="seccion-solicitud-inner">
           {/* Fondos superpuestos */}
           <div className="contenedor-fondos">
@@ -91,4 +91,4 @@ export default function SolicitudTarjeta() {
       </div>
     </>
   );
-} 
+}

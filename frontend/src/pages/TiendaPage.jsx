@@ -11,7 +11,7 @@ import MotoDetailModal from '../components/MotoDetailModal';
 import CotizadorSimulador from '../components/CotizadorSimulador';
 import BenefitsSection from '../components/BenefitsSection';
 import StoreInfoSection from '../components/StoreInfoSection';
-import TIVeSection from '../components/TIVeSection';
+import SoatSection from '../components/SoatSection';
 import SolicitudTarjeta from '../components/SolicitudTarjeta';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -143,8 +143,8 @@ function TiendaContenido() {
         {/* 9. Beneficios Exclusivos */}
         <BenefitsSection />
 
-        {/* 10. Trámites TIVe */}
-        <TIVeSection />
+        {/* SOAT y trámites vehiculares */}
+        <SoatSection />
 
         {/* 11. Solicitud de Tarjeta */}
         <SolicitudTarjeta />
