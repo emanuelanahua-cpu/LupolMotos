@@ -60,7 +60,8 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  aspect-ratio: 1.5;
+  aspect-ratio: 1.9;
+  max-height: max(280px, calc(100svh - 260px));
   clip-path: polygon(14% 0, 69% 0, 85% 8%, 95% 24%, 100% 43%, 98% 68%, 87% 92%, 72% 100%, 24% 100%, 7% 90%, 0 68%, 0 42%, 6% 22%);
   background: radial-gradient(ellipse at 68% 45%, #123d4c 0%, #081923 42%, #03070a 78%);
   box-shadow: inset 0 0 0 5px #05090c, inset 0 0 38px #22d3ee38;
@@ -122,6 +123,7 @@ body {
   }
   .cluster-screen {
     aspect-ratio: 1.45;
+    max-height: none;
     clip-path: polygon(13% 0, 73% 0, 90% 5%, 100% 16%, 100% 82%, 87% 100%, 14% 100%, 0 83%, 0 17%);
   }
   .cluster-bolt { display: none; }

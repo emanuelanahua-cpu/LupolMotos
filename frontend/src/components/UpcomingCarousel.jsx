@@ -26,7 +26,7 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
   const ir = cambio => setIndice(actual => (actual + cambio + slides.length) % slides.length);
 
   return (
-    <section id="proximas" aria-label="Motos por llegar" className="overflow-x-clip border-b border-zinc-800 bg-[#090c10] py-5 sm:py-9">
+    <section id="proximas" aria-label="Motos por llegar" className="overflow-x-clip border-b border-zinc-800 bg-[#090c10] py-5">
       <div className="mx-auto max-w-[1320px] px-3 sm:px-6">
         <div className="cluster-housing" onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)} onFocusCapture={() => setPausado(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>
           <div className="cluster-frame">
