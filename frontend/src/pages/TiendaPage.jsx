@@ -75,7 +75,13 @@ function TiendaContenido() {
     }
     const elemento = document.getElementById(idSeccion);
     if (elemento) {
-      elemento.scrollIntoView({ behavior: 'smooth' });
+      if (idSeccion === 'inicio') {
+        const altoMenu = document.querySelector('header')?.getBoundingClientRect().height || 0;
+        const destino = window.scrollY + elemento.getBoundingClientRect().top - altoMenu;
+        window.scrollTo({ top: Math.max(0, destino), behavior: 'smooth' });
+      } else {
+        elemento.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -105,7 +111,7 @@ function TiendaContenido() {
       <main>
 
         {/* Carrusel principal y presentación de la tienda */}
-        <div id="inicio">
+        <div>
           <UpcomingCarousel motos={motos} abrirModalMoto={abrirModalMoto} />
           <HeroSection 
             navegarA={navegarA} 

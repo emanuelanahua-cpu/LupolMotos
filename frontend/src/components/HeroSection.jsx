@@ -86,7 +86,7 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
   const actual = categoriasHero[categoriaActiva];
 
   return (
-    <section className="relative overflow-hidden bg-[#0a0a0c] border-b border-zinc-800">
+    <section id="inicio" className="relative overflow-hidden bg-[#0a0a0c] border-b border-zinc-800">
       
       {/* Background Decorator */}
       <div className="absolute inset-0 pointer-events-none">
