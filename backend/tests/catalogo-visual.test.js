@@ -41,6 +41,17 @@ test('una moto nueva guarda fotos independientes para sus botones de color', asy
   assert.equal(moto.imagen_principal, moto.colores[0].img_moto);
 });
 
+test('una moto admite colores sin foto individual y conserva la foto principal', async () => {
+  const service = motosService(baseFalsa());
+  const input = motoSchema.parse({
+    categoria: 'Racing / Sport', marca: 'Prueba', modelo: '400', precio: 10000, stock: 1,
+    fotos: [imagen], colores: [{ nombre: 'Rojo' }, { nombre: 'Negro' }]
+  });
+  const moto = await service.crear({ input, actor: { usuario: 'admin' } });
+  assert.match(moto.imagen_principal, /^\/uploads\//);
+  assert.deepEqual(moto.colores, [{ nombre: 'Rojo', img_moto: '' }, { nombre: 'Negro', img_moto: '' }]);
+});
+
 test('editar colores conserva sus fotos y rechaza rutas ajenas', async () => {
   const service = motosService(baseFalsa());
   const base = { categoria: 'Racing / Sport', marca: 'Prueba', modelo: '400', precio: 10000, stock: 1 };

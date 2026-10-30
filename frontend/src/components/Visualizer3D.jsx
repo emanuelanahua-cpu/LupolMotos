@@ -66,7 +66,7 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
             ESTUDIO INTERACTIVO <span className="text-[#fad911]">LUPOL 360°</span>
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base mt-2">
-            Explora nuestras motos desde diferentes ángulos y personaliza el color en tiempo real.
+            Explora nuestras motos desde diferentes ángulos y consulta sus colores disponibles.
           </p>
         </div>
 

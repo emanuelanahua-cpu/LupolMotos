@@ -16,11 +16,11 @@ export function createService(pool, env = process.env) {
     const fotosGuardadas = new Map(fotosEntrantes.map((foto, indice) => [foto, urlsEntrantes[indice]]));
     const resultado = [];
     for (const color of colores || []) {
-      let imagen = color.img_moto;
+      let imagen = color.img_moto || '';
       if (imagen.startsWith('data:image/')) {
         if (!fotosGuardadas.has(imagen)) fotosGuardadas.set(imagen, (await saveImages(c, [imagen]))[0]);
         imagen = fotosGuardadas.get(imagen);
-      } else if (!rutasPermitidas.has(imagen)) {
+      } else if (imagen && !rutasPermitidas.has(imagen)) {
         throw httpError(400, 'La foto de un color no pertenece a esta moto');
       }
       resultado.push({ nombre: color.nombre, img_moto: imagen });

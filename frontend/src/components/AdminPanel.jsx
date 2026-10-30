@@ -63,7 +63,6 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [kept, setKept] = useState(moto ? moto.imagenes || [] : []);
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
   const [colores, setColores] = useState(moto?.colores || []);
-  const fotosDisponibles = [...kept, ...fotos];
   const [msg, setMsg] = useState({ t: '', ok: false });
   useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
@@ -74,7 +73,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const guardar = async () => {
     setMsg({ t: '', ok: false });
     try {
-      if (colores.some(color => !color.nombre.trim() || !color.img_moto)) throw new Error('Cada color necesita un nombre y una foto.');
+      if (colores.some(color => !color.nombre.trim())) throw new Error('Cada color necesita un nombre.');
       const sp = {}; lista.forEach(([k]) => { sp[k] = specs[k] || ''; });
       const base = { categoria, marca: f.marca, modelo: f.modelo, precio: +f.precio || 0, stock: +f.stock || 0, destacado: f.destacado, detalle: f.detalle, specs: sp, colores };
       if (editando) {
@@ -106,53 +105,6 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       <label className={lbl}>Detalle</label><textarea className={inp} rows={3} value={f.detalle} onChange={set('detalle')} />
       <label className="flex items-center gap-2 text-xs text-zinc-300 mt-3"><input type="checkbox" checked={f.destacado} onChange={set('destacado')} /> Destacada</label>
 
-      <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <h3 className="text-sm font-bold text-white">Colores disponibles</h3>
-            <p className="text-xs text-zinc-400">Cada color tendrá su propio botón y foto en la tienda.</p>
-          </div>
-          <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '' }])}>+ Color</button>
-        </div>
-        <div className="space-y-3 mt-3">
-          {colores.map((color, indice) => (
-            <div key={indice} className="rounded-lg border border-zinc-800 bg-[#121318] p-3">
-              <div className="flex items-center gap-3">
-                <span className="h-9 w-9 rounded-full border border-white shrink-0" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
-                <input className={inp} aria-label={`Nombre del color ${indice + 1}`} maxLength={40} placeholder="Ej. Rojo / Negro" value={color.nombre} onChange={e => actualizarColor(indice, { nombre: e.target.value })} />
-                <button type="button" className="text-xs text-red-400" onClick={() => setColores(actuales => actuales.filter((_, i) => i !== indice))}>Quitar</button>
-              </div>
-              <div className="flex items-center gap-3 mt-3">
-                {color.img_moto && <img src={src(color.img_moto)} alt={`Moto en color ${color.nombre || indice + 1}`} className="h-16 w-20 rounded-md object-contain bg-zinc-900" />}
-                <label className="min-w-0 flex-1 text-xs text-zinc-400">Foto de este color
-                  <input className={`${inp} mt-1`} type="file" accept="image/png,image/jpeg,image/webp" onChange={async e => {
-                    const archivo = e.target.files?.[0];
-                    if (!archivo) return;
-                    try { actualizarColor(indice, { img_moto: await reducirFoto(archivo) }); }
-                    catch { setMsg({ t: 'No se pudo leer la foto del color.', ok: false }); }
-                  }} />
-                </label>
-              </div>
-              {fotosDisponibles.length > 0 && (
-                <div className="mt-3">
-                  <p className="mb-2 text-xs text-zinc-400">O elige una foto que ya subiste para este color:</p>
-                  <div className="flex flex-wrap gap-2" role="group" aria-label={`Fotos disponibles para ${color.nombre || `color ${indice + 1}`}`}>
-                    {fotosDisponibles.map((ruta, fotoIndice) => (
-                      <button key={fotoIndice} type="button" onClick={() => actualizarColor(indice, { img_moto: ruta })}
-                        aria-label={`Usar foto ${fotoIndice + 1} para ${color.nombre || `color ${indice + 1}`}`}
-                        aria-pressed={color.img_moto === ruta}
-                        className={`rounded-lg border p-1 transition-colors ${color.img_moto === ruta ? 'border-[#fad911] bg-[#fad911]/10' : 'border-zinc-700 hover:border-[#fad911]'}`}>
-                        <img src={src(ruta)} alt="" className="h-16 w-20 rounded-md bg-zinc-900 object-contain" />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {editando && kept.length > 0 && (
         <>
           <label className={lbl}>Fotos actuales</label>
@@ -170,6 +122,28 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       <label className={lbl}>{editando ? 'Agregar más fotos' : 'Fotos (hasta 5; la primera es la principal)'}</label>
       <input className={inp} type="file" accept="image/*" multiple onChange={async (e) => setFotos(await Promise.all([...e.target.files].slice(0, 5).map(reducirFoto)))} />
       <div className="flex gap-2 flex-wrap mt-2">{fotos.map((s, i) => <img key={i} src={s} alt="" className="w-16 h-12 object-cover rounded-md" />)}</div>
+
+      <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-bold text-white">Colores disponibles</h3>
+            <p className="text-xs text-zinc-400">Sube la foto de la moto y agrega aquí sus colores disponibles.</p>
+          </div>
+          <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '' }])}>+ Color</button>
+        </div>
+        <div className="space-y-3 mt-3">
+          {colores.map((color, indice) => (
+            <div key={indice} className="rounded-lg border border-zinc-800 bg-[#121318] p-3">
+              <div className="flex items-center gap-3">
+                <span className="h-9 w-9 rounded-full border border-white shrink-0" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
+                <input className={inp} aria-label={`Nombre del color ${indice + 1}`} maxLength={40} placeholder="Ej. Rojo / Negro" value={color.nombre} onChange={e => actualizarColor(indice, { nombre: e.target.value })} />
+                <button type="button" className="text-xs text-red-400" onClick={() => setColores(actuales => actuales.filter((_, i) => i !== indice))}>Quitar</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <p className={`text-xs min-h-4 mt-2 ${msg.ok ? 'text-green-400' : 'text-red-400'}`}>{msg.t}</p>
       <div className="flex gap-2 mt-2">
         <button onClick={guardar} className={`${btn} flex-1`}>{editando ? 'Guardar cambios' : 'Guardar moto'}</button>
