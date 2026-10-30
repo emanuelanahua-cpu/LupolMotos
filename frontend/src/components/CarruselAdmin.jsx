@@ -86,7 +86,7 @@ export default function CarruselAdmin({ motos = [] }) {
                   <label className="mt-3 block text-xs text-zinc-400">Ficha técnica al presionar la imagen
                     <select className={`${campo} mt-1`} value={slide.moto_id || ''} onChange={e => actualizar(indice, { moto_id: e.target.value ? Number(e.target.value) : null })}>
                       <option value="">Selecciona una moto</option>
-                      {motos.filter(moto => moto.estado === 'activado').map(moto => <option key={moto.id} value={moto.id}>{moto.marca} {moto.modelo}</option>)}
+                      {motos.filter(moto => moto.estado === 'activado').map(moto => <option key={moto.id} value={moto.id}>{moto.marca} {moto.modelo} — S/ {Number(moto.precio).toLocaleString('es-PE')} · ID {moto.id}</option>)}
                     </select>
                   </label>
                 </div>
