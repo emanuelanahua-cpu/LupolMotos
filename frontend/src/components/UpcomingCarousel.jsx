@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { obtenerCarruselProximas } from '../services/catalogoService';
 
-export default function UpcomingCarousel() {
+export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
   const [slides, setSlides] = useState([]);
   const [indice, setIndice] = useState(0);
   const [pausado, setPausado] = useState(false);
@@ -15,13 +15,14 @@ export default function UpcomingCarousel() {
 
   useEffect(() => {
     if (slides.length < 2 || pausado || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setInterval(() => setIndice(actual => (actual + 1) % slides.length), 7000);
-    return () => window.clearInterval(timer);
-  }, [slides.length, pausado]);
+    const timer = window.setTimeout(() => setIndice(actual => (actual + 1) % slides.length), 3000);
+    return () => window.clearTimeout(timer);
+  }, [indice, slides.length, pausado]);
 
   if (!slides.length) return null;
 
   const actual = slides[indice] || slides[0];
+  const moto = motos.find(item => item.id === Number(actual.moto_id));
   const ir = cambio => setIndice(actual => (actual + cambio + slides.length) % slides.length);
 
   return (
@@ -29,9 +30,16 @@ export default function UpcomingCarousel() {
       <div className="mx-auto max-w-[1320px] px-3 sm:px-6">
         <div className="cluster-housing" onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)} onFocusCapture={() => setPausado(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>
           <div className="cluster-frame">
-            <div className="cluster-screen">
-              <img key={actual.id} src={actual.imagen} alt="Moto por llegar" className="cluster-bike-image" />
-            </div>
+            {moto ? (
+              <button type="button" className="cluster-screen cluster-screen-link" onClick={() => abrirModalMoto(moto.id)} aria-label={`Ver ficha técnica de ${moto.marca} ${moto.modelo}`}>
+                <img key={actual.id} src={actual.imagen} alt={`${moto.marca} ${moto.modelo}`} className="cluster-bike-image" />
+                <span className="cluster-link-label">Ver ficha técnica</span>
+              </button>
+            ) : (
+              <div className="cluster-screen">
+                <img key={actual.id} src={actual.imagen} alt="Moto por llegar" className="cluster-bike-image" />
+              </div>
+            )}
           </div>
           <span className="cluster-bolt cluster-bolt-left" aria-hidden="true" />
           <span className="cluster-bolt cluster-bolt-right" aria-hidden="true" />

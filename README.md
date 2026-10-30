@@ -125,4 +125,4 @@ El carrito registra pedidos en MySQL y permite coordinarlos por WhatsApp. El pan
 
 En **Admin → Motos**, agrega un nombre y una foto a cada color. La tienda crea el botón de color y muestra esa foto al seleccionarlo en el catálogo, la ficha y el visor 360°. Administradores y superadministradores pueden activar o desactivar motos; desactivarlas las oculta de la tienda sin borrar su historial.
 
-En **Admin → Carrusel**, administradores y superadministradores pueden subir hasta ocho imágenes, ordenarlas y ocultarlas sin eliminarlas. La página muestra las imágenes activas dentro del marco del tablero, sin títulos ni descripciones. Si no hay imágenes activas, el carrusel no aparece.
+En **Admin → Carrusel**, administradores y superadministradores pueden subir hasta ocho imágenes, ordenarlas, vincular cada una a una moto activa y ocultarlas sin eliminarlas. Cada foto permanece tres segundos y abre la ficha técnica de su modelo al presionarla. Si no hay imágenes activas, el carrusel no aparece.

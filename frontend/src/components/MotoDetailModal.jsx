@@ -223,7 +223,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Cilindrada / Motor</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.motor || 'DTS-i'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.motor || 'Consultar'}</div>
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Potencia Máxima</div>
@@ -235,23 +235,23 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Sistema de Frenos</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.frenos || 'Disco / Tambor'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.frenos || 'Consultar'}</div>
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Suspensión</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.suspension || 'Telescópica / Nitrox'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.suspension || 'Consultar'}</div>
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Enfriamiento</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.enfriamiento || 'Aire / Líquido'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.enfriamiento || 'Consultar'}</div>
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Tanque de Combustible</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.tanque || '12 L'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.tanque || 'Consultar'}</div>
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <div className="text-[10px] uppercase font-bold text-zinc-500">Neumáticos</div>
-                <div className="text-sm font-bold text-white mt-0.5">{moto.neumaticos || 'Estándar'}</div>
+                <div className="text-sm font-bold text-white mt-0.5">{moto.neumaticos || 'Consultar'}</div>
               </div>
             </div>
 

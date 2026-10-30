@@ -16,8 +16,11 @@ export function createService(pool) {
     const [rows] = await c.execute('SELECT datos FROM configuracion WHERE clave = ? FOR UPDATE', [CLAVE]);
     const anterior = rows.length ? decode(rows[0].datos) : { slides: [] };
     const imagenesAnteriores = new Map((anterior.slides || []).map(slide => [slide.id, slide.imagen]));
+    const [motos] = await c.query('SELECT id, datos FROM motos');
+    const motosActivas = new Set(motos.filter(row => decode(row.datos).estado === 'activado').map(row => row.id));
     const slides = [];
     for (const slide of input.slides) {
+      if (slide.moto_id && !motosActivas.has(slide.moto_id)) throw httpError(400, 'Selecciona una moto activa para la ficha técnica');
       let imagen = slide.imagen;
       if (imagen.startsWith('data:image/')) {
         imagen = (await saveImages(c, [imagen]))[0];

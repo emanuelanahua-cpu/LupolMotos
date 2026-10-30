@@ -1,4 +1,5 @@
 import { migrateCommerce } from './comercio.js';
+import { completarFichasProximas } from './fichas-proximas.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { root } from '../config/db.js';
@@ -28,6 +29,7 @@ export async function initialize(pool, initialUsers = []) {
       }
       await c.execute('INSERT INTO configuracion (clave, datos) VALUES (?, ?)', ['seed_v1', 'true']);
     }
+    await completarFichasProximas(c);
     const [[count]] = await c.query('SELECT COUNT(*) AS n FROM usuarios');
     if (!Number(count.n)) {
       for (const u of initialUsers) {

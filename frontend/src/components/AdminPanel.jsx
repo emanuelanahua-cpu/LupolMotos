@@ -423,7 +423,7 @@ export default function AdminPanel({ alSalir, alEntrarPanel }) {
             )}
             {tab === 'motos' || yo.rol === 'empleado'
               ? (<div className="grid md:grid-cols-[360px_1fr] gap-5"><FormMoto cats={cats} alGuardar={recargar} /><Catalogo motos={motos} cats={cats} yo={yo} recargar={recargar} /></div>)
-              : tab === 'carrusel' ? <CarruselAdmin /> : tab === 'solicitudes' ? <Solicitudes /> : ['inventario','pedidos','clientes','ventas'].includes(tab) ? <ComercioPanel key={tab} seccion={tab}/> : <Usuarios yo={yo} />}
+              : tab === 'carrusel' ? <CarruselAdmin motos={motos} /> : tab === 'solicitudes' ? <Solicitudes /> : ['inventario','pedidos','clientes','ventas'].includes(tab) ? <ComercioPanel key={tab} seccion={tab}/> : <Usuarios yo={yo} />}
           </>
         )}
       </div>

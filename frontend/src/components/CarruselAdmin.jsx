@@ -6,7 +6,7 @@ const campo = 'w-full rounded-lg border border-zinc-700 bg-[#0a0a0c] px-3 py-2.5
 const secundario = 'rounded-lg border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-200 hover:border-[#fad911] disabled:opacity-40';
 const foto = ruta => /^(data:|https?:|\/)/.test(ruta) ? ruta : `/${ruta}`;
 
-export default function CarruselAdmin() {
+export default function CarruselAdmin({ motos = [] }) {
   const [slides, setSlides] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [guardando, setGuardando] = useState(false);
@@ -37,7 +37,7 @@ export default function CarruselAdmin() {
     try {
       if (slides.some(slide => !slide.imagen)) throw new Error('Sube una foto para cada diapositiva.');
       const data = await api('PUT', '/api/admin/carrusel-proximas', {
-        slides: slides.map(({ id, imagen, activo }) => ({ id, imagen, activo }))
+        slides: slides.map(({ id, imagen, moto_id, activo }) => ({ id, imagen, moto_id: moto_id || null, activo }))
       });
       setSlides(data.slides);
       setMensaje('Carrusel actualizado. La tienda mostrará las diapositivas activas.');
@@ -50,7 +50,7 @@ export default function CarruselAdmin() {
       <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
         <div>
           <h2 className="text-xl font-black text-white">Carrusel · Motos por llegar</h2>
-          <p className="text-sm text-zinc-400 mt-1">Sube hasta 8 imágenes. La tienda mostrará solo la foto dentro del marco.</p>
+          <p className="text-sm text-zinc-400 mt-1">Sube hasta 8 imágenes y vincula cada una con la ficha técnica de su moto.</p>
         </div>
         <button type="button" className={secundario} disabled={slides.length >= 8 || cargando} onClick={() => setSlides(actuales => [...actuales, { id: crypto.randomUUID(), imagen: '', activo: true }])}>+ Añadir imagen</button>
       </div>
@@ -82,6 +82,12 @@ export default function CarruselAdmin() {
                   </label>
                   <label className="mt-3 flex items-center gap-2 text-sm text-zinc-300">
                     <input type="checkbox" checked={slide.activo} onChange={e => actualizar(indice, { activo: e.target.checked })} /> Mostrar en la tienda
+                  </label>
+                  <label className="mt-3 block text-xs text-zinc-400">Ficha técnica al presionar la imagen
+                    <select className={`${campo} mt-1`} value={slide.moto_id || ''} onChange={e => actualizar(indice, { moto_id: e.target.value ? Number(e.target.value) : null })}>
+                      <option value="">Selecciona una moto</option>
+                      {motos.filter(moto => moto.estado === 'activado').map(moto => <option key={moto.id} value={moto.id}>{moto.marca} {moto.modelo}</option>)}
+                    </select>
                   </label>
                 </div>
               </div>

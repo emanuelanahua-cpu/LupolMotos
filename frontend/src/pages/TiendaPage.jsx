@@ -106,7 +106,7 @@ function TiendaContenido() {
 
         {/* Carrusel principal y presentación de la tienda */}
         <div id="inicio">
-          <UpcomingCarousel />
+          <UpcomingCarousel motos={motos} abrirModalMoto={abrirModalMoto} />
           <HeroSection 
             navegarA={navegarA} 
             abrirModalMoto={abrirModalMoto} 
