@@ -64,6 +64,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
   const [colores, setColores] = useState(moto?.colores || []);
   const [msg, setMsg] = useState({ t: '', ok: false });
+  const nombreMoto = [f.marca, f.modelo].filter(Boolean).join(' ') || 'esta moto';
   useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
   const lista = (editando ? SPECS_EDIT : SPECS)[elec ? 'e' : 'p'];
@@ -126,19 +127,37 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h3 className="text-sm font-bold text-white">Colores disponibles</h3>
-            <p className="text-xs text-zinc-400">Sube la foto de la moto y agrega aquí sus colores disponibles.</p>
+            <h3 className="text-sm font-bold text-white">Colores de {nombreMoto}</h3>
+            <p className="text-xs text-zinc-400">Agrega el nombre y la foto de cada color. Quedarán asociados solo a esta moto.</p>
           </div>
           <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '' }])}>+ Color</button>
         </div>
         <div className="space-y-3 mt-3">
           {colores.map((color, indice) => (
             <div key={indice} className="rounded-lg border border-zinc-800 bg-[#121318] p-3">
+              <p className="mb-2 text-xs font-semibold text-zinc-300">Color {indice + 1} de {nombreMoto}</p>
               <div className="flex items-center gap-3">
                 <span className="h-9 w-9 rounded-full border border-white shrink-0" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
                 <input className={inp} aria-label={`Nombre del color ${indice + 1}`} maxLength={40} placeholder="Ej. Rojo / Negro" value={color.nombre} onChange={e => actualizarColor(indice, { nombre: e.target.value })} />
                 <button type="button" className="text-xs text-red-400" onClick={() => setColores(actuales => actuales.filter((_, i) => i !== indice))}>Quitar</button>
               </div>
+              <div className="mt-3 flex items-center gap-3">
+                {color.img_moto ? (
+                  <img src={src(color.img_moto)} alt={`Foto de ${nombreMoto} en ${color.nombre || `color ${indice + 1}`}`} className="h-16 w-20 shrink-0 rounded-lg border border-zinc-700 bg-zinc-900 object-contain" />
+                ) : (
+                  <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg border border-dashed border-zinc-700 text-center text-[10px] text-zinc-500">Sin foto</div>
+                )}
+                <div className="min-w-0 flex-1">
+                  <label className="mb-1 block text-xs text-zinc-400" htmlFor={`foto-color-${moto?.id || 'nueva'}-${indice}`}>Foto de este color</label>
+                  <input id={`foto-color-${moto?.id || 'nueva'}-${indice}`} className={inp} type="file" accept="image/*" onChange={async e => {
+                    const archivo = e.target.files?.[0];
+                    if (!archivo) return;
+                    try { actualizarColor(indice, { img_moto: await reducirFoto(archivo) }); }
+                    catch { setMsg({ t: 'No se pudo procesar la foto del color. Prueba con otra imagen.', ok: false }); }
+                  }} />
+                </div>
+              </div>
+              {!color.img_moto && <p className="mt-2 text-[11px] text-zinc-500">Sin foto propia, este color mostrará la foto principal de la moto.</p>}
             </div>
           ))}
         </div>
@@ -223,6 +242,17 @@ function Catalogo({ motos, cats, yo, recargar }) {
               <div className="text-xs text-zinc-400">{m.categoria} · S/ {m.precio} · stock {m.stock_total}
                 {m.estado !== 'activado' && <span className="ml-2 text-red-400">Desactivada</span>}</div>
               {m.creado_por && <div className="text-[11px] text-zinc-500">Agregada por {m.creado_por}</div>}
+              {m.colores?.length > 0 && (
+                <div className="mt-1.5 flex flex-wrap gap-1" aria-label={`Colores de ${m.marca} ${m.modelo}`}>
+                  {m.colores.filter(color => color?.nombre).map((color, i) => (
+                    <span key={i} className="inline-flex items-center gap-1 rounded-full border border-zinc-700 px-1.5 py-0.5 text-[10px] text-zinc-300">
+                      <span className="h-2.5 w-2.5 rounded-full border border-white/60" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
+                      {color.nombre}
+                      {color.img_moto && <span className="text-[#fad911]" title="Tiene foto propia">▣</span>}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="flex flex-col gap-1">
               {puedeEditar(m) && <button className={btnSec} onClick={() => setEditando(m)}>Editar</button>}
