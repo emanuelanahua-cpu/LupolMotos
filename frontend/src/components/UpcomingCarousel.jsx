@@ -8,6 +8,14 @@ const resumenes = {
 };
 
 const formatearPrecio = precio => `S/ ${Number(precio).toLocaleString('es-PE')}`;
+const datoDisponible = valor => typeof valor === 'string' && valor.trim() && !/^(consultar|no especificad[oa]|n\/a)$/i.test(valor.trim());
+
+function resumenMoto(moto) {
+  if (resumenes[moto?.modelo]) return resumenes[moto.modelo];
+  const primeraFrase = moto?.detalle?.trim().split(/(?<=[.!?])\s+/)[0];
+  if (!primeraFrase) return 'Descubre las características de tu próxima moto y consulta todos los detalles en su ficha técnica.';
+  return primeraFrase.length > 135 ? `${primeraFrase.slice(0, 135).replace(/\s+\S*$/, '')}…` : primeraFrase;
+}
 
 export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
   const [slides, setSlides] = useState([]);
@@ -61,8 +69,11 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
             const specs = [
               motor && ['Motor', motor],
               moto?.potencia && ['Potencia', moto.potencia],
-              moto?.suspension && ['Suspensión', moto.suspension]
-            ].filter(Boolean);
+              moto?.suspension && ['Suspensión', moto.suspension],
+              moto?.frenos && ['Frenos', moto.frenos],
+              moto?.tanque && ['Tanque', moto.tanque],
+              moto?.transmision && ['Transmisión', moto.transmision]
+            ].filter(item => item && datoDisponible(item[1])).slice(0, 3);
 
             return (
               <article className="upcoming-card" key={`${slide.id}-${orden}`} aria-hidden={!visible}>
@@ -72,8 +83,8 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
                   <div className="upcoming-eyebrow"><span className="upcoming-mark">L</span><span>MOTOS POR LLEGAR</span></div>
                   <span className="upcoming-rule" aria-hidden="true" />
                   <p className="upcoming-brand">{moto?.marca || 'Lupol Motos'}</p>
-                  <h2 className="upcoming-title">{moto?.modelo || 'Tu próxima moto'}</h2>
-                  <p className="upcoming-description">{resumenes[moto?.modelo] || 'Descubre las características de tu próxima moto y consulta todos los detalles en su ficha técnica.'}</p>
+                  <h2 className="upcoming-title">{moto?.modelo === 'RZ250' ? 'RZ 250' : moto?.modelo || 'Tu próxima moto'}</h2>
+                  <p className="upcoming-description">{resumenMoto(moto)}</p>
                   {specs.length > 0 && <dl className="upcoming-specs">{specs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>}
                   {moto?.precio > 0 && <p className="upcoming-price"><span>Precio de catálogo</span><strong>{formatearPrecio(moto.precio)}</strong></p>}
                 </div>
