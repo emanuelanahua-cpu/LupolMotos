@@ -1,6 +1,7 @@
 import ComercioPanel from './ComercioPanel';
 import {api} from '../services/adminService';
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { fondoColor } from '../utils/colores';
 import { reducirFoto } from '../utils/reducirFoto';
 import CarruselAdmin from './CarruselAdmin';
@@ -23,6 +24,35 @@ const lbl = 'block text-xs text-zinc-400 mt-3 mb-1';
 const btn = 'bg-[#fad911] text-black font-bold rounded-lg px-4 py-2.5 text-sm hover:bg-[#fce23e] transition-colors';
 const btnSec = 'border border-zinc-700 text-zinc-200 rounded-lg px-3 py-1.5 text-xs hover:border-[#fad911] transition-colors';
 const card = 'bg-[#121318] border border-zinc-800 rounded-2xl p-5';
+
+function VistaFoto({ foto, alCerrar }) {
+  useEffect(() => {
+    if (!foto) return;
+    const anterior = document.activeElement;
+    const cerrarConEscape = (e) => { if (e.key === 'Escape') alCerrar(); };
+    window.addEventListener('keydown', cerrarConEscape);
+    return () => {
+      window.removeEventListener('keydown', cerrarConEscape);
+      anterior?.focus?.();
+    };
+  }, [foto, alCerrar]);
+
+  if (!foto) return null;
+  return createPortal(
+    <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 p-3 sm:p-6" onMouseDown={alCerrar}>
+      <div role="dialog" aria-modal="true" aria-label={foto.titulo} className="flex max-h-full w-full max-w-6xl flex-col rounded-2xl border border-zinc-700 bg-[#121318] shadow-2xl" onMouseDown={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between gap-3 border-b border-zinc-700 px-4 py-3">
+          <h3 className="min-w-0 truncate text-sm font-bold text-white sm:text-base">{foto.titulo}</h3>
+          <button type="button" autoFocus onClick={alCerrar} aria-label="Cerrar foto ampliada" className="rounded-lg border border-zinc-600 px-3 py-1 text-xl leading-none text-white hover:border-[#fad911]">×</button>
+        </div>
+        <div className="flex min-h-0 items-center justify-center overflow-auto p-3 sm:p-5">
+          <img src={src(foto.url)} alt={foto.titulo} className="max-h-[calc(100dvh-9rem)] max-w-full object-contain" />
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
 
 function Acceso({ setup, alEntrar, alVolver }) {
   const [u, setU] = useState(''); const [p, setP] = useState(''); const [p2, setP2] = useState(''); const [err, setErr] = useState('');
@@ -64,6 +94,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
   const [colores, setColores] = useState(moto?.colores || []);
   const [msg, setMsg] = useState({ t: '', ok: false });
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const nombreMoto = [f.marca, f.modelo].filter(Boolean).join(' ') || 'esta moto';
   useEffect(() => { if (!categoria) setCategoria(Object.values(cats).flat()[0] || ''); }, [cats]); // eslint-disable-line react-hooks/exhaustive-deps
   const elec = (cats['Eléctricas'] || []).includes(categoria);
@@ -112,7 +143,9 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
           <div className="flex gap-2 flex-wrap">
             {kept.map((p) => (
               <div key={p} className={`w-24 rounded-lg border p-1 text-center ${p === principal ? 'border-[#fad911]' : 'border-zinc-700'}`}>
-                <img src={src(p)} alt="" className="w-full h-16 object-cover rounded-md" />
+                <button type="button" aria-label={`Ampliar foto de ${nombreMoto}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: p, titulo: nombreMoto })} className="block w-full cursor-zoom-in">
+                  <img src={src(p)} alt="" className="w-full h-16 object-cover rounded-md" />
+                </button>
                 <button type="button" className="text-[10px] text-[#fad911] mt-1 block w-full" onClick={() => setPrincipal(p)}>{p === principal ? '★ Principal' : 'Hacer principal'}</button>
                 <button type="button" className="text-[10px] text-red-400 block w-full" onClick={() => { setKept(kept.filter((x) => x !== p)); if (p === principal) setPrincipal(null); }}>Quitar</button>
               </div>
@@ -122,7 +155,11 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       )}
       <label className={lbl}>{editando ? 'Agregar más fotos' : 'Fotos (hasta 5; la primera es la principal)'}</label>
       <input className={inp} type="file" accept="image/*" multiple onChange={async (e) => setFotos(await Promise.all([...e.target.files].slice(0, 5).map(reducirFoto)))} />
-      <div className="flex gap-2 flex-wrap mt-2">{fotos.map((s, i) => <img key={i} src={s} alt="" className="w-16 h-12 object-cover rounded-md" />)}</div>
+      <div className="flex gap-2 flex-wrap mt-2">{fotos.map((s, i) => (
+        <button key={i} type="button" aria-label={`Ampliar foto nueva ${i + 1} de ${nombreMoto}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: s, titulo: `${nombreMoto} · Foto nueva ${i + 1}` })} className="cursor-zoom-in">
+          <img src={s} alt="" className="w-16 h-12 object-cover rounded-md" />
+        </button>
+      ))}</div>
 
       <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
         <div className="flex items-center justify-between gap-3">
@@ -143,7 +180,9 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
               </div>
               <div className="mt-3 flex items-center gap-3">
                 {color.img_moto ? (
-                  <img src={src(color.img_moto)} alt={`Foto de ${nombreMoto} en ${color.nombre || `color ${indice + 1}`}`} className="h-16 w-20 shrink-0 rounded-lg border border-zinc-700 bg-zinc-900 object-contain" />
+                  <button type="button" aria-label={`Ampliar foto de ${nombreMoto} en ${color.nombre || `color ${indice + 1}`}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: color.img_moto, titulo: `${nombreMoto} · ${color.nombre || `Color ${indice + 1}`}` })} className="shrink-0 cursor-zoom-in">
+                    <img src={src(color.img_moto)} alt="" className="h-16 w-20 rounded-lg border border-zinc-700 bg-zinc-900 object-contain" />
+                  </button>
                 ) : (
                   <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg border border-dashed border-zinc-700 text-center text-[10px] text-zinc-500">Sin foto</div>
                 )}
@@ -168,6 +207,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
         <button onClick={guardar} className={`${btn} flex-1`}>{editando ? 'Guardar cambios' : 'Guardar moto'}</button>
         {editando && <button onClick={alCancelar} className={btnSec}>Cancelar</button>}
       </div>
+      <VistaFoto foto={fotoAmpliada} alCerrar={() => setFotoAmpliada(null)} />
     </div>
   );
 }
@@ -176,6 +216,7 @@ function Catalogo({ motos, cats, yo, recargar }) {
   const [filtro, setFiltro] = useState('Todas');
   const [busqueda, setBusqueda] = useState('');
   const [editando, setEditando] = useState(null);
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const lista = motos
     .filter((m) => filtro === 'Todas' || m.categoria === filtro)
     .filter((m) => {
@@ -236,7 +277,9 @@ function Catalogo({ motos, cats, yo, recargar }) {
       <div className={scroll}>
         {lista.map((m) => (
           <div key={m.id} className="flex items-center gap-3 py-2.5 border-t border-zinc-800">
-            <img src={src(m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800 shrink-0" />
+            <button type="button" aria-label={`Ampliar foto de ${m.marca} ${m.modelo}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: m.imagen_principal, titulo: `${m.marca} ${m.modelo}` })} className="shrink-0 cursor-zoom-in">
+              <img src={src(m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800" />
+            </button>
             <div className="flex-1 min-w-0 text-sm">
               <b className="text-white">{m.marca} {m.modelo}</b>
               <div className="text-xs text-zinc-400">{m.categoria} · S/ {m.precio} · stock {m.stock_total}
@@ -246,7 +289,11 @@ function Catalogo({ motos, cats, yo, recargar }) {
                 <div className="mt-1.5 flex flex-wrap gap-1" aria-label={`Colores de ${m.marca} ${m.modelo}`}>
                   {m.colores.filter(color => color?.nombre).map((color, i) => (
                     <span key={i} className="inline-flex items-center gap-1 rounded-full border border-zinc-700 px-1.5 py-0.5 text-[10px] text-zinc-300">
-                      {color.img_moto && <img src={src(color.img_moto)} alt="" className="h-5 w-7 rounded border border-zinc-700 object-cover" />}
+                      {color.img_moto && (
+                        <button type="button" aria-label={`Ampliar foto de ${m.marca} ${m.modelo} en ${color.nombre}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: color.img_moto, titulo: `${m.marca} ${m.modelo} · ${color.nombre}` })} className="cursor-zoom-in">
+                          <img src={src(color.img_moto)} alt="" className="h-5 w-7 rounded border border-zinc-700 object-cover" />
+                        </button>
+                      )}
                       <span className="h-2.5 w-2.5 rounded-full border border-white/60" style={{ background: fondoColor(color.nombre) }} aria-hidden="true" />
                       {color.nombre}
                     </span>
@@ -280,6 +327,7 @@ function Catalogo({ motos, cats, yo, recargar }) {
           </div>
         </div>
       )}
+      <VistaFoto foto={fotoAmpliada} alCerrar={() => setFotoAmpliada(null)} />
     </div>
   );
 }
