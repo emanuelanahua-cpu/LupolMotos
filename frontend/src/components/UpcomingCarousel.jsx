@@ -33,9 +33,19 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
 
   useEffect(() => {
     if (total < 2 || pausado || !animar || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setTimeout(() => setPosicion(actual => actual + 1), 3000);
+    const timer = window.setTimeout(() => setPosicion(actual => Math.min(total + 1, actual + 1)), 3000);
     return () => window.clearTimeout(timer);
   }, [posicion, total, pausado, animar]);
+
+  // Si una transición se interrumpe, el carrusel debe regresar igualmente al primer o último slide.
+  useEffect(() => {
+    if (total < 2 || (posicion !== 0 && posicion !== total + 1)) return;
+    const timer = window.setTimeout(() => {
+      setAnimar(false);
+      setPosicion(posicion === 0 ? total : 1);
+    }, 760);
+    return () => window.clearTimeout(timer);
+  }, [posicion, total]);
 
   useEffect(() => {
     if (animar) return;
@@ -45,11 +55,11 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
 
   if (!total) return null;
 
-  const ir = cambio => setPosicion(actual => actual + cambio);
+  const ir = cambio => setPosicion(actual => Math.max(0, Math.min(total + 1, actual + cambio)));
   const normalizar = () => {
-    if (posicion === 0 || posicion === total + 1) {
+    if (posicion <= 0 || posicion >= total + 1) {
       setAnimar(false);
-      setPosicion(posicion === 0 ? total : 1);
+      setPosicion(posicion <= 0 ? total : 1);
     }
   };
   const visibles = total > 1 ? [slides[total - 1], ...slides, slides[0]] : slides;
@@ -92,9 +102,9 @@ export default function UpcomingCarousel({ motos = [], abrirModalMoto }) {
                   <div className="upcoming-halo" aria-hidden="true" />
                   {moto ? (
                     <button type="button" className="upcoming-photo-button" onClick={() => abrirModalMoto(moto.id)} aria-label={`Ver ficha técnica de ${nombre}`} tabIndex={visible ? 0 : -1}>
-                      <img src={slide.imagen} alt={nombre} className="upcoming-photo" />
+                      <img src={slide.imagen} alt={nombre} className="upcoming-photo" loading={Math.abs(orden - posicion) <= 1 ? 'eager' : 'lazy'} fetchPriority={visible ? 'high' : 'low'} decoding="async" />
                     </button>
-                  ) : <div className="upcoming-photo-button"><img src={slide.imagen} alt={nombre} className="upcoming-photo" /></div>}
+                  ) : <div className="upcoming-photo-button"><img src={slide.imagen} alt={nombre} className="upcoming-photo" loading={Math.abs(orden - posicion) <= 1 ? 'eager' : 'lazy'} fetchPriority={visible ? 'high' : 'low'} decoding="async" /></div>}
                 </div>
               </article>
             );

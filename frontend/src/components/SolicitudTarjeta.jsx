@@ -20,6 +20,8 @@ export default function SolicitudTarjeta() {
                 src="multimedia/solicitud_tarjeta/mano.png"
                 alt="Mano sosteniendo celular"
                 className="img-mano"
+                loading="lazy"
+                decoding="async"
               />
             </section>
 
@@ -38,6 +40,8 @@ export default function SolicitudTarjeta() {
                   src="src/assets/LupolMotosHalloween.webp"
                   alt="LupolMotos"
                   className="logo-inline"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <br />
                 te ayudamos
@@ -79,11 +83,15 @@ export default function SolicitudTarjeta() {
                 src="multimedia/solicitud_tarjeta/sunarp.png"
                 alt="SUNARP"
                 className="img-sunarp"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="multimedia/solicitud_tarjeta/tarjeta.png"
                 alt="Tarjeta TIVe"
                 className="img-tarjeta"
+                loading="lazy"
+                decoding="async"
               />
             </section>
           </main>

@@ -16,7 +16,7 @@ import SolicitudTarjeta from '../components/SolicitudTarjeta';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-import { obtenerInformacionTienda, obtenerCatalogoMotos } from '../services/catalogoService';
+import { obtenerCatalogoMotos } from '../services/catalogoService';
 import { MessageSquare, ArrowUp, ShoppingCart } from 'lucide-react';
 
 export default function TiendaPage() { return <CartProvider><TiendaContenido/></CartProvider>; }
@@ -39,20 +39,19 @@ function TiendaContenido() {
   const [mostrarBotonArriba, setMostrarBotonArriba] = useState(false);
   const [categoriaCatalogo, setCategoriaCatalogo] = useState('Todas');
 
-  // Carga inicial de datos desde API (con fallback local transparente)
+  // El catálogo se muestra en cuanto responde su consulta, sin esperar datos generales que esta vista no usa.
   useEffect(() => {
+    let activo = true;
     async function cargarTodo() {
       try {
-        const [, listMotos] = await Promise.all([
-          obtenerInformacionTienda(),
-          obtenerCatalogoMotos()
-        ]);
-        setMotos(listMotos);
+        const listMotos = await obtenerCatalogoMotos();
+        if (activo) setMotos(listMotos);
       } catch (error) {
         console.error('Error al inicializar datos:', error);
       }
     }
     cargarTodo();
+    return () => { activo = false; };
   }, []);
 
   // Control de scroll para botón flotante

@@ -255,6 +255,8 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
                 key={`${motoActiva.id}-${vistaActiva}-${colorActivoIdx}`}
                 src={imagenActual}
                 alt={motoActiva.modelo}
+                loading="lazy"
+                decoding="async"
                 className="max-h-[320px] sm:max-h-[420px] w-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)] animate-fade-in-scale"
                 onError={(e) => {
                   e.target.src = motoActiva.imagen_principal;
