@@ -174,7 +174,7 @@ export default function HeroSection({ navegarA, abrirModalMoto }) {
               </div>
               <div className="flex items-center space-x-2 text-xs text-zinc-300">
                 <Wrench className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>Mano de Obra Gratis</span>
+                <span>Servicio por Garantía</span>
               </div>
               <div className="flex items-center space-x-2 text-xs text-zinc-300">
                 <Gift className="w-4 h-4 text-amber-400 shrink-0" />

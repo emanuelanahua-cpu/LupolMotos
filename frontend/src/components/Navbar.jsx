@@ -68,7 +68,7 @@ export default function Navbar({
             </span>
             <span className="flex items-center text-zinc-400">
               <Award className="w-3.5 h-3.5 text-[#fad911] mr-1" />
-              1 Año de Garantía y Mano de Obra Gratis
+              1 Año de Garantía o 12,000 km
             </span>
           </div>
           <div className="flex items-center space-x-5">

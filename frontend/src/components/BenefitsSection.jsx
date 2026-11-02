@@ -15,17 +15,17 @@ export default function BenefitsSection() {
     {
       icono: ShieldCheck,
       titulo: 'Garantía Asegurada',
-      subtitulo: '1 Año o 20,000 km',
-      descripcion: 'Respaldo directo de tienda para motor y componentes esenciales con total tranquilidad.',
+      subtitulo: '1 año o 12,000 km',
+      descripcion: 'Respaldo directo de tienda para el motor y daños de fábrica.',
       accentColor: 'text-[#fad911]',
       bgColor: 'bg-[#fad911]/10 border-[#fad911]/25',
       badgeBg: 'text-[#fad911] bg-[#fad911]/10 border-[#fad911]/20'
     },
     {
       icono: Wrench,
-      titulo: 'Mano de Obra Gratis',
-      subtitulo: 'Hasta los 5,000 km',
-      descripcion: 'Taller mecánico autorizado en Tacna con técnicos especializados.',
+      titulo: 'Servicio por Garantía',
+      subtitulo: 'Daños de fábrica',
+      descripcion: 'Servicio gratis por daños de fábrica cubiertos por la garantía.',
       accentColor: 'text-sky-400',
       bgColor: 'bg-sky-500/10 border-sky-500/25',
       badgeBg: 'text-sky-400 bg-sky-500/10 border-sky-500/20'
@@ -33,8 +33,8 @@ export default function BenefitsSection() {
     {
       icono: Gift,
       titulo: 'Casco de Regalo',
-      subtitulo: 'Certificado DOT/ECE',
-      descripcion: 'Te llevas un casco de alta seguridad homologado totalmente gratis por la compra de tu moto.',
+      subtitulo: 'Con tu moto',
+      descripcion: 'Recibe un casco de regalo con la compra de tu moto.',
       accentColor: 'text-amber-400',
       bgColor: 'bg-amber-500/10 border-amber-500/25',
       badgeBg: 'text-amber-400 bg-amber-500/10 border-amber-500/20'
