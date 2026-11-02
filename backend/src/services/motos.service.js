@@ -83,7 +83,7 @@ export function createService(pool, env = process.env) {
       m.id = id;
       m.imagenes = images;
       m.colores = colores;
-      m.imagen_principal = images.includes(d.principal) ? d.principal : images.includes(old.imagen_principal) ? old.imagen_principal : images[0] || colores[0]?.img_moto || `/multimedia/categorias/${ELECTRICAS.includes(d.categoria) ? 'electricas_static.png' : '2ruedas_static.png'}`;
+      m.imagen_principal = colores.find(color => color.img_moto)?.img_moto || (images.includes(d.principal) ? d.principal : images.includes(old.imagen_principal) ? old.imagen_principal : images[0]) || `/multimedia/categorias/${ELECTRICAS.includes(d.categoria) ? 'electricas_static.png' : '2ruedas_static.png'}`;
       if (!m.vistas_360 || Object.keys(m.vistas_360).length === 0 || 'principal' in m.vistas_360) m.vistas_360 = {
         principal: m.imagen_principal
       };

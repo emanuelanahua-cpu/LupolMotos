@@ -19,11 +19,13 @@ function baseFalsa() {
       if (sql.startsWith('INSERT INTO imagenes')) return [{}];
       if (sql.startsWith('INSERT INTO motos')) return [{ insertId: 42 }];
       if (sql.startsWith('SELECT datos FROM motos')) return [[{ datos: JSON.stringify(moto) }]];
+      if (sql.startsWith('SELECT id, datos FROM motos')) return [[]];
       if (sql.startsWith('UPDATE motos')) { moto = JSON.parse(params[0]); return [{}]; }
       if (sql.startsWith('SELECT datos FROM configuracion')) return [carrusel ? [{ datos: JSON.stringify(carrusel) }] : []];
       if (sql.startsWith('INSERT INTO configuracion')) { carrusel = JSON.parse(params[1]); return [{}]; }
       throw new Error(`Consulta no simulada: ${sql}`);
-    }
+    },
+    query: async (...args) => conexion.execute(...args)
   };
   return { getConnection: async () => conexion, execute: (...args) => conexion.execute(...args) };
 }
@@ -91,6 +93,23 @@ test('un color puede usar una foto que ya estaba en la galería de la moto', asy
   assert.equal(editada.colores[0].img_moto, creada.imagenes[0]);
 });
 
+test('la primera foto de color pasa a ser la principal sin perder fotos antiguas', async () => {
+  const service = motosService(baseFalsa());
+  const base = { categoria: 'Racing / Sport', marca: 'Prueba', modelo: '400', precio: 10000, stock: 1 };
+  const creada = await service.crear({ input: motoSchema.parse({ ...base, fotos: [imagen] }), actor: { usuario: 'admin' } });
+  const editada = await service.editar({
+    params: { id: creada.id },
+    input: motoSchema.parse({
+      ...base,
+      imagenes_conservar: creada.imagenes,
+      colores: [{ nombre: 'Rojo', img_moto: imagen }]
+    }),
+    actor: { usuario: 'admin', rol: 'admin' }
+  });
+  assert.equal(editada.imagen_principal, editada.colores[0].img_moto);
+  assert.deepEqual(editada.imagenes, creada.imagenes);
+});
+
 test('el carrusel conserva fotos, orden y visibilidad', async () => {
   const service = carruselService(baseFalsa());
   const first = carruselSchema.parse({ slides: [
@@ -98,7 +117,7 @@ test('el carrusel conserva fotos, orden y visibilidad', async () => {
   ] });
   const saved = await service.guardar({ input: first });
   assert.match(saved.slides[0].imagen, /^\/uploads\//);
-  assert.deepEqual(Object.keys(saved.slides[0]).sort(), ['activo', 'id', 'imagen']);
+  assert.deepEqual(Object.keys(saved.slides[0]).sort(), ['activo', 'id', 'imagen', 'moto_id']);
   assert.equal((await service.listarPublico()).slides.length, 1);
   await service.guardar({ input: carruselSchema.parse({ slides: [{ ...saved.slides[0], activo: false }] }) });
   assert.equal((await service.listarPublico()).slides.length, 0);

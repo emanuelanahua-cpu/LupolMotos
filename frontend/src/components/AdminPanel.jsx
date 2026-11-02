@@ -89,10 +89,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const [f, setF] = useState(moto ? { marca: moto.marca, modelo: moto.modelo, precio: moto.precio, stock: moto.stock_total, detalle: moto.detalle || '', destacado: !!moto.destacado } : vacio);
   const [categoria, setCategoria] = useState(moto ? moto.categoria : (Object.values(cats).flat()[0] || ''));
   const [specs, setSpecs] = useState(moto || {});
-  const [fotos, setFotos] = useState([]);
-  const [kept, setKept] = useState(moto ? moto.imagenes || [] : []);
-  const [principal, setPrincipal] = useState(moto ? moto.imagen_principal : null);
-  const [colores, setColores] = useState(moto?.colores || []);
+  const [colores, setColores] = useState(moto?.colores?.length ? moto.colores : moto ? [] : [{ nombre: '', img_moto: '', nuevo: true }]);
   const [msg, setMsg] = useState({ t: '', ok: false });
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const nombreMoto = [f.marca, f.modelo].filter(Boolean).join(' ') || 'esta moto';
@@ -105,15 +102,17 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
   const guardar = async () => {
     setMsg({ t: '', ok: false });
     try {
+      if (!editando && colores.length === 0) throw new Error('Agrega al menos un color con su foto.');
       if (colores.some(color => !color.nombre.trim())) throw new Error('Cada color necesita un nombre.');
+      if (colores.some(color => (color.nuevo || !editando) && !color.img_moto)) throw new Error('Sube una foto para cada color nuevo.');
       const sp = {}; lista.forEach(([k]) => { sp[k] = specs[k] || ''; });
-      const base = { categoria, marca: f.marca, modelo: f.modelo, precio: +f.precio || 0, stock: +f.stock || 0, destacado: f.destacado, detalle: f.detalle, specs: sp, colores };
+      const base = { categoria, marca: f.marca, modelo: f.modelo, precio: +f.precio || 0, stock: +f.stock || 0, destacado: f.destacado, detalle: f.detalle, specs: sp, colores: colores.map(({ nombre, img_moto }) => ({ nombre, img_moto })) };
       if (editando) {
-        await api('PUT', `/api/admin/motos/${moto.id}`, { ...base, imagenes_conservar: kept, principal, fotos_nuevas: fotos });
+        await api('PUT', `/api/admin/motos/${moto.id}`, { ...base, imagenes_conservar: moto.imagenes || [], principal: moto.imagen_principal || null });
         alGuardar(); alCancelar();
       } else {
-        await api('POST', '/api/admin/motos', { ...base, fotos });
-        setF(vacio); setSpecs({}); setFotos([]); setColores([]); setMsg({ t: 'Moto guardada ✔', ok: true }); alGuardar();
+        await api('POST', '/api/admin/motos', base);
+        setF(vacio); setSpecs({}); setColores([{ nombre: '', img_moto: '', nuevo: true }]); setMsg({ t: 'Moto guardada ✔', ok: true }); alGuardar();
       }
     } catch (x) { setMsg({ t: x.message, ok: false }); }
   };
@@ -137,37 +136,13 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
       <label className={lbl}>Detalle</label><textarea className={inp} rows={3} value={f.detalle} onChange={set('detalle')} />
       <label className="flex items-center gap-2 text-xs text-zinc-300 mt-3"><input type="checkbox" checked={f.destacado} onChange={set('destacado')} /> Destacada</label>
 
-      {editando && kept.length > 0 && (
-        <>
-          <label className={lbl}>Fotos actuales</label>
-          <div className="flex gap-2 flex-wrap">
-            {kept.map((p) => (
-              <div key={p} className={`w-24 rounded-lg border p-1 text-center ${p === principal ? 'border-[#fad911]' : 'border-zinc-700'}`}>
-                <button type="button" aria-label={`Ampliar foto de ${nombreMoto}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: p, titulo: nombreMoto })} className="block w-full cursor-zoom-in">
-                  <img src={src(p)} alt="" className="w-full h-16 object-cover rounded-md" />
-                </button>
-                <button type="button" className="text-[10px] text-[#fad911] mt-1 block w-full" onClick={() => setPrincipal(p)}>{p === principal ? '★ Principal' : 'Hacer principal'}</button>
-                <button type="button" className="text-[10px] text-red-400 block w-full" onClick={() => { setKept(kept.filter((x) => x !== p)); if (p === principal) setPrincipal(null); }}>Quitar</button>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-      <label className={lbl}>{editando ? 'Agregar más fotos' : 'Fotos (hasta 5; la primera es la principal)'}</label>
-      <input className={inp} type="file" accept="image/*" multiple onChange={async (e) => setFotos(await Promise.all([...e.target.files].slice(0, 5).map(reducirFoto)))} />
-      <div className="flex gap-2 flex-wrap mt-2">{fotos.map((s, i) => (
-        <button key={i} type="button" aria-label={`Ampliar foto nueva ${i + 1} de ${nombreMoto}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: s, titulo: `${nombreMoto} · Foto nueva ${i + 1}` })} className="cursor-zoom-in">
-          <img src={s} alt="" className="w-16 h-12 object-cover rounded-md" />
-        </button>
-      ))}</div>
-
       <div className="mt-5 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3">
         <div className="flex items-center justify-between gap-3">
           <div>
             <h3 className="text-sm font-bold text-white">Colores de {nombreMoto}</h3>
-            <p className="text-xs text-zinc-400">Agrega el nombre y la foto de cada color. Quedarán asociados solo a esta moto.</p>
+            <p className="text-xs text-zinc-400">Agrega el nombre y la foto de cada color. La primera foto disponible será la principal de esta moto.</p>
           </div>
-          <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '' }])}>+ Color</button>
+          <button type="button" className={btnSec} disabled={colores.length >= 12} onClick={() => setColores(actuales => [...actuales, { nombre: '', img_moto: '', nuevo: true }])}>+ Color</button>
         </div>
         <div className="space-y-3 mt-3">
           {colores.map((color, indice) => (
@@ -196,7 +171,7 @@ function FormMoto({ cats, alGuardar, moto, alCancelar }) {
                   }} />
                 </div>
               </div>
-              {!color.img_moto && <p className="mt-2 text-[11px] text-zinc-500">Sin foto propia, este color mostrará la foto principal de la moto.</p>}
+              {!color.img_moto && !color.nuevo && <p className="mt-2 text-[11px] text-zinc-500">Color anterior sin foto propia. Se mostrará la foto principal hasta que subas una.</p>}
             </div>
           ))}
         </div>
@@ -277,8 +252,8 @@ function Catalogo({ motos, cats, yo, recargar }) {
       <div className={scroll}>
         {lista.map((m) => (
           <div key={m.id} className="flex items-center gap-3 py-2.5 border-t border-zinc-800">
-            <button type="button" aria-label={`Ampliar foto de ${m.marca} ${m.modelo}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: m.imagen_principal, titulo: `${m.marca} ${m.modelo}` })} className="shrink-0 cursor-zoom-in">
-              <img src={src(m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800" />
+            <button type="button" aria-label={`Ampliar foto de ${m.marca} ${m.modelo}`} title="Ver foto en grande" onClick={() => setFotoAmpliada({ url: m.colores?.find(color => color.img_moto)?.img_moto || m.imagen_principal, titulo: `${m.marca} ${m.modelo}` })} className="shrink-0 cursor-zoom-in">
+              <img src={src(m.colores?.find(color => color.img_moto)?.img_moto || m.imagen_principal)} alt="" className="w-[72px] h-14 rounded-lg object-cover bg-zinc-800" />
             </button>
             <div className="flex-1 min-w-0 text-sm">
               <b className="text-white">{m.marca} {m.modelo}</b>
