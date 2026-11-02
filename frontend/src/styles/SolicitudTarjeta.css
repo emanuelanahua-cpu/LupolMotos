@@ -42,11 +42,11 @@
 }
 
 .fondo-base {
-    background-image: url('multimedia/solicitud_tarjeta/fondo_base.png');
+    background-image: url('/multimedia/solicitud_tarjeta/fondo_base.png');
 }
 
 .fondo-encima {
-    background-image: url('multimedia/solicitud_tarjeta/fondo_encima.png');
+    background-image: url('/multimedia/solicitud_tarjeta/fondo_encima.png');
     opacity: 0.5; /* Transparencia del 50% para incorporar su diseño superpuesto */
 }
 

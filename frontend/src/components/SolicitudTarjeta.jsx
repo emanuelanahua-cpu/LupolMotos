@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/SolicitudTarjeta.css";
+import logoLupol from "../assets/LupolMotosHalloween.webp";
 
 export default function SolicitudTarjeta() {
   return (
@@ -17,7 +18,7 @@ export default function SolicitudTarjeta() {
             {/* Grid 1: Lado Izquierdo */}
             <section className="col-izq-t">
               <img
-                src="multimedia/solicitud_tarjeta/mano.png"
+                src="/multimedia/solicitud_tarjeta/mano.png"
                 alt="Mano sosteniendo celular"
                 className="img-mano"
                 loading="lazy"
@@ -37,7 +38,7 @@ export default function SolicitudTarjeta() {
                 En
                 <br />
                 <img
-                  src="src/assets/LupolMotosHalloween.webp"
+                  src={logoLupol}
                   alt="LupolMotos"
                   className="logo-inline"
                   loading="lazy"
@@ -80,14 +81,14 @@ export default function SolicitudTarjeta() {
             {/* Grid 3: Lado Derecho */}
             <section className="col-der-t">
               <img
-                src="multimedia/solicitud_tarjeta/sunarp.png"
+                src="/multimedia/solicitud_tarjeta/sunarp.png"
                 alt="SUNARP"
                 className="img-sunarp"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src="multimedia/solicitud_tarjeta/tarjeta.png"
+                src="/multimedia/solicitud_tarjeta/tarjeta.png"
                 alt="Tarjeta TIVe"
                 className="img-tarjeta"
                 loading="lazy"
