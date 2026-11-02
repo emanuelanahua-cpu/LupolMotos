@@ -174,7 +174,7 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
                   {formatearSoles(moto.precio)}
                 </div>
                 <p className="text-xs text-zinc-300 mt-1">
-                  Incluye IGV (18%), gestión notarial de placa y tarjeta de propiedad SUNARP (TIVe).
+                  Incluye los siguientes Beneficios.
                 </p>
               </div>
 
@@ -184,15 +184,15 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
                 </div>
                 <div className="flex items-center text-zinc-200">
                   <ShieldCheck className="w-4 h-4 text-[#fad911] mr-2.5 shrink-0" />
-                  <span>1 Año de Garantía o 20,000 km en motor y chasis</span>
+                  <span>1 Año de Garantía o 12,000 km en motor o daños de fabrica</span>
                 </div>
                 <div className="flex items-center text-zinc-200">
                   <Wrench className="w-4 h-4 text-[#fad911] mr-2.5 shrink-0" />
-                  <span>Mano de obra 100% gratuita hasta los 5,000 km</span>
+                  <span>Servicio gratis en daños de fabrica</span>
                 </div>
                 <div className="flex items-center text-zinc-200">
                   <Gift className="w-4 h-4 text-[#fad911] mr-2.5 shrink-0" />
-                  <span>Casco de seguridad certificado (Homologado)</span>
+                  <span>Casco de regalo</span>
                 </div>
               </div>
 
