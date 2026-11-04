@@ -149,6 +149,19 @@ function Pedidos({ datos, actuar, busy }) {
                     Cancelar pedido
                   </button>
                 )}
+                <button
+                  type="button"
+                  className={`${secondary} border-red-900/80 text-red-300 hover:border-red-500 disabled:cursor-not-allowed disabled:opacity-40`}
+                  disabled={busy || p.estado === "confirmado"}
+                  title={p.estado === "confirmado" ? "Cancela primero el pedido para liberar el stock reservado" : "Quitar pedido del panel"}
+                  onClick={() => {
+                    if (window.confirm(`¿Eliminar el pedido LM-${String(p.id).padStart(6, "0")} del panel? Se conservará el historial de ventas e inventario.`))
+                      actuar(`/api/admin/pedidos/${p.id}`, "DELETE");
+                  }}
+                >
+                  Eliminar
+                </button>
+                {p.estado === "confirmado" && <span className="self-center text-xs text-zinc-500">Cancela primero para eliminar.</span>}
               </div>
             </article>
           ))}
@@ -438,7 +451,7 @@ export default function ComercioPanel({ seccion }) {
     try {
       await api(method, url, body);
       await cargar();
-      setMensaje("Cambios guardados.");
+      setMensaje(method === "DELETE" ? "Pedido eliminado del panel." : "Cambios guardados.");
       return true;
     } catch (e) {
       setError(e.message);

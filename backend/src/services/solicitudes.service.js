@@ -16,10 +16,15 @@ export function createService(pool, env = process.env) {
   }) {
     const d = input,
       r = await recordRequest('cotizacion', d);
-    const msg = `Hola Lupol Motos, quiero cotizar ${d.modalidad === 'CREDITO' ? 'a CRÉDITO' : 'al CONTADO'} la *${d.modelo_moto}* (Color: ${d.color_seleccionado || 'Estándar'}). Precio de referencia: S/. ${d.precio_moto.toFixed(2)}. ${d.modalidad === 'CREDITO' ? `Inicial: S/. ${d.cuota_inicial.toFixed(2)}, ${d.numero_cuotas} cuotas estimadas de S/. ${d.cuota_mensual_estimada.toFixed(2)}. ` : ''}Mi nombre es ${d.nombre_cliente} (Cel: ${d.telefono_cliente}).`;
+    const detalle = d.modalidad === 'CREDITO'
+      ? `Quiero cotizar a CRÉDITO. Inicial: S/. ${d.cuota_inicial.toFixed(2)}, ${d.numero_cuotas} cuotas estimadas de S/. ${d.cuota_mensual_estimada.toFixed(2)}.`
+      : d.modalidad === 'AHORRO'
+        ? `Quiero información sobre Ahorro Motos. Mi meta de ahorro mensual es S/. ${d.meta_ahorro_mensual.toFixed(2)} y el plazo referencial es ${d.plazo_ahorro_estimado_meses} meses. Solicito conocer las condiciones con un asesor.`
+        : 'Quiero cotizar al CONTADO.';
+    const msg = `Hola Lupol Motos, me interesa la *${d.modelo_moto}* (Color: ${d.color_seleccionado || 'Estándar'}). Precio de referencia: S/. ${d.precio_moto.toFixed(2)}. ${detalle} Mi nombre es ${d.nombre_cliente} (Cel: ${d.telefono_cliente}).`;
     return {
       exito: true,
-      mensaje: 'Cotización guardada correctamente',
+      mensaje: d.modalidad === 'AHORRO' ? 'Consulta de Ahorro Motos guardada. Continúa la conversación en WhatsApp.' : 'Cotización guardada correctamente',
       id_cotizacion: r.id,
       enlace_whatsapp: `https://wa.me/${r.phone}?text=${encodeURIComponent(msg)}`
     };
@@ -60,10 +65,18 @@ export function createService(pool, env = process.env) {
       datos: decode(r.datos)
     }));
   }
+  async function eliminar({ params }) {
+    const id = Number(params.id);
+    if (!Number.isSafeInteger(id) || id < 1) throw httpError(400, 'ID inválido');
+    const [result] = await repository.ocultarSolicitud(pool, id);
+    if (!result.affectedRows) throw httpError(404, 'Solicitud no encontrada');
+    return { ok: true };
+  }
   return {
     cotizar,
     reservar,
     contactar,
-    listar
+    listar,
+    eliminar
   };
 }

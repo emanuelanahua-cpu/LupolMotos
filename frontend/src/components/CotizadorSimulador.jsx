@@ -7,12 +7,23 @@ import {
   Send,
   CreditCard,
   Coins,
+  Search,
+  PiggyBank,
   ShieldCheck,
   Gift,
   Layers
 } from 'lucide-react';
 import { formatearSoles } from '../utils/format';
 import { enviarCotizacion } from '../services/solicitudService';
+import MotoSearchPicker from './MotoSearchPicker';
+
+const MOTO_VACIA = {
+  modelo: 'Selecciona un modelo',
+  precio: 0,
+  motor: '-',
+  imagen_principal: '/multimedia/categorias/2ruedas_static.png',
+  colores: []
+};
 
 export default function CotizadorSimulador({ motos = [], motoPreseleccionada = null }) {
   const [motoId, setMotoId] = useState(motoPreseleccionada ? motoPreseleccionada.id : 12);
@@ -20,6 +31,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
   const [colorSeleccionado, setColorSeleccionado] = useState('');
   const [porcentajeInicial, setPorcentajeInicial] = useState(20);
   const [meses, setMeses] = useState(24);
+  const [metaAhorroMensual, setMetaAhorroMensual] = useState(500);
 
   // Datos del cliente
   const [nombre, setNombre] = useState('');
@@ -37,13 +49,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
     }
   }, [motoPreseleccionada]);
 
-  const motoActiva = motos.find(m => m.id === Number(motoId)) || motos[0] || {
-    modelo: 'Selecciona un modelo',
-    precio: 0,
-    motor: '-',
-    imagen_principal: '/multimedia/categorias/2ruedas_static.png',
-    colores: []
-  };
+  const motoActiva = motos.find(m => m.id === Number(motoId)) || (motoId === null ? MOTO_VACIA : motos[0] || MOTO_VACIA);
 
   useEffect(() => {
     if (motoActiva.colores && motoActiva.colores.length > 0) {
@@ -54,13 +60,20 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
   }, [motoId, motoActiva]);
 
   const precio = motoActiva.precio || 0;
+  const imagenCotizador = motoActiva.colores?.find((color) => color.nombre === colorSeleccionado)?.img_moto || motoActiva.imagen_principal;
   const montoInicial = (precio * (porcentajeInicial / 100));
   const montoFinanciado = precio - montoInicial;
   const factorInteres = 1 + (0.0135 * meses);
   const cuotaMensual = meses > 0 ? ((montoFinanciado * factorInteres) / meses) : 0;
+  const aporteMensual = Math.max(0, Number(metaAhorroMensual) || 0);
+  const mesesAhorroEstimados = precio > 0 && aporteMensual > 0 ? Math.ceil(precio / aporteMensual) : 0;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!motoActiva.id) {
+      setErrorEnvio('Busca y selecciona una motocicleta antes de enviar la propuesta.');
+      return;
+    }
     setEnviando(true);
     setErrorEnvio('');
     try {
@@ -74,6 +87,10 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
         cuota_inicial: modalidad === 'CREDITO' ? montoInicial : 0,
         numero_cuotas: modalidad === 'CREDITO' ? meses : 0,
         cuota_mensual_estimada: modalidad === 'CREDITO' ? cuotaMensual : 0,
+        ...(modalidad === 'AHORRO' ? {
+          meta_ahorro_mensual: aporteMensual,
+          plazo_ahorro_estimado_meses: mesesAhorroEstimados
+        } : {}),
         nombre_cliente: nombre,
         telefono_cliente: telefono,
         dni_cliente: dni,
@@ -108,7 +125,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
             COTIZA TU <span className="text-[#fad911]">PRÓXIMA MOTO</span>
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base mt-2">
-            Configura tu plan de financiamiento en Soles con cuotas fijas o cotiza al contado con beneficios exclusivos.
+            Compara el pago al contado, el crédito vehicular o una meta mensual para ahorrar por tu próxima moto.
           </p>
         </div>
 
@@ -121,12 +138,13 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
             {/* Lado Izquierdo: Configuración de la Moto y Plan */}
             <div className="lg:col-span-7 space-y-6">
 
-              {/* Modalidad Contado / Crédito */}
-              <div className="flex bg-zinc-900 p-1.5 rounded-2xl border border-zinc-800">
+              {/* Modalidad de compra */}
+              <div className="grid grid-cols-3 gap-1 bg-zinc-900 p-1.5 rounded-2xl border border-zinc-800" aria-label="Modalidad de cotización">
                 <button
                   type="button"
                   onClick={() => setModalidad('CONTADO')}
-                  className={`flex-1 py-3 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center space-x-2 ${modalidad === 'CONTADO' ? 'bg-[#fad911] text-black shadow-md' : 'text-zinc-400 hover:text-white'
+                  aria-pressed={modalidad === 'CONTADO'}
+                  className={`min-w-0 px-1 py-3 rounded-xl font-extrabold text-[10px] sm:text-xs uppercase tracking-wide transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${modalidad === 'CONTADO' ? 'bg-[#fad911] text-black shadow-md' : 'text-zinc-400 hover:text-white'
                     }`}
                 >
                   <Coins className="w-4 h-4" />
@@ -135,11 +153,21 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
                 <button
                   type="button"
                   onClick={() => setModalidad('CREDITO')}
-                  className={`flex-1 py-3 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center space-x-2 ${modalidad === 'CREDITO' ? 'bg-[#fad911] text-black shadow-md' : 'text-zinc-400 hover:text-white'
+                  aria-pressed={modalidad === 'CREDITO'}
+                  className={`min-w-0 px-1 py-3 rounded-xl font-extrabold text-[10px] sm:text-xs uppercase tracking-wide transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${modalidad === 'CREDITO' ? 'bg-[#fad911] text-black shadow-md' : 'text-zinc-400 hover:text-white'
                     }`}
                 >
                   <CreditCard className="w-4 h-4" />
                   <span>Crédito Vehicular</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setModalidad('AHORRO')}
+                  aria-pressed={modalidad === 'AHORRO'}
+                  className={`min-w-0 px-1 py-3 rounded-xl font-extrabold text-[10px] sm:text-xs uppercase tracking-wide transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${modalidad === 'AHORRO' ? 'bg-[#fad911] text-black shadow-md' : 'text-zinc-400 hover:text-white'}`}
+                >
+                  <PiggyBank className="w-4 h-4 shrink-0" />
+                  <span>Ahorro Motos</span>
                 </button>
               </div>
 
@@ -148,19 +176,12 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
                 <label htmlFor="cotizador-modelo" className="block text-xs font-black text-zinc-300 uppercase tracking-wider mb-2">
                   1. Modelo de Motocicleta:
                 </label>
-                <select
-                  id="cotizador-modelo"
-                  value={motoId}
-                  onChange={(e) => setMotoId(Number(e.target.value))}
-                  aria-label="Seleccionar modelo de motocicleta para cotizar"
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-sm text-white font-bold focus-ring"
-                >
-                  {motos.map((m) => (
-                    <option key={m.id} value={m.id}>
-                      {m.modelo} — {formatearSoles(m.precio)} ({m.motor || 'DTS-i'})
-                    </option>
-                  ))}
-                </select>
+                <MotoSearchPicker
+                  motos={motos}
+                  seleccionada={motoActiva.id ? motoActiva : null}
+                  alSeleccionar={(moto) => setMotoId(moto.id)}
+                  alLimpiar={() => setMotoId(null)}
+                />
               </div>
 
               {/* Selector de Color si aplica */}
@@ -188,7 +209,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
               )}
 
               {/* Controles de Crédito */}
-              {modalidad === 'CREDITO' && (
+              {modalidad === 'CREDITO' && motoActiva.id && (
                 <div className="space-y-5 p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800">
                   {/* Slider Cuota Inicial */}
                   <div>
@@ -236,10 +257,34 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
                 </div>
               )}
 
+              {modalidad === 'AHORRO' && motoActiva.id && (
+                <div className="space-y-4 p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800">
+                  <div>
+                    <h3 className="text-sm font-black text-white">Organiza tu meta de ahorro</h3>
+                    <p className="text-xs text-zinc-400 mt-1">Indica cuánto te gustaría separar cada mes para la moto seleccionada.</p>
+                  </div>
+                  <div>
+                    <label htmlFor="cotizador-ahorro-mensual" className="block text-xs font-bold text-zinc-300 mb-2">Meta de ahorro mensual (S/)</label>
+                    <input
+                      id="cotizador-ahorro-mensual"
+                      type="number"
+                      inputMode="decimal"
+                      min="1"
+                      step="1"
+                      required
+                      value={metaAhorroMensual}
+                      onChange={(e) => setMetaAhorroMensual(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-sm text-white font-bold focus-ring"
+                    />
+                  </div>
+                  <p className="text-xs text-zinc-400">Con esta meta, alcanzarías el precio actual en <strong className="text-[#fad911]">{mesesAhorroEstimados || '—'} {mesesAhorroEstimados === 1 ? 'mes' : 'meses'}</strong> aproximadamente.</p>
+                </div>
+              )}
+
               {/* Datos de Contacto */}
               <div className="space-y-3.5 pt-2">
                 <label className="block text-xs font-black text-zinc-300 uppercase tracking-wider">
-                  3. Datos para la Propuesta y Evaluación:
+                  3. Datos para la Propuesta:
                 </label>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -281,7 +326,7 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
 
                   <div>
                     <label htmlFor="cotizador-dni" className="block text-[11px] font-bold text-zinc-400 mb-1">
-                      DNI (Para pre-evaluación crediticia)
+                      {modalidad === 'CREDITO' ? 'DNI (para pre-evaluación crediticia)' : 'DNI (opcional)'}
                     </label>
                     <input
                       id="cotizador-dni"
@@ -321,84 +366,63 @@ export default function CotizadorSimulador({ motos = [], motoPreseleccionada = n
             </div>
 
             {/* Lado Derecho: Tarjeta Resumen y Enviar */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-[#0c0d10] p-6 sm:p-8 rounded-2xl border border-zinc-800/90">
+            <div className="lg:col-span-5 self-start flex flex-col gap-6 bg-[#0c0d10] p-6 sm:p-8 rounded-2xl border border-zinc-800/90">
 
               <div>
-                <div className="flex justify-between items-center pb-4 border-b border-zinc-800">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-[#fad911] tracking-wider">Unidad Seleccionada</span>
-                    <h3 className="text-xl font-black text-white">{motoActiva.modelo}</h3>
-                  </div>
-
-                  <div className="w-16 h-12 flex items-center justify-center">
-                    <img
-                      src={motoActiva.imagen_principal}
-                      alt={motoActiva.modelo}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
+                {motoActiva.id ? <>
+                <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900">
+                  <img
+                    src={imagenCotizador}
+                    alt={`${motoActiva.marca || ''} ${motoActiva.modelo}`.trim()}
+                    className="h-full w-full object-cover object-center"
+                  />
                 </div>
 
-                {/* Desglose de Precios */}
-                <div className="py-5 space-y-3 text-xs border-b border-zinc-800">
-                  <div className="flex justify-between text-zinc-400">
-                    <span>Precio de Catálogo:</span>
-                    <strong className="text-white font-bold">{formatearSoles(precio)}</strong>
-                  </div>
+                <div className="mt-4 border-b border-zinc-800 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#fad911]">Unidad seleccionada</span>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-zinc-400">{motoActiva.marca}</p>
+                  <h3 className="text-xl font-black text-white break-words sm:text-2xl">{motoActiva.modelo}</h3>
+                </div>
 
-                  {modalidad === 'CREDITO' ? (
-                    <>
-                      <div className="flex justify-between text-zinc-400">
-                        <span>Cuota Inicial ({porcentajeInicial}%):</span>
-                        <strong className="text-[#fad911] font-bold">{formatearSoles(montoInicial)}</strong>
-                      </div>
-                      <div className="flex justify-between text-zinc-400">
-                        <span>Saldo a Financiar:</span>
-                        <strong className="text-zinc-200 font-bold">{formatearSoles(montoFinanciado)}</strong>
-                      </div>
-                      <div className="flex justify-between text-zinc-400">
-                        <span>Plazo acordado:</span>
-                        <strong className="text-white font-bold">{meses} Cuotas Mensuales</strong>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="flex justify-between text-zinc-400">
-                      <span>Modalidad de Compra:</span>
-                      <strong className="text-emerald-400 font-bold">Pago al Contado Inmediato</strong>
+                {/* Cuota o meta a la izquierda; precio de la moto a la derecha */}
+                <div className="grid grid-cols-2 gap-2 pt-5 sm:gap-3">
+                  {modalidad !== 'CONTADO' && (
+                    <div className="min-w-0 text-left">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                        {modalidad === 'AHORRO' ? 'Meta mensual de ahorro' : 'Cuota mensual estimada'}
+                      </span>
+                      <strong key={`${modalidad}-${cuotaMensual.toFixed(0)}-${aporteMensual}`} className="mt-1 block whitespace-nowrap text-[clamp(0.875rem,4vw,1.875rem)] font-black text-[#fad911] animate-value-update">
+                        {formatearSoles(modalidad === 'AHORRO' ? aporteMensual : cuotaMensual)}
+                      </strong>
                     </div>
                   )}
-                </div>
-
-                {/* Resultado Principal */}
-                <div className="pt-5 text-center">
-                  <span className="text-xs uppercase font-bold text-zinc-400 block tracking-wider">
-                    {modalidad === 'CREDITO' ? 'Cuota Mensual Estimada' : 'Monto Total al Contado'}
-                  </span>
-                  <div
-                    key={`${modalidad}-${cuotaMensual.toFixed(0)}-${precio}`}
-                    className="text-3xl sm:text-4xl font-black text-[#fad911] mt-1 animate-value-update"
-                  >
-                    {formatearSoles(modalidad === 'CREDITO' ? cuotaMensual : precio)}
+                  <div className={`min-w-0 text-right ${modalidad === 'CONTADO' ? 'col-span-2' : 'border-l border-zinc-800 pl-2 sm:pl-3'}`}>
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400">Precio de la moto</span>
+                    <strong className="mt-1 block whitespace-nowrap text-[clamp(0.875rem,4vw,1.875rem)] font-black text-white">{formatearSoles(precio)}</strong>
                   </div>
-                  <p className="text-[11px] text-zinc-500 mt-1.5 leading-tight">
-                    * Incluye IGV, trámite de placa y tarjeta de propiedad. Las cuotas finales dependen de la evaluación crediticia.
-                  </p>
                 </div>
+                </> : (
+                  <div className="flex min-h-72 flex-col items-center justify-center text-center">
+                    <Search aria-hidden="true" className="h-9 w-9 text-[#fad911] mb-4" />
+                    <h3 className="text-lg font-black text-white">Elige tu motocicleta</h3>
+                    <p className="mt-2 max-w-xs text-sm text-zinc-400">Busca un modelo y selecciónalo para ver el precio y preparar tu propuesta.</p>
+                  </div>
+                )}
               </div>
 
               {/* Botón de Envío */}
               <div className="space-y-3">
                 <button
                   type="submit"
-                  disabled={enviando}
-                  className="w-full py-4 rounded-xl bg-[#fad911] hover:bg-[#fce23e] text-black font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-lg shadow-[#fad911]/25 hover:scale-[1.01]"
+                  disabled={enviando || !motoActiva.id}
+                  className="w-full py-4 rounded-xl bg-[#fad911] hover:bg-[#fce23e] text-black font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-lg shadow-[#fad911]/25 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
                 >
                   {enviando ? (
                     <span>Generando propuesta personalizada...</span>
                   ) : (
                     <>
                       <MessageSquare className="w-4 h-4" />
-                      <span>Enviar cotización al asesor por WhatsApp</span>
+                      <span>{!motoActiva.id ? 'Selecciona una moto para continuar' : modalidad === 'AHORRO' ? 'Consultar Ahorro Motos por WhatsApp' : 'Enviar cotización al asesor por WhatsApp'}</span>
                     </>
                   )}
                 </button>

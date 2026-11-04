@@ -147,16 +147,16 @@ export default function MotoDetailModal({ motoId, motos = [], alCerrar, abrirMod
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 bg-[#0b0c0e] rounded-2xl border border-zinc-800/80 p-4 sm:p-6 flex flex-col items-center justify-center min-h-[220px] sm:min-h-[380px] relative">
+            <div className="lg:col-span-7 bg-[#0b0c0e] rounded-2xl border border-zinc-800/80 p-3 sm:p-4 flex flex-col items-center justify-center min-h-[240px] sm:min-h-[400px] relative">
               <div className="absolute top-4 left-4 bg-zinc-900/90 px-3 py-1 rounded-lg border border-zinc-800 text-xs font-bold text-zinc-300">
                 100% Original Lupol Motos
               </div>
 
-              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorActual ? ` en ${colorActual.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: imagenPrincipal, titulo: `${moto.marca} ${moto.modelo}${colorActual ? ` · ${colorActual.nombre}` : ''}` })} className="relative flex w-full cursor-zoom-in items-center justify-center py-8">
+              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorActual ? ` en ${colorActual.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: imagenPrincipal, titulo: `${moto.marca} ${moto.modelo}${colorActual ? ` · ${colorActual.nombre}` : ''}` })} className="relative mt-6 block aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-xl bg-zinc-950 sm:mt-4">
                 <img
                   src={imagenPrincipal}
                   alt=""
-                  className="max-h-[200px] sm:max-h-[320px] max-w-full w-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
+                  className="h-full w-full object-cover object-center"
                   onError={(e) => {
                     e.target.src = moto.imagen_principal;
                   }}

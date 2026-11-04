@@ -23,6 +23,7 @@ export function createController(service) {
       params: req.params,
       input: req.input,
       actor: req.user
-    }))
+    })),
+    eliminar: async (req, res) => res.status(200).json(await service.eliminar({ params: req.params }))
   };
 }

@@ -8,10 +8,23 @@ export async function initialize(pool, initialUsers = []) {
   const schema = [`CREATE TABLE IF NOT EXISTS configuracion (clave VARCHAR(80) PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS motos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS repuestos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS usuarios (id VARCHAR(32) PRIMARY KEY, usuario VARCHAR(40) NOT NULL UNIQUE,
       sal VARCHAR(32) NOT NULL, hash VARCHAR(128) NOT NULL, rol VARCHAR(20) NOT NULL, creado VARCHAR(30) NOT NULL)`, `CREATE TABLE IF NOT EXISTS solicitudes (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       tipo VARCHAR(20) NOT NULL, datos LONGTEXT NOT NULL, creado TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      oculto_en TIMESTAMP NULL DEFAULT NULL,
       INDEX solicitudes_tipo (tipo, id))`, `CREATE TABLE IF NOT EXISTS imagenes (id VARCHAR(64) PRIMARY KEY, mime VARCHAR(30) NOT NULL,
       contenido MEDIUMBLOB NOT NULL, creado TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)`];
   for (const sql of schema) await pool.query(sql);
   await migrateCommerce(pool);
+  // Los registros se retiran del panel sin romper ventas ni historial de inventario.
+  for (const table of ['pedidos', 'solicitudes']) {
+    const [columns] = await pool.query(`SHOW COLUMNS FROM ${table} LIKE 'oculto_en'`);
+    if (!columns.length) {
+      try {
+        await pool.query(`ALTER TABLE ${table} ADD COLUMN oculto_en TIMESTAMP NULL DEFAULT NULL`);
+      } catch (error) {
+        // Dos procesos pueden inicializar la misma base al mismo tiempo.
+        if (error.code !== 'ER_DUP_FIELDNAME') throw error;
+      }
+    }
+  }
   // Un candado de MySQL impide que dos procesos importen el catálogo a la vez.
   const c = await pool.getConnection();
   try {

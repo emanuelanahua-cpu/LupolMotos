@@ -66,7 +66,7 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
       </div>
 
       {/* Imagen de la Moto — estilo póster promocional con efecto flip */}
-      <div className="flip-card-scene relative h-56 sm:h-60 w-full">
+      <div className="flip-card-scene relative aspect-[16/9] w-full">
         <div className={`flip-card-flipper ${volteada ? 'is-flipped' : ''}`}>
 
           {/* Cara frontal: foto estilo póster */}
@@ -80,12 +80,12 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
               <div className="absolute -left-16 bottom-0 w-48 h-24 bg-[#fad911]/10 -rotate-12"></div>
               <div className="absolute inset-0 bg-radial from-[#fad911]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorSeleccionado ? ` en ${colorSeleccionado.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: colorSeleccionado?.img_moto || moto.imagen_principal, titulo: `${moto.marca} ${moto.modelo}${colorSeleccionado ? ` · ${colorSeleccionado.nombre}` : ''}` })} className="absolute inset-0 flex cursor-zoom-in items-center justify-center p-4">
+              <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorSeleccionado ? ` en ${colorSeleccionado.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: colorSeleccionado?.img_moto || moto.imagen_principal, titulo: `${moto.marca} ${moto.modelo}${colorSeleccionado ? ` · ${colorSeleccionado.nombre}` : ''}` })} className="absolute inset-0 flex cursor-zoom-in items-center justify-center overflow-hidden">
                 <img
                   src={colorSeleccionado?.img_moto || moto.imagen_principal}
                   alt=""
                   loading="lazy"
-                  className="relative max-h-full max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)] transition-transform duration-300 group-hover:scale-[1.04]"
+                  className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
                   onError={(e) => {
                     e.target.src = '/multimedia/categorias/2ruedas_static.png';
                   }}

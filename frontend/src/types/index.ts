@@ -2,9 +2,10 @@ export type Rol = 'superadmin' | 'admin' | 'empleado';
 export interface Usuario { id: string; usuario: string; rol: Rol; creado: string }
 export interface Cliente { nombre_cliente: string; telefono_cliente: string; dni_cliente?: string }
 export interface Cotizacion extends Cliente {
-  id_moto: number; modelo_moto: string; modalidad: 'CONTADO' | 'CREDITO'; precio_moto: number;
+  id_moto: number; modelo_moto: string; modalidad: 'CONTADO' | 'CREDITO' | 'AHORRO'; precio_moto: number;
   color_seleccionado?: string; cuota_inicial?: number; numero_cuotas?: number;
-  cuota_mensual_estimada?: number; email_cliente?: string; ciudad?: string; comentarios?: string;
+  cuota_mensual_estimada?: number; meta_ahorro_mensual?: number; plazo_ahorro_estimado_meses?: number;
+  email_cliente?: string; ciudad?: string; comentarios?: string;
 }
 export interface Reserva extends Cliente {
   id_moto: number; modelo_moto: string; dni_cliente: string; color_seleccionado?: string;

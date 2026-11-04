@@ -347,6 +347,7 @@ function Solicitudes() {
   const [tipo, setTipo] = useState('');
   const [error, setError] = useState('');
   const [cargando, setCargando] = useState(false);
+  const [eliminando, setEliminando] = useState(null);
   const [hayMas, setHayMas] = useState(false);
   const cargar = useCallback(async (antes) => {
     setCargando(true); setError('');
@@ -361,6 +362,15 @@ function Solicitudes() {
     finally { setCargando(false); }
   }, [tipo]);
   useEffect(() => { cargar(); }, [cargar]);
+  const eliminar = async (solicitud) => {
+    if (!window.confirm(`¿Eliminar la solicitud #${solicitud.id} del panel? Se conservará en el respaldo de la tienda.`)) return;
+    setEliminando(solicitud.id); setError('');
+    try {
+      await api('DELETE', `/api/admin/solicitudes/${solicitud.id}`);
+      setLista(actuales => actuales.filter(item => item.id !== solicitud.id));
+    } catch (e) { setError(e.message); }
+    finally { setEliminando(null); }
+  };
   const tipos = { cotizacion: 'Cotización', reserva: 'Reserva', contacto: 'Contacto' };
   return <section className={card}>
     <div className="flex flex-wrap gap-3 items-center justify-between mb-4">
@@ -373,9 +383,14 @@ function Solicitudes() {
     {error && <p role="alert" className="text-red-400 mb-3">{error}</p>}
     {!lista.length && <p className="text-zinc-400 text-sm">{cargando ? 'Cargando…' : 'No hay solicitudes para mostrar.'}</p>}
     <div className="admin-scroll space-y-3" role="region" aria-label="Lista de solicitudes" tabIndex={0}>{lista.map(s => <article key={s.id} className="border border-zinc-800 rounded-xl p-4">
-      <div className="flex flex-wrap justify-between gap-2 text-sm mb-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-sm mb-2">
         <strong>{tipos[s.tipo]} #{s.id}</strong>
-        <time className="text-zinc-400">{new Date(s.creado).toLocaleString('es-PE', { timeZone: 'America/Lima' })}</time>
+        <div className="flex flex-wrap items-center gap-3">
+          <time className="text-zinc-400">{new Date(s.creado).toLocaleString('es-PE', { timeZone: 'America/Lima' })}</time>
+          <button type="button" className={`${btnSec} !text-red-400 hover:!border-red-500 disabled:opacity-40`} disabled={cargando || eliminando !== null} onClick={() => eliminar(s)} aria-label={`Eliminar solicitud #${s.id}`}>
+            {eliminando === s.id ? 'Eliminando…' : 'Eliminar'}
+          </button>
+        </div>
       </div>
       <dl className="grid sm:grid-cols-2 gap-2 text-sm">{Object.entries(s.datos).filter(([, v]) => v !== null && v !== '').map(([k,v]) =>
         <div key={k}><dt className="text-zinc-500 capitalize">{k.replaceAll('_', ' ')}</dt><dd className="break-words whitespace-pre-wrap">{String(v)}</dd></div>

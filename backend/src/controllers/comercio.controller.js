@@ -3,6 +3,7 @@ export const createController = (s) => ({
   cambiar: async (req, res) =>
     res.json(await s.cambiar(req.params.id, req.input, req.user)),
   pedidos: async (req, res) => res.json(await s.pedidos()),
+  eliminarPedido: async (req, res) => res.json(await s.eliminarPedido(req.params.id)),
   clientes: async (req, res) => res.json(await s.clientes()),
   editarCliente: async (req, res) =>
     res.json(await s.editarCliente(req.params.id, req.input)),

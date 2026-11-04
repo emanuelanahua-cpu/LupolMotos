@@ -167,13 +167,23 @@ export function createService(pool, env = process.env) {
   async function pedidos() {
     const [rows] = await repo.listarPedidos(pool);
     const [items] = await repo.listarItems(pool);
-    return rows.map(({ clave, huella, ...p }) => ({
+    return rows.map(({ clave, huella, oculto_en, ...p }) => ({
       ...p,
       cliente: decode(p.cliente_datos),
       cliente_datos: undefined,
       total_centimos: Number(p.total_centimos),
       items: items.filter((i) => i.pedido_id === p.id),
     }));
+  }
+  async function eliminarPedido(id) {
+    return transaction(pool, async (c) => {
+      const [rows] = await repo.bloquearPedido(c, id);
+      if (!rows.length) throw httpError(404, "Pedido no encontrado");
+      if (rows[0].estado === "confirmado")
+        throw httpError(409, "Cancela primero este pedido para liberar el stock reservado.");
+      await repo.ocultarPedido(c, id);
+      return { ok: true };
+    });
   }
   async function clientes() {
     return (await repo.listarClientes(pool))[0];
@@ -244,6 +254,7 @@ export function createService(pool, env = process.env) {
     crear,
     cambiar,
     pedidos,
+    eliminarPedido,
     clientes,
     editarCliente,
     ventas,

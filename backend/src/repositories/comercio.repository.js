@@ -1,7 +1,7 @@
 export const pedidoPorClave = (db, clave) =>
   db.execute("SELECT * FROM pedidos WHERE clave = ?", [clave]);
 export const bloquearPedido = (db, id) =>
-  db.execute("SELECT * FROM pedidos WHERE id = ? FOR UPDATE", [id]);
+  db.execute("SELECT * FROM pedidos WHERE id = ? AND oculto_en IS NULL FOR UPDATE", [id]);
 export const itemsPedido = (db, id) =>
   db.execute(
     "SELECT * FROM pedido_items WHERE pedido_id = ? ORDER BY moto_id",
@@ -26,6 +26,8 @@ export const insertarItem = (db, d) =>
   );
 export const cambiarEstado = (db, id, estado) =>
   db.execute("UPDATE pedidos SET estado=? WHERE id=?", [estado, id]);
+export const ocultarPedido = (db, id) =>
+  db.execute("UPDATE pedidos SET oculto_en=CURRENT_TIMESTAMP WHERE id=? AND oculto_en IS NULL", [id]);
 export const registrarVenta = (db, d) =>
   db.execute(
     "INSERT INTO ventas(pedido_id,total_centimos,metodo,referencia,actor) VALUES(?,?,?,?,?)",
@@ -37,14 +39,14 @@ export const movimiento = (db, d) =>
     d,
   );
 export const listarPedidos = (db) =>
-  db.query("SELECT * FROM pedidos ORDER BY id DESC LIMIT 300");
+  db.query("SELECT * FROM pedidos WHERE oculto_en IS NULL ORDER BY id DESC LIMIT 300");
 export const listarItems = (db) =>
   db.query(
-    "SELECT i.* FROM pedido_items i JOIN (SELECT id FROM pedidos ORDER BY id DESC LIMIT 300) p ON p.id=i.pedido_id ORDER BY i.moto_id",
+    "SELECT i.* FROM pedido_items i JOIN (SELECT id FROM pedidos WHERE oculto_en IS NULL ORDER BY id DESC LIMIT 300) p ON p.id=i.pedido_id ORDER BY i.moto_id",
   );
 export const listarClientes = (db) =>
   db.query(
-    "SELECT c.*, (SELECT COUNT(*) FROM pedidos p WHERE p.cliente_id=c.id) AS pedidos FROM clientes c ORDER BY c.id DESC LIMIT 500",
+    "SELECT c.*, (SELECT COUNT(*) FROM pedidos p WHERE p.cliente_id=c.id AND p.oculto_en IS NULL) AS pedidos FROM clientes c ORDER BY c.id DESC LIMIT 500",
   );
 export const editarCliente = (db, id, d) =>
   db.execute(

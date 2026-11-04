@@ -8,12 +8,14 @@ export const quoteSchema = z.object({
   telefono_cliente: z.string().trim().regex(/^[0-9]{9}$/, 'El celular debe tener exactamente 9 dígitos'),
   id_moto: z.number().int().positive(),
   modelo_moto: z.string().min(1).max(150),
-  modalidad: z.enum(['CONTADO', 'CREDITO']),
+  modalidad: z.enum(['CONTADO', 'CREDITO', 'AHORRO']),
   color_seleccionado: z.string().max(100).nullable().optional(),
   precio_moto: z.number().finite().min(0),
   cuota_inicial: z.number().finite().min(0).default(0),
   numero_cuotas: z.number().int().min(0).max(120).default(12),
   cuota_mensual_estimada: z.number().finite().min(0).default(0),
+  meta_ahorro_mensual: z.number().finite().positive().optional(),
+  plazo_ahorro_estimado_meses: z.number().int().min(1).optional(),
   dni_cliente: z.string().regex(/^(?:[0-9]{8})?$/, 'El DNI debe tener 8 dígitos').nullable().optional(),
   email_cliente: z.union([
     z.literal(''),
@@ -24,6 +26,13 @@ export const quoteSchema = z.object({
   ]).nullable().optional(),
   ciudad: z.string().max(150).optional(),
   comentarios: z.string().max(2000).nullable().optional()
+}).superRefine((datos, ctx) => {
+  if (datos.modalidad === 'AHORRO' && !datos.meta_ahorro_mensual) {
+    ctx.addIssue({ code: 'custom', path: ['meta_ahorro_mensual'], message: 'Indica una meta de ahorro mensual' });
+  }
+  if (datos.modalidad === 'AHORRO' && !datos.plazo_ahorro_estimado_meses) {
+    ctx.addIssue({ code: 'custom', path: ['plazo_ahorro_estimado_meses'], message: 'Indica el plazo estimado de ahorro' });
+  }
 });
 export const reserveSchema = z.object({
   ...customer,

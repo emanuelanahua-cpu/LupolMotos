@@ -11,6 +11,7 @@ export async function migrateCommerce(pool) {
       cliente_datos LONGTEXT NOT NULL, estado VARCHAR(20) NOT NULL DEFAULT 'pendiente',
       total_centimos BIGINT UNSIGNED NOT NULL, notas VARCHAR(800) NOT NULL DEFAULT '',
       creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP, actualizado TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      oculto_en TIMESTAMP NULL DEFAULT NULL,
       FOREIGN KEY (cliente_id) REFERENCES clientes(id), INDEX pedidos_estado (estado, id))`,
     `CREATE TABLE IF NOT EXISTS pedido_items (
       pedido_id BIGINT UNSIGNED NOT NULL, moto_id INT UNSIGNED NOT NULL,

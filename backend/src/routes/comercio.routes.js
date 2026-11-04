@@ -19,6 +19,7 @@ export function createRoutes(pool, env, { session, requestLimit }) {
       : res.status(400).json({ detail: "ID inválido" }),
   );
   r.get("/api/admin/pedidos", c.pedidos);
+  r.delete("/api/admin/pedidos/:id", c.eliminarPedido);
   r.patch("/api/admin/pedidos/:id/estado", validate(estadoSchema), c.cambiar);
   r.get("/api/admin/clientes", c.clientes);
   r.put("/api/admin/clientes/:id", validate(clienteSchema), c.editarCliente);

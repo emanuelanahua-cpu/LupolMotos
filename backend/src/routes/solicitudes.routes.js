@@ -13,5 +13,6 @@ export function createRoutes(pool, env, {
   router.post("/api/reservas", requestLimit, parse(reserveSchema), controller.reservar);
   router.post("/api/contacto", requestLimit, parse(contactSchema), controller.contactar);
   router.get("/api/admin/solicitudes", session.required, session.roles('superadmin', 'admin'), controller.listar);
+  router.delete("/api/admin/solicitudes/:id", session.required, session.roles('superadmin', 'admin'), controller.eliminar);
   return router;
 }
