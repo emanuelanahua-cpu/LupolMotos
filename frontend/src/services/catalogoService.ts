@@ -4,6 +4,34 @@ import datosLocales from '../data/lupol_data.json';
 import {apiFetch} from './api';
 const API_BASE_URL = '/api';
 
+// La API puede conservar rutas anteriores al traslado de fotos a gasolina/electricas.
+const grupoPorCarpeta = new Map<string, string>();
+for (const moto of datosLocales.motos) {
+  const ruta = moto.imagen_principal.match(/^\/multimedia\/(gasolina|electricas)\/([^/]+)\//);
+  if (ruta) grupoPorCarpeta.set(ruta[2], ruta[1]);
+}
+
+function rutaImagen(ruta: string): string {
+  if (!ruta) return ruta;
+  const antigua = ruta.match(/^\/?multimedia\/([^/]+)\/(.+)$/);
+  if (!antigua) return ruta;
+  const [, carpeta, archivo] = antigua;
+  const grupo = grupoPorCarpeta.get(carpeta);
+  return grupo ? `/multimedia/${grupo}/${carpeta}/${archivo}` : `/${ruta.replace(/^\//, '')}`;
+}
+
+function normalizarImagenesMoto(moto: Moto): Moto {
+  return {
+    ...moto,
+    imagen_principal: rutaImagen(moto.imagen_principal),
+    imagenes: (moto.imagenes || []).map(rutaImagen),
+    colores: moto.colores?.map(color => ({ ...color, img_moto: rutaImagen(color.img_moto) })),
+    vistas_360: moto.vistas_360 && Object.fromEntries(
+      Object.entries(moto.vistas_360).map(([vista, ruta]) => [vista, rutaImagen(ruta)])
+    ),
+  };
+}
+
 /**
  * Obtiene la información general de la tienda y concesionario Lupol Motos
  */
@@ -46,9 +74,9 @@ export async function obtenerCatalogoMotos(filtros: FiltrosCatalogo = {}): Promi
     const respuesta = await apiFetch(`${API_BASE_URL}/motos?${params.toString()}`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
     const datos = await respuesta.json();
-    return datos.motos || [];
+    return (datos.motos || []).map((moto: Moto) => normalizarImagenesMoto(moto));
   } catch (error) {
-    let resultado = [...((datosLocales.motos || []) as Moto[])];
+    let resultado = ((datosLocales.motos || []) as Moto[]).map(normalizarImagenesMoto);
     if (filtros.busqueda) {
       const q = filtros.busqueda.toLowerCase();
       resultado = resultado.filter(m =>
@@ -84,12 +112,17 @@ export async function obtenerDetalleMoto(idMoto: number) {
   try {
     const respuesta = await apiFetch(`${API_BASE_URL}/motos/${idMoto}`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
-    return await respuesta.json();
+    const datos = await respuesta.json();
+    return {
+      ...datos,
+      moto: datos.moto && normalizarImagenesMoto(datos.moto),
+      relacionadas: datos.relacionadas?.map(normalizarImagenesMoto),
+    };
   } catch (error) {
     const moto = datosLocales.motos.find(m => m.id === Number(idMoto));
     if (!moto) return null;
     const relacionadas = datosLocales.motos.filter(m => m.id !== Number(idMoto)).slice(0, 4);
-    return { moto, relacionadas };
+    return { moto: normalizarImagenesMoto(moto as Moto), relacionadas: relacionadas.map(m => normalizarImagenesMoto(m as Moto)) };
   }
 }
 
@@ -138,7 +171,13 @@ export async function obtenerMotosDestacadas() {
   try {
     const respuesta = await apiFetch(`${API_BASE_URL}/destacados`);
     if (!respuesta.ok) throw new Error('Error al consultar API');
-    return await respuesta.json();
+    const datos = await respuesta.json();
+    const normalizar = (moto: { imagen_principal?: string; imagenes?: string[] } | null) => moto && ({
+      ...moto,
+      imagen_principal: rutaImagen(moto.imagen_principal || ''),
+      imagenes: moto.imagenes?.map(rutaImagen),
+    });
+    return { ...datos, pisteras: normalizar(datos.pisteras), electricas: normalizar(datos.electricas) };
   } catch (error) {
     // Fallback: buscar en datos locales
     const motos = datosLocales.motos || [];

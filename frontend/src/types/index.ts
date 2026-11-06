@@ -19,6 +19,7 @@ export interface Moto {
   precio: number; estado: string; destacado: boolean; detalle?: string | null;
   potencia?: string | null; imagen_principal: string; imagenes: string[];
   colores?: Array<{ nombre: string; img_moto: string }>;
+  vistas_360?: Record<string, string>;
 }
 export interface Repuesto { id: number; nombre: string; codigo: string; aplicacion_modelos?: string; categoria: string; tipo_moto: string; stock: number }
 export interface FiltrosCatalogo {
