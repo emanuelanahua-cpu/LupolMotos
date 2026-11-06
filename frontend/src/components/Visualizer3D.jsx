@@ -88,7 +88,7 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
         </div>
 
         {/* Canvas / Visor Central */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#121318] border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#121318] border border-zinc-800 rounded-3xl p-4 sm:p-10 shadow-2xl relative overflow-hidden">
           
           {/* Lado Izquierdo: Controles de Ángulos y Colores */}
           <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
@@ -243,21 +243,21 @@ export default function Visualizer3D({ motos = [], abrirModalMoto, navegarA }) {
           </div>
 
           {/* Lado Derecho: Display de la Moto */}
-          <div className="lg:col-span-8 flex flex-col items-center justify-center min-h-[360px] sm:min-h-[440px] relative order-1 lg:order-2">
+          <div className="lg:col-span-8 flex w-full flex-col items-center justify-center min-h-[220px] sm:min-h-[360px] lg:min-h-[440px] relative order-1 lg:order-2">
             
             {/* Plataforma base con resplandor pulsante suave */}
-            <div className="absolute bottom-6 w-[80%] h-12 bg-[#fad911]/15 blur-2xl rounded-full pointer-events-none animate-pedestal-glow"></div>
-            <div className="absolute bottom-4 w-[65%] h-6 bg-black/60 rounded-[100%] border border-zinc-700/40 shadow-inner"></div>
+            <div className="absolute bottom-6 hidden sm:block w-[80%] h-12 bg-[#fad911]/15 blur-2xl rounded-full pointer-events-none animate-pedestal-glow"></div>
+            <div className="absolute bottom-4 hidden sm:block w-[65%] h-6 bg-black/60 rounded-[100%] border border-zinc-700/40 shadow-inner"></div>
 
             {/* Imagen Principal en Grande con transición suave */}
-            <div className="relative z-10 w-full flex items-center justify-center p-4">
+            <div className="relative z-10 flex w-full items-center justify-center p-0 sm:p-4">
               <img
                 key={`${motoActiva.id}-${vistaActiva}-${colorActivoIdx}`}
                 src={imagenActual}
                 alt={motoActiva.modelo}
                 loading="lazy"
                 decoding="async"
-                className="max-h-[320px] sm:max-h-[420px] w-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)] animate-fade-in-scale"
+                className="block h-auto w-full max-h-[280px] object-contain sm:w-auto sm:max-h-[420px] filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)] animate-fade-in-scale"
                 onError={(e) => {
                   e.target.src = motoActiva.imagen_principal;
                 }}
