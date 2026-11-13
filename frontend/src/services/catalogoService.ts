@@ -1,4 +1,4 @@
-import type {Moto, Repuesto, FiltrosCatalogo, FiltrosRepuestos} from '../types';
+import type {Moto, Repuesto, Accesorio, FiltrosCatalogo, FiltrosRepuestos} from '../types';
 import datosLocales from '../data/lupol_data.json';
 
 import {apiFetch} from './api';
@@ -161,6 +161,20 @@ export async function obtenerRepuestos(filtros: FiltrosRepuestos = {}): Promise<
       repuestos = repuestos.filter(r => r.stock > 0);
     }
     return repuestos;
+  }
+}
+
+/**
+ * Obtiene el catálogo público de accesorios.
+ */
+export async function obtenerAccesorios(): Promise<Accesorio[]> {
+  try {
+    const respuesta = await apiFetch(`${API_BASE_URL}/accesorios`);
+    if (!respuesta.ok) throw new Error('Error al consultar API');
+    const datos = await respuesta.json();
+    return Array.isArray(datos) ? datos : [];
+  } catch {
+    return [];
   }
 }
 

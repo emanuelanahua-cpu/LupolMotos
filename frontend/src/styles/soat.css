@@ -1,0 +1,65 @@
+/* ============================================================
+   Sección SOAT
+   ============================================================ */
+
+/* Fondo del cotizador SOAT */
+.soat-panel {
+  background-color: #101116;
+  background-image:
+    linear-gradient(
+      100deg,
+      rgba(8, 9, 13, 0.94) 0%,
+      rgba(8, 9, 13, 0.82) 40%,
+      rgba(8, 9, 13, 0.48) 72%,
+      rgba(8, 9, 13, 0.24) 100%
+    ),
+    url('/multimedia/solicitud_soat/lapositiva.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* En móvil el texto ocupa todo el ancho: oscurecemos un poco más la foto. */
+@media (max-width: 1023px) {
+  .soat-panel {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(8, 9, 13, 0.9) 0%,
+        rgba(8, 9, 13, 0.8) 50%,
+        rgba(8, 9, 13, 0.9) 100%
+      ),
+      url('/multimedia/solicitud_soat/lapositiva.jpg');
+  }
+}
+
+
+/* Modo claro: fondo claro, foto como banner y formulario blanco */
+html.light .public-site .soat-seccion {
+  background-color: var(--lt-page);
+}
+
+html.light .public-site .soat-panel {
+  background-image:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.97) 0%,
+      rgba(255, 255, 255, 0.92) 42%,
+      rgba(255, 255, 255, 0.72) 72%,
+      rgba(255, 255, 255, 0.5) 100%
+    ),
+    url('/multimedia/solicitud_soat/lapositiva.jpg');
+}
+
+@media (max-width: 1023px) {
+  html.light .public-site .soat-panel {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(255, 255, 255, 0.9) 55%,
+        rgba(255, 255, 255, 0.96) 100%
+      ),
+      url('/multimedia/solicitud_soat/lapositiva.jpg');
+  }
+}

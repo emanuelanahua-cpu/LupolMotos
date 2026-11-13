@@ -8,7 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lupol Motos | Tacna</title>
     <meta name="description" content="Lupol Motos Tacna, financiamiento al instante." />
-    <!-- Open Graph / Meta -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem('lupol-theme') === 'light') {
+            document.documentElement.classList.add('light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {  }
+      })();
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Lupol Motos | Tacna" />
     <meta property="og:description" content="Catálogo actualizado de motos en Tacna." />
@@ -24,3 +33,4 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+

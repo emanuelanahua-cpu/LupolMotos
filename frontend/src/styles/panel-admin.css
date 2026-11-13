@@ -1,0 +1,112 @@
+/* ============================================================
+   Panel de administración
+   ============================================================ */
+
+/* Listas del panel: desplazar los registros sin alargar toda la página. */
+.admin-scroll {
+  max-height: min(60vh, 32rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #fad911 #1c1c22;
+  padding-right: 0.5rem;
+}
+.admin-scroll--compact { max-height: min(35vh, 20rem); }
+.admin-scroll:focus-visible { outline: 2px solid #fad911; outline-offset: 3px; }
+.admin-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.admin-scroll::-webkit-scrollbar-track { background: #1c1c22; }
+.admin-scroll::-webkit-scrollbar-thumb { background: #fad911; border-radius: 999px; }
+
+
+/* ============================================================
+   Modo claro del panel de administración
+   ============================================================ */
+html.light .panel-admin {
+  --ad-page: #f5f5f7;
+  --ad-card: #ffffff;
+  --ad-subtle: #f2f2f7;
+  --ad-control: #ffffff;
+  --ad-muted: #e8e8ed;
+  --ad-border: #e5e5ea;
+  --ad-border-strong: #d1d1d6;
+  --ad-text: #1d1d1f;
+  --ad-text-2: #2c2c2e;
+  --ad-text-3: #3a3a3c;
+  --ad-text-4: #6e6e73;
+  --ad-text-5: #8e8e93;
+  --ad-text-6: #aeaeb2;
+  --ad-accent: #8a6a00;
+  background-color: var(--ad-page);
+  color: var(--ad-text);
+}
+
+/* Superficies */
+html.light .panel-admin .bg-\[\#0a0a0c\] { background-color: var(--ad-page); }
+html.light .panel-admin .bg-\[\#0f1015\] { background-color: var(--ad-page); }
+html.light .panel-admin .bg-\[\#121318\] { background-color: var(--ad-card); }
+html.light .panel-admin .bg-\[\#101116\] { background-color: var(--ad-card); }
+html.light .panel-admin .bg-\[\#0d0e12\] { background-color: var(--ad-subtle); }
+html.light .panel-admin .bg-\[\#181a22\] { background-color: var(--ad-subtle); }
+html.light .panel-admin .bg-\[\#0b0c10\] { background-color: var(--ad-card); }
+
+html.light .panel-admin .bg-zinc-900 { background-color: var(--ad-control); }
+html.light .panel-admin .bg-zinc-950 { background-color: var(--ad-control); }
+html.light .panel-admin .bg-zinc-800 { background-color: var(--ad-muted); }
+html.light .panel-admin .bg-zinc-700 { background-color: var(--ad-border-strong); }
+html.light .panel-admin .bg-zinc-950\/70 { background-color: color-mix(in srgb, var(--ad-subtle) 82%, transparent); }
+html.light .panel-admin .bg-zinc-900\/80 { background-color: color-mix(in srgb, var(--ad-control) 85%, transparent); }
+html.light .panel-admin .bg-zinc-900\/90 { background-color: color-mix(in srgb, var(--ad-control) 90%, transparent); }
+
+/* Bordes */
+html.light .panel-admin .border-zinc-800 { border-color: var(--ad-border); }
+html.light .panel-admin .border-zinc-800\/90 { border-color: color-mix(in srgb, var(--ad-border) 90%, transparent); }
+html.light .panel-admin .border-zinc-800\/80 { border-color: color-mix(in srgb, var(--ad-border) 82%, transparent); }
+html.light .panel-admin .border-zinc-800\/60 { border-color: color-mix(in srgb, var(--ad-border) 65%, transparent); }
+html.light .panel-admin .border-zinc-700 { border-color: var(--ad-border-strong); }
+html.light .panel-admin .border-zinc-600 { border-color: var(--ad-border-strong); }
+
+/* Texto */
+html.light .panel-admin .text-white:not([class*="bg-emerald"]):not([class*="bg-red"]):not([class*="bg-blue"]):not([class*="bg-green"]):not([class*="bg-[#fad911]"]) { color: var(--ad-text); }
+html.light .panel-admin .text-zinc-100 { color: var(--ad-text); }
+html.light .panel-admin .text-zinc-200 { color: var(--ad-text-2); }
+html.light .panel-admin .text-zinc-300 { color: var(--ad-text-3); }
+html.light .panel-admin .text-zinc-400 { color: var(--ad-text-4); }
+html.light .panel-admin .text-zinc-500 { color: var(--ad-text-5); }
+html.light .panel-admin .text-zinc-600 { color: var(--ad-text-6); }
+html.light .panel-admin .text-\[\#fad911\] { color: var(--ad-accent); }
+
+/* Hover */
+html.light .panel-admin .hover\:text-white:hover { color: var(--ad-text); }
+html.light .panel-admin .hover\:text-zinc-200:hover { color: var(--ad-text-2); }
+html.light .panel-admin .hover\:bg-zinc-800:hover { background-color: var(--ad-muted); }
+html.light .panel-admin .hover\:bg-zinc-900:hover { background-color: var(--ad-subtle); }
+html.light .panel-admin .hover\:border-zinc-700:hover { border-color: var(--ad-border-strong); }
+
+/* Degradados */
+html.light .panel-admin .from-\[\#181a22\] { --tw-gradient-from: var(--ad-subtle); }
+html.light .panel-admin .to-\[\#101116\] { --tw-gradient-to: var(--ad-card); }
+html.light .panel-admin .to-\[\#121318\] { --tw-gradient-to: var(--ad-card); }
+
+/* Formularios */
+html.light .panel-admin .placeholder\:text-zinc-600::placeholder { color: var(--ad-text-6); }
+html.light .panel-admin .placeholder\:text-zinc-500::placeholder { color: var(--ad-text-5); }
+
+/* Scrollbars */
+html.light .panel-admin { scrollbar-color: #c7c7cc #ececf1; }
+html.light .panel-admin ::-webkit-scrollbar-track { background: #ececf1; }
+html.light .panel-admin ::-webkit-scrollbar-thumb { background: #c7c7cc; }
+html.light .panel-admin ::-webkit-scrollbar-thumb:hover { background: #8a6a00; }
+
+/* Mensajes de estado con mejor contraste sobre fondo claro */
+html.light .panel-admin .text-red-300 { color: #b91c1c; }
+html.light .panel-admin .text-red-400 { color: #dc2626; }
+html.light .panel-admin .text-emerald-300 { color: #047857; }
+html.light .panel-admin .text-emerald-400 { color: #059669; }
+html.light .panel-admin .text-green-400 { color: #15803d; }
+
+/* Scroll de formularios y listas en modo claro */
+html.light .panel-admin .scroll-lupol { scrollbar-color: #c7c7cc #ececf1; }
+html.light .panel-admin .scroll-lupol::-webkit-scrollbar-track { background: #ececf1; }
+html.light .panel-admin .scroll-lupol::-webkit-scrollbar-thumb { background: #c7c7cc; }
+html.light .panel-admin .scroll-lupol::-webkit-scrollbar-thumb:hover { background: #8a6a00; }

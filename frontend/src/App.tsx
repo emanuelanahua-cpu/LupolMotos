@@ -1,8 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import TiendaPage from './pages/TiendaPage';
+import PaginaTienda from './pages/PaginaTienda';
+import { ProveedorTema } from './context/ContextoTema';
 import { lazy, Suspense, useEffect } from 'react';
 
-const AdminPage = lazy(() => import('./pages/AdminPage'));
+const PaginaAdmin = lazy(() => import('./pages/PaginaAdmin'));
 const cargandoPanel = <div role="status" className="flex min-h-screen items-center justify-center bg-[#0a0a0c] text-[#fad911]">Cargando panel…</div>;
 
 export default function App() {
@@ -20,13 +21,15 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<TiendaPage />} />
-        <Route path="/login" element={<Suspense fallback={cargandoPanel}><AdminPage /></Suspense>} />
-        <Route path="/admin" element={<Suspense fallback={cargandoPanel}><AdminPage /></Suspense>} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <ProveedorTema>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PaginaTienda />} />
+          <Route path="/login" element={<Suspense fallback={cargandoPanel}><PaginaAdmin /></Suspense>} />
+          <Route path="/admin" element={<Suspense fallback={cargandoPanel}><PaginaAdmin /></Suspense>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ProveedorTema>
   );
 }

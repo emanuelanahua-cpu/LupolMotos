@@ -30,8 +30,9 @@ Alternativamente usar `LUPOL_SUPER_USER` y `LUPOL_SUPER_PASS` para crear la prim
 La configuración inicial está deshabilitada en la API pública.
 
 Las fotos nuevas del panel se almacenan en MySQL y se sirven en `/uploads/`:
-no dependen del disco temporal del despliegue. Las fotos originales siguen en
-`frontend/public/multimedia`. Las imágenes retiradas se conservan en la base para
+no dependen del disco temporal del despliegue. Las fotos originales de motos están en
+`frontend/public/multimedia/gasolina` y `frontend/public/multimedia/electricas`,
+con una carpeta por modelo. Las imágenes retiradas se conservan en la base para
 no romper referencias compartidas; incluirlas en los respaldos y vigilar el tamaño de la base.
 
 Cotizaciones, reservas y contactos se guardan antes de devolver éxito.

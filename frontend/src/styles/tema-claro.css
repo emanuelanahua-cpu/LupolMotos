@@ -1,0 +1,137 @@
+/* ============================================================
+   Tema claro del sitio público (inspirado en iOS)
+   Las secciones con arte oscuro usan .theme-keep-dark.
+   ============================================================ */
+
+/* ============================================================
+   Tema claro del sitio público (inspirado en iOS)
+   Las secciones con arte oscuro usan .theme-keep-dark y conservan
+   sus colores originales mediante variables de ámbito.
+   ============================================================ */
+html.light { color-scheme: light; }
+html.light body { background-color: #f5f5f7; color: #1d1d1f; }
+
+html.light .public-site {
+  --lt-page: #f5f5f7;
+  --lt-card: #ffffff;
+  --lt-subtle: #f2f2f7;
+  --lt-control: #ffffff;
+  --lt-control-2: #f2f2f7;
+  --lt-muted: #e8e8ed;
+  --lt-border: #e5e5ea;
+  --lt-border-strong: #d1d1d6;
+  --lt-text: #1d1d1f;
+  --lt-text-2: #2c2c2e;
+  --lt-text-3: #3a3a3c;
+  --lt-text-4: #6e6e73;
+  --lt-text-5: #8e8e93;
+  --lt-text-6: #aeaeb2;
+  --lt-accent: #9a7500;
+  background-color: var(--lt-page);
+  color: var(--lt-text);
+}
+
+html.light .public-site .theme-keep-dark {
+  --lt-page: #0a0a0c;
+  --lt-card: #121318;
+  --lt-subtle: #181a22;
+  --lt-control: #18181b;
+  --lt-control-2: #27272a;
+  --lt-muted: #27272a;
+  --lt-border: #27272a;
+  --lt-border-strong: #3f3f46;
+  --lt-text: #ffffff;
+  --lt-text-2: #e4e4e7;
+  --lt-text-3: #d4d4d8;
+  --lt-text-4: #a1a1aa;
+  --lt-text-5: #71717a;
+  --lt-text-6: #52525b;
+  --lt-accent: #fad911;
+}
+
+/* Trama de puntos del Hero en modo claro */
+html.light .public-site .hero-dots { background-image: radial-gradient(#d2d2d7 1px, transparent 1px); }
+
+/* Superficies */
+html.light .public-site .bg-\[\#0a0a0c\] { background-color: var(--lt-page); }
+html.light .public-site .bg-\[\#0a0a0c\]\/95 { background-color: color-mix(in srgb, var(--lt-page) 92%, transparent); }
+html.light .public-site .bg-\[\#0d0e12\] { background-color: var(--lt-page); }
+html.light .public-site .bg-\[\#0d0e12\]\/92 { background-color: color-mix(in srgb, var(--lt-card) 92%, transparent); }
+html.light .public-site .bg-\[\#070709\] { background-color: var(--lt-page); }
+html.light .public-site .bg-\[\#121318\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#101116\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#101115\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#14151b\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#14151c\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#0b0c0e\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#0c0d10\] { background-color: var(--lt-card); }
+html.light .public-site .bg-\[\#181a22\] { background-color: var(--lt-subtle); }
+html.light .public-site .bg-\[\#17191f\] { background-color: var(--lt-subtle); }
+html.light .public-site .bg-\[\#1b1c22\] { background-color: var(--lt-subtle); }
+
+html.light .public-site .bg-zinc-900 { background-color: var(--lt-control); }
+html.light .public-site .bg-zinc-950 { background-color: var(--lt-control); }
+html.light .public-site .bg-zinc-800 { background-color: var(--lt-muted); }
+html.light .public-site .bg-zinc-700 { background-color: var(--lt-border-strong); }
+html.light .public-site .bg-zinc-900\/80 { background-color: color-mix(in srgb, var(--lt-control) 85%, transparent); }
+html.light .public-site .bg-zinc-900\/90 { background-color: color-mix(in srgb, var(--lt-control) 90%, transparent); }
+html.light .public-site .bg-zinc-900\/50 { background-color: color-mix(in srgb, var(--lt-control) 60%, transparent); }
+html.light .public-site .bg-zinc-950\/80 { background-color: color-mix(in srgb, var(--lt-control) 85%, transparent); }
+html.light .public-site .bg-zinc-950\/90 { background-color: color-mix(in srgb, var(--lt-control) 90%, transparent); }
+html.light .public-site .bg-zinc-800\/60 { background-color: color-mix(in srgb, var(--lt-muted) 70%, transparent); }
+
+/* Superficies translúcidas que no son velos de imagen */
+html.light .public-site .bg-black\/20 { background-color: var(--lt-subtle); }
+html.light .public-site .bg-black\/40 { background-color: var(--lt-subtle); }
+html.light .public-site .bg-black\/60 { background-color: var(--lt-subtle); }
+
+/* Bordes */
+html.light .public-site .border-zinc-800 { border-color: var(--lt-border); }
+html.light .public-site .border-zinc-800\/90 { border-color: color-mix(in srgb, var(--lt-border) 90%, transparent); }
+html.light .public-site .border-zinc-800\/80 { border-color: color-mix(in srgb, var(--lt-border) 82%, transparent); }
+html.light .public-site .border-zinc-800\/60 { border-color: color-mix(in srgb, var(--lt-border) 65%, transparent); }
+html.light .public-site .border-zinc-800\/50 { border-color: color-mix(in srgb, var(--lt-border) 55%, transparent); }
+html.light .public-site .border-zinc-700 { border-color: var(--lt-border-strong); }
+html.light .public-site .border-zinc-700\/40 { border-color: color-mix(in srgb, var(--lt-border-strong) 45%, transparent); }
+html.light .public-site .border-zinc-600 { border-color: var(--lt-border-strong); }
+
+/* Texto */
+html.light .public-site .text-white:not([class*="bg-black/7"]):not([class*="bg-black/8"]):not([class*="bg-black/9"]):not([class*="bg-emerald"]):not([class*="bg-red"]):not([class*="bg-blue"]):not([class*="bg-green"]):not([class*="bg-[#fad911]"]) { color: var(--lt-text); }
+html.light .public-site .text-zinc-100 { color: var(--lt-text); }
+html.light .public-site .text-zinc-200 { color: var(--lt-text-2); }
+html.light .public-site .text-zinc-300 { color: var(--lt-text-3); }
+html.light .public-site .text-zinc-400 { color: var(--lt-text-4); }
+html.light .public-site .text-zinc-500 { color: var(--lt-text-5); }
+html.light .public-site .text-zinc-600 { color: var(--lt-text-6); }
+html.light .public-site .text-\[\#fad911\] { color: var(--lt-accent); }
+
+/* Estados hover */
+html.light .public-site .hover\:text-white:hover { color: var(--lt-text); }
+html.light .public-site .hover\:text-zinc-200:hover { color: var(--lt-text-2); }
+html.light .public-site .hover\:text-\[\#fad911\]:hover { color: var(--lt-accent); }
+html.light .public-site .hover\:bg-zinc-800:hover { background-color: var(--lt-muted); }
+html.light .public-site .hover\:bg-zinc-900:hover { background-color: var(--lt-control-2); }
+html.light .public-site .hover\:bg-zinc-800\/60:hover { background-color: color-mix(in srgb, var(--lt-muted) 70%, transparent); }
+html.light .public-site .hover\:border-zinc-700:hover { border-color: var(--lt-border-strong); }
+html.light .public-site .hover\:border-zinc-500:hover { border-color: var(--lt-text-5); }
+
+/* Degradados */
+html.light .public-site .from-\[\#121318\] { --tw-gradient-from: var(--lt-card); }
+html.light .public-site .from-\[\#181a22\] { --tw-gradient-from: var(--lt-subtle); }
+html.light .public-site .to-\[\#0a0a0c\] { --tw-gradient-to: var(--lt-page); }
+html.light .public-site .to-\[\#0d0e12\] { --tw-gradient-to: var(--lt-page); }
+html.light .public-site .to-\[\#0e1015\] { --tw-gradient-to: var(--lt-page); }
+html.light .public-site .to-\[\#101116\] { --tw-gradient-to: var(--lt-card); }
+html.light .public-site .to-\[\#121318\] { --tw-gradient-to: var(--lt-card); }
+html.light .public-site .via-\[\#17181d\] { --tw-gradient-via: var(--lt-subtle); }
+
+/* Formularios */
+html.light .public-site .placeholder\:text-zinc-500::placeholder { color: var(--lt-text-5); }
+html.light .public-site .placeholder-zinc-500::placeholder { color: var(--lt-text-5); }
+
+/* Scrollbar del sitio en modo claro */
+html.light .public-site ::-webkit-scrollbar-track { background: #ececf1; }
+html.light .public-site ::-webkit-scrollbar-thumb { background: #c7c7cc; }
+html.light .public-site ::-webkit-scrollbar-thumb:hover { background: #fad911; }
+html.light .public-site { scrollbar-color: #c7c7cc #ececf1; }
+

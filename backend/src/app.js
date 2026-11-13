@@ -11,6 +11,7 @@ import { createRoutes as motosRoutes } from './routes/motos.routes.js';
 import { createRoutes as usuariosRoutes } from './routes/usuarios.routes.js';
 import { createRoutes as solicitudesRoutes } from './routes/solicitudes.routes.js';
 import { createRoutes as carruselRoutes } from './routes/carrusel.routes.js';
+import { createRoutes as accesoriosRoutes } from './routes/accesorios.routes.js';
 export function createApp(pool, env = process.env) {
   const app = express();
   const limits = configureSecurity(app, env);
@@ -25,6 +26,7 @@ export function createApp(pool, env = process.env) {
   app.use(usuariosRoutes(pool, env, context));
   app.use(solicitudesRoutes(pool, env, context));
   app.use(carruselRoutes(pool, env, context));
+  app.use(accesoriosRoutes(pool, env, context));
   app.use(respaldoRoutes(pool, env, context));
   app.use(comercioRoutes(pool, env, context));
   app.use('/api', (req, res) => res.status(404).json({

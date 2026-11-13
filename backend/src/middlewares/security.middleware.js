@@ -8,8 +8,17 @@ export function configureSecurity(app, env) {
     if (req.path.startsWith('/api/')) res.set('Cache-Control', 'no-store');
     if (!['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
       const origin = req.get('origin');
-      const allowed = new Set((env.ALLOWED_ORIGINS || 'https://lupolmotos.com,https://www.lupolmotos.com,http://localhost:3000,http://localhost:8000').split(','));
-      if (origin && !allowed.has(origin)) return res.status(403).json({
+      const allowed = new Set((env.ALLOWED_ORIGINS || 'https://lupolmotos.com,https://www.lupolmotos.com,http://localhost:3000,http://localhost:8000').split(',').map(o => o.trim()).filter(Boolean));
+      const localHosts = new Set(['localhost', '127.0.0.1', '[::1]', '::1']);
+      const isLocalOrigin = value => {
+        try {
+          const url = new URL(value);
+          return (url.protocol === 'http:' || url.protocol === 'https:') && localHosts.has(url.hostname);
+        } catch {
+          return false;
+        }
+      };
+      if (origin && !allowed.has(origin) && !isLocalOrigin(origin)) return res.status(403).json({
         detail: 'Origen no autorizado'
       });
     }

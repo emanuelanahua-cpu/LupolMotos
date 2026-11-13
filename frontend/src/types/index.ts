@@ -22,6 +22,11 @@ export interface Moto {
   vistas_360?: Record<string, string>;
 }
 export interface Repuesto { id: number; nombre: string; codigo: string; aplicacion_modelos?: string; categoria: string; tipo_moto: string; stock: number }
+export interface AccesorioColor { nombre: string; img_accesorio: string }
+export interface Accesorio {
+  id: number; nombre: string; descripcion?: string; estado: string;
+  colores: AccesorioColor[]; creado_por?: string;
+}
 export interface FiltrosCatalogo {
   busqueda?: string; tipo?: string; categoria?: string; precio_min?: number;
   precio_max?: number; frenos?: string; destacados_solo?: boolean; ordenar_por?: string;

@@ -1,0 +1,28 @@
+/* ============================================================
+   Sombras de las tarjetas
+   Oscuro: brillo amarillo sutil. Claro: sombra negra suave.
+   ============================================================ */
+.tarjeta-lupol {
+  box-shadow:
+    0 18px 45px -24px rgba(250, 217, 17, 0.38),
+    0 0 24px -14px rgba(250, 217, 17, 0.35);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.tarjeta-lupol:hover {
+  box-shadow:
+    0 22px 55px -24px rgba(250, 217, 17, 0.48),
+    0 0 30px -12px rgba(250, 217, 17, 0.4);
+}
+
+html.light .tarjeta-lupol {
+  box-shadow:
+    0 18px 40px -24px rgba(0, 0, 0, 0.42),
+    0 4px 12px -6px rgba(0, 0, 0, 0.16);
+}
+
+html.light .tarjeta-lupol:hover {
+  box-shadow:
+    0 24px 48px -24px rgba(0, 0, 0, 0.48),
+    0 6px 16px -8px rgba(0, 0, 0, 0.2);
+}

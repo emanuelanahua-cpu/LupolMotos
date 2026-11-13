@@ -1,11 +1,12 @@
 import { migrateCommerce } from './comercio.js';
 import { completarFichasProximas } from './fichas-proximas.js';
+import { organizarImagenesMotos } from './imagenes-motos.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { root } from '../config/db.js';
 export async function initialize(pool, initialUsers = []) {
   // JSON se guarda como LONGTEXT para compatibilidad tanto con MySQL como MariaDB.
-  const schema = [`CREATE TABLE IF NOT EXISTS configuracion (clave VARCHAR(80) PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS motos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS repuestos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS usuarios (id VARCHAR(32) PRIMARY KEY, usuario VARCHAR(40) NOT NULL UNIQUE,
+  const schema = [`CREATE TABLE IF NOT EXISTS configuracion (clave VARCHAR(80) PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS motos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS repuestos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS accesorios (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, datos LONGTEXT NOT NULL)`, `CREATE TABLE IF NOT EXISTS usuarios (id VARCHAR(32) PRIMARY KEY, usuario VARCHAR(40) NOT NULL UNIQUE,
       sal VARCHAR(32) NOT NULL, hash VARCHAR(128) NOT NULL, rol VARCHAR(20) NOT NULL, creado VARCHAR(30) NOT NULL)`, `CREATE TABLE IF NOT EXISTS solicitudes (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       tipo VARCHAR(20) NOT NULL, datos LONGTEXT NOT NULL, creado TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
       oculto_en TIMESTAMP NULL DEFAULT NULL,
@@ -42,6 +43,7 @@ export async function initialize(pool, initialUsers = []) {
       }
       await c.execute('INSERT INTO configuracion (clave, datos) VALUES (?, ?)', ['seed_v1', 'true']);
     }
+    await organizarImagenesMotos(c);
     await completarFichasProximas(c);
     const [[count]] = await c.query('SELECT COUNT(*) AS n FROM usuarios');
     if (!Number(count.n)) {
