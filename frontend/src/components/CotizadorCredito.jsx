@@ -21,7 +21,7 @@ const MOTO_VACIA = {
   modelo: 'Selecciona un modelo',
   precio: 0,
   motor: '-',
-  imagen_principal: '/multimedia/categorias/2ruedas_static.png',
+  imagen_principal: '/multimedia/categorias/2ruedas_static.webp',
   colores: []
 };
 

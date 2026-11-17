@@ -65,7 +65,7 @@ export default function CarruselProximas({ motos = [], abrirModalMoto }) {
   const visibles = total > 1 ? [slides[total - 1], ...slides, slides[0]] : slides;
 
   return (
-    <section id="proximas" aria-label="Motos por llegar" className="upcoming-section theme-keep-dark"
+    <section id="proximas" aria-label="Motos por llegar" className="upcoming-section"
       onMouseEnter={() => setPausado(true)} onMouseLeave={() => setPausado(false)}
       onFocusCapture={() => setPausado(true)}
       onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPausado(false); }}>

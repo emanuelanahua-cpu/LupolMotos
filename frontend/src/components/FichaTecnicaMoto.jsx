@@ -2,6 +2,7 @@ import {useCarrito} from '../context/ContextoCarrito';
 import SelectorColoresMoto from './SelectorColoresMoto';
 import VisorFotos from './VisorFotos';
 import React, { useState, useEffect } from 'react';
+import { alCargarImagen, precargarImagenes } from '../utils/precarga';
 import {
   X,
   CheckCircle2,
@@ -26,6 +27,7 @@ export default function FichaTecnicaMoto({ motoId, motos = [], alCerrar, abrirMo
   
   const [colorSeleccionadoIdx, setColorSeleccionadoIdx] = useState(0);
   const [imagenPrincipal, setImagenPrincipal] = useState('');
+  const [imagenVisible, setImagenVisible] = useState('');
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [modalidad, setModalidad] = useState('CREDITO');
   const [porcentajeInicial, setPorcentajeInicial] = useState(20);
@@ -40,11 +42,23 @@ export default function FichaTecnicaMoto({ motoId, motos = [], alCerrar, abrirMo
 
   useEffect(() => {
     if (moto) {
-      setImagenPrincipal(moto.colores?.[0]?.img_moto || moto.imagen_principal);
+      const primeraFoto = moto.colores?.[0]?.img_moto || moto.imagen_principal;
+      setImagenPrincipal(primeraFoto);
+      setImagenVisible(primeraFoto);
       setColorSeleccionadoIdx(0);
       setMensajeExito('');
+      // Al abrir la ficha descargamos todas las fotos de color para que el cambio sea inmediato.
+      const urls = (moto.colores || []).map(c => c.img_moto);
+      precargarImagenes(urls.slice(0, 1), 'high');
+      precargarImagenes(urls.slice(1), 'low');
     }
   }, [moto]);
+
+  // Muestra la foto anterior mientras la nueva se descarga.
+  useEffect(() => {
+    if (!imagenPrincipal) return;
+    return alCargarImagen(imagenPrincipal, () => setImagenVisible(imagenPrincipal));
+  }, [imagenPrincipal]);
 
   useEffect(() => {
     const scrollY = window.scrollY;
@@ -154,13 +168,20 @@ export default function FichaTecnicaMoto({ motoId, motos = [], alCerrar, abrirMo
 
               <button type="button" aria-label={`Ampliar foto de ${moto.marca} ${moto.modelo}${colorActual ? ` en ${colorActual.nombre}` : ''}`} onClick={() => setFotoAmpliada({ url: imagenPrincipal, titulo: `${moto.marca} ${moto.modelo}${colorActual ? ` · ${colorActual.nombre}` : ''}` })} className="relative mt-6 block aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-xl bg-zinc-950 sm:mt-4">
                 <img
-                  src={imagenPrincipal}
+                  src={imagenVisible || imagenPrincipal}
                   alt=""
+                  decoding="async"
+                  fetchPriority="high"
                   className="h-full w-full object-cover object-center"
                   onError={(e) => {
                     e.target.src = moto.imagen_principal;
                   }}
                 />
+                {imagenVisible !== imagenPrincipal && (
+                  <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <span className="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-[#fad911]" />
+                  </span>
+                )}
                 <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full border border-zinc-600 bg-black/75 px-2.5 py-1 text-[11px] font-bold text-white"><ZoomIn className="h-4 w-4" /> Ampliar foto</span>
               </button>
 

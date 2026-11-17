@@ -13,11 +13,14 @@ for (const moto of datosLocales.motos) {
 
 function rutaImagen(ruta: string): string {
   if (!ruta) return ruta;
+  const webp = (valor: string) => valor.replace(/\.(jpe?g|png)$/i, '.webp');
   const antigua = ruta.match(/^\/?multimedia\/([^/]+)\/(.+)$/);
-  if (!antigua) return ruta;
+  if (!antigua) return webp(ruta);
   const [, carpeta, archivo] = antigua;
   const grupo = grupoPorCarpeta.get(carpeta);
-  return grupo ? `/multimedia/${grupo}/${carpeta}/${archivo}` : `/${ruta.replace(/^\//, '')}`;
+  return grupo
+    ? `/multimedia/${grupo}/${carpeta}/${webp(archivo)}`
+    : `/${webp(ruta).replace(/^\//, '')}`;
 }
 
 function normalizarImagenesMoto(moto: Moto): Moto {

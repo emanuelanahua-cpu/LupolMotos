@@ -35,7 +35,7 @@ export default function PortadaInicio({ navegarA, abrirModalMoto }) {
       titulo: 'Motos Pisteras',
       subtitulo: 'Diversión y rendimiento para la ciudad y la pista',
       descripcion: 'Modelos ágiles y resistentes, ideales para el uso diario en la ciudad o para exigirlos al máximo en pista.',
-      imagen: motoP?.imagen_principal || '/multimedia/categorias/2ruedas_static.png',
+      imagen: motoP?.imagen_principal || '/multimedia/categorias/2ruedas_static.webp',
       modeloDestacado: {
         id: motoP?.id || null,
         nombre: motoP?.nombre || 'Moto Pistera Destacada',
@@ -53,7 +53,7 @@ export default function PortadaInicio({ navegarA, abrirModalMoto }) {
       titulo: 'Motos Eléctricas',
       subtitulo: 'Movilidad limpia, silenciosa y económica',
       descripcion: 'Ahorra en combustible y mantenimiento con nuestra línea de motos eléctricas, pensadas para el uso diario en la ciudad.',
-      imagen: motoE?.imagen_principal || '/multimedia/categorias/electricas_static.png',
+      imagen: motoE?.imagen_principal || '/multimedia/categorias/electricas_static.webp',
       modeloDestacado: {
         id: motoE?.id || null,
         nombre: motoE?.nombre || 'Moto Eléctrica Destacada',
@@ -220,7 +220,7 @@ export default function PortadaInicio({ navegarA, abrirModalMoto }) {
                   alt={actual.titulo}
                   className="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] animate-fade-in-scale"
                   onError={(e) => {
-                    e.target.src = '/multimedia/categorias/2ruedas_static.png';
+                    e.target.src = '/multimedia/categorias/2ruedas_static.webp';
                   }}
                 />
               </div>

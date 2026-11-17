@@ -1,8 +1,4 @@
-/* ============================================================
-   Sección SOAT
-   ============================================================ */
-
-/* Fondo del cotizador SOAT */
+  /* Fondo del cotizador SOAT */
 .soat-panel {
   background-color: #101116;
   background-image:
@@ -13,7 +9,7 @@
       rgba(8, 9, 13, 0.48) 72%,
       rgba(8, 9, 13, 0.24) 100%
     ),
-    url('/multimedia/solicitud_soat/lapositiva.jpg');
+    url('/multimedia/solicitud_soat/lapositiva.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +25,7 @@
         rgba(8, 9, 13, 0.8) 50%,
         rgba(8, 9, 13, 0.9) 100%
       ),
-      url('/multimedia/solicitud_soat/lapositiva.jpg');
+      url('/multimedia/solicitud_soat/lapositiva.webp');
   }
 }
 
@@ -48,7 +44,7 @@ html.light .public-site .soat-panel {
       rgba(255, 255, 255, 0.72) 72%,
       rgba(255, 255, 255, 0.5) 100%
     ),
-    url('/multimedia/solicitud_soat/lapositiva.jpg');
+    url('/multimedia/solicitud_soat/lapositiva.webp');
 }
 
 @media (max-width: 1023px) {
@@ -60,6 +56,6 @@ html.light .public-site .soat-panel {
         rgba(255, 255, 255, 0.9) 55%,
         rgba(255, 255, 255, 0.96) 100%
       ),
-      url('/multimedia/solicitud_soat/lapositiva.jpg');
+      url('/multimedia/solicitud_soat/lapositiva.webp');
   }
 }

@@ -2,6 +2,8 @@ import {useCarrito} from '../context/ContextoCarrito';
 import SelectorColoresMoto from './SelectorColoresMoto';
 import VisorFotos from './VisorFotos';
 import React, { useState, useMemo, useEffect } from 'react';
+import { agruparPorCategoria, categoriaDe, compararPorCategoria } from '../utils/categorias';
+import { alCargarImagen, precargarImagenes } from '../utils/precarga';
 import { 
   Search, 
   Filter, 
@@ -29,12 +31,25 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
   const [colorSeleccionado, setColorSeleccionado] = useState(null);
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [fotoFallida, setFotoFallida] = useState(false);
+  const coloresMoto = useMemo(() => (moto.colores || []).filter(c => c && c.nombre), [moto.colores]);
   const fotoActual = colorSeleccionado?.img_moto || moto.imagen_principal;
+  // Mantiene la foto anterior a la vista hasta que la nueva esté descargada.
+  const [fotoVisible, setFotoVisible] = useState(fotoActual);
+  const fotoCargando = fotoVisible !== fotoActual;
   useEffect(() => setFotoFallida(false), [fotoActual]);
+  useEffect(() => {
+    // La foto inicial la carga el propio <img> (lazy); solo adelantamos las de color.
+    if (!fotoActual || fotoActual === fotoVisible) return;
+    return alCargarImagen(fotoActual, () => setFotoVisible(fotoActual));
+  }, [fotoActual, fotoVisible]);
   const esABS = (moto.frenos || '').toLowerCase().includes('abs');
   const esElectrica = moto.tipo === 'Eléctricas';
   const volteada = motoVolteada === moto.id;
-  const coloresMoto = (moto.colores || []).filter(c => c && c.nombre);
+
+  // Al pasar el dedo/ratón o al girar la tarjeta, adelantamos la descarga de sus colores.
+  useEffect(() => {
+    if (volteada) precargarImagenes(coloresMoto.map(c => c.img_moto));
+  }, [volteada, coloresMoto]);
 
   return (
     <div
@@ -89,12 +104,18 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
                 ) : (
                   <>
                     <img
-                      src={fotoActual}
+                      src={fotoVisible || fotoActual}
                       alt=""
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
                       onError={() => setFotoFallida(true)}
                     />
+                    {fotoCargando && (
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                        <span className="h-7 w-7 animate-spin rounded-full border-2 border-white/30 border-t-[#fad911]" />
+                      </span>
+                    )}
                     <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-white/30 bg-black/70 px-2 py-1 text-[10px] font-bold text-white backdrop-blur-sm"><ZoomIn className="h-3.5 w-3.5" /> Ampliar</span>
                   </>
                 )}
@@ -157,7 +178,9 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
           </p>
         </div>
 
-        <SelectorColoresMoto colores={coloresMoto} seleccionado={coloresMoto.indexOf(colorSeleccionado)} onSelect={(idx) => { setColorSeleccionado(coloresMoto[idx]); setMotoVolteada(null); }} />
+        <div onPointerEnter={() => precargarImagenes(coloresMoto.map(c => c.img_moto))}>
+          <SelectorColoresMoto colores={coloresMoto} seleccionado={coloresMoto.indexOf(colorSeleccionado)} onSelect={(idx) => { setColorSeleccionado(coloresMoto[idx]); setMotoVolteada(null); }} />
+        </div>
 
         {/* Especificaciones clave con codificación semántica */}
         <div className="grid grid-cols-3 gap-2 p-2.5 rounded-2xl bg-zinc-950/90 border border-zinc-800/80 text-[11px] text-zinc-400 text-center">
@@ -200,6 +223,19 @@ function TarjetaMoto({ moto, motoVolteada, setMotoVolteada, abrirModalMoto, abri
       </div>
 
       <VisorFotos foto={fotoAmpliada} onClose={() => setFotoAmpliada(null)} />
+    </div>
+  );
+}
+
+// Separa visualmente cada familia de motos dentro de la grilla.
+function EncabezadoCategoria({ categoria, cantidad, total = cantidad }) {
+  return (
+    <div className="col-span-full flex items-center gap-3 pt-1">
+      <h3 className="text-sm sm:text-base font-black uppercase tracking-wider text-white">{categoria}</h3>
+      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500">
+        {total > cantidad ? `${cantidad} de ${total}` : total} {total === 1 ? 'modelo' : 'modelos'}
+      </span>
+      <span aria-hidden="true" className="h-px flex-1 bg-zinc-800" />
     </div>
   );
 }
@@ -254,15 +290,20 @@ function ModalCatalogoCompleto({ titulo, motos, motoVolteada, setMotoVolteada, a
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
         {motosFiltradasModal.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {motosFiltradasModal.map((moto) => (
-              <TarjetaMoto
-                key={moto.id}
-                moto={moto}
-                motoVolteada={motoVolteada}
-                setMotoVolteada={setMotoVolteada}
-                abrirModalMoto={abrirModalMoto}
-                abrirCotizadorConMoto={abrirCotizadorConMoto}
-              />
+            {agruparPorCategoria(motosFiltradasModal).map((grupo) => (
+              <React.Fragment key={grupo.categoria}>
+                <EncabezadoCategoria categoria={grupo.categoria} cantidad={grupo.motos.length} />
+                {grupo.motos.map((moto) => (
+                  <TarjetaMoto
+                    key={moto.id}
+                    moto={moto}
+                    motoVolteada={motoVolteada}
+                    setMotoVolteada={setMotoVolteada}
+                    abrirModalMoto={abrirModalMoto}
+                    abrirCotizadorConMoto={abrirCotizadorConMoto}
+                  />
+                ))}
+              </React.Fragment>
             ))}
           </div>
         ) : (
@@ -330,16 +371,15 @@ export default function CatalogoMotos({ motos = [], abrirModalMoto, abrirCotizad
       list = list.filter(m => (m.frenos || '').toLowerCase().includes(filtroFreno.toLowerCase()));
     }
 
-    // Orden
-    if (orden === 'precio_asc') {
-      list.sort((a, b) => a.precio - b.precio);
-    } else if (orden === 'precio_desc') {
-      list.sort((a, b) => b.precio - a.precio);
-    } else if (orden === 'nombre') {
-      list.sort((a, b) => a.modelo.localeCompare(b.modelo));
-    } else {
-      list.sort((a, b) => (b.visitas || 0) - (a.visitas || 0));
-    }
+    // Orden: primero agrupamos por categoría para que las motos de la misma
+    // familia queden juntas, sin importar cuándo se agregaron al catálogo.
+    const comparadores = {
+      precio_asc: (a, b) => a.precio - b.precio,
+      precio_desc: (a, b) => b.precio - a.precio,
+      nombre: (a, b) => a.modelo.localeCompare(b.modelo, 'es'),
+      popularidad: (a, b) => (b.visitas || 0) - (a.visitas || 0) || (a.id || 0) - (b.id || 0)
+    };
+    list.sort(compararPorCategoria(comparadores[orden] || comparadores.popularidad));
 
     return list;
   }, [motos, busqueda, categoriaSeleccionada, precioMaximo, orden, filtroFreno]);
@@ -347,6 +387,16 @@ export default function CatalogoMotos({ motos = [], abrirModalMoto, abrirCotizad
   const LIMITE_INICIAL = 6;
   const motosVisibles = motosFiltradas.slice(0, LIMITE_INICIAL);
   const hayMasPorMostrar = motosFiltradas.length > LIMITE_INICIAL;
+
+  // Total real de cada categoría (la grilla principal solo muestra 6 tarjetas).
+  const totalPorCategoria = useMemo(() => {
+    const conteo = new Map();
+    for (const moto of motosFiltradas) {
+      const categoria = categoriaDe(moto);
+      conteo.set(categoria, (conteo.get(categoria) || 0) + 1);
+    }
+    return conteo;
+  }, [motosFiltradas]);
 
   return (
     <>
@@ -409,7 +459,7 @@ export default function CatalogoMotos({ motos = [], abrirModalMoto, abrirCotizad
                 aria-label="Ordenar catálogo por"
                 className="w-full px-4 py-2.5 rounded-xl bg-[#121318] border border-zinc-800 text-sm text-zinc-200 focus-ring"
               >
-                <option value="popularidad">Más Populares / Tendencia</option>
+                <option value="popularidad">Por Categoría · Más Populares</option>
                 <option value="precio_asc">Precio: Menor a Mayor</option>
                 <option value="precio_desc">Precio: Mayor a Menor</option>
                 <option value="nombre">Nombre: A - Z</option>
@@ -516,15 +566,24 @@ export default function CatalogoMotos({ motos = [], abrirModalMoto, abrirCotizad
         {motosFiltradas.length > 0 ? (
           <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {motosVisibles.map((moto) => (
-              <TarjetaMoto
-                key={moto.id}
-                moto={moto}
-                motoVolteada={motoVolteada}
-                setMotoVolteada={setMotoVolteada}
-                abrirModalMoto={abrirModalMoto}
-                abrirCotizadorConMoto={abrirCotizadorConMoto}
-              />
+            {agruparPorCategoria(motosVisibles).map((grupo) => (
+              <React.Fragment key={grupo.categoria}>
+                <EncabezadoCategoria
+                  categoria={grupo.categoria}
+                  cantidad={grupo.motos.length}
+                  total={totalPorCategoria.get(grupo.categoria) ?? grupo.motos.length}
+                />
+                {grupo.motos.map((moto) => (
+                  <TarjetaMoto
+                    key={moto.id}
+                    moto={moto}
+                    motoVolteada={motoVolteada}
+                    setMotoVolteada={setMotoVolteada}
+                    abrirModalMoto={abrirModalMoto}
+                    abrirCotizadorConMoto={abrirCotizadorConMoto}
+                  />
+                ))}
+              </React.Fragment>
             ))}
           </div>
 

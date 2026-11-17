@@ -18,7 +18,7 @@ export default function SolicitudTarjetaCredito() {
             {/* Grid 1: Lado Izquierdo */}
             <section className="col-izq-t">
               <img
-                src="/multimedia/solicitud_tarjeta/mano.png"
+                src="/multimedia/solicitud_tarjeta/mano.webp"
                 alt="Mano sosteniendo celular"
                 className="img-mano"
                 loading="lazy"
@@ -81,14 +81,14 @@ export default function SolicitudTarjetaCredito() {
             {/* Grid 3: Lado Derecho */}
             <section className="col-der-t">
               <img
-                src="/multimedia/solicitud_tarjeta/sunarp.png"
+                src="/multimedia/solicitud_tarjeta/sunarp.webp"
                 alt="SUNARP"
                 className="img-sunarp"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src="/multimedia/solicitud_tarjeta/tarjeta.png"
+                src="/multimedia/solicitud_tarjeta/tarjeta.webp"
                 alt="Tarjeta TIVe"
                 className="img-tarjeta"
                 loading="lazy"

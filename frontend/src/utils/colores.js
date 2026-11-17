@@ -88,7 +88,7 @@ export const NOMBRES_COLORES = Object.keys(COLORES).sort((a, b) => a.localeCompa
 // Quita tildes y espacios extra para comparar los nombres.
 const normalizar = texto => texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
 
-// Acepta #rgb, #rrggbb, #rrggbbaa y rgb(...) escritos directamente.
+// Acepta #rgb, #rrggbb, #rrggbbaa y rgb
 const esColorDirecto = valor =>
   /^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(valor) || /^rgba?\(/i.test(valor);
 

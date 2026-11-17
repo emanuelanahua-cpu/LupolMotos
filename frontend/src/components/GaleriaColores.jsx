@@ -1,5 +1,7 @@
 import SelectorColoresMoto from './SelectorColoresMoto';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { agruparPorCategoria, categoriaDe } from '../utils/categorias';
+import { alCargarImagen, precargarImagenes } from '../utils/precarga';
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -9,31 +11,77 @@ import {
 import { formatearSoles } from '../utils/format';
 
 export default function GaleriaColores({ motos = [], abrirModalMoto, navegarA }) {
-  // Filtrar motos que tienen fotos por color
-  const modelosEstudio = motos.filter(m => m.colores && m.colores.length > 0);
+  // Motos que tienen fotos por color, agrupadas por categoría.
+  const modelosEstudio = useMemo(
+    () => motos.filter(m => m.colores && m.colores.length > 0),
+    [motos]
+  );
+  const grupos = useMemo(() => agruparPorCategoria(modelosEstudio), [modelosEstudio]);
 
   const [motoSeleccionadaId, setMotoSeleccionadaId] = useState(12); // Default NS400Z
   const [colorActivoIdx, setColorActivoIdx] = useState(0);
+  const [enPantalla, setEnPantalla] = useState(false);
+  const [imagenCargada, setImagenCargada] = useState({ url: '', motoId: null });
+  const seccionRef = useRef(null);
 
-  // Buscar moto activa
-  const motoActiva = modelosEstudio.find(m => m.id === motoSeleccionadaId) || modelosEstudio[0] || motos[0];
+  // Buscar moto activa y la categoría a la que pertenece.
+  const motoActiva = modelosEstudio.find(m => m.id === motoSeleccionadaId) || modelosEstudio[0];
+  const grupoActivo = grupos.find(g => g.categoria === categoriaDe(motoActiva)) || grupos[0];
+  const modelosVisibles = grupoActivo?.motos || [];
 
   useEffect(() => {
     setColorActivoIdx(0);
   }, [motoSeleccionadaId]);
 
-  if (!motoActiva) return null;
+  // Empezamos a preparar las fotos cuando la sección está por aparecer en pantalla.
+  useEffect(() => {
+    const nodo = seccionRef.current;
+    if (!nodo || typeof IntersectionObserver === 'undefined') {
+      setEnPantalla(true);
+      return;
+    }
+    const observador = new IntersectionObserver(([entrada]) => {
+      if (entrada.isIntersecting) {
+        setEnPantalla(true);
+        observador.disconnect();
+      }
+    }, { rootMargin: '300px 0px' });
+    observador.observe(nodo);
+    return () => observador.disconnect();
+  }, []);
+
+  // Precarga todos los colores de la moto activa para que el cambio sea inmediato.
+  useEffect(() => {
+    if (!enPantalla || !motoActiva) return;
+    const urls = (motoActiva.colores || []).map(c => c.img_moto);
+    precargarImagenes(urls.slice(0, 1), 'high');
+    precargarImagenes(urls.slice(1), 'low');
+  }, [enPantalla, motoActiva]);
 
   // Calcular imagen a mostrar según el color elegido
-  const colorActual = motoActiva.colores && motoActiva.colores[colorActivoIdx];
-  const imagenActual = colorActual?.img_moto || motoActiva.imagen_principal;
+  const colorActual = motoActiva?.colores?.[colorActivoIdx] || motoActiva?.colores?.[0];
+  const imagenActual = colorActual?.img_moto || motoActiva?.imagen_principal;
+
+  // Mantiene a la vista la foto anterior hasta que la nueva termine de cargar.
+  // Solo empezamos cuando la sección está cerca, para no retrasar la carga inicial.
+  useEffect(() => {
+    if (!enPantalla || !imagenActual || !motoActiva) return;
+    return alCargarImagen(imagenActual, () => setImagenCargada({ url: imagenActual, motoId: motoActiva.id }));
+  }, [enPantalla, imagenActual, motoActiva]);
+
+  if (!motoActiva) return null;
+
+  const imagenMostrada = imagenCargada.motoId === motoActiva.id && imagenCargada.url
+    ? imagenCargada.url
+    : imagenActual;
+  const imagenPendiente = Boolean(imagenActual) && (imagenCargada.motoId !== motoActiva.id || imagenCargada.url !== imagenActual);
 
   // Generar enlace WhatsApp con el color seleccionado
   const mensajeWA = `Hola Lupol Motos, estuve viendo la *${motoActiva.modelo}* en color *${colorActual?.nombre || 'Predeterminado'}*. ¿Tienen stock en la tienda de Tacna?`;
   const urlWhatsApp = `https://wa.me/51980687475?text=${encodeURIComponent(mensajeWA)}`;
 
   return (
-    <section id="colores" className="py-16 sm:py-20 bg-[#0d0e12] border-b border-zinc-800 relative overflow-x-clip">
+    <section ref={seccionRef} id="colores" className="py-16 sm:py-20 bg-[#0d0e12] border-b border-zinc-800 relative overflow-x-clip">
       
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#fad911]/5 blur-[150px] rounded-full pointer-events-none"></div>
@@ -54,14 +102,41 @@ export default function GaleriaColores({ motos = [], abrirModalMoto, navegarA })
           </p>
         </div>
 
-        {/* Selector de Modelos Disponibles */}
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-4 mb-8 space-x-2 no-scrollbar">
-          {modelosEstudio.slice(0, 8).map((m) => (
+        {/* Categorías: agrupan a los modelos aunque se hayan agregado recién */}
+        <div className="flex flex-wrap items-center justify-start sm:justify-center gap-2 mb-3">
+          {grupos.map((grupo) => {
+            const activa = grupo.categoria === grupoActivo?.categoria;
+            return (
+              <button
+                key={grupo.categoria}
+                onClick={() => {
+                  if (!activa) setMotoSeleccionadaId(grupo.motos[0].id);
+                }}
+                aria-pressed={activa}
+                className={`px-3 py-1.5 rounded-lg text-[11px] font-extrabold uppercase tracking-wide whitespace-nowrap transition-all border ${
+                  activa
+                    ? 'bg-[#fad911] text-black border-[#fad911] shadow-md shadow-[#fad911]/20'
+                    : 'bg-[#14151b] text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-zinc-200'
+                }`}
+              >
+                {grupo.categoria}
+                <span className={`ml-1.5 ${activa ? 'text-black/60' : 'text-zinc-600'}`}>{grupo.motos.length}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Modelos de la categoría seleccionada */}
+        <div className="flex flex-wrap items-center justify-start sm:justify-center gap-2 mb-8">
+          {modelosVisibles.map((m) => (
             <button
               key={m.id}
               onClick={() => setMotoSeleccionadaId(m.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all border ${
-                motoSeleccionadaId === m.id
+              onPointerEnter={() => precargarImagenes((m.colores || []).map(c => c.img_moto))}
+              onFocus={() => precargarImagenes((m.colores || []).map(c => c.img_moto))}
+              aria-pressed={motoActiva.id === m.id}
+              className={`max-w-full px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-center break-words transition-all border ${
+                motoActiva.id === m.id
                   ? 'bg-[#fad911] text-black border-[#fad911] shadow-md shadow-[#fad911]/20 font-black'
                   : 'bg-[#14151b] text-zinc-300 border-zinc-800 hover:border-zinc-700'
               }`}
@@ -159,16 +234,21 @@ export default function GaleriaColores({ motos = [], abrirModalMoto, navegarA })
             {/* Imagen Principal en Grande con transición suave */}
             <div className="relative z-10 flex w-full items-center justify-center p-0 sm:p-4">
               <img
-                key={`${motoActiva.id}-${colorActivoIdx}`}
-                src={imagenActual}
+                src={imagenMostrada}
                 alt={`${motoActiva.modelo}${colorActual ? ` en color ${colorActual.nombre}` : ''}`}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="high"
                 className="block h-auto w-full max-h-[280px] object-contain sm:w-auto sm:max-h-[420px] filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)] animate-fade-in-scale"
                 onError={(e) => {
                   e.target.src = motoActiva.imagen_principal;
                 }}
               />
+              {imagenPendiente && (
+                <span aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <span className="h-9 w-9 animate-spin rounded-full border-2 border-white/20 border-t-[#fad911]" />
+                </span>
+              )}
             </div>
 
             {/* Indicador del color seleccionado */}
