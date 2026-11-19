@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/solicitud-tarjeta.css";
-import logoLupol from "../assets/LupolMotosHalloween.webp";
+import logoLupol from "../assets/LupolMotos.webp";
 
 export default function SolicitudTarjetaCredito() {
   return (

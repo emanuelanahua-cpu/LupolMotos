@@ -11,7 +11,7 @@ const inp = 'w-full rounded-lg bg-[#0a0a0c] border border-zinc-700 px-3 py-2.5 t
 const lbl = 'block text-xs text-zinc-400 mt-3 mb-1';
 const btn = 'bg-[#fad911] text-black font-bold rounded-lg px-4 py-2.5 text-sm hover:bg-[#fce23e] transition-colors';
 const btnSec = 'border border-zinc-700 text-zinc-200 rounded-lg px-3 py-1.5 text-xs hover:border-[#fad911] transition-colors';
-const card = 'tarjeta-lupol bg-[#121318] border border-zinc-800 rounded-2xl p-5';
+const card = 'tarjeta-lLupol bg-[#121318] border border-zinc-800 rounded-2xl p-5';
 const src = (p) => (!p ? '' : /^(\/|https?:|data:)/.test(p) ? p : '/' + p);
 
 function FormAccesorio({ accesorio, alGuardar, alCancelar }) {
